@@ -1,0 +1,12 @@
+---
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/raspberrypi3-homeassistant:2020.12.2
+    environment:
+      TZ: Europe/Stockholm
+    network_mode: host
+    volumes:
+      - ./config:/config
+    restart: always

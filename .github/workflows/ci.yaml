@@ -17,3 +17,15 @@ jobs:
         with:
           python-version: 3.x
       - uses: pre-commit/action@v2.0.0
+
+  docker-compose:
+    name: Validate docker-compose files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: |
+          pip install docker-compose==1.27.4
+          docker-compose --file homeassistant/docker-compose.yaml config --quiet
