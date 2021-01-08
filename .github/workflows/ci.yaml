@@ -29,3 +29,15 @@ jobs:
       - run: |
           pip install docker-compose==1.27.4
           docker-compose --file homeassistant/docker-compose.yaml config --quiet
+
+  home-assistant:
+    name: Check home assistant configuration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: |
+          pip install homeassistant==2020.12.2
+          hass -c homeassistant/config --script check_config
