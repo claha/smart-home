@@ -29,6 +29,7 @@ jobs:
       - run: |
           pip install docker-compose==1.27.4
           docker-compose --file homeassistant/docker-compose.yaml config --quiet
+          docker-compose --file mosquitto/docker-compose.yaml config --quiet
 
   home-assistant:
     name: Check home assistant configuration
