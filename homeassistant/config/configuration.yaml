@@ -4,3 +4,6 @@ default_config:
 
 # Setup an MQTT broker
 mqtt: !include mqtt.yaml
+
+# Configure the logger
+logger: !include logger.yaml
