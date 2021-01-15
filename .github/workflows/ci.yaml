@@ -40,5 +40,10 @@ jobs:
         with:
           python-version: 3.x
       - run: |
+          echo "---" > secrets.yaml
+          echo "mqtt_broker: mqtt_broker" >> secrets.yaml
+          echo "mqtt_username: mqtt_username" >> secrets.yaml
+          echo "mqtt_password: mqtt_password" >> secrets.yaml
+      - run: |
           pip install homeassistant==2020.12.2
           hass -c homeassistant/config --script check_config
