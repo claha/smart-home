@@ -7,3 +7,6 @@ mqtt: !include mqtt.yaml
 
 # Configure the logger
 logger: !include logger.yaml
+
+# Configure the recorder
+recorder: !include recorder.yaml
