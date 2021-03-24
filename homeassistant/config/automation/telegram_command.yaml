@@ -1,0 +1,12 @@
+---
+- alias: 'Telegram: Handle Command: systemmonitor'
+  initial_state: true
+
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: /systemmonitor
+
+  action:
+    - service: python_script.notify_system_monitor_state
