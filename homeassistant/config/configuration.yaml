@@ -19,3 +19,7 @@ input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 input_text: !include input_text.yaml
 timer: !include timer.yaml
+
+# Setup notifiers
+notify: !include notify.yaml
+telegram_bot: !include telegram_bot.yaml
