@@ -23,3 +23,6 @@ timer: !include timer.yaml
 # Setup notifiers
 notify: !include notify.yaml
 telegram_bot: !include telegram_bot.yaml
+
+# Load sensors
+sensor: !include_dir_merge_list sensor
