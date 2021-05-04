@@ -1,0 +1,11 @@
+---
+- alias: "Lights kitchen off time"
+
+  trigger:
+    platform: time
+    at: input_datetime.lights_kitchen_off
+
+  action:
+    service: switch.turn_off
+    target:
+      entity_id: switch.osram_smart_plug_1
