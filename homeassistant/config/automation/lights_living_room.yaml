@@ -1,4 +1,18 @@
 ---
+- alias: "Lights living room off sun"
+
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    above: input_number.lights_sun_elevation_up
+
+  action:
+    service: switch.turn_off
+    target:
+      entity_id: switch.osram_smart_plug_0
+
+
 - alias: "Lights living room on sun"
 
   trigger:
