@@ -1,1 +1,10 @@
 ---
+lights_sun_elevation_down:
+  min: -10
+  max: 10
+  name: Lights sun elevation down
+  initial: -4
+  step: 0.1
+  mode: box
+  unit_of_measurement: °
+  icon: mdi:weather-sunset-down
