@@ -47,6 +47,7 @@ jobs:
           echo "mqtt_password: mqtt_password" >> secrets.yaml
           echo "telegram_api_key: telegram_api_key" >> secrets.yaml
           echo "telegram_chat_id: 9876543210" >> secrets.yaml
+          mv secrets.yaml homeassistant/config/secrets.yaml
       - run: |
-          pip install homeassistant==2020.12.2
+          pip install homeassistant==2021.5.0
           hass -c homeassistant/config --script check_config

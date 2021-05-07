@@ -3,7 +3,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/raspberrypi3-homeassistant:2020.12.2
+    image: homeassistant/raspberrypi3-homeassistant:2021.5.0
     environment:
       TZ: Europe/Stockholm
     network_mode: host
