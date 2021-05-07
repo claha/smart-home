@@ -37,3 +37,41 @@
     service: switch.turn_off
     target:
       entity_id: switch.osram_smart_plug_0
+
+
+- alias: "Lights living room on off auto"
+
+  trigger:
+    platform: state
+    entity_id: switch.osram_smart_plug_0
+    from: "off"
+    to: "on"
+
+  condition:
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: sun.sun
+              attribute: rising
+              state: true
+            - condition: numeric_state
+              entity_id: sun.sun
+              attribute: elevation
+              above: input_number.lights_sun_elevation_up
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: sun.sun
+              attribute: rising
+              state: false
+            - condition: numeric_state
+              entity_id: sun.sun
+              attribute: elevation
+              above: input_number.lights_sun_elevation_down
+
+  action:
+    service: switch.turn_off
+    target:
+      entity_id: switch.osram_smart_plug_0

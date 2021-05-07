@@ -35,6 +35,38 @@ docker-compose file to run it. Currently it is configured to run on a raspberry
 pi 3 but could easily be changed to appropriate hardware in the docker-compose
 file.
 
+### Automation
+
+Automations are written using `yaml`.
+
+#### Lights
+
+The light automations are based on sun elevation and illuminance sensors(TBA) and
+also timers as a fallback (using input_datetime). Some lights also utilises the
+state of the TV to keep lights on longer and then turn them off (TBA).
+
+The sun elevation reaches its minimum value at midnight (a negative number larger
+than -90) and typically during midday the sun elevation is at its maximum (a
+postive number smaller than 90) and then decreases until it reaches its miniumum
+again at midnight.
+
+| Turn on                | Turn off                |
+|------------------------|-------------------------|
+|                        | Sun elevation above X°  |
+| Sun elevation below Y° |                         |
+|                        | Timer around bedtime    |
+
+ 90 |        _....._
+    |     ,="       "=,
+    |   ,"             ",
+-90 | ."                 ".
+        X               Y
+
+Currently an auto off automation handles the case when a light is turned on when
+elevation is above X° and the  sun is rising and when the elevation is above Y°
+and the sun is setting, i.e. when lights should not be needed to turn on since
+it is not dark outside.
+
 ## mosquitto
 
 Mosquitto is an open source MQTT broker which is used to connect various
