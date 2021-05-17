@@ -1,0 +1,26 @@
+---
+lights_living_room_on:
+  alias: Lights living room on
+  description: Turn on all lights in the living room
+  sequence:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.osram_smart_plug_0
+
+
+lights_living_room_off:
+  alias: Lights living room off
+  description: Turn off all lights in the living room
+  sequence:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.osram_smart_plug_0
+
+
+lights_living_room_toggle:
+  alias: Lights living room toggle
+  description: Toggle all lights in the living room
+  sequence:
+    - service: switch.toggle
+      target:
+        entity_id: switch.osram_smart_plug_0

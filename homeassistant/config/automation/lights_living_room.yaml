@@ -8,9 +8,7 @@
     above: input_number.lights_sun_elevation_up
 
   action:
-    service: switch.turn_off
-    target:
-      entity_id: switch.osram_smart_plug_0
+    service: script.lights_living_room_off
 
 
 - alias: "Lights living room on sun"
@@ -22,9 +20,7 @@
     below: input_number.lights_sun_elevation_down
 
   action:
-    service: switch.turn_on
-    target:
-      entity_id: switch.osram_smart_plug_0
+    service: script.lights_living_room_on
 
 
 - alias: "Lights living room off time"
@@ -34,9 +30,7 @@
     at: input_datetime.lights_living_room_off
 
   action:
-    service: switch.turn_off
-    target:
-      entity_id: switch.osram_smart_plug_0
+    service: script.lights_living_room_off
 
 
 - alias: "Lights living room on off auto"
@@ -72,6 +66,4 @@
               above: input_number.lights_sun_elevation_down
 
   action:
-    service: switch.turn_off
-    target:
-      entity_id: switch.osram_smart_plug_0
+    service: script.lights_living_room_off

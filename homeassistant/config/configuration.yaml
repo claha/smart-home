@@ -29,4 +29,5 @@ sensor: !include_dir_merge_list sensor
 
 # Load automations and scripts
 automation: !include_dir_merge_list automation
+script: !include_dir_merge_named script
 python_script:
