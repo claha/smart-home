@@ -12,13 +12,13 @@ logger: !include logger.yaml
 recorder: !include recorder.yaml
 
 # Setup helpers
-counter: !include counter.yaml
-input_boolean: !include input_boolean.yaml
-input_datetime: !include input_datetime.yaml
-input_number: !include input_number.yaml
-input_select: !include input_select.yaml
-input_text: !include input_text.yaml
-timer: !include timer.yaml
+counter: !include helper/counter.yaml
+input_boolean: !include helper/input_boolean.yaml
+input_datetime: !include helper/input_datetime.yaml
+input_number: !include helper/input_number.yaml
+input_select: !include helper/input_select.yaml
+input_text: !include helper/input_text.yaml
+timer: !include helper/timer.yaml
 
 # Setup notifiers
 notify: !include notify.yaml
