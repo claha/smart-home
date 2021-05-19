@@ -42,28 +42,14 @@
     to: "on"
 
   condition:
-    - condition: or
+    - condition: and
       conditions:
-        - condition: and
-          conditions:
-            - condition: state
-              entity_id: sun.sun
-              attribute: rising
-              state: true
-            - condition: numeric_state
-              entity_id: sun.sun
-              attribute: elevation
-              above: input_number.lights_sun_elevation_up
-        - condition: and
-          conditions:
-            - condition: state
-              entity_id: sun.sun
-              attribute: rising
-              state: false
-            - condition: numeric_state
-              entity_id: sun.sun
-              attribute: elevation
-              above: input_number.lights_sun_elevation_down
+        - condition: state
+          entity_id: input_boolean.lights_auto_off
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.lights_auto_off_condition
+          state: "on"
 
   action:
     service: script.lights_kitchen_off

@@ -1,0 +1,13 @@
+---
+- binary_sensor:
+    - name: Lights auto off condition
+      state: >
+        {% set rising = state_attr("sun.sun", "rising") %}
+        {% set elevation = state_attr("sun.sun", "elevation") %}
+        {% set up = states("input_number.lights_sun_elevation_up")|float %}
+        {% set down = states("input_number.lights_sun_elevation_down")|float %}
+        {% if rising %}
+          {{ elevation > up }}
+        {% else %}
+          {{ elevation > down }}
+        {% endif %}

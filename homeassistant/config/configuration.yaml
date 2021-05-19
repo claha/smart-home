@@ -26,6 +26,7 @@ telegram_bot: !include telegram_bot.yaml
 
 # Load sensors
 sensor: !include_dir_merge_list sensor
+template: !include_dir_merge_list template
 
 # Load automations and scripts
 automation: !include_dir_merge_list automation
