@@ -1,1 +1,7 @@
 ---
+xiaomi_wireless_switch_0_room_light_ctrl:
+  name: Xiaomi wireless switch 0 room light ctrl
+  options:
+    - Kitchen
+    - Living Room
+  icon: mdi:lightbulb-group

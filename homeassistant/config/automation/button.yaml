@@ -1,0 +1,58 @@
+---
+- alias: "Xiaomi Wirless Switch 0: Action single"
+
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: !secret xiaomi_wireless_switch_0_device_id
+      type: action
+      subtype: single
+      discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_single
+
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
+              state: "Kitchen"
+          sequence:
+            - service: script.lights_kitchen_toggle
+        - conditions:
+            - condition: state
+              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
+              state: "Living Room"
+          sequence:
+            - service: script.lights_living_room_toggle
+
+
+- alias: "Xiaomi Wirless Switch 0: Action double"
+
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: !secret xiaomi_wireless_switch_0_device_id
+      type: action
+      subtype: double
+      discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_double
+
+  action:
+    - service: script.lights_kitchen_toggle
+    - service: script.lights_living_room_toggle
+
+
+- alias: "Xiaomi Wirless Switch 0: Action hold"
+
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: !secret xiaomi_wireless_switch_0_device_id
+      type: action
+      subtype: hold
+      discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_hold
+
+  action:
+    - service: input_select.select_next
+      target:
+        entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
+      data:
+        cycle: true
