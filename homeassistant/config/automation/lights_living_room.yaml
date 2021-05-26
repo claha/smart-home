@@ -11,6 +11,17 @@
     service: script.lights_living_room_off
 
 
+- alias: "Lights living room off illuminance"
+
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.xiaomi_movement_and_illuminance_0_illuminance
+    above: input_number.lights_illuminance_off
+
+  action:
+    service: script.lights_living_room_off
+
+
 - alias: "Lights living room on sun"
 
   trigger:
@@ -18,6 +29,21 @@
     entity_id: sun.sun
     attribute: elevation
     below: input_number.lights_sun_elevation_down
+
+  action:
+    service: script.lights_living_room_on
+
+
+- alias: "Lights living room on illuminance"
+
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.xiaomi_movement_and_illuminance_0_illuminance
+    below: input_number.lights_illuminance_on
+
+  condition:
+    condition: time
+    before: input_datetime.lights_living_room_off
 
   action:
     service: script.lights_living_room_on

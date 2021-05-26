@@ -41,7 +41,7 @@ Automations are written using `yaml`.
 
 #### Lights
 
-The light automations are based on sun elevation and illuminance sensors(TBA) and
+The light automations are based on sun elevation and illuminance sensors and
 also timers as a fallback (using input_datetime). Some lights also utilises the
 state of the TV to keep lights on longer and then turn them off (TBA).
 
@@ -53,7 +53,9 @@ again at midnight.
 | Turn on                | Turn off                |
 |------------------------|-------------------------|
 |                        | Sun elevation above X°  |
+|                        | Illuminance above Xlx   |
 | Sun elevation below Y° |                         |
+| Illuminance below Ylx  |                         |
 |                        | Timer around bedtime    |
 
  90 |        _....._

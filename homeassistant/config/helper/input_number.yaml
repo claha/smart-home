@@ -18,3 +18,21 @@ lights_sun_elevation_down:
   mode: box
   unit_of_measurement: °
   icon: mdi:weather-sunset-down
+
+lights_illuminance_on:
+  min: 0
+  max: 100
+  name: Lights illuminance on
+  step: 1
+  mode: box
+  unit_of_measurement: lx
+  icon: mdi:brightness-5
+
+lights_illuminance_off:
+  min: 0
+  max: 100
+  name: Lights illuminance off
+  step: 1
+  mode: box
+  unit_of_measurement: lx
+  icon: mdi:brightness-5
