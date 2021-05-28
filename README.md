@@ -35,6 +35,15 @@ docker-compose file to run it. Currently it is configured to run on a raspberry
 pi 3 but could easily be changed to appropriate hardware in the docker-compose
 file.
 
+### Integrations
+
+Some integrations are added through the user interface (Configuration/Integrations).
+
+#### Chromecast
+
+The chromecast should be auto detected and an entity called `media_player.chromecast`
+should be created when the integration is added.
+
 ### Automation
 
 Automations are written using `yaml`.

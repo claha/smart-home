@@ -1,0 +1,5 @@
+---
+- binary_sensor:
+    - name: Watching TV
+      state: >
+        {{ is_state("media_player.chromecast", "playing") }}
