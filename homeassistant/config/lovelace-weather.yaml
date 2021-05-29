@@ -1,0 +1,34 @@
+---
+title: Weather
+views:
+  - title: Raspberry Pi
+    icon: mdi:weather-partly-cloudy
+    path: rpi
+    panel: true
+    cards:
+      - type: picture-elements
+        image: /local/rpibg.png
+        elements:
+          - type: state-label
+            entity: sensor.time
+            style:
+              position: absolute
+              top: 20%
+              left: 50%
+              font-size: 700%
+          - type: state-label
+            entity: sensor.date
+            style:
+              position: absolute
+              top: 40%
+              left: 50%
+              font-size: 150%
+          - type: state-label
+            entity: weather.home
+            attribute: temperature
+            suffix: °C
+            style:
+              position: absolute
+              top: 70%
+              left: 50%
+              font-size: 800%

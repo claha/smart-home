@@ -1,0 +1,10 @@
+---
+mode: storage
+dashboards:
+  lovelace-weather:
+    mode: yaml
+    filename: lovelace-weather.yaml
+    title: Weather
+    icon: mdi:weather-partly-cloudy
+    show_in_sidebar: true
+    require_admin: false

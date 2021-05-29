@@ -44,6 +44,21 @@ Some integrations are added through the user interface (Configuration/Integratio
 The chromecast should be auto detected and an entity called `media_player.chromecast`
 should be created when the integration is added.
 
+#### Weather
+
+Add the Meteorologisk institutt (Met.no) and name it `Home`, i.e. there should
+be an entity called `weather.home`.
+
+### Resources
+
+Currently the main UI is handled automatically by homeassistant. In this mode extra
+resources can not be added to a config file but must be added manually. Add the
+following resources to Configuration/Lovelace Dashboards/Resources.
+
+| URL                          | Type              |
+|------------------------------|-------------------|
+| /local/kiosk-mode.js?v=1.6.5 | JavaScript Module |
+
 ### Automation
 
 Automations are written using `yaml`.
