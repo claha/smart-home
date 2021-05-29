@@ -1,0 +1,14 @@
+---
+'0x7cb03eaa00b2156d':
+  friendly_name: 'OSRAM Smart Plug 0'
+'0x7cb03eaa00b2173f':
+  friendly_name: 'OSRAM Smart Plug 1'
+'0x00158d00021361a0':
+  friendly_name: 'Xiaomi Wireless Switch 0'
+  legacy: false
+'0x00158d000253c637':
+  friendly_name: 'Xiaomi Movement and Illuminance 0'
+'0x00158d0002a6e025':
+  friendly_name: 'Xiaomi Vibration 0'
+'0x00158d000238ce10':
+  friendly_name: 'Xiaomi Temperature Humidity and Pressure 0'
