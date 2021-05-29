@@ -30,6 +30,11 @@
     attribute: elevation
     below: input_number.lights_sun_elevation_down
 
+  condition:
+    condition: state
+    entity_id: binary_sensor.watching_tv
+    state: "off"
+
   action:
     service: script.lights_living_room_on
 
@@ -42,8 +47,13 @@
     below: input_number.lights_illuminance_on
 
   condition:
-    condition: time
-    before: input_datetime.lights_living_room_off
+    - condition: and
+      conditions:
+        - condition: time
+          before: input_datetime.lights_living_room_off
+        - condition: state
+          entity_id: binary_sensor.watching_tv
+          state: "off"
 
   action:
     service: script.lights_living_room_on
