@@ -89,3 +89,42 @@
 
   action:
     service: script.lights_living_room_off
+
+
+- alias: "Lights living room on tv"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.watching_tv
+    from: "on"
+    to: "off"
+
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: input_datetime.lights_living_room_off
+      - condition: or
+        conditions:
+          - condition: numeric_state
+            entity_id: sun.sun
+            attribute: elevation
+            below: input_number.lights_sun_elevation_down
+          - condition: numeric_state
+            entity_id: sensor.xiaomi_movement_and_illuminance_0_illuminance
+            below: input_number.lights_illuminance_on
+
+  action:
+    service: script.lights_living_room_on
+
+
+- alias: "Lights living room off tv"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.watching_tv
+    from: "off"
+    to: "on"
+
+  action:
+    service: script.lights_living_room_off
