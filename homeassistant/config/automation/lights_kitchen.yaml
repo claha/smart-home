@@ -48,7 +48,7 @@
     service: script.lights_kitchen_off
 
 
-- alias: "Lights kitchen on off auto"
+- alias: "Lights kitchen off auto"
 
   trigger:
     platform: state

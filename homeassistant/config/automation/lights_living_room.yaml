@@ -53,7 +53,7 @@
     service: script.lights_living_room_off
 
 
-- alias: "Lights living room on off auto"
+- alias: "Lights living room off auto"
 
   trigger:
     platform: state
