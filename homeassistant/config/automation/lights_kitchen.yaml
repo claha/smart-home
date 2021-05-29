@@ -22,24 +22,13 @@
     service: script.lights_kitchen_off
 
 
-- alias: "Lights kitchen on sun"
+- alias: "Lights kitchen on"
 
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    below: input_number.lights_sun_elevation_down
-
-  action:
-    service: script.lights_kitchen_on
-
-
-- alias: "Lights kitchen on illuminance"
-
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.xiaomi_movement_and_illuminance_0_illuminance
-    below: input_number.lights_illuminance_on
+    platform: state
+    entity_id: binary_sensor.lights_on_condition
+    from: "off"
+    to: "on"
 
   condition:
     condition: time

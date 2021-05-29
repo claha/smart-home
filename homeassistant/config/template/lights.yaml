@@ -1,0 +1,28 @@
+---
+# yamllint disable rule:line-length
+- binary_sensor:
+    - name: Lights auto off condition
+      state: >
+        {% set rising = state_attr("sun.sun", "rising") %}
+        {% set elevation = state_attr("sun.sun", "elevation") %}
+        {% set up = states("input_number.lights_sun_elevation_up")|float %}
+        {% set down = states("input_number.lights_sun_elevation_down")|float %}
+        {% if rising %}
+          {{ elevation > up }}
+        {% else %}
+          {{ elevation > down }}
+        {% endif %}
+
+
+    - name: Lights on condition
+      state: >
+        {% set rising = state_attr("sun.sun", "rising") %}
+        {% set elevation = state_attr("sun.sun", "elevation") %}
+        {% set down = states("input_number.lights_sun_elevation_down")|float %}
+        {% set illuminance = states("sensor.xiaomi_movement_and_illuminance_0_illuminance")|float %}
+        {% set illuminance_on = states("input_number.lights_illuminance_on")|float %}
+        {% if rising %}
+          {{ false }}
+        {% else %}
+          {{ elevation < down or illuminance < illuminance_on }}
+        {% endif %}
