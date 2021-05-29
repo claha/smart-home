@@ -29,3 +29,17 @@
         {% else %}
           {{ elevation < down or illuminance < illuminance_on }}
         {% endif %}
+
+
+    - name: Lights off condition
+      state: >
+        {% set rising = state_attr("sun.sun", "rising") %}
+        {% set elevation = state_attr("sun.sun", "elevation") %}
+        {% set up = states("input_number.lights_sun_elevation_up")|float %}
+        {% set illuminance = states("sensor.xiaomi_movement_and_illuminance_0_illuminance")|float %}
+        {% set illuminance_off = states("input_number.lights_illuminance_off")|float %}
+        {% if rising %}
+          {{ elevation > up or illuminance > illuminance_off }}
+        {% else %}
+          {{ false }}
+        {% endif %}

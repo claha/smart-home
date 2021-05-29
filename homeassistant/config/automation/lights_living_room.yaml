@@ -1,22 +1,11 @@
 ---
-- alias: "Lights living room off sun"
+- alias: "Lights living room off"
 
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    above: input_number.lights_sun_elevation_up
-
-  action:
-    service: script.lights_living_room_off
-
-
-- alias: "Lights living room off illuminance"
-
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.xiaomi_movement_and_illuminance_0_illuminance
-    above: input_number.lights_illuminance_off
+    platform: state
+    entity_id: binary_sensor.lights_off_condition
+    from: "off"
+    to: "on"
 
   action:
     service: script.lights_living_room_off
