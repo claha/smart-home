@@ -1,6 +1,5 @@
 ---
 - alias: "Telegram: Handle Command: systemmonitor"
-  initial_state: true
 
   trigger:
     - platform: event
@@ -13,7 +12,6 @@
 
 
 - alias: "Telegram: Handle Command: batteries"
-  initial_state: true
 
   trigger:
     - platform: event

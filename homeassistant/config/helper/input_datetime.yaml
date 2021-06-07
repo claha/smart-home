@@ -3,10 +3,8 @@ lights_kitchen_off:
   name: Lights kitchen off
   has_time: true
   has_date: false
-  initial: "22:30:00"
 
 lights_living_room_off:
   name: Lights living room off
   has_time: true
   has_date: false
-  initial: "22:30:00"
