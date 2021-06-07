@@ -15,14 +15,16 @@ views:
               position: absolute
               top: 20%
               left: 50%
-              font-size: 700%
+              font-size: 800%
+              color: rgb(255, 255, 255)
           - type: state-label
             entity: sensor.date
             style:
               position: absolute
               top: 40%
               left: 50%
-              font-size: 150%
+              font-size: 300%
+              color: rgb(255, 255, 255)
           - type: state-label
             entity: weather.home
             attribute: temperature
@@ -31,4 +33,5 @@ views:
               position: absolute
               top: 70%
               left: 50%
-              font-size: 800%
+              font-size: 900%
+              color: rgb(255, 255, 255)
