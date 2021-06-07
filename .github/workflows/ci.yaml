@@ -54,5 +54,5 @@ jobs:
           echo "xiaomi_wireless_switch_0_discovery_id_action_hold: 0x00 action_hold" >> secrets.yaml
           mv secrets.yaml homeassistant/config/secrets.yaml
       - run: |
-          pip install homeassistant==2021.5.0
+          pip install homeassistant==2021.6.2
           hass -c homeassistant/config --script check_config
