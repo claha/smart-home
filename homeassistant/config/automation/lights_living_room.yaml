@@ -3,9 +3,9 @@
 
   trigger:
     platform: state
-    entity_id: binary_sensor.lights_off_condition
-    from: "off"
-    to: "on"
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
 
   action:
     service: script.lights_living_room_off
@@ -15,7 +15,7 @@
 
   trigger:
     platform: state
-    entity_id: binary_sensor.lights_on_condition
+    entity_id: binary_sensor.dark_outside
     from: "off"
     to: "on"
 
@@ -57,8 +57,8 @@
           entity_id: input_boolean.lights_auto_off
           state: "on"
         - condition: state
-          entity_id: binary_sensor.lights_auto_off_condition
-          state: "on"
+          entity_id: binary_sensor.dark_outside
+          state: "off"
 
   action:
     service: script.lights_living_room_off
@@ -78,7 +78,7 @@
       - condition: time
         before: input_datetime.lights_living_room_off
       - condition: state
-        entity_id: binary_sensor.lights_on_condition
+        entity_id: binary_sensor.dark_outside
         state: "on"
 
   action:
