@@ -2,3 +2,5 @@
 *.log
 __pycache__
 secrets.yaml
+sensor/fund.yaml
+sensor/stock.yaml

@@ -1,0 +1,46 @@
+---
+- platform: avanza_stock
+  stock:
+    - name: Currency USD/SEK
+      id: 19000
+    - name: Currency EUR/SEK
+      id: 18998
+
+    - name: Index OMX Stockholm 30
+      id: 19002
+      currency: points
+    - name: Index OMX Stockholm 30 GI
+      id: 1002994
+      currency: points
+    - name: Index OMX Stockholm PI
+      id: 18988
+      currency: points
+    - name: Index OMX Stockholm GI
+      id: 633079
+      currency: points
+
+    - name: Index 3 man ranta
+      id: 18993
+      currency: points
+    - name: Index 6 man ranta
+      id: 18982
+      currency: points
+    - name: Index 5 ars ranta
+      id: 19001
+      currency: points
+    - name: Index 10 ars ranta
+      id: 18995
+      currency: points
+
+    - name: Index NASDAQ 100
+      id: 155541
+      currency: points
+    - name: Index DJ USA
+      id: 155458
+      currency: points
+    - name: Index Dow Jones
+      id: 18985
+      currency: points
+    - name: Index NASDAQ
+      id: 19006
+      currency: points
