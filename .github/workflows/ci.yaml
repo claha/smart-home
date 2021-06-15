@@ -46,6 +46,9 @@ jobs:
           echo "mqtt_broker: mqtt_broker" >> secrets.yaml
           echo "mqtt_username: mqtt_username" >> secrets.yaml
           echo "mqtt_password: mqtt_password" >> secrets.yaml
+          echo "ping_info_screen_ip: 0.0.0.0" >> secrets.yaml
+          echo "ping_mosquitto_host: 0.0.0.0" >> secrets.yaml
+          echo "ping_zigbee2mqtt_ip: 0.0.0.0" >> secrets.yaml
           echo "telegram_api_key: telegram_api_key" >> secrets.yaml
           echo "telegram_chat_id: 9876543210" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_device_id: 9876543210" >> secrets.yaml

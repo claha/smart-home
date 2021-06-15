@@ -1,0 +1,12 @@
+---
+- platform: ping
+  host: !secret ping_zigbee2mqtt_ip
+  name: Ping Zigbee2Mqtt Host
+
+- platform: ping
+  host: !secret ping_mosquitto_host
+  name: Ping Mosquitto Host
+
+- platform: ping
+  host: !secret ping_info_screen_ip
+  name: Ping Info Screen Host
