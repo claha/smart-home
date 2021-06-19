@@ -11,9 +11,9 @@
         {% set illuminance_on = states("input_number.lights_illuminance_on")|float %}
         {% set illuminance_off = states("input_number.lights_illuminance_off")|float %}
         {% if rising %}
-          {{ elevation < up and illuminance < illuminance_off }}
+          {{ elevation < up and (illuminance > 0 and illuminance < illuminance_off) }}
         {% else %}
-          {{ elevation < down or illuminance < illuminance_on }}
+          {{ elevation < down or (illuminance > 0 and illuminance < illuminance_on) }}
         {% endif %}
 
 - sensor:
