@@ -46,8 +46,8 @@ should be created when the integration is added.
 
 #### Weather
 
-Add the Meteorologisk institutt (Met.no) and name it `Home`, i.e. there should
-be an entity called `weather.home`.
+Add OpenWeatherMap and name it `Home`, i.e. there should be an entity called
+`weather.home`, use the mode `onecall_daily` and set the language to `se`.
 
 ### Resources
 
