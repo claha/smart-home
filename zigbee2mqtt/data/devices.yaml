@@ -12,3 +12,7 @@
   friendly_name: 'Xiaomi Vibration 0'
 '0x00158d000238ce10':
   friendly_name: 'Xiaomi Temperature Humidity and Pressure 0'
+'0x00124b0023203f1f':
+  friendly_name: SONOFF Temperature and Humidity 0
+'0x60a423fffe37082f':
+  friendly_name: TuYa Temperature and Humidity 0
