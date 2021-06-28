@@ -1,0 +1,15 @@
+.venv
+__pycache__
+homeassistant/config/*.log
+homeassistant/config/.HA_VERSION
+homeassistant/config/.storage/
+homeassistant/config/secrets.yaml
+homeassistant/config/sensor/fund.yaml
+homeassistant/config/sensor/stock.yaml
+mosquitto/config/passwd
+mosquitto/data/
+mosquitto/log/
+zigbee2mqtt/data/database.db
+zigbee2mqtt/data/log/
+zigbee2mqtt/data/secret.yaml
+zigbee2mqtt/data/state.json

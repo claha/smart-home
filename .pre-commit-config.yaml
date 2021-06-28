@@ -7,6 +7,9 @@ repos:
       - id: end-of-file-fixer
       - id: mixed-line-ending
         args: ["--fix=lf"]
+      - id: file-contents-sorter
+        files: .gitignore
+        args: ["--unique"]
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.26.1
