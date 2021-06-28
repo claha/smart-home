@@ -13,9 +13,9 @@ def get_entity_friendly_name(entity_id):
 
 
 pings = [
-    "binary_sensor.ping_info_screen_host",
-    "binary_sensor.ping_mosquitto_host",
-    "binary_sensor.ping_zigbee2mqtt_host",
+    entity_id
+    for entity_id in hass.states.entity_ids("binary_sensor")
+    if entity_id.startswith("binary_sensor.ping_")
 ]
 
 message = "<b>Pings</b><code>"
