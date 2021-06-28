@@ -13,16 +13,14 @@ def get_entity_friendly_name(entity_id):
 
 
 batteries = [
-    "sensor.xiaomi_movement_and_illuminance_0_battery",
-    "sensor.xiaomi_temperature_humidity_and_pressure_0_battery",
-    "sensor.xiaomi_vibration_0_battery",
-    "sensor.xiaomi_wireless_switch_0_battery",
+    entity_id
+    for entity_id in hass.states.entity_ids("sensor")
+    if entity_id.endswith("_battery")
 ]
 
 message = "<b>Batteries</b><code>"
 for battery in batteries:
     name = get_entity_friendly_name(battery)
-    name = name.replace("Xiaomi ", "")
     name = name.replace(" battery", "")
     level = get_entity_state_int(battery)
     message = message + "\n{}: {}%".format(name, level)
