@@ -1,10 +1,20 @@
 ---
-lights_kitchen_off:
-  name: Lights kitchen off
+lights_kitchen_off_morning:
+  name: Lights kitchen off morning
   has_time: true
   has_date: false
 
-lights_living_room_off:
-  name: Lights living room off
+lights_kitchen_off_evening:
+  name: Lights kitchen off evening
+  has_time: true
+  has_date: false
+
+lights_living_room_off_morning:
+  name: Lights living room off morning
+  has_time: true
+  has_date: false
+
+lights_living_room_off_evening:
+  name: Lights living room off evening
   has_time: true
   has_date: false

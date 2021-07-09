@@ -23,7 +23,7 @@
     - condition: and
       conditions:
         - condition: time
-          before: input_datetime.lights_living_room_off
+          before: input_datetime.lights_living_room_off_evening
         - condition: state
           entity_id: binary_sensor.watching_tv
           state: "off"
@@ -35,8 +35,10 @@
 - alias: "Lights living room off time"
 
   trigger:
-    platform: time
-    at: input_datetime.lights_living_room_off
+    - platform: time
+      at: input_datetime.lights_living_room_off_morning
+    - platform: time
+      at: input_datetime.lights_living_room_off_evening
 
   action:
     service: script.lights_living_room_off
@@ -76,7 +78,9 @@
     condition: and
     conditions:
       - condition: time
-        before: input_datetime.lights_living_room_off
+        after: input_datetime.lights_living_room_off_morning
+      - condition: time
+        before: input_datetime.lights_living_room_off_evening
       - condition: state
         entity_id: binary_sensor.dark_outside
         state: "on"

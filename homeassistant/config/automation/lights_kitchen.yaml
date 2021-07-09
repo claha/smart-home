@@ -21,7 +21,7 @@
 
   condition:
     condition: time
-    before: input_datetime.lights_kitchen_off
+    before: input_datetime.lights_kitchen_off_evening
 
   action:
     service: script.lights_kitchen_on
@@ -30,8 +30,10 @@
 - alias: "Lights kitchen off time"
 
   trigger:
-    platform: time
-    at: input_datetime.lights_kitchen_off
+    - platform: time
+      at: input_datetime.lights_kitchen_off_morning
+    - platform: time
+      at: input_datetime.lights_kitchen_off_evening
 
   action:
     service: script.lights_kitchen_off
