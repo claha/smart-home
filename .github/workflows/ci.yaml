@@ -38,9 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+      - run: |
+          docker pull homeassistant/home-assistant:2021.7.1
       - run: |
           echo "---" > secrets.yaml
           echo "mqtt_broker: mqtt_broker" >> secrets.yaml
@@ -53,11 +52,12 @@ jobs:
           echo "ping_buffalo_ip: 0.0.0.0" >> secrets.yaml
           echo "telegram_api_key: telegram_api_key" >> secrets.yaml
           echo "telegram_chat_id: 9876543210" >> secrets.yaml
-          echo "xiaomi_wireless_switch_0_device_id: 9876543210" >> secrets.yaml
+          echo "xiaomi_wireless_switch_0_device_id: 9876543210abcdef" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_discovery_id_action_single: 0x00 action_single" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_discovery_id_action_double: 0x00 action_double" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_discovery_id_action_hold: 0x00 action_hold" >> secrets.yaml
           mv secrets.yaml homeassistant/config/secrets.yaml
       - run: |
-          pip install homeassistant==2021.7.1
-          hass -c homeassistant/config --script check_config
+          docker run --rm --volume $PWD/homeassistant/config:/config \
+          homeassistant/home-assistant:2021.7.1 \
+          hass --config /config --script check_config
