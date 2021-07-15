@@ -9,6 +9,7 @@ homeassistant/config/sensor/stock.yaml
 mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
+syncthing/config/
 zigbee2mqtt/data/database.db
 zigbee2mqtt/data/log/
 zigbee2mqtt/data/secret.yaml
