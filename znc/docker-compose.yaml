@@ -1,0 +1,15 @@
+---
+version: '3'
+services:
+  znc:
+    image: linuxserver/znc:znc-1.8.2-ls53
+    container_name: znc
+    environment:
+      - PUID=1000
+      - GUID=1000
+      - TZ=Europe/Stockholm
+    ports:
+      - 6501:6501
+    volumes:
+      - ./config:/config
+    restart: unless-stopped
