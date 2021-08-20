@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          docker pull homeassistant/home-assistant:2021.7.1
+          docker pull homeassistant/home-assistant:2021.8.8
       - run: |
           echo "---" > secrets.yaml
           echo "mqtt_broker: mqtt_broker" >> secrets.yaml
@@ -61,5 +61,5 @@ jobs:
           mv secrets.yaml homeassistant/config/secrets.yaml
       - run: |
           docker run --rm --volume $PWD/homeassistant/config:/config \
-          homeassistant/home-assistant:2021.7.1 \
+          homeassistant/home-assistant:2021.8.8 \
           hass --config /config --script check_config
