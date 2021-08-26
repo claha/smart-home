@@ -18,3 +18,8 @@ lights_living_room_off_evening:
   name: Lights living room off evening
   has_time: true
   has_date: false
+
+notify_portfolio_daily:
+  name: Notify portfolio daily
+  has_time: true
+  has_date: false

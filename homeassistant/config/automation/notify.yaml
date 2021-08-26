@@ -1,0 +1,13 @@
+---
+- alias: "Notify: Portfolio daily"
+
+  trigger:
+    - platform: time
+      at: input_datetime.notify_portfolio_daily
+
+  action:
+    - service: python_script.update_portfolio_state
+    - service: python_script.notify_portfolio_state
+      data:
+        report: stock
+        timespan: day
