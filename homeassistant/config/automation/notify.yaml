@@ -16,3 +16,14 @@
       data:
         report: stock
         timespan: day
+
+- alias: "Notify: Ping disconnected"
+
+  trigger:
+    platform: state
+    entity_id: group.ping
+    from: "on"
+    to: "off"
+
+  action:
+    service: python_script.notify_ping_state

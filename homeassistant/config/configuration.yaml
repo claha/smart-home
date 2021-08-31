@@ -36,3 +36,6 @@ binary_sensor: !include_dir_merge_list binary_sensor
 automation: !include_dir_merge_list automation
 script: !include_dir_merge_named script
 python_script:
+
+# Configure groups
+group: !include_dir_merge_named group
