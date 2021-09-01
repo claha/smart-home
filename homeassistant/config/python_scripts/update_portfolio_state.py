@@ -15,4 +15,6 @@ for entity_id in hass.states.entity_ids("sensor"):
 entities = indices + stocks + funds
 
 # Update entities
-hass.services.call("homeassistant", "update_entity", {"entity_id": entities})
+hass.services.call(
+    "homeassistant", "update_entity", {"entity_id": entities}, blocking=True
+)
