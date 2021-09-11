@@ -27,3 +27,18 @@
               value_template: "{{ command == '/systemmonitor' }}"
           sequence:
             - service: python_script.notify_system_monitor_state
+
+        - conditions:
+            - condition: template
+              value_template: "{{ command == '/stock' }}"
+          sequence:
+            - service: python_script.notify_portfolio_state
+              data:
+                report: stock
+                timespan: day
+
+        - conditions:
+            - condition: template
+              value_template: "{{ command == '/dividend' }}"
+          sequence:
+            - service: python_script.notify_portfolio_dividend
