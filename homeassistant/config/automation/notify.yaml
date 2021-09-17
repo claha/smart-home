@@ -17,6 +17,22 @@
         report: stock
         timespan: day
 
+- alias: "Notify: Portfolio dividend"
+
+  trigger:
+    - platform: time
+      at: input_datetime.notify_portfolio_dividend
+
+  condition:
+    condition: state
+    entity_id: binary_sensor.workday
+    state: "on"
+
+  action:
+    - service: python_script.notify_portfolio_dividend
+      data:
+        report: today
+
 - alias: "Notify: Ping disconnected"
 
   trigger:

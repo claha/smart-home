@@ -2,7 +2,9 @@
 hass = hass  # noqa: F821
 data = data  # noqa: F821
 logger = logger  # noqa: F821
+datetime = datetime  # noqa: F821
 MESSAGE_MAX_WIDTH = 41
+TODAY = "today"
 
 
 def get_entity(entity_id):
@@ -51,6 +53,14 @@ for entity_id in hass.states.entity_ids("sensor"):
     if entity_id.startswith("sensor.stock_"):
         stocks.append(entity_id)
 
+# Get script arguments
+report = data.get("report", "")
+today = str(datetime.datetime.now().date())
+if report == TODAY:
+    title = "Stock Portfolio Todays Dividends"
+else:
+    title = "Stock Portfolio Dividends"
+
 # Get message data
 dividends = []
 for entity_id in stocks:
@@ -71,12 +81,14 @@ for entity_id in stocks:
             entity, payment_date.split("_")[0] + "_amountPerShare"
         )
         shares = entity.attributes["shares"]
+        if report == TODAY and date != today:
+            continue
         dividends.append((date, name, to_string(amount_per_share * shares)))
 
 dividends.sort()
 
 # Create message
-message = "<b>Stock Portfolio Dividends</b><code>\n"
+message = "<b>{}</b><code>\n".format(title)
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
 for (date, name, amount) in dividends:
     date = date.ljust(len(date) + 1)
@@ -87,4 +99,5 @@ for (date, name, amount) in dividends:
 message = message + "</code>"
 
 # Send notification
-hass.services.call("notify", "telegram", {"message": message})
+if report != TODAY or (report == TODAY and len(dividends) > 0):
+    hass.services.call("notify", "telegram", {"message": message})
