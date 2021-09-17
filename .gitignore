@@ -1,6 +1,6 @@
 .venv
 __pycache__
-homeassistant/config/*.log
+homeassistant/config/*.log*
 homeassistant/config/.HA_VERSION
 homeassistant/config/.storage/
 homeassistant/config/secrets.yaml
