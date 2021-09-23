@@ -12,18 +12,18 @@ repos:
         args: ["--unique"]
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.1
+    rev: v1.26.3
     hooks:
       - id: yamllint
         args: [--strict]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.27.1
+    rev: v0.28.1
     hooks:
       - id: markdownlint
 
   - repo: https://github.com/psf/black
-    rev: 21.5b1
+    rev: 21.9b0
     hooks:
       - id: black
 
