@@ -38,10 +38,13 @@ jobs:
   home-assistant:
     name: Check home assistant configuration
     runs-on: ubuntu-latest
+    env:
+      HA_TAG: 2021.9.5
     steps:
       - uses: actions/checkout@v2
+      - run: grep $HA_TAG homeassistant/docker-compose.yaml
       - run: |
-          docker pull homeassistant/home-assistant:2021.8.8
+          docker pull homeassistant/home-assistant:$HA_TAG
       - run: |
           echo "---" > secrets.yaml
           echo "mqtt_broker: mqtt_broker" >> secrets.yaml
@@ -61,5 +64,5 @@ jobs:
           mv secrets.yaml homeassistant/config/secrets.yaml
       - run: |
           docker run --rm --volume $PWD/homeassistant/config:/config \
-          homeassistant/home-assistant:2021.8.8 \
+          homeassistant/home-assistant:$HA_TAG \
           hass --config /config --script check_config
