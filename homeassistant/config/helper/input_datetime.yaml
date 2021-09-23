@@ -24,6 +24,11 @@ notify_portfolio_daily:
   has_time: true
   has_date: false
 
+notify_portfolio_weekly:
+  name: Notify portfolio weekly
+  has_time: true
+  has_date: false
+
 notify_portfolio_dividend:
   name: Notify portfolio dividend
   has_time: true
