@@ -43,7 +43,7 @@
 
   trigger:
     platform: state
-    entity_id: switch.osram_smart_plug_1
+    entity_id: binary_sensor.lights_kitchen
     from: "off"
     to: "on"
 

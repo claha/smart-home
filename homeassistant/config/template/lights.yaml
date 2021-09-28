@@ -25,6 +25,14 @@
           {% endif %}
         {% endif %}
 
+    - name: Lights kitchen
+      state: >
+        {{ is_state("switch.osram_smart_plug_1", "on") }}
+
+    - name: Lights living room
+      state: >
+        {{ is_state("switch.osram_smart_plug_0", "on") }}
+
 - sensor:
     - name: Sun Elevation
       unit_of_measurement: "°"
