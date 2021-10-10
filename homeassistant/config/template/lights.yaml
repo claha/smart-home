@@ -10,18 +10,18 @@
         {% set illuminance = states("sensor.xiaomi_movement_and_illuminance_0_illuminance") %}
         {% set illuminance_on = states("input_number.lights_illuminance_on")|float %}
         {% set illuminance_off = states("input_number.lights_illuminance_off")|float %}
-        {% if illuminance == "unavailable" %}
-          {% if rising %}
-            {{ elevation < up }}
-          {% else %}
-            {{ elevation < down }}
-          {% endif %}
-        {% else %}
+        {% if is_number(illuminance) %}
           {% set illuminance = illuminance|float %}
           {% if rising %}
             {{ elevation < up and illuminance < illuminance_off }}
           {% else %}
             {{ elevation < down or illuminance < illuminance_on }}
+          {% endif %}
+        {% else %}
+          {% if rising %}
+            {{ elevation < up }}
+          {% else %}
+            {{ elevation < down }}
           {% endif %}
         {% endif %}
 
