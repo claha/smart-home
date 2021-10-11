@@ -33,6 +33,10 @@
       state: >
         {{ is_state("switch.osram_smart_plug_0", "on") }}
 
+    - name: Lights bedroom
+      state: >
+        {{ is_state("switch.tradfri_control_outlet_0", "on") }}
+
 - sensor:
     - name: Sun Elevation
       unit_of_measurement: "°"

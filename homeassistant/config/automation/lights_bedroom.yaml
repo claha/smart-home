@@ -1,0 +1,61 @@
+---
+- alias: "Lights bedroom off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+
+  action:
+    service: script.lights_bedroom_off
+
+
+- alias: "Lights bedroom on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+
+  condition:
+    condition: time
+    before: input_datetime.lights_bedroom_off_evening
+
+  action:
+    service: script.lights_bedroom_on
+
+
+- alias: "Lights bedroom off time"
+
+  trigger:
+    - platform: time
+      at: input_datetime.lights_bedroom_off_morning
+    - platform: time
+      at: input_datetime.lights_bedroom_off_evening
+
+  action:
+    service: script.lights_bedroom_off
+
+
+- alias: "Lights bedroom off auto"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lights_bedroom
+    from: "off"
+    to: "on"
+
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.lights_auto_off
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.dark_outside
+          state: "off"
+
+  action:
+    service: script.lights_bedroom_off

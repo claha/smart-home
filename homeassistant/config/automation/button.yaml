@@ -23,6 +23,12 @@
               state: "Living Room"
           sequence:
             - service: script.lights_living_room_toggle
+        - conditions:
+            - condition: state
+              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
+              state: "Bedroom"
+          sequence:
+            - service: script.lights_bedroom_toggle
 
 
 - alias: "Xiaomi Wirless Switch 0: Action double"
@@ -38,7 +44,7 @@
   action:
     - service: script.lights_kitchen_toggle
     - service: script.lights_living_room_toggle
-
+    - service: script.lights_bedroom_toggle
 
 - alias: "Xiaomi Wirless Switch 0: Action hold"
 
