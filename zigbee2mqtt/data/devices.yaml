@@ -16,3 +16,5 @@
   friendly_name: SONOFF Temperature and Humidity 0
 '0x60a423fffe37082f':
   friendly_name: TuYa Temperature and Humidity 0
+'0x000d6ffffedcf0b3':
+  friendly_name: TRADFRI Control Outlet 0
