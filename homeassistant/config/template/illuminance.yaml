@@ -1,0 +1,14 @@
+---
+# yamllint disable rule:line-length
+- sensor:
+    - name: Illuminance
+      unit_of_measurement: "lx"
+      device_class: "illuminance"
+      state: >
+        {% set illuminance = states("sensor.xiaomi_movement_and_illuminance_0_illuminance") %}
+        {% if is_number(illuminance) %}
+          {% set illuminance = illuminance|float %}
+          {{ illuminance }}
+        {% else %}
+          {{ illuminance }}
+        {% endif %}

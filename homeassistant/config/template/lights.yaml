@@ -7,7 +7,7 @@
         {% set elevation = state_attr("sun.sun", "elevation") %}
         {% set up = states("input_number.lights_sun_elevation_up")|float %}
         {% set down = states("input_number.lights_sun_elevation_down")|float %}
-        {% set illuminance = states("sensor.xiaomi_movement_and_illuminance_0_illuminance") %}
+        {% set illuminance = states("sensor.illuminance") %}
         {% set illuminance_on = states("input_number.lights_illuminance_on")|float %}
         {% set illuminance_off = states("input_number.lights_illuminance_off")|float %}
         {% if is_number(illuminance) %}
