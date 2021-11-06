@@ -39,7 +39,7 @@ jobs:
     name: Check home assistant configuration
     runs-on: ubuntu-latest
     env:
-      HA_TAG: 2021.10.2
+      HA_TAG: 2021.11.1
     steps:
       - uses: actions/checkout@v2
       - run: grep $HA_TAG homeassistant/docker-compose.yaml
