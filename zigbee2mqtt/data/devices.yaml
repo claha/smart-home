@@ -18,3 +18,9 @@
   friendly_name: TuYa Temperature and Humidity 0
 '0x000d6ffffedcf0b3':
   friendly_name: TRADFRI Control Outlet 0
+'0xb4e3f9fffef86de0':
+  friendly_name: TRADFRI Control Outlet 1
+'0xb4e3f9fffe833999':
+  friendly_name: TRADFRI Control Outlet 2
+'0xb4e3f9fffe8655bd':
+  friendly_name: TRADFRI Control Outlet 3
