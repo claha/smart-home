@@ -5,7 +5,11 @@ lights_bedroom_on:
   sequence:
     - service: switch.turn_on
       target:
-        entity_id: switch.tradfri_control_outlet_0
+        entity_id:
+          - switch.tradfri_control_outlet_0
+          - switch.tradfri_control_outlet_1
+          - switch.tradfri_control_outlet_2
+          - switch.tradfri_control_outlet_3
 
 
 lights_bedroom_off:
@@ -14,7 +18,11 @@ lights_bedroom_off:
   sequence:
     - service: switch.turn_off
       target:
-        entity_id: switch.tradfri_control_outlet_0
+        entity_id:
+          - switch.tradfri_control_outlet_0
+          - switch.tradfri_control_outlet_1
+          - switch.tradfri_control_outlet_2
+          - switch.tradfri_control_outlet_3
 
 
 lights_bedroom_toggle:
@@ -29,7 +37,11 @@ lights_bedroom_toggle:
           sequence:
             - service: switch.turn_off
               target:
-                entity_id: switch.tradfri_control_outlet_0
+                entity_id:
+                  - switch.tradfri_control_outlet_0
+                  - switch.tradfri_control_outlet_1
+                  - switch.tradfri_control_outlet_2
+                  - switch.tradfri_control_outlet_3
         - conditions:
             - condition: state
               entity_id: binary_sensor.lights_bedroom
@@ -37,4 +49,8 @@ lights_bedroom_toggle:
           sequence:
             - service: switch.turn_on
               target:
-                entity_id: switch.tradfri_control_outlet_0
+                entity_id:
+                  - switch.tradfri_control_outlet_0
+                  - switch.tradfri_control_outlet_1
+                  - switch.tradfri_control_outlet_2
+                  - switch.tradfri_control_outlet_3
