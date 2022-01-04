@@ -24,3 +24,12 @@
   friendly_name: TRADFRI Control Outlet 2
 '0xb4e3f9fffe8655bd':
   friendly_name: TRADFRI Control Outlet 3
+'0x8cf681fffe2870cd':
+  friendly_name: TRADFRI Shortcut Button 0
+'0x000b57fffeda87e2':
+  friendly_name: TRADFRI Bulb 0
+'0x000b57fffeeeddf8':
+  friendly_name: TRADFRI Remote Control 0
+  legacy: false
+'0x90fd9ffffe04ce31':
+  friendly_name: TRADFRI Bulb 1
