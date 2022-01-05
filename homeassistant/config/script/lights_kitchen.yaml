@@ -27,14 +27,10 @@ lights_kitchen_toggle:
               entity_id: binary_sensor.lights_kitchen
               state: "on"
           sequence:
-            - service: switch.turn_off
-              target:
-                entity_id: switch.osram_smart_plug_1
+            - service: script.lights_kitchen_off
         - conditions:
             - condition: state
               entity_id: binary_sensor.lights_kitchen
               state: "off"
           sequence:
-            - service: switch.turn_on
-              target:
-                entity_id: switch.osram_smart_plug_1
+            - service: script.lights_kitchen_on

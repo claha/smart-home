@@ -35,22 +35,10 @@ lights_bedroom_toggle:
               entity_id: binary_sensor.lights_bedroom
               state: "on"
           sequence:
-            - service: switch.turn_off
-              target:
-                entity_id:
-                  - switch.tradfri_control_outlet_0
-                  - switch.tradfri_control_outlet_1
-                  - switch.tradfri_control_outlet_2
-                  - switch.tradfri_control_outlet_3
+            - service: script.lights_bedroom_off
         - conditions:
             - condition: state
               entity_id: binary_sensor.lights_bedroom
               state: "off"
           sequence:
-            - service: switch.turn_on
-              target:
-                entity_id:
-                  - switch.tradfri_control_outlet_0
-                  - switch.tradfri_control_outlet_1
-                  - switch.tradfri_control_outlet_2
-                  - switch.tradfri_control_outlet_3
+            - service: script.lights_bedroom_on
