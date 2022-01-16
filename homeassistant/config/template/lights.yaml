@@ -47,6 +47,10 @@
       state: >
         {{ is_state("switch.tradfri_control_outlet_1", "on") }}
 
+    - name: Lights master bedroom
+      state: >
+        {{ is_state("light.tradfri_bulb_0", "on") }}
+
 - sensor:
     - name: Sun Elevation
       unit_of_measurement: "°"

@@ -1,0 +1,38 @@
+---
+lights_master_bedroom_on:
+  alias: Lights master bedroom on
+  description: Turn on all lights in the master bedroom
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.tradfri_bulb_0
+
+
+lights_master_bedroom_off:
+  alias: Lights master bedroom off
+  description: Turn off all lights in the master bedroom
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.tradfri_bulb_0
+
+
+lights_master_bedroom_toggle:
+  alias: Lights master bedroom toggle
+  description: Toggle all lights in the master bedroom
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.lights_master_bedroom
+              state: "on"
+          sequence:
+            - service: script.lights_master_bedroom_off
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.lights_master_bedroom
+              state: "off"
+          sequence:
+            - service: script.lights_master_bedroom_on
