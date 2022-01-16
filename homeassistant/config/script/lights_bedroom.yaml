@@ -6,7 +6,6 @@ lights_bedroom_on:
     - service: switch.turn_on
       target:
         entity_id:
-          - switch.tradfri_control_outlet_1
           - switch.tradfri_control_outlet_2
           - switch.tradfri_control_outlet_3
 
@@ -18,7 +17,6 @@ lights_bedroom_off:
     - service: switch.turn_off
       target:
         entity_id:
-          - switch.tradfri_control_outlet_1
           - switch.tradfri_control_outlet_2
           - switch.tradfri_control_outlet_3
 

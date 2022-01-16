@@ -29,6 +29,16 @@ lights_bedroom_off_evening:
   has_time: true
   has_date: false
 
+lights_guest_room_off_morning:
+  name: Lights guest room off morning
+  has_time: true
+  has_date: false
+
+lights_guest_room_off_evening:
+  name: Lights guest room off evening
+  has_time: true
+  has_date: false
+
 notify_portfolio_daily:
   name: Notify portfolio daily
   has_time: true
