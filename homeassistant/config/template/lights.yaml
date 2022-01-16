@@ -31,12 +31,14 @@
 
     - name: Lights living room
       state: >
-        {{ is_state("switch.osram_smart_plug_0", "on") }}
+        {{
+          is_state("switch.osram_smart_plug_0", "on") or
+          is_state("switch.tradfri_control_outlet_0", "on")
+        }}
 
     - name: Lights bedroom
       state: >
         {{
-          is_state("switch.tradfri_control_outlet_0", "on") or
           is_state("switch.tradfri_control_outlet_1", "on") or
           is_state("switch.tradfri_control_outlet_2", "on") or
           is_state("switch.tradfri_control_outlet_3", "on")
