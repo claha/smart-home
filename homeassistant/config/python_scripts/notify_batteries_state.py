@@ -4,7 +4,7 @@ hass = hass  # noqa: F821
 
 def get_entity_state_int(entity_id):
     """Get entity state as an int."""
-    return int(hass.states.get(entity_id).state)
+    return int(float(hass.states.get(entity_id).state))
 
 
 def get_entity_friendly_name(entity_id):
