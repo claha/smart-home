@@ -7,6 +7,9 @@ lights_master_bedroom_on:
       target:
         entity_id:
           - light.tradfri_bulb_0
+      data:
+        color_temp: 454
+        brightness_pct: 100
 
 
 lights_master_bedroom_off:
