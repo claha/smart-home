@@ -6,6 +6,7 @@ homeassistant/config/.storage/
 homeassistant/config/secrets.yaml
 homeassistant/config/sensor/fund.yaml
 homeassistant/config/sensor/stock.yaml
+homeassistant/config/tts/
 mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
