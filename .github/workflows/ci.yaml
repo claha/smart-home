@@ -57,6 +57,10 @@ jobs:
           echo "ping_buffalo_ip: 0.0.0.0" >> secrets.yaml
           echo "telegram_api_key: telegram_api_key" >> secrets.yaml
           echo "telegram_chat_id: 9876543210" >> secrets.yaml
+          echo "tradfri_shourtcut_button_0_device_id: 9876543210abcdef" >> secrets.yaml
+          echo "tradfri_shourtcut_button_0_action_on: 0x00 action_on" >> secrets.yaml
+          echo "tradfri_shourtcut_button_0_action_brightness_move_up: 0x00 action_brigthness_move_up" >> secrets.yaml
+          echo "tradfri_shourtcut_button_0_action_brightness_stop: 0x00 action_brigthness_stop" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_device_id: 9876543210abcdef" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_discovery_id_action_single: 0x00 action_single" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_discovery_id_action_double: 0x00 action_double" >> secrets.yaml
