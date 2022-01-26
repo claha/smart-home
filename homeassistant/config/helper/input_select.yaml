@@ -7,4 +7,5 @@ xiaomi_wireless_switch_0_room_light_ctrl:
     - Bedroom
     - Guest Room
     - Master Bedroom
+    - Office
   icon: mdi:lightbulb-group

@@ -39,7 +39,6 @@
     - name: Lights bedroom
       state: >
         {{
-          is_state("switch.tradfri_control_outlet_2", "on") or
           is_state("switch.tradfri_control_outlet_3", "on")
         }}
 
@@ -50,6 +49,12 @@
     - name: Lights master bedroom
       state: >
         {{ is_state("light.tradfri_bulb_0", "on") }}
+
+    - name: Lights office
+      state: >
+        {{
+          is_state("switch.tradfri_control_outlet_2", "on")
+        }}
 
 - sensor:
     - name: Sun Elevation

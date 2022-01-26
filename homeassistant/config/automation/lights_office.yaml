@@ -1,0 +1,61 @@
+---
+- alias: "Lights office off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+
+  action:
+    service: script.lights_office_off
+
+
+- alias: "Lights office on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+
+  condition:
+    condition: time
+    before: input_datetime.lights_office_off_evening
+
+  action:
+    service: script.lights_office_on
+
+
+- alias: "Lights office off time"
+
+  trigger:
+    - platform: time
+      at: input_datetime.lights_office_off_morning
+    - platform: time
+      at: input_datetime.lights_office_off_evening
+
+  action:
+    service: script.lights_office_off
+
+
+- alias: "Lights office off auto"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lights_office
+    from: "off"
+    to: "on"
+
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.lights_auto_off
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.dark_outside
+          state: "off"
+
+  action:
+    service: script.lights_office_off

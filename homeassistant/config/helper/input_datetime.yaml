@@ -49,6 +49,16 @@ lights_master_bedroom_off_evening:
   has_time: true
   has_date: false
 
+lights_office_off_morning:
+  name: Lights office off morning
+  has_time: true
+  has_date: false
+
+lights_office_off_evening:
+  name: Lights office off evening
+  has_time: true
+  has_date: false
+
 notify_portfolio_daily:
   name: Notify portfolio daily
   has_time: true

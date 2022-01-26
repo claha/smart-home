@@ -1,0 +1,38 @@
+---
+lights_office_on:
+  alias: Lights office on
+  description: Turn on all lights in the office
+  sequence:
+    - service: switch.turn_on
+      target:
+        entity_id:
+          - switch.tradfri_control_outlet_2
+
+
+lights_office_off:
+  alias: Lights office off
+  description: Turn off all lights in the office
+  sequence:
+    - service: switch.turn_off
+      target:
+        entity_id:
+          - switch.tradfri_control_outlet_2
+
+
+lights_office_toggle:
+  alias: Lights office toggle
+  description: Toggle all lights in the office
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.lights_office
+              state: "on"
+          sequence:
+            - service: script.lights_office_off
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.lights_office
+              state: "off"
+          sequence:
+            - service: script.lights_office_on
