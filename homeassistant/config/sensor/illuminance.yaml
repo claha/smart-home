@@ -1,0 +1,7 @@
+---
+- platform: min_max
+  name: Illuminance
+  type: mean
+  entity_ids:
+    - sensor.xiaomi_light_intensity_0_illuminance_lux
+    - sensor.xiaomi_light_intensity_1_illuminance_lux
