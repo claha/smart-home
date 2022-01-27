@@ -33,3 +33,9 @@
   legacy: false
 '0x90fd9ffffe04ce31':
   friendly_name: TRADFRI Bulb 1
+'0x54ef4410000d6a03':
+  friendly_name: Xiaomi Light Intensity 0
+  illuminance_lux_precision: 0
+'0x54ef4410000d63eb':
+  friendly_name: Xiaomi Light Intensity 1
+  illuminance_lux_precision: 0
