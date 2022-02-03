@@ -1,4 +1,5 @@
 ---
+# yamllint disable rule:line-length
 - alias: "Lights master bedroom off"
 
   trigger:
@@ -25,6 +26,16 @@
 
   action:
     service: script.lights_master_bedroom_on
+
+
+- alias: "Lights master bedroom dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int  + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_master_bedroom_off_evening.state }}'
+
+  action:
+    service: script.lights_master_bedroom_dim
 
 
 - alias: "Lights master bedroom off time"

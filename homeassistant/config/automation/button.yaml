@@ -38,7 +38,7 @@
         - conditions:
             - condition: state
               entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Master bedroom"
+              state: "Master Bedroom"
           sequence:
             - service: script.lights_master_bedroom_toggle
         - conditions:
