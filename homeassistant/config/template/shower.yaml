@@ -1,0 +1,13 @@
+---
+# yamllint disable rule:line-length
+- binary_sensor:
+    - name: Showering
+      state: >
+        {% set humidity = states("sensor.xiaomi_temperature_humidity_and_pressure_0_humidity") %}
+        {% set threshold = states("input_number.shower_humidity_threshold") | float %}
+        {% if is_number(humidity) %}
+          {% set humidity = humidity | float %}
+          {{ humidity > threshold }}
+        {% else %}
+          {{ False }}
+        {% endif %}
