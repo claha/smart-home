@@ -39,6 +39,23 @@
 
         - conditions:
             - condition: template
+              value_template: "{{ command == '/fund' }}"
+          sequence:
+            - service: python_script.notify_portfolio_state
+              data:
+                report: fund
+                timespan: day
+
+        - conditions:
+            - condition: template
+              value_template: "{{ command == '/portfolio' }}"
+          sequence:
+            - service: python_script.notify_portfolio_state
+              data:
+                timespan: day
+
+        - conditions:
+            - condition: template
               value_template: "{{ command == '/dividend' }}"
           sequence:
             - service: python_script.notify_portfolio_dividend
