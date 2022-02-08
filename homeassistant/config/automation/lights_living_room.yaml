@@ -73,6 +73,8 @@
     entity_id: binary_sensor.watching_tv
     from: "on"
     to: "off"
+    for:
+      seconds: 30
 
   condition:
     condition: and
@@ -96,6 +98,8 @@
     entity_id: binary_sensor.watching_tv
     from: "off"
     to: "on"
+    for:
+      seconds: 5
 
   action:
     service: script.lights_living_room_off
