@@ -40,5 +40,8 @@ automation: !include_dir_merge_list automation
 script: !include_dir_merge_named script
 python_script:
 
+# Setup alerts
+alert: !include_dir_merge_named alert
+
 # Configure groups
 group: !include_dir_merge_named group

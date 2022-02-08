@@ -1,0 +1,27 @@
+---
+water_leak_laundry:
+  name: Water Leak Laundry
+  entity_id: binary_sensor.xiaomi_water_leak_0_water_leak
+  state: "on"
+  repeat: 5
+  can_acknowledge: true
+  notifiers:
+    - telegram
+
+water_leak_kitchen:
+  name: Water Leak Kitchen
+  entity_id: binary_sensor.xiaomi_water_leak_1_water_leak
+  state: "on"
+  repeat: 5
+  can_acknowledge: true
+  notifiers:
+    - telegram
+
+water_leak_bathroom:
+  name: Water Leak Bathroom
+  entity_id: binary_sensor.xiaomi_water_leak_2_water_leak
+  state: "on"
+  repeat: 5
+  can_acknowledge: true
+  notifiers:
+    - telegram
