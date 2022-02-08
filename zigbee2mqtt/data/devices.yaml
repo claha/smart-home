@@ -39,3 +39,9 @@
 '0x54ef4410000d63eb':
   friendly_name: Xiaomi Light Intensity 1
   illuminance_lux_precision: 0
+'0x00158d0006e9577f':
+  friendly_name: Xiaomi Water Leak 0
+'0x00158d00070866b3':
+  friendly_name: Xiaomi Water Leak 1
+'0x00158d000725e07e':
+  friendly_name: Xiaomi Water Leak 2
