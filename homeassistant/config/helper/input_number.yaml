@@ -43,3 +43,12 @@ shower_humidity_threshold:
   mode: box
   unit_of_measurement: "%"
   icon: mdi:water-percent
+
+lights_laundry_timeout:
+  min: 0
+  max: 59
+  name: Lights laundry timeout
+  step: 1
+  mode: box
+  unit_of_measurement: "min"
+  icon: mdi:timer-settings

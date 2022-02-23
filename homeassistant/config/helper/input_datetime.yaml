@@ -59,6 +59,16 @@ lights_office_off_evening:
   has_time: true
   has_date: false
 
+lights_laundry_off_morning:
+  name: Lights laundry off morning
+  has_time: true
+  has_date: false
+
+lights_laundry_off_evening:
+  name: Lights laundry off evening
+  has_time: true
+  has_date: false
+
 notify_portfolio_daily:
   name: Notify portfolio daily
   has_time: true

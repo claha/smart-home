@@ -1,0 +1,129 @@
+---
+# yamllint disable rule:line-length
+- alias: "Lights laundry off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+
+  action:
+    service: script.lights_laundry_off
+
+
+- alias: "Lights laundry on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+
+  condition:
+    condition: time
+    before: input_datetime.lights_laundry_off_evening
+
+  action:
+    service: script.lights_laundry_on
+
+
+- alias: "Lights laundry dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int  + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_laundry_off_evening.state }}'
+
+  action:
+    service: script.lights_laundry_dim
+
+
+- alias: "Lights laundry off time"
+
+  trigger:
+    - platform: time
+      at: input_datetime.lights_laundry_off_morning
+    - platform: time
+      at: input_datetime.lights_laundry_off_evening
+
+  condition:
+    condition: state
+    entity_id: binary_sensor.xiaomi_movement_and_illuminance_0_occupancy
+    state: "off"
+
+  action:
+    service: script.lights_laundry_off
+
+
+- alias: "Lights laundry on motion"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiaomi_movement_and_illuminance_0_occupancy
+    from: "off"
+    to: "on"
+
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.dark_outside
+          state: "on"
+        - condition: or
+          conditions:
+            - condition: time
+              before: input_datetime.lights_laundry_off_morning
+            - condition: time
+              after: input_datetime.lights_laundry_off_evening
+
+  action:
+    service: script.lights_laundry_dim
+
+
+- alias: "Lights laundry off motion"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiaomi_movement_and_illuminance_0_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: '{{ states("input_number.lights_laundry_timeout") | int }}'
+
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.dark_outside
+          state: "on"
+        - condition: or
+          conditions:
+            - condition: time
+              before: input_datetime.lights_laundry_off_morning
+            - condition: time
+              after: input_datetime.lights_laundry_off_evening
+
+  action:
+    service: script.lights_laundry_off
+
+
+- alias: "Lights laundry off auto"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lights_laundry
+    from: "off"
+    to: "on"
+
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.lights_auto_off
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.dark_outside
+          state: "off"
+
+  action:
+    service: script.lights_laundry_off

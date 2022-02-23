@@ -1,0 +1,68 @@
+---
+lights_laundry_on:
+  alias: Lights laundry on
+  description: Turn on all lights in the laundry
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.tradfri_bulb_2
+      data:
+        color_temp: 400
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.tradfri_bulb_2
+      data:
+        transition: 10
+        brightness_pct: 100
+
+
+lights_laundry_dim:
+  alias: Lights laundry dim
+  description: Turn on all lights in the laundry dimmed
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.tradfri_bulb_2
+      data:
+        color_temp: 400
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.tradfri_bulb_2
+      data:
+        transition: 10
+        brightness_pct: 50
+
+
+lights_laundry_off:
+  alias: Lights laundry off
+  description: Turn off all lights in the laundry
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.tradfri_bulb_2
+      data:
+        transition: 10
+
+
+lights_laundry_toggle:
+  alias: Lights laundry toggle
+  description: Toggle all lights in the laundry
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.lights_laundry
+              state: "on"
+          sequence:
+            - service: script.lights_laundry_off
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.lights_laundry
+              state: "off"
+          sequence:
+            - service: script.lights_laundry_on
