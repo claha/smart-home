@@ -5,3 +5,10 @@
   entity_ids:
     - sensor.xiaomi_light_intensity_0_illuminance_lux
     - sensor.xiaomi_light_intensity_1_illuminance_lux
+
+- platform: filter
+  entity_id: sensor.illuminance
+  name: "Illuminance (SMA30)"
+  filters:
+    filter: time_simple_moving_average
+    window_size: "00:30"
