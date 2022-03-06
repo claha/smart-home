@@ -55,6 +55,8 @@ jobs:
           echo "ping_zigbee2mqtt_ip: 0.0.0.0" >> secrets.yaml
           echo "ping_qnap_ip: 0.0.0.0" >> secrets.yaml
           echo "ping_buffalo_ip: 0.0.0.0" >> secrets.yaml
+          echo "sonoff_0_rtsp: rtsp://" >> secrets.yaml
+          echo "sonoff_1_rtsp: rtsp://" >> secrets.yaml
           echo "telegram_api_key: telegram_api_key" >> secrets.yaml
           echo "telegram_chat_id: 9876543210" >> secrets.yaml
           echo "tradfri_shourtcut_button_0_device_id: 9876543210abcdef" >> secrets.yaml
