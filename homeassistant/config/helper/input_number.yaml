@@ -52,3 +52,12 @@ lights_laundry_timeout:
   mode: box
   unit_of_measurement: "min"
   icon: mdi:timer-settings
+
+garage_door_angle_threshold:
+  min: -90
+  max: 90
+  name: Garage door angle threshold
+  step: 1
+  mode: box
+  unit_of_measurement: "°"
+  icon: mdi:garage

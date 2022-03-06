@@ -1,0 +1,27 @@
+---
+- sensor:
+    - name: Garage Door Angle
+      unit_of_measurement: "°"
+      icon: mdi:garage
+      state: >
+        {% set angle_y = states("sensor.xiaomi_vibration_0_angle_y") %}
+        {% if is_number(angle_y) %}
+          {% set angle_y = angle_y | float %}
+          {{ angle_y }}
+        {% else %}
+          unknown
+        {% endif %}
+
+- binary_sensor:
+    - name: Garage Door
+      device_class: garage_door
+      state: >
+        {% set angle = states("sensor.garage_door_angle") %}
+        {% set threshold = states("input_number.garage_door_angle_threshold") %}
+        {% if is_number(angle) %}
+          {% set angle = angle | float %}
+          {% set threshold = threshold | float %}
+          {{ angle < threshold }}
+        {% else %}
+          unknown
+        {% endif %}

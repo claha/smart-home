@@ -78,3 +78,12 @@
 
   action:
     service: python_script.notify_ping_state
+
+- alias: "Notify: Garage door"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_door
+
+  action:
+    service: python_script.notify_garage_door_state
