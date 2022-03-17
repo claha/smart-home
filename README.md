@@ -49,6 +49,10 @@ should be created when the integration is added.
 Add OpenWeatherMap and name it `Home`, i.e. there should be an entity called
 `weather.home`, use the mode `onecall_daily` and set the language to `se`.
 
+#### MQTT
+
+Add MQTT integration with default settings and connect it to mosquitto.
+
 ### Resources
 
 Currently the main UI is handled automatically by homeassistant. In this mode extra

@@ -5,9 +5,6 @@ default_config:
 # Configure lovelace
 lovelace: !include lovelace.yaml
 
-# Setup an MQTT broker
-mqtt: !include mqtt.yaml
-
 # Configure the logger
 logger: !include logger.yaml
 

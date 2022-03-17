@@ -47,9 +47,6 @@ jobs:
           docker pull homeassistant/home-assistant:$HA_TAG
       - run: |
           echo "---" > secrets.yaml
-          echo "mqtt_broker: mqtt_broker" >> secrets.yaml
-          echo "mqtt_username: mqtt_username" >> secrets.yaml
-          echo "mqtt_password: mqtt_password" >> secrets.yaml
           echo "ping_info_screen_ip: 0.0.0.0" >> secrets.yaml
           echo "ping_mosquitto_ip: 0.0.0.0" >> secrets.yaml
           echo "ping_zigbee2mqtt_ip: 0.0.0.0" >> secrets.yaml
