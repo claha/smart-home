@@ -27,16 +27,20 @@
     service: script.lights_guest_room_on
 
 
-- alias: "Lights guest room off time"
+- alias: "Lights guest room off time morning"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_guest_room_off_morning
+      script: script.lights_guest_room_off
 
-  trigger:
-    - platform: time
-      at: input_datetime.lights_guest_room_off_morning
-    - platform: time
-      at: input_datetime.lights_guest_room_off_evening
 
-  action:
-    service: script.lights_guest_room_off
+- alias: "Lights guest room off time evening"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_guest_room_off_evening
+      script: script.lights_guest_room_off
 
 
 - alias: "Lights guest room off auto"

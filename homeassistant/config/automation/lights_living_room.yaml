@@ -32,16 +32,20 @@
     service: script.lights_living_room_on
 
 
-- alias: "Lights living room off time"
+- alias: "Lights living room off time morning"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_living_room_off_morning
+      script: script.lights_living_room_off
 
-  trigger:
-    - platform: time
-      at: input_datetime.lights_living_room_off_morning
-    - platform: time
-      at: input_datetime.lights_living_room_off_evening
 
-  action:
-    service: script.lights_living_room_off
+- alias: "Lights living room off time evening"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_living_room_off_evening
+      script: script.lights_living_room_off
 
 
 - alias: "Lights living room off auto"

@@ -38,16 +38,20 @@
     service: script.lights_master_bedroom_dim
 
 
-- alias: "Lights master bedroom off time"
+- alias: "Lights master bedroom off time morning"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_master_bedroom_off_morning
+      script: script.lights_master_bedroom_off
 
-  trigger:
-    - platform: time
-      at: input_datetime.lights_master_bedroom_off_morning
-    - platform: time
-      at: input_datetime.lights_master_bedroom_off_evening
 
-  action:
-    service: script.lights_master_bedroom_off
+- alias: "Lights master bedroom off time evening"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_master_bedroom_off_evening
+      script: script.lights_master_bedroom_off
 
 
 - alias: "Lights master bedroom off auto"
