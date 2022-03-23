@@ -1,0 +1,24 @@
+---
+lights_closet_on:
+  alias: Lights closet on
+  description: Turn on all lights in the closet
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.bulb_rgbw_8b5534
+      data:
+        transition: 5
+        brightness_pct: 100
+
+
+lights_closet_off:
+  alias: Lights closet off
+  description: Turn off all lights in the closet
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.bulb_rgbw_8b5534
+      data:
+        transition: 5

@@ -1,0 +1,44 @@
+---
+- alias: "Lights closet off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiaomi_door_and_window_0_contact
+    from: "on"
+    to: "off"
+
+  action:
+    service: script.lights_closet_off
+
+
+- alias: "Lights closet on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiaomi_door_and_window_0_contact
+    from: "off"
+    to: "on"
+
+  action:
+    service: script.lights_closet_on
+
+
+- alias: "Lights closet auto off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lights_closet
+    from: "off"
+    to: "on"
+    for:
+      minutes: 10
+
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.xiaomi_door_and_window_0_contact
+          state: "off"
+
+  action:
+    service: script.lights_closet_off

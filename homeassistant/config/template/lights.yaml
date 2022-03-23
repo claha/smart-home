@@ -62,6 +62,12 @@
           is_state("light.tradfri_bulb_2", "on")
         }}
 
+    - name: Lights closet
+      state: >
+        {{
+          is_state("light.bulb_rgbw_8b5534", "on")
+        }}
+
 - sensor:
     - name: Sun Elevation
       unit_of_measurement: "°"
