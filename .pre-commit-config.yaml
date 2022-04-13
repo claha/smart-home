@@ -1,36 +1,40 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.2.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: mixed-line-ending
-        args: ["--fix=lf"]
+        args:
+          - --fix=lf
       - id: file-contents-sorter
         files: .gitignore
-        args: ["--unique"]
+        args:
+          - --unique
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.26.3
     hooks:
       - id: yamllint
-        args: [--strict]
+        args:
+          - --strict
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.28.1
+    rev: v0.31.1
     hooks:
       - id: markdownlint
 
   - repo: https://github.com/psf/black
-    rev: 21.9b0
+    rev: 22.3.0
     hooks:
       - id: black
 
   - repo: https://github.com/pycqa/flake8
-    rev: 3.9.2
+    rev: 4.0.1
     hooks:
       - id: flake8
         additional_dependencies:
           - flake8-docstrings==1.6.0
-        args: [--max-line-length=88]
+        args:
+          - --max-line-length=88
