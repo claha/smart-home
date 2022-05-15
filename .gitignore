@@ -3,6 +3,7 @@ __pycache__
 homeassistant/config/*.log*
 homeassistant/config/.HA_VERSION
 homeassistant/config/.storage/
+homeassistant/config/home-assistant_v2.db*
 homeassistant/config/secrets.yaml
 homeassistant/config/sensor/fund.yaml
 homeassistant/config/sensor/stock.yaml
