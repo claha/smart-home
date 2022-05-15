@@ -1,2 +1,2 @@
 ---
-db_url: 'sqlite:///:memory:'
+commit_interval: 30
