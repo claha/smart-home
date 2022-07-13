@@ -1,3 +1,4 @@
+!pihole/etc-pihole/adlists.list
 .venv
 __pycache__
 homeassistant/config/*.log*
@@ -11,6 +12,7 @@ homeassistant/config/tts/
 mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
+pihole/etc-pihole/*
 syncthing/config/
 zigbee2mqtt/data/coordinator_backup.json
 zigbee2mqtt/data/database.db

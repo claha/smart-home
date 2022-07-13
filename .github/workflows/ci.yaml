@@ -31,6 +31,7 @@ jobs:
           pip install docker-compose==1.27.4
           docker-compose --file homeassistant/docker-compose.yaml config --quiet
           docker-compose --file mosquitto/docker-compose.yaml config --quiet
+          docker-compose --file pihole/docker-compose.yaml config --quiet
           docker-compose --file syncthing/docker-compose.yaml config --quiet
           docker-compose --file zigbee2mqtt/docker-compose.yaml config --quiet
           docker-compose --file znc/docker-compose.yaml config --quiet
