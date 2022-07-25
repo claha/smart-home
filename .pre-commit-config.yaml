@@ -38,3 +38,8 @@ repos:
           - flake8-docstrings==1.6.0
         args:
           - --max-line-length=88
+
+  - repo: https://github.com/iamthefij/docker-pre-commit
+    rev: v2.1.0
+    hooks:
+      - id: docker-compose-check

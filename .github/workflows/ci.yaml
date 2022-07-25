@@ -19,24 +19,6 @@ jobs:
           python-version: 3.x
       - uses: pre-commit/action@v3.0.0
 
-  docker-compose:
-    name: Validate docker-compose files
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3.0.2
-      - uses: actions/setup-python@v4.1.0
-        with:
-          python-version: 3.x
-      - run: |
-          pip install docker-compose==1.27.4
-          docker-compose --file homeassistant/docker-compose.yaml config --quiet
-          docker-compose --file mosquitto/docker-compose.yaml config --quiet
-          docker-compose --file pihole/docker-compose.yaml config --quiet
-          docker-compose --file syncthing/docker-compose.yaml config --quiet
-          docker-compose --file traefik/docker-compose.yaml config --quiet
-          docker-compose --file zigbee2mqtt/docker-compose.yaml config --quiet
-          docker-compose --file znc/docker-compose.yaml config --quiet
-
   home-assistant:
     name: Check home assistant configuration
     runs-on: ubuntu-latest
