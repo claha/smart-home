@@ -13,18 +13,18 @@ jobs:
     name: Run pre-commit on all files
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3.0.2
+      - uses: actions/setup-python@v4.1.0
         with:
           python-version: 3.x
-      - uses: pre-commit/action@v2.0.0
+      - uses: pre-commit/action@v3.0.0
 
   docker-compose:
     name: Validate docker-compose files
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3.0.2
+      - uses: actions/setup-python@v4.1.0
         with:
           python-version: 3.x
       - run: |
@@ -43,7 +43,7 @@ jobs:
     env:
       HA_TAG: 2022.6.7
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.0.2
       - run: grep $HA_TAG homeassistant/docker-compose.yaml
       - run: |
           docker pull homeassistant/home-assistant:$HA_TAG
