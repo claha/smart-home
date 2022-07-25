@@ -8,13 +8,14 @@ services:
       - proxy
     ports:
       - 80:80
+      - 443:443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yaml:/etc/traefik/traefik.yaml
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.rule=Host(`traefik.home`)
-      - traefik.http.routers.traefik.entrypoints=web
+      - traefik.http.routers.traefik.tls=true
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.services.traefik.loadbalancer.server.port=8080
     restart: unless-stopped
