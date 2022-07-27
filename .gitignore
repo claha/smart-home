@@ -14,6 +14,7 @@ mosquitto/data/
 mosquitto/log/
 pihole/etc-pihole/*
 syncthing/config/
+traefik/.htpasswd
 zigbee2mqtt/data/coordinator_backup.json
 zigbee2mqtt/data/database.db
 zigbee2mqtt/data/log/

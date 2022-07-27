@@ -173,3 +173,13 @@ into are.
 Syncthing is a continuous file synchronization program. Before starting the
 container, add volumes where data is stored to the `docker-compose.yaml` file
 and then configure what and how to sync using the web ui.
+
+## Traefik
+
+Traefik is a modern HTTP reverse proxy and load balancer that makes deploying
+microservices easy. Before starting the container a file needs to be created
+using the following command.
+
+```bash
+htpasswd -nb <username> <password> > .htpasswd
+```
