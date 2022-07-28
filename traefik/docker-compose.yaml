@@ -12,15 +12,16 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yaml:/etc/traefik/traefik.yaml
+      - ./middlewares.yaml:/etc/traefik/middlewares.yaml
       - ./.htpasswd:/etc/traefik/.htpasswd
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.rule=Host(`traefik.home`)
-      - traefik.http.routers.traefik.middlewares=auth
+      - traefik.http.routers.traefik.middlewares=auth@file
       - traefik.http.routers.traefik.tls=true
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.services.traefik.loadbalancer.server.port=8080
-      - traefik.http.middlewares.auth.basicauth.usersfile=/etc/traefik/.htpasswd
+
     restart: unless-stopped
 
 networks:

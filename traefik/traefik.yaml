@@ -17,3 +17,6 @@ providers:
     endpoint: unix:///var/run/docker.sock
     exposedByDefault: false
     network: proxy
+  file:
+    filename: /etc/traefik/middlewares.yaml
+    watch: true
