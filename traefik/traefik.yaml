@@ -20,3 +20,10 @@ providers:
   file:
     filename: /etc/traefik/middlewares.yaml
     watch: true
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: hallstrom.claes@gmail.com
+      storage: /etc/traefik/acme.json
+      dnsChallenge:
+        provider: duckdns

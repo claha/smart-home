@@ -14,14 +14,19 @@ services:
       - ./traefik.yaml:/etc/traefik/traefik.yaml
       - ./middlewares.yaml:/etc/traefik/middlewares.yaml
       - ./.htpasswd:/etc/traefik/.htpasswd
+      - ./acme.json:/etc/traefik/acme.json
+    environment:
+      - DUCKDNS_TOKEN=${DUCKDNS_TOKEN}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.traefik.rule=Host(`traefik.home`)
+      - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}.duckdns.org`)
       - traefik.http.routers.traefik.middlewares=auth@file
       - traefik.http.routers.traefik.tls=true
+      - traefik.http.routers.traefik.tls.certresolver=letsencrypt
+      - traefik.http.routers.traefik.tls.domains[0].main=${DOMAIN}.duckdns.org
+      - traefik.http.routers.traefik.tls.domains[0].sans=*.${DOMAIN}.duckdns.org
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.services.traefik.loadbalancer.server.port=8080
-
     restart: unless-stopped
 
 networks:
