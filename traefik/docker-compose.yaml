@@ -11,9 +11,9 @@ services:
       - 443:443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yaml:/etc/traefik/traefik.yaml
-      - ./middlewares.yaml:/etc/traefik/middlewares.yaml
-      - ./.htpasswd:/etc/traefik/.htpasswd
+      - ./traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./middlewares.yaml:/etc/traefik/middlewares.yaml:ro
+      - ./.htpasswd:/etc/traefik/.htpasswd:ro
       - ./acme.json:/etc/traefik/acme.json
     environment:
       - DUCKDNS_TOKEN=${DUCKDNS_TOKEN}
