@@ -1,4 +1,9 @@
 ---
+log:
+  level: INFO
+  filepath: /var/log/traefik/traefik.log
+accessLog:
+  filePath: /var/log/traefik/access.log
 api:
   insecure: false
   dashboard: true

@@ -15,6 +15,7 @@ services:
       - ./middlewares.yaml:/etc/traefik/middlewares.yaml:ro
       - ./.htpasswd:/etc/traefik/.htpasswd:ro
       - ./acme.json:/etc/traefik/acme.json
+      - ./log:/var/log/traefik
     environment:
       - DUCKDNS_TOKEN=${DUCKDNS_TOKEN}
     labels:
