@@ -1,6 +1,8 @@
 !pihole/etc-pihole/adlists.list
 .venv
 __pycache__
+heimdall/.env
+heimdall/config/
 homeassistant/config/*.log*
 homeassistant/config/.HA_VERSION
 homeassistant/config/.storage/

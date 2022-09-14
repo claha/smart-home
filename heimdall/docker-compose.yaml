@@ -1,0 +1,25 @@
+---
+version: "3"
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:2.4.13
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./config:/config
+    networks:
+      - proxy
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.heimdall.rule=Host(`heimdall.${DOMAIN}.duckdns.org`)
+      - traefik.http.routers.heimdall.tls=true
+      - traefik.http.routers.heimdall.service=heimdall
+      - traefik.http.services.heimdall.loadbalancer.server.port=80
+
+networks:
+  proxy:
+    external: true
