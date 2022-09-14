@@ -21,7 +21,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}.duckdns.org`)
-      - traefik.http.routers.traefik.middlewares=auth@file
+      - traefik.http.routers.traefik.middlewares=auth@file,sslheader@file
       - traefik.http.routers.traefik.tls=true
       - traefik.http.routers.traefik.tls.certresolver=letsencrypt
       - traefik.http.routers.traefik.tls.domains[0].main=${DOMAIN}.duckdns.org

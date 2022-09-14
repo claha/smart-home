@@ -4,3 +4,7 @@ http:
     auth:
       basicAuth:
         usersFile: /etc/traefik/.htpasswd
+    sslheader:
+      headers:
+        customrequestheaders:
+          X-Forwarded-Proto: https
