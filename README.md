@@ -141,33 +141,6 @@ Used to control Zigbee devices via MQTT. There is a bug in Docker which selects
 the wrong image architecture for Raspberry Pi 1 and Zero. Since this currently
 runs on a Zero the platform is explicitly set in the docker-compose file.
 
-## ZNC
-
-ZNC is an IRC (Internet Relay Chat) bouncer. Before starting the container the
-first time, create a `config` directory next to the `docker-compose.yaml` file.
-Then pull and start the container. After the container has been started, log in
-(username admin, password admin) through the web ui and change the password
-under `User Settings`. Then stop the container and open the file
-`config/configs/znc.conf` and enable SSL by adding/changing to `SSL = true` in
-the `<Listener>` part of the configuration. Start the container again and start
-adding networks and channels using the web ui. ZNC uses modules to enrich the
-experience, here are a few that could be useful to enable. These can be found
-under `Global Settings` and/or `Your Settings`.
-
-- adminlog
-- chansaver
-- controlpanel
-- log
-- nickserv
-- simple_away
-
-There are lot more settings that can be changed, some that could be good to look
-into are.
-
-- AutoClearChanBuffer
-- AutoClearQueryBuffer
-- BufferSize
-
 ## Syncthing
 
 Syncthing is a continuous file synchronization program. Before starting the
