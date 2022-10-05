@@ -11,6 +11,8 @@ homeassistant/config/secrets.yaml
 homeassistant/config/sensor/fund.yaml
 homeassistant/config/sensor/stock.yaml
 homeassistant/config/tts/
+homepage/.env
+homepage/config/logs/
 mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/

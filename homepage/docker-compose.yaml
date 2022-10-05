@@ -1,0 +1,26 @@
+---
+version: "3"
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:v0.4.4
+    container_name: homepage
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - proxy
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.homepage.rule=Host(`homepage.${DOMAIN}.duckdns.org`)
+      - traefik.http.routers.homepage.tls=true
+      - traefik.http.routers.homepage.service=homepage
+      - traefik.http.services.homepage.loadbalancer.server.port=3000
+
+networks:
+  proxy:
+    external: true
