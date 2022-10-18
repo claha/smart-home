@@ -22,14 +22,11 @@ jobs:
   home-assistant:
     name: Check home assistant configuration
     runs-on: ubuntu-latest
-    env:
-      HA_TAG: 2022.10.3
     steps:
       - uses: actions/checkout@v3.0.2
-      - run: grep $HA_TAG homeassistant/docker-compose.yaml
       - run: |
+          HA_TAG=$(grep image homeassistant/docker-compose.yaml | cut -d: -f3)
           docker pull homeassistant/home-assistant:$HA_TAG
-      - run: |
           echo "---" > secrets.yaml
           echo "ping_info_screen_ip: 0.0.0.0" >> secrets.yaml
           echo "ping_mosquitto_ip: 0.0.0.0" >> secrets.yaml
@@ -49,7 +46,6 @@ jobs:
           echo "xiaomi_wireless_switch_0_discovery_id_action_double: 0x00 action_double" >> secrets.yaml
           echo "xiaomi_wireless_switch_0_discovery_id_action_hold: 0x00 action_hold" >> secrets.yaml
           mv secrets.yaml homeassistant/config/secrets.yaml
-      - run: |
           docker run --rm --volume $PWD/homeassistant/config:/config \
           homeassistant/home-assistant:$HA_TAG \
           hass --config /config --script check_config
