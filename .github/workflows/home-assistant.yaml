@@ -21,3 +21,42 @@ jobs:
           docker run --rm --volume $PWD/config:/config \
           homeassistant/home-assistant:$HA_TAG \
           hass --config /config --script check_config
+
+  home-assistant-latest:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - working-directory: homeassistant
+        run: |
+          mv config/secrets.fake.yaml config/secrets.yaml
+
+          docker run --rm --volume $PWD/config:/config \
+          homeassistant/home-assistant:latest \
+          hass --config /config --script check_config
+
+  home-assistant-rc:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - working-directory: homeassistant
+        run: |
+          mv config/secrets.fake.yaml config/secrets.yaml
+
+          docker run --rm --volume $PWD/config:/config \
+          homeassistant/home-assistant:rc \
+          hass --config /config --script check_config
+
+  home-assistant-dev:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - working-directory: homeassistant
+        run: |
+          mv config/secrets.fake.yaml config/secrets.yaml
+
+          docker run --rm --volume $PWD/config:/config \
+          homeassistant/home-assistant:dev \
+          hass --config /config --script check_config
