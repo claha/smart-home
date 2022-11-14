@@ -1,0 +1,23 @@
+---
+name: Run home-assistant checks
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  home-assistant:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - working-directory: homeassistant
+        run: |
+          HA_TAG=$(grep image docker-compose.yaml | cut -d: -f3)
+
+          mv config/secrets.fake.yaml config/secrets.yaml
+
+          docker run --rm --volume $PWD/config:/config \
+          homeassistant/home-assistant:$HA_TAG \
+          hass --config /config --script check_config
