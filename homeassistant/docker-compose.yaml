@@ -3,7 +3,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/home-assistant:2022.12.1
+    image: homeassistant/home-assistant:2023.1.1
     environment:
       TZ: Europe/Stockholm
     network_mode: host
