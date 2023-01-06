@@ -10,7 +10,12 @@ from datetime import datetime, timedelta
 import homeassistant.helpers.config_validation as cv
 import pyavanza
 import voluptuous as vol
-from homeassistant.components.sensor import PLATFORM_SCHEMA
+from homeassistant.components.sensor import (
+    PLATFORM_SCHEMA,
+    SensorDeviceClass,
+    SensorEntity,
+    SensorStateClass,
+)
 from homeassistant.const import (
     CONF_CURRENCY,
     CONF_ID,
@@ -18,7 +23,6 @@ from homeassistant.const import (
     CONF_NAME,
 )
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
-from homeassistant.helpers.entity import Entity
 
 from custom_components.avanza_stock.const import (
     CHANGE_PERCENT_PRICE_MAPPING,
@@ -36,6 +40,7 @@ from custom_components.avanza_stock.const import (
     MONITORED_CONDITIONS_DEFAULT,
     MONITORED_CONDITIONS_DIVIDENDS,
     MONITORED_CONDITIONS_KEYRATIOS,
+    MONITORED_CONDITIONS_QUOTE,
     TOTAL_CHANGE_PRICE_MAPPING,
 )
 
@@ -138,7 +143,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     async_add_entities(entities, True)
 
 
-class AvanzaStockSensor(Entity):
+class AvanzaStockSensor(SensorEntity):
     """Representation of a Avanza Stock sensor."""
 
     def __init__(
@@ -202,6 +207,16 @@ class AvanzaStockSensor(Entity):
         """Return the unique id."""
         return f"{self._stock}_stock"
 
+    @property
+    def state_class(self):
+        """Return the state class."""
+        return SensorStateClass.MEASUREMENT
+
+    @property
+    def device_class(self):
+        """Return the device class."""
+        return SensorDeviceClass.MONETARY
+
     async def async_update(self):
         """Update state and attributes."""
         data = await pyavanza.get_stock_async(self._session, self._stock)
@@ -220,10 +235,10 @@ class AvanzaStockSensor(Entity):
                 self._unit_of_measurement = self._currency
 
     def _update_state(self, data):
-        self._state = data["lastPrice"]
+        self._state = data["quote"]["last"]
 
     def _update_unit_of_measurement(self, data):
-        self._unit_of_measurement = data["currency"]
+        self._unit_of_measurement = data["listing"]["currency"]
 
     def _update_state_attributes(self, data):
         for condition in self._monitored_conditions:
@@ -231,6 +246,8 @@ class AvanzaStockSensor(Entity):
                 self._update_key_ratios(data, condition)
             elif condition in MONITORED_CONDITIONS_COMPANY:
                 self._update_company(data, condition)
+            elif condition in MONITORED_CONDITIONS_QUOTE:
+                self._update_quote(data, condition)
             elif condition == "dividends":
                 self._update_dividends(data)
             else:
@@ -240,7 +257,7 @@ class AvanzaStockSensor(Entity):
                 for (change, price) in CHANGE_PRICE_MAPPING:
                     if price in data:
                         self._state_attributes[change] = round(
-                            data["lastPrice"] - data[price], 2
+                            data["quote"]["last"] - data[price], 2
                         )
                     else:
                         self._state_attributes[change] = "unknown"
@@ -249,7 +266,7 @@ class AvanzaStockSensor(Entity):
                     for (change, price) in TOTAL_CHANGE_PRICE_MAPPING:
                         if price in data:
                             self._state_attributes[change] = round(
-                                self._shares * (data["lastPrice"] - data[price]), 2
+                                self._shares * (data["quote"]["last"] - data[price]), 2
                             )
                         else:
                             self._state_attributes[change] = "unknown"
@@ -258,7 +275,7 @@ class AvanzaStockSensor(Entity):
                 for (change, price) in CHANGE_PERCENT_PRICE_MAPPING:
                     if price in data:
                         self._state_attributes[change] = round(
-                            100 * (data["lastPrice"] - data[price]) / data[price], 2
+                            100 * (data["quote"]["last"] - data[price]) / data[price], 2
                         )
                     else:
                         self._state_attributes[change] = "unknown"
@@ -266,13 +283,13 @@ class AvanzaStockSensor(Entity):
         if self._shares is not None:
             self._state_attributes["shares"] = self._shares
             self._state_attributes["totalValue"] = round(
-                self._shares * data["lastPrice"], 2
+                self._shares * data["quote"]["last"], 2
             )
             self._state_attributes["totalChange"] = round(
-                self._shares * data["change"], 2
+                self._shares * data["quote"]["change"], 2
             )
 
-        self._update_profit_loss(data["lastPrice"])
+        self._update_profit_loss(data["quote"]["last"])
 
     def _update_key_ratios(self, data, attr):
         key_ratios = data.get("keyRatios", {})
@@ -281,6 +298,10 @@ class AvanzaStockSensor(Entity):
     def _update_company(self, data, attr):
         company = data.get("company", {})
         self._state_attributes[attr] = company.get(attr, None)
+
+    def _update_quote(self, data, attr):
+        quote = data.get("quote", {})
+        self._state_attributes[attr] = quote.get(attr, None)
 
     def _update_profit_loss(self, price):
         if self._purchase_date is not None:
@@ -300,7 +321,7 @@ class AvanzaStockSensor(Entity):
                 )
 
     def _update_conversion_rate(self, data):
-        rate = data["lastPrice"]
+        rate = data["quote"]["last"]
         if self._invert_conversion_currency:
             rate = 1.0 / rate
         self._state = round(self._state * rate, 2)
