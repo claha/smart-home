@@ -1,6 +1,8 @@
 !pihole/etc-pihole/adlists.list
+.env
 .venv
 __pycache__
+diun/data
 homeassistant/config/*.log*
 homeassistant/config/.HA_VERSION
 homeassistant/config/.storage/
@@ -9,14 +11,12 @@ homeassistant/config/secrets.yaml
 homeassistant/config/sensor/fund.yaml
 homeassistant/config/sensor/stock.yaml
 homeassistant/config/tts/
-homepage/.env
 homepage/config/logs/
 mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
 pihole/etc-pihole/*
 syncthing/config/
-traefik/.env
 traefik/.htpasswd
 traefik/acme.json
 traefik/log/

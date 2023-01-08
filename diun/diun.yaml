@@ -1,0 +1,13 @@
+---
+watch:
+  workers: 1
+  schedule: "0 11 * * *"
+  firstCheckNotif: true
+
+providers:
+  file:
+    filename: config.yaml
+
+notif:
+  telegram:
+    templateBody: New tag {{ .Entry.Image }}.

@@ -1,0 +1,17 @@
+---
+version: "3.5"
+
+services:
+  diun:
+    image: crazymax/diun:4.24.0
+    container_name: diun
+    command: serve
+    volumes:
+      - ./data:/data
+      - ./diun.yaml:/diun.yaml:ro
+      - ./config.yaml:/config.yaml:ro
+    environment:
+      - "TZ=Europe/Stockholm"
+      - "DIUN_NOTIF_TELEGRAM_TOKEN=${TELEGRAM_TOKEN}"
+      - "DIUN_NOTIF_TELEGRAM_CHATIDS=${TELEGRAM_CHATIDS}"
+    restart: unless-stopped
