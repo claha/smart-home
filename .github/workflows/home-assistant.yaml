@@ -5,6 +5,8 @@ on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - main
+    paths:
+      - homeassistant/**
   pull_request:
 
 jobs:
