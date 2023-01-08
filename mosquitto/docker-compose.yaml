@@ -3,7 +3,7 @@ version: '3'
 services:
   mosquitto:
     container_name: mosquitto
-    image: eclipse-mosquitto:1.6.12
+    image: eclipse-mosquitto:2.0.15
     environment:
       TZ: Europe/Stockholm
     user: 1000:1000
