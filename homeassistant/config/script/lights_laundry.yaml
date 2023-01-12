@@ -18,7 +18,7 @@ lights_laundry_on:
           - light.tradfri_bulb_2
       data:
         transition: 10
-        brightness_pct: 100
+        brightness_pct: 90
 
 
 lights_laundry_dim:
@@ -44,22 +44,3 @@ lights_laundry_off:
           - light.tradfri_bulb_2
       data:
         transition: 10
-
-
-lights_laundry_toggle:
-  alias: Lights laundry toggle
-  description: Toggle all lights in the laundry
-  sequence:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_laundry
-              state: "on"
-          sequence:
-            - service: script.lights_laundry_off
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_laundry
-              state: "off"
-          sequence:
-            - service: script.lights_laundry_on

@@ -58,7 +58,7 @@
 
   trigger:
     platform: state
-    entity_id: binary_sensor.lights_bedroom
+    entity_id: binary_sensor.lights_master_bedroom
     from: "off"
     to: "on"
 

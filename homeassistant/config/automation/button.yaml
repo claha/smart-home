@@ -10,43 +10,7 @@
       discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_single
 
   action:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Kitchen"
-          sequence:
-            - service: script.lights_kitchen_toggle
-        - conditions:
-            - condition: state
-              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Living Room"
-          sequence:
-            - service: script.lights_living_room_toggle
-        - conditions:
-            - condition: state
-              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Bedroom"
-          sequence:
-            - service: script.lights_bedroom_toggle
-        - conditions:
-            - condition: state
-              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Guest Room"
-          sequence:
-            - service: script.lights_guest_room_toggle
-        - conditions:
-            - condition: state
-              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Master Bedroom"
-          sequence:
-            - service: script.lights_master_bedroom_toggle
-        - conditions:
-            - condition: state
-              entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-              state: "Office"
-          sequence:
-            - service: script.lights_office_toggle
+    - service: script.lights_office_on
 
 
 - alias: "Xiaomi Wirless Switch 0: Action double"
@@ -60,12 +24,7 @@
       discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_double
 
   action:
-    - service: script.lights_kitchen_toggle
-    - service: script.lights_living_room_toggle
-    - service: script.lights_bedroom_toggle
-    - service: script.lights_guest_room_toggle
-    - service: script.lights_master_bedroom_toggle
-    - service: script.lights_office_toggle
+    - service: script.lights_office_off
 
 - alias: "Xiaomi Wirless Switch 0: Action hold"
 
@@ -78,11 +37,7 @@
       discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_hold
 
   action:
-    - service: input_select.select_next
-      target:
-        entity_id: input_select.xiaomi_wireless_switch_0_room_light_ctrl
-      data:
-        cycle: true
+    - service: script.lights_office_off
 
 - alias: "TRADFRI Shortcut Button 0: Action on"
 
@@ -95,4 +50,17 @@
       discovery_id: !secret tradfri_shourtcut_button_0_action_on
 
   action:
-    - service: script.lights_office_toggle
+    - service: script.lights_master_bedroom_dim
+
+- alias: "TRADFRI Shortcut Button 0: Action up"
+
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: !secret tradfri_shourtcut_button_0_device_id
+      type: action
+      subtype: "brightness_stop"
+      discovery_id: !secret tradfri_shourtcut_button_0_action_brightness_stop
+
+  action:
+    - service: script.lights_master_bedroom_on

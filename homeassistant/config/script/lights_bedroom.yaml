@@ -17,22 +17,3 @@ lights_bedroom_off:
       target:
         entity_id:
           - switch.tradfri_control_outlet_3
-
-
-lights_bedroom_toggle:
-  alias: Lights bedroom toggle
-  description: Toggle all lights in the bedroom
-  sequence:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_bedroom
-              state: "on"
-          sequence:
-            - service: script.lights_bedroom_off
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_bedroom
-              state: "off"
-          sequence:
-            - service: script.lights_bedroom_on

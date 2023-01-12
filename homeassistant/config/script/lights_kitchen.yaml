@@ -15,22 +15,3 @@ lights_kitchen_off:
     - service: switch.turn_off
       target:
         entity_id: switch.osram_smart_plug_1
-
-
-lights_kitchen_toggle:
-  alias: Lights kitchen toggle
-  description: Toggle all lights in the kitchen
-  sequence:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_kitchen
-              state: "on"
-          sequence:
-            - service: script.lights_kitchen_off
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_kitchen
-              state: "off"
-          sequence:
-            - service: script.lights_kitchen_on

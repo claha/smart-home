@@ -31,7 +31,7 @@ lights_master_bedroom_dim:
           - light.tradfri_bulb_0
       data:
         transition: 10
-        brightness_pct: 10
+        brightness_pct: 1
 
 
 lights_master_bedroom_off:
@@ -44,22 +44,3 @@ lights_master_bedroom_off:
           - light.tradfri_bulb_0
       data:
         transition: 10
-
-
-lights_master_bedroom_toggle:
-  alias: Lights master bedroom toggle
-  description: Toggle all lights in the master bedroom
-  sequence:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_master_bedroom
-              state: "on"
-          sequence:
-            - service: script.lights_master_bedroom_off
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_master_bedroom
-              state: "off"
-          sequence:
-            - service: script.lights_master_bedroom_on

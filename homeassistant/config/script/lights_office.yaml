@@ -17,22 +17,3 @@ lights_office_off:
       target:
         entity_id:
           - switch.tradfri_control_outlet_2
-
-
-lights_office_toggle:
-  alias: Lights office toggle
-  description: Toggle all lights in the office
-  sequence:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_office
-              state: "on"
-          sequence:
-            - service: script.lights_office_off
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.lights_office
-              state: "off"
-          sequence:
-            - service: script.lights_office_on
