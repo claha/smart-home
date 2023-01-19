@@ -6,6 +6,13 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
+- name: amir20/dozzle
+  watch_repo: true
+  max_tags: 2
+  sort_tags: semver
+  include_tags:
+    - ^v[\d+\.]+\d+$
+
 - name: homeassistant/home-assistant
   watch_repo: true
   max_tags: 2
@@ -20,7 +27,7 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: eclipse-mosquitto:1.6.12
+- name: eclipse-mosquitto
   watch_repo: true
   max_tags: 2
   sort_tags: semver
