@@ -13,6 +13,13 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
+- name: nicolargo/glances
+  watch_repo: true
+  max_tags: 2
+  sort_tags: semver
+  include_tags:
+    - ^[\d+\.]+\d+$
+
 - name: homeassistant/home-assistant
   watch_repo: true
   max_tags: 2
