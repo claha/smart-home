@@ -14,3 +14,7 @@ services:
       - ./data:/mosquitto/data
       - ./log:/mosquitto/log
     restart: always
+    labels:
+      - homepage.group=House
+      - homepage.name=mosquitto
+      - homepage.icon=mqtt
