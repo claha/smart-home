@@ -9,5 +9,10 @@ services:
     volumes:
       - /var/lib:/var/lib
       - /dev/net/tun:/dev/net/tun
+    labels:
+      - homepage.group=Network
+      - homepage.name=Tailscale
+      - homepage.icon=tailscale
+      - homepage.href=https://login.tailscale.com
     restart: unless-stopped
     command: tailscaled
