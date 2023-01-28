@@ -48,6 +48,13 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
+- name: tailscale/tailscale
+  watch_repo: true
+  max_tags: 2
+  sort_tags: semver
+  include_tags:
+    - ^v[\d+\.]+\d+$
+
 - name: traefik
   watch_repo: true
   max_tags: 2
