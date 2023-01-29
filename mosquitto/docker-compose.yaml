@@ -15,6 +15,6 @@ services:
       - ./log:/mosquitto/log
     restart: always
     labels:
-      - homepage.group=House
-      - homepage.name=mosquitto
+      - homepage.group=Smart Home
+      - homepage.name=Mosquitto
       - homepage.icon=mqtt
