@@ -3,7 +3,7 @@ version: '3'
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:2023.01.6
+    image: pihole/pihole:2023.01.10
     environment:
       TZ: Europe/Stockholm
     ports:
@@ -12,4 +12,5 @@ services:
       - 80:80/tcp
     volumes:
       - ./etc-pihole:/etc/pihole
+      - ./etc-dnsmasq.d:/etc/dnsmasq.d
     restart: unless-stopped
