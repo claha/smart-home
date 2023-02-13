@@ -10,4 +10,4 @@ providers:
 
 notif:
   telegram:
-    templateBody: New tag {{ .Entry.Image }}.
+    templateBody: New {{ .Entry.Image }}.

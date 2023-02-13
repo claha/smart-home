@@ -1,70 +1,90 @@
 ---
 - name: crazymax/diun
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^[\d+\.]+\d+$
 
 - name: amir20/dozzle
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^v[\d+\.]+\d+$
 
 - name: nicolargo/glances
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^[\d+\.]+\d+$
 
 - name: homeassistant/home-assistant
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^[\d+\.]+\d+$
 
 - name: ghcr.io/benphelps/homepage
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^v[\d+\.]+\d+$
 
 - name: eclipse-mosquitto
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^[\d+\.]+\d+$
 
 - name: pihole/pihole
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^[\d+\.]+\d+$
 
 - name: tailscale/tailscale
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^v[\d+\.]+\d+$
 
 - name: traefik
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^v[\d+\.]+\d+$
 
 - name: koenkk/zigbee2mqtt
   watch_repo: true
-  max_tags: 20
+  max_tags: 50
   sort_tags: semver
+  notify_on:
+    - new
   include_tags:
     - ^[\d+\.]+\d+$
