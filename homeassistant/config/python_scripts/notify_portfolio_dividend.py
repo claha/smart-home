@@ -33,7 +33,7 @@ def get_value(entity, value_key):
 
 
 def to_string(data):
-    """Convert óbject to string, potentially format."""
+    """Convert object to string, potentially format."""
     if isinstance(data, float):
         return "{:.2f}".format(data)
     if isinstance(data, int):
@@ -66,24 +66,22 @@ dividends = []
 for entity_id in stocks:
     entity = get_entity(entity_id)
 
-    for payment_date in [
-        "dividend0_paymentDate",
-        "dividend1_paymentDate",
-        "dividend2_paymentDate",
-    ]:
-        if payment_date not in entity.attributes:
-            break
-        date = entity.attributes[payment_date]
-        if date == "unknown":
-            break
-        name = entity.attributes["name"]
-        amount_per_share = get_value(
-            entity, payment_date.split("_")[0] + "_amountPerShare"
-        )
-        shares = entity.attributes["shares"]
-        if report == TODAY and date != today:
-            continue
-        dividends.append((date, name, to_string(amount_per_share * shares)))
+    if "dividend_paymentDate" not in entity.attributes:
+        continue
+
+    date = entity.attributes["dividend_paymentDate"]
+    if date == "unknown":
+        continue
+
+    name = entity.attributes["name"]
+    amount = get_value(entity, "dividend_amount")
+    shares = entity.attributes["shares"]
+    status = entity.attributes["dividend_exDateStatus"]
+    if report == TODAY and date != today:
+        continue
+    if report != TODAY and status == "HISTORICAL":
+        continue
+    dividends.append((date, name, to_string(amount * shares)))
 
 dividends.sort()
 
