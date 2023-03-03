@@ -2,11 +2,9 @@
 version: "3"
 services:
   homepage:
-    image: ghcr.io/benphelps/homepage:v0.6.2
+    image: ghcr.io/benphelps/homepage:v0.6.10
     container_name: homepage
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Europe/Stockholm
     volumes:
       - ./config:/app/config
