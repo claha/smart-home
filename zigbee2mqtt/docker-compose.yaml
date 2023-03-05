@@ -3,7 +3,7 @@ version: '3'
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.28.1
+    image: koenkk/zigbee2mqtt:1.30.2
     platform: linux/arm/v6
     environment:
       - TZ=Europe/Stockholm
@@ -12,4 +12,4 @@ services:
       - ./data:/app/data
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
-    restart: always
+    restart: unless-stopped
