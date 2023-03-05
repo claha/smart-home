@@ -8,6 +8,7 @@ lights_living_room_on:
         entity_id:
           - switch.osram_smart_plug_0
           - switch.tradfri_control_outlet_0
+          - switch.shelly_plug_s_1
 
 
 lights_living_room_off:
@@ -19,3 +20,4 @@ lights_living_room_off:
         entity_id:
           - switch.osram_smart_plug_0
           - switch.tradfri_control_outlet_0
+          - switch.shelly_plug_s_1
