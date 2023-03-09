@@ -45,7 +45,7 @@ state of the TV to keep lights on longer and then turn them off (TBA).
 
 The sun elevation reaches its minimum value at midnight (a negative number larger
 than -90) and typically during midday the sun elevation is at its maximum (a
-postive number smaller than 90) and then decreases until it reaches its miniumum
+positive number smaller than 90) and then decreases until it reaches its minimum
 again at midnight.
 
 | Turn on                | Turn off                |

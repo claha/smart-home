@@ -24,7 +24,7 @@ Connect to the running container (in another terminal) using.
 docker exec -it mosquito sh
 ```
 
-When connected to the container run the follwing command and follow the
+When connected to the container run the following command and follow the
 instructions to created a password file.
 
 ```bash

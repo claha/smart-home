@@ -49,6 +49,16 @@ repos:
     hooks:
       - id: ruff
 
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.4
+    hooks:
+      - id: codespell
+        args:
+          - --ignore-words-list
+          - hass
+          - --ignore-regex
+          - \\n
+
   - repo: https://github.com/iamthefij/docker-pre-commit
     rev: v2.1.1
     hooks:
