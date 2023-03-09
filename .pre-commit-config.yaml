@@ -44,6 +44,11 @@ repos:
         args:
           - --max-line-length=88
 
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.254
+    hooks:
+      - id: ruff
+
   - repo: https://github.com/iamthefij/docker-pre-commit
     rev: v2.1.1
     hooks:
