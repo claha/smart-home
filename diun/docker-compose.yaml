@@ -14,4 +14,8 @@ services:
       - "TZ=Europe/Stockholm"
       - "DIUN_NOTIF_TELEGRAM_TOKEN=${TELEGRAM_TOKEN}"
       - "DIUN_NOTIF_TELEGRAM_CHATIDS=${TELEGRAM_CHATIDS}"
+    labels:
+      - homepage.group=Monitor
+      - homepage.name=Diun
+      - homepage.icon=docker
     restart: unless-stopped
