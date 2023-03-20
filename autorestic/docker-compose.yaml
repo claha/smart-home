@@ -1,0 +1,19 @@
+---
+version: "3.8"
+services:
+  autorestic:
+    image: cupcakearmy/autorestic:1.7.4
+    container_name: autorestic
+    volumes:
+      - ../:/data
+    environment:
+      - AUTORESTIC_BACKBLAZE_B2_ACCOUNT_ID=${B2_ACCOUNT_ID}
+      - AUTORESTIC_BACKBLAZE_B2_ACCOUNT_KEY=${B2_ACCOUNT_KEY}
+      - AUTORESTIC_BACKBLAZE_RESTIC_PASSWORD=${AUTORESTIC_BACKBLAZE_KEY}
+    command:
+      - autorestic
+      - backup
+      - --all
+      - --config
+      - /data/autorestic/config.yaml
+      - --verbose

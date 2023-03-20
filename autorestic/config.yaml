@@ -1,0 +1,20 @@
+---
+version: 2
+
+backends:
+  backblaze:
+    type: b2
+    path: home-assistant-bucket
+
+locations:
+  homeassistant:
+    from:
+      - /data/homeassistant
+    to:
+      - backblaze
+    forget: prune
+    options:
+      backup:
+        exclude-file: /data/.gitignore
+      forget:
+        keep-last: 1

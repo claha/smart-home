@@ -1,4 +1,5 @@
 !pihole/etc-pihole/adlists.list
+.autorestic.lock.yml
 .env
 .venv
 __pycache__
