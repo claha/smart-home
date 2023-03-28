@@ -87,3 +87,14 @@
 
   action:
     service: python_script.notify_garage_door_state
+
+- alias: "Notify: Garbage day"
+
+  trigger:
+    - platform: time
+      at: "06:00"
+    - platform: time
+      at: "20:00"
+
+  action:
+    - service: python_script.notify_garbage_day
