@@ -17,6 +17,7 @@ mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
 pihole/etc-pihole/*
+speedtest-tracker/config/
 syncthing/config/
 traefik/.htpasswd
 traefik/acme.json
