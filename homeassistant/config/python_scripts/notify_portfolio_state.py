@@ -162,7 +162,7 @@ for data in message_data:
 
 message = "<b>{}Portfolio{}</b><code>\n".format(title_prefix, title_suffix)
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
-for (name, change_percent, total_change) in message_data:
+for name, change_percent, total_change in message_data:
     change_percent = change_percent.rjust(message_data_len[1] + 1)
     total_change = total_change.rjust(message_data_len[2] + 1)
     name = adjust_lenght(
@@ -176,7 +176,7 @@ message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
 message = message + "Total Value: {}\n".format(summary_data[0])
 message = message + "Total Change: {} ({})\n".format(summary_data[1], summary_data[2])
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
-for (name, change_percent) in index_data:
+for name, change_percent in index_data:
     change_percent = change_percent.rjust(message_data_len[1] + 1)
     name = adjust_lenght(name, MESSAGE_MAX_WIDTH - len(change_percent))
     space = " " * (MESSAGE_MAX_WIDTH - len(name) - len(change_percent))

@@ -88,7 +88,7 @@ dividends.sort()
 # Create message
 message = "<b>{}</b><code>\n".format(title)
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
-for (date, name, amount) in dividends:
+for date, name, amount in dividends:
     date = date.ljust(len(date) + 1)
     amount = amount.rjust(len("10000.00") + 1)
     name = adjust_lenght(name, MESSAGE_MAX_WIDTH - len(date) - len(amount))
