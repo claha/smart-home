@@ -1,4 +1,13 @@
 ---
+- name: cupcakearmy/autorestic
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^[\d+\.]+\d+$
+
 - name: crazymax/diun
   watch_repo: true
   max_tags: 50
@@ -44,7 +53,25 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
+- name: jellyfin/jellyfin
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^[\d+\.]+\d+$
+
 - name: eclipse-mosquitto
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^[\d+\.]+\d+$
+
+- name: deluan/navidrome
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -61,6 +88,15 @@
     - new
   include_tags:
     - ^[\d+\.]+\d+$
+
+- name: ghcr.io/alexjustesen/speedtest-tracker
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^v[\d+\.]+\d+$
 
 - name: tailscale/tailscale
   watch_repo: true
