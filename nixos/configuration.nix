@@ -97,6 +97,21 @@
         };
         extraOptions = [ "--network=host" ];
       };
+
+      jellyfin = {
+        autoStart = true;
+        image = "jellyfin/jellyfin:10.8.9";
+        volumes = [
+          "/etc/jellyfin/config:/config"
+          "/etc/jellyfin/cache:/cache"
+          "/etc/jellyfin/log:/log"
+          "/media:/media"
+        ];
+        ports = [ "8096:8096" ];
+        environment = {
+          JELLYFIN_LOG_DIR = "/log";
+        };
+      };
     };
   };
 
