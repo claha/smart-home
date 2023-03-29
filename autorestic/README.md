@@ -3,5 +3,5 @@
 Wrapper around restic using config file. Run with
 
 ```bash
-docker compose up
+docker compose run autorestic /data/autorestic/backup.sh
 ```

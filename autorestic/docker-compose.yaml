@@ -12,8 +12,4 @@ services:
       - AUTORESTIC_BACKBLAZE_RESTIC_PASSWORD=${AUTORESTIC_BACKBLAZE_KEY}
     command:
       - autorestic
-      - backup
-      - --all
-      - --config
-      - /data/autorestic/config.yaml
-      - --verbose
+      - --help
