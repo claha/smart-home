@@ -2,12 +2,14 @@
 version: "3"
 services:
   dozzle:
-    image: amir20/dozzle:v4.8.1
+    image: amir20/dozzle:v4.9.1
     container_name: dozzle
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - proxy
+    environment:
+      DOZZLE_LEVEL: debug
     restart: unless-stopped
     labels:
       - traefik.enable=true
