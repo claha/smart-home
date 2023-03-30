@@ -19,6 +19,13 @@
   # Configure networking
   networking.hostName = "asus-nixos";
   networking.networkmanager.enable = true;
+  networking.interfaces = {
+    enp4s0 = {
+      wakeOnLan = {
+        enable = true;
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
