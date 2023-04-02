@@ -17,6 +17,9 @@ repos:
         files: .gitignore
         args:
           - --unique
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: detect-private-key
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.30.0
