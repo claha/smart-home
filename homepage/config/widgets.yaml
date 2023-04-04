@@ -3,3 +3,6 @@
     cpu: true
     memory: true
     disk: /
+    cputemp: true
+    uptime: true
+    units: metric
