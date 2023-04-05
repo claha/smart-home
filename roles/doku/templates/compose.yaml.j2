@@ -1,0 +1,11 @@
+---
+services:
+  doku:
+    image: amerkurev/doku:v0.0.16
+    container_name: doku
+    ports:
+      - 9090:9090
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /:/hostroot:ro
+    restart: unless-stopped

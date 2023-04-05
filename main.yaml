@@ -106,6 +106,8 @@
       tags: never, dashdot
     - role: diun
       tags: never, diun
+    - role: doku
+      tags: never, doku
     - role: dozzle
       tags: never, dozzle
     - role: duckdns
@@ -202,3 +204,5 @@
       tags: dashdot
     - role: monocker
       tags: monocker
+    - role: doku
+      tags: doku
