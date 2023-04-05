@@ -1,0 +1,5 @@
+---
+- platform: wake_on_lan
+  name: NixOS Media Server
+  mac: !secret nixos_media_server_mac
+  host: !secret nixos_media_server_host
