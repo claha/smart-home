@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let
+  secrets = import ./secrets.nix { inherit config pkgs; };
+in
 {
   imports =
     [
@@ -122,6 +125,46 @@
     };
   };
 
+  # Configure acme
+  security.acme = {
+    acceptTerms = true;
+    defaults = {
+      email = "${secrets.email}";
+      dnsProvider = "${secrets.dnsProvider}";
+      credentialsFile = "${secrets.credentialsFile}";
+    };
+    certs."${secrets.domain}" = {
+      domain = "${secrets.domain}";
+      extraDomainNames = [ "*.${secrets.domain}" ];
+    };
+  };
+
+  # Set up nginx
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    virtualHosts = {
+      "navidrome.${secrets.domain}" = {
+        useACMEHost = "${secrets.domain}";
+        acmeRoot = null;
+        forceSSL = true;
+        locations."/" = { proxyPass = "http://127.0.0.1:4533"; proxyWebsockets = true; };
+      };
+      "jellyfin.${secrets.domain}" = {
+        useACMEHost = "${secrets.domain}";
+        acmeRoot = null;
+        forceSSL = true;
+        locations."/" = { proxyPass = "http://127.0.0.1:8096"; proxyWebsockets = true; };
+      };
+    };
+  };
+
+  # The nginx user needs to be able to read certificates
+  users.users.nginx.extraGroups = [ "acme" ];
+
   # Handle lid closing.
   services.logind.lidSwitch = "ignore";
   services.logind.lidSwitchDocked = "ignore";
@@ -129,10 +172,11 @@
   # Enable and configure the firewall.
   networking.firewall = {
     enable = true;
+    # 80, 443: nginx proxy manager
     # 1400: Sonos app control
     # 4533: bonob (perhaps not needed, handled by docker config?)
     # 4534: Navidrom (perhaps not needed, handled by docker config?)
-    allowedTCPPorts = [ 1400 4533 4534 ];
+    allowedTCPPorts = [ 80 443 1400 4533 4534 ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
   };

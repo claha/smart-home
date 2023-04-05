@@ -16,6 +16,7 @@ homepage/config/logs/
 mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
+nixos/secrets.nix
 pihole/etc-pihole/*
 speedtest-tracker/config/
 syncthing/config/
