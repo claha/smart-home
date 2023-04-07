@@ -18,29 +18,3 @@
     - name: Index OMX Stockholm GI
       id: 633079
       currency: points
-
-    - name: Index 3 man ranta
-      id: 18993
-      currency: points
-    - name: Index 6 man ranta
-      id: 18982
-      currency: points
-    - name: Index 5 ars ranta
-      id: 19001
-      currency: points
-    - name: Index 10 ars ranta
-      id: 18995
-      currency: points
-
-    - name: Index NASDAQ 100
-      id: 155541
-      currency: points
-    - name: Index DJ USA
-      id: 155458
-      currency: points
-    - name: Index Dow Jones
-      id: 18985
-      currency: points
-    - name: Index NASDAQ
-      id: 19006
-      currency: points
