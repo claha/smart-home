@@ -47,29 +47,6 @@
       datetime: input_datetime.lights_living_room_off_evening
       script: script.lights_living_room_off
 
-
-- alias: "Lights living room off auto"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.lights_living_room
-    from: "off"
-    to: "on"
-
-  condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.lights_auto_off
-          state: "on"
-        - condition: state
-          entity_id: binary_sensor.dark_outside
-          state: "off"
-
-  action:
-    service: script.lights_living_room_off
-
-
 - alias: "Lights living room on tv"
 
   trigger:

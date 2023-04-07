@@ -41,25 +41,3 @@
     input:
       datetime: input_datetime.lights_guest_room_off_evening
       script: script.lights_guest_room_off
-
-
-- alias: "Lights guest room off auto"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.lights_guest_room
-    from: "off"
-    to: "on"
-
-  condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.lights_auto_off
-          state: "on"
-        - condition: state
-          entity_id: binary_sensor.dark_outside
-          state: "off"
-
-  action:
-    service: script.lights_guest_room_off

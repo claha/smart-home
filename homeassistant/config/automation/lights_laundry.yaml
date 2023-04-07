@@ -105,25 +105,3 @@
 
   action:
     service: script.lights_laundry_off
-
-
-- alias: "Lights laundry off auto"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.lights_laundry
-    from: "off"
-    to: "on"
-
-  condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.lights_auto_off
-          state: "on"
-        - condition: state
-          entity_id: binary_sensor.dark_outside
-          state: "off"
-
-  action:
-    service: script.lights_laundry_off
