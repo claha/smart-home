@@ -35,15 +35,6 @@ lights_illuminance_off:
   unit_of_measurement: lx
   icon: mdi:brightness-5
 
-shower_humidity_threshold:
-  min: 0
-  max: 100
-  name: Shower humidity threshold
-  step: 1
-  mode: box
-  unit_of_measurement: "%"
-  icon: mdi:water-percent
-
 lights_laundry_timeout:
   min: 0
   max: 59
