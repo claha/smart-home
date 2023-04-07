@@ -4,7 +4,7 @@
     - name: Dark outside
       state: >
         {% set rising = state_attr("sun.sun", "rising") %}
-        {% set elevation = state_attr("sun.sun", "elevation") %}
+        {% set elevation = states("sensor.sun_solar_elevation")|float %}
         {% set up = states("input_number.lights_sun_elevation_up")|float %}
         {% set down = states("input_number.lights_sun_elevation_down")|float %}
         {% set illuminance = states("sensor.illuminance_sma30") %}
@@ -67,9 +67,3 @@
         {{
           is_state("light.bulb_rgbw_8b5534", "on")
         }}
-
-- sensor:
-    - name: Sun Elevation
-      unit_of_measurement: "°"
-      icon: mdi:angle-acute
-      state: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"

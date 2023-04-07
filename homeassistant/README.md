@@ -36,33 +36,3 @@ following resources to Configuration/Lovelace Dashboards/Resources.
 ## Automation
 
 Automations are written using `yaml`.
-
-### Lights
-
-The light automations are based on sun elevation and illuminance sensors and
-also timers as a fallback (using input_datetime). Some lights also utilises the
-state of the TV to keep lights on longer and then turn them off (TBA).
-
-The sun elevation reaches its minimum value at midnight (a negative number larger
-than -90) and typically during midday the sun elevation is at its maximum (a
-positive number smaller than 90) and then decreases until it reaches its minimum
-again at midnight.
-
-| Turn on                | Turn off                |
-|------------------------|-------------------------|
-|                        | Sun elevation above X°  |
-|                        | Illuminance above Xlx   |
-| Sun elevation below Y° |                         |
-| Illuminance below Ylx  |                         |
-|                        | Timer around bedtime    |
-
- 90 |        _....._
-    |     ,="       "=,
-    |   ,"             ",
--90 | ."                 ".
-        X               Y
-
-Currently an auto off automation handles the case when a light is turned on when
-elevation is above X° and the  sun is rising and when the elevation is above Y°
-and the sun is setting, i.e. when lights should not be needed to turn on since
-it is not dark outside.
