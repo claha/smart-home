@@ -3,9 +3,6 @@ ping:
   name: Ping
   all: true
   entities:
-    - binary_sensor.ping_zigbee2mqtt_host
-    - binary_sensor.ping_mosquitto_host
-    - binary_sensor.ping_info_screen_host
-    - binary_sensor.ping_qnap_host
-    - binary_sensor.ping_buffalo_host
+    - binary_sensor.ping_rpi3_host
+    - binary_sensor.ping_rpi4_host
   icon: mdi:server-network

@@ -1,20 +1,8 @@
 ---
 - platform: ping
-  host: !secret ping_zigbee2mqtt_ip
-  name: Ping Zigbee2Mqtt Host
+  host: !secret ping_rpi3_ip
+  name: Ping RPi3 Host
 
 - platform: ping
-  host: !secret ping_mosquitto_ip
-  name: Ping Mosquitto Host
-
-- platform: ping
-  host: !secret ping_info_screen_ip
-  name: Ping Info Screen Host
-
-- platform: ping
-  host: !secret ping_qnap_ip
-  name: Ping QNAP Host
-
-- platform: ping
-  host: !secret ping_buffalo_ip
-  name: Ping Buffalo Host
+  host: !secret ping_rpi4_ip
+  name: Ping RPi4 Host
