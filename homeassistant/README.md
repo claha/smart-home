@@ -1,9 +1,7 @@
 # Home Assistant
 
 The homeassistant folder contains my home assistant configuration and a
-docker-compose file to run it. Currently it is configured to run on a raspberry
-pi 3 but could easily be changed to appropriate hardware in the docker-compose
-file.
+compose file to run it.
 
 ## Integrations
 

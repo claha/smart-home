@@ -1,7 +1,7 @@
 # smart-home
 
 My smart home setup uses docker to run the different services.
-Each service has its own docker-compose file located in their respective folder.
+Each service has its own compose file located in their respective folder.
 
 To download (pull) and start the container run the following command.
 

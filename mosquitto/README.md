@@ -11,11 +11,11 @@ mkdir log data
 
 Also since there is no password file checked into git the line containing
 `password_file` in `config/mosquitto.conf` should be commented with a `#`. Also
-remove to read-only (`:ro`) restriction to the config folder in the
-docker-compose file. Then start the container with the following command.
+remove to read-only (`:ro`) restriction to the config folder in the compose
+file. Then start the container with the following command.
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Connect to the running container (in another terminal) using.
@@ -33,5 +33,5 @@ mosquitto_passwd -c /mosquitto/config/passwd <username>
 
 Use `exit` to disconnect from the contatiner and then `Ctrl+c` (in the other
 terminal) to kill the running container. Remember to restore the changes made
-to the mosquitto config file and the docker-compose file before starting the
-container again.
+to the mosquitto config file and the compose file before starting the container
+again.
