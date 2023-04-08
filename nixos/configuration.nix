@@ -6,6 +6,9 @@
 
 let
   secrets = import ./secrets.nix { inherit config pkgs; };
+  navidromePort = "4533";
+  bonobPort = "4534";
+  jellyfinPort = "8096";
 in
 {
   imports =
@@ -88,7 +91,7 @@ in
       navidrome = {
         autoStart = true;
         image = "deluan/navidrome:0.49.3";
-        ports = [ "4533:4533" ];
+        ports = [ "${navidromePort}:${navidromePort}" ];
         # environment = {}
         volumes = [
           "/etc/navidrome/data:/data"
@@ -98,12 +101,12 @@ in
       bonob = {
         autoStart = true;
         image = "simojenki/bonob:v0.6.5";
-        ports = [ "4534:4534" ];
+        ports = [ "${bonobPort}:${bonobPort}" ];
         environment = {
-          BNB_URL = "http://192.168.1.106:4534";
+          BNB_URL = "http://192.168.1.106:${bonobPort}";
           BNB_SONOS_AUTO_REGISTER = "true";
           BNB_SONOS_DEVICE_DISCOVERY = "true";
-          BNB_SUBSONIC_URL = "http://192.168.1.106:4533";
+          BNB_SUBSONIC_URL = "http://192.168.1.106:${navidromePort}";
         };
         extraOptions = [ "--network=host" ];
       };
@@ -117,7 +120,7 @@ in
           "/etc/jellyfin/log:/log"
           "/media:/media"
         ];
-        ports = [ "8096:8096" ];
+        ports = [ "${jellyfinPort}:${jellyfinPort}" ];
         environment = {
           JELLYFIN_LOG_DIR = "/log";
         };
@@ -151,13 +154,13 @@ in
         useACMEHost = "${secrets.domain}";
         acmeRoot = null;
         forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:4533"; proxyWebsockets = true; };
+        locations."/" = { proxyPass = "http://127.0.0.1:${navidromePort}"; proxyWebsockets = true; };
       };
       "jellyfin.${secrets.domain}" = {
         useACMEHost = "${secrets.domain}";
         acmeRoot = null;
         forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:8096"; proxyWebsockets = true; };
+        locations."/" = { proxyPass = "http://127.0.0.1:${jellyfinPort}"; proxyWebsockets = true; };
       };
     };
   };
@@ -174,9 +177,7 @@ in
     enable = true;
     # 80, 443: nginx proxy manager
     # 1400: Sonos app control
-    # 4533: bonob (perhaps not needed, handled by docker config?)
-    # 4534: Navidrom (perhaps not needed, handled by docker config?)
-    allowedTCPPorts = [ 80 443 1400 4533 4534 ];
+    allowedTCPPorts = [ 80 443 1400 ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
   };
