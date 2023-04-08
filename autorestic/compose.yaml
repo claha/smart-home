@@ -1,5 +1,4 @@
 ---
-version: "3.8"
 services:
   autorestic:
     image: cupcakearmy/autorestic:1.7.4

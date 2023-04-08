@@ -1,6 +1,4 @@
 ---
-version: "3.5"
-
 services:
   diun:
     image: crazymax/diun:4.24.0

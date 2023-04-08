@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
   syncthing:
     image: linuxserver/syncthing:v1.18.0-ls57

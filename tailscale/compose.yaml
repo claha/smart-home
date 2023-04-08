@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
   tailscale:
     image: tailscale/tailscale:v1.38.4
