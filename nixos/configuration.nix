@@ -6,9 +6,9 @@
 
 let
   secrets = import ./secrets.nix { inherit config pkgs; };
-  navidromePort = "4533";
-  bonobPort = "4534";
-  jellyfinPort = "8096";
+  navidromePort = 4533;
+  bonobPort = 4534;
+  jellyfinPort = 8096;
 in
 {
   imports =
@@ -91,7 +91,7 @@ in
       navidrome = {
         autoStart = true;
         image = "deluan/navidrome:0.49.3";
-        ports = [ "${navidromePort}:${navidromePort}" ];
+        ports = [ "${toString navidromePort}:${toString navidromePort}" ];
         # environment = {}
         volumes = [
           "/etc/navidrome/data:/data"
@@ -101,12 +101,12 @@ in
       bonob = {
         autoStart = true;
         image = "simojenki/bonob:v0.6.5";
-        ports = [ "${bonobPort}:${bonobPort}" ];
+        ports = [ "${toString bonobPort}:${toString bonobPort}" ];
         environment = {
-          BNB_URL = "http://192.168.1.106:${bonobPort}";
+          BNB_URL = "http://192.168.1.106:${toString bonobPort}";
           BNB_SONOS_AUTO_REGISTER = "true";
           BNB_SONOS_DEVICE_DISCOVERY = "true";
-          BNB_SUBSONIC_URL = "http://192.168.1.106:${navidromePort}";
+          BNB_SUBSONIC_URL = "http://192.168.1.106:${toString navidromePort}";
         };
         extraOptions = [ "--network=host" ];
       };
@@ -120,7 +120,7 @@ in
           "/etc/jellyfin/log:/log"
           "/media:/media"
         ];
-        ports = [ "${jellyfinPort}:${jellyfinPort}" ];
+        ports = [ "${toString jellyfinPort}:${toString jellyfinPort}" ];
         environment = {
           JELLYFIN_LOG_DIR = "/log";
         };
@@ -154,13 +154,13 @@ in
         useACMEHost = "${secrets.domain}";
         acmeRoot = null;
         forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:${navidromePort}"; proxyWebsockets = true; };
+        locations."/" = { proxyPass = "http://127.0.0.1:${toString navidromePort}"; proxyWebsockets = true; };
       };
       "jellyfin.${secrets.domain}" = {
         useACMEHost = "${secrets.domain}";
         acmeRoot = null;
         forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:${jellyfinPort}"; proxyWebsockets = true; };
+        locations."/" = { proxyPass = "http://127.0.0.1:${toString jellyfinPort}"; proxyWebsockets = true; };
       };
     };
   };
@@ -177,7 +177,14 @@ in
     enable = true;
     # 80, 443: nginx proxy manager
     # 1400: Sonos app control
-    allowedTCPPorts = [ 80 443 1400 ];
+    allowedTCPPorts = [
+      80
+      443
+      1400
+      navidromePort
+      bonobPort
+      jellyfinPort
+    ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
   };
