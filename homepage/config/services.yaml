@@ -1,1 +1,18 @@
 ---
+- Network:
+    - Pi-hole:
+        href: {{HOMEPAGE_VAR_PIHOLE_HREF}}
+        icon: pihole
+
+- Smart Home:
+    - Zigbee2Mqtt:
+        href: {{HOMEPAGE_VAR_ZIGBEE2MQTT_HREF}}
+        icon: zigbee2mqtt
+
+- Media:
+    - Navidrome:
+        href: {{HOMEPAGE_VAR_NAVIDROME_HREF}}
+        icon: navidrome
+    - Jellyfin:
+        href: {{HOMEPAGE_VAR_JELLYFIN_HREF}}
+        icon: jellyfin
