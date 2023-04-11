@@ -70,6 +70,8 @@
     - new
   include_tags:
     - ^[\d+\.]+\d+$
+  exclude_tags:
+    - ^1.[\d+\.]+\d+$
 
 - name: deluan/navidrome
   watch_repo: true
