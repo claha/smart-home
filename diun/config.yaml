@@ -1,5 +1,5 @@
 ---
-- name: cupcakearmy/autorestic
+- name: docker.io/cupcakearmy/autorestic
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -8,7 +8,7 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
-- name: crazymax/diun
+- name: docker.io/crazymax/diun
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -17,7 +17,7 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
-- name: amir20/dozzle
+- name: docker.io/amir20/dozzle
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -26,7 +26,7 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: nicolargo/glances
+- name: docker.io/nicolargo/glances
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -35,7 +35,7 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
-- name: homeassistant/home-assistant
+- name: docker.io/homeassistant/home-assistant
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -53,7 +53,7 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: jellyfin/jellyfin
+- name: docker.io/jellyfin/jellyfin
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -62,7 +62,7 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
-- name: eclipse-mosquitto
+- name: docker.io/eclipse-mosquitto
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -73,7 +73,7 @@
   exclude_tags:
     - ^1.[\d+\.]+\d+$
 
-- name: deluan/navidrome
+- name: docker.io/deluan/navidrome
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -82,7 +82,7 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
-- name: pihole/pihole
+- name: docker.io/pihole/pihole
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -100,7 +100,7 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: tailscale/tailscale
+- name: docker.io/tailscale/tailscale
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -109,7 +109,7 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: traefik
+- name: docker.io/traefik
   watch_repo: true
   max_tags: 50
   sort_tags: semver
@@ -118,7 +118,7 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: koenkk/zigbee2mqtt
+- name: docker.io/koenkk/zigbee2mqtt
   watch_repo: true
   max_tags: 50
   sort_tags: semver
