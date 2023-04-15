@@ -42,7 +42,7 @@
   notify_on:
     - new
   include_tags:
-    - ^[\d+\.]+\d+$
+    - ^20\d+\.\d+\.\d+$
 
 - name: ghcr.io/benphelps/homepage
   watch_repo: true
@@ -85,11 +85,11 @@
 - name: docker.io/pihole/pihole
   watch_repo: true
   max_tags: 50
-  sort_tags: semver
+  sort_tags: reverse
   notify_on:
     - new
   include_tags:
-    - ^[\d+\.]+\d+$
+    - ^20\d+\.\d+\.\d+$
 
 - name: ghcr.io/alexjustesen/speedtest-tracker
   watch_repo: true
