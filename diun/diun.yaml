@@ -10,4 +10,6 @@ providers:
 
 notif:
   telegram:
-    templateBody: New {{ .Entry.Image }}.
+    templateBody: |
+      {{ .Entry.Image.Path }} can now be updated to {{ .Entry.Image.Tag }}
+      {{ if .Entry.Image.HubLink }}{{ .Entry.Image.HubLink }}{{ end }}
