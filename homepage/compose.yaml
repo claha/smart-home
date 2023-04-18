@@ -5,6 +5,7 @@ services:
     container_name: homepage
     environment:
       - TZ=Europe/Stockholm
+      - HOMEPAGE_VAR_ROUTER_HREF=${ROUTER_HREF}
       - HOMEPAGE_VAR_PIHOLE_HREF=${PIHOLE_HREF}
       - HOMEPAGE_VAR_ZIGBEE2MQTT_HREF=${ZIGBEE2MQTT_HREF}
       - HOMEPAGE_VAR_NAVIDROME_HREF=${NAVIDROME_HREF}

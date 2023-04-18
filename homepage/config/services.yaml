@@ -1,5 +1,8 @@
 ---
 - Network:
+    - Router:
+        href: {{HOMEPAGE_VAR_ROUTER_HREF}}
+        icon: asus-router
     - Pi-hole:
         href: {{HOMEPAGE_VAR_PIHOLE_HREF}}
         icon: pihole
