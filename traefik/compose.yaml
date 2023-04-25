@@ -21,18 +21,18 @@ services:
       - DUCKDNS_TOKEN=${DUCKDNS_TOKEN}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}.duckdns.org`)
+      - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}`)
       - traefik.http.routers.traefik.middlewares=auth@file,sslheader@file
       - traefik.http.routers.traefik.tls=true
       - traefik.http.routers.traefik.tls.certresolver=letsencrypt
-      - traefik.http.routers.traefik.tls.domains[0].main=${DOMAIN}.duckdns.org
-      - traefik.http.routers.traefik.tls.domains[0].sans=*.${DOMAIN}.duckdns.org
+      - traefik.http.routers.traefik.tls.domains[0].main=${DOMAIN}
+      - traefik.http.routers.traefik.tls.domains[0].sans=*.${DOMAIN}
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.services.traefik.loadbalancer.server.port=8080
       - homepage.group=Network
       - homepage.name=Traefik
       - homepage.icon=traefik
-      - homepage.href=https://traefik.${DOMAIN}.duckdns.org
+      - homepage.href=https://traefik.${DOMAIN}
     restart: unless-stopped
 
 networks:

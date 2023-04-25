@@ -12,11 +12,11 @@ services:
     restart: unless-stopped
     labels:
       - traefik.enable=true
-      - traefik.http.routers.homeassistant.rule=Host(`homeassistant.${DOMAIN}.duckdns.org`)
+      - traefik.http.routers.homeassistant.rule=Host(`homeassistant.${DOMAIN}`)
       - traefik.http.routers.homeassistant.tls=true
       - traefik.http.routers.homeassistant.service=homeassistant
       - traefik.http.services.homeassistant.loadbalancer.server.port=8123
       - homepage.group=Smart Home
       - homepage.name=Home Assistant
       - homepage.icon=home-assistant
-      - homepage.href=https://homeassistant.${DOMAIN}.duckdns.org
+      - homepage.href=https://homeassistant.${DOMAIN}
