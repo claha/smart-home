@@ -22,7 +22,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.30.0
+    rev: v1.31.0
     hooks:
       - id: yamllint
         args:
@@ -48,7 +48,7 @@ repos:
           - --ignore=E501,W503
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.261
+    rev: v0.0.263
     hooks:
       - id: ruff
         args:
@@ -66,7 +66,7 @@ repos:
           - \\n
 
   - repo: https://github.com/iamthefij/docker-pre-commit
-    rev: v3.0.0
+    rev: v3.0.1
     hooks:
       - id: docker-compose-check
 
