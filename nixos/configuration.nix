@@ -58,6 +58,8 @@ in
   environment.systemPackages = with pkgs; [
     emacs-nox
     wget
+    screen
+    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
