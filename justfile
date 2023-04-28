@@ -8,3 +8,7 @@ dup:
 [no-exit-message]
 dlogs:
     sudo docker compose logs --follow --tail 100
+
+# Clean up
+dclean:
+    sudo docker system prune --all --volumes
