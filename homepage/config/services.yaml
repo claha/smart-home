@@ -5,7 +5,7 @@
         icon: asus-router
     - Pi-hole:
         href: {{HOMEPAGE_VAR_PIHOLE_HREF}}
-        icon: pihole
+        icon: pi-hole
 
 - Smart Home:
     - Zigbee2Mqtt:
