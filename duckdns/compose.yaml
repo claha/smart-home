@@ -1,0 +1,14 @@
+---
+services:
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:b841300d-ls127
+    container_name: duckdns
+    environment:
+      - SUBDOMAINS=${DOMAIN}
+      - TOKEN=${DUCKDNS_TOKEN}
+    restart: unless-stopped
+    labels:
+      - homepage.group=Network
+      - homepage.name=Duck DNS
+      - homepage.icon=duckdns
+      - homepage.href=https://www.duckdns.org/
