@@ -74,3 +74,11 @@ repos:
     rev: v1.3.0
     hooks:
       - id: nixpkgs-fmt
+
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v6.14.3
+    hooks:
+      - id: ansible-lint
+        args:
+          - --project-dir
+          - ansible

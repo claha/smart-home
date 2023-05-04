@@ -1,0 +1,7 @@
+---
+- name: Setup pihole
+  hosts: pihole
+
+  roles:
+    - role: geerlingguy.docker
+      become: true
