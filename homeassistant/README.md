@@ -1,25 +1,18 @@
 # Home Assistant
 
-The homeassistant folder contains my home assistant configuration and a
-compose file to run it.
+This folder contains the home assistant configuration and the compose file to run
+the service.
 
 ## Integrations
 
-Some integrations are added through the user interface (Configuration/Integrations).
+Some integrations are added through the user interface (Configuration/Integrations)
+since the possibility to configure them using yaml has been removed.
 
-### Chromecast
-
-The chromecast should be auto detected and an entity called `media_player.chromecast`
-should be created when the integration is added.
-
-### Weather
-
-Add OpenWeatherMap and name it `Home`, i.e. there should be an entity called
-`weather.home`, use the mode `onecall_daily` and set the language to `se`.
-
-### MQTT
-
-Add MQTT integration with default settings and connect it to mosquitto.
+- Chromecast
+- Sonos
+- Workday
+- Weather
+- MQTT
 
 ## Resources
 
@@ -30,7 +23,3 @@ following resources to Configuration/Lovelace Dashboards/Resources.
 | URL                          | Type              |
 |------------------------------|-------------------|
 | /local/kiosk-mode.js?v=1.6.5 | JavaScript Module |
-
-## Automation
-
-Automations are written using `yaml`.
