@@ -82,3 +82,5 @@ repos:
         args:
           - --project-dir
           - ansible
+          - --config
+          - ansible/.ansible-lint
