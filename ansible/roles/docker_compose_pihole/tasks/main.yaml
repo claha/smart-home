@@ -1,0 +1,28 @@
+---
+- name: Use local nameserver
+  ansible.builtin.lineinfile:
+    line: "name_serves=127.0.0.1"
+    dest: /etc/resolvconf.conf
+    regexp: "^#?name_servers="
+  become: true
+  notify: Update resolvconf
+
+- name: Create directory for pihole
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - ~/pihole
+    - ~/pihole/etc-pihole
+    - ~/pihole/etc-dnsmasq.d
+
+- name: Create file for pihole
+  ansible.builtin.copy:
+    src: "../pihole/{{ item }}"
+    dest: "~/pihole/{{ item }}"
+    mode: "0640"
+  loop:
+    - compose.yaml
+    - etc-pihole/
+  notify: Recreate pihole

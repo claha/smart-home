@@ -2,6 +2,14 @@
 - name: Setup pihole
   hosts: pihole
 
+  pre_tasks:
+    - name: Update cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      become: true
+
   roles:
     - role: geerlingguy.docker
       become: true
+    - role: docker_compose_pihole

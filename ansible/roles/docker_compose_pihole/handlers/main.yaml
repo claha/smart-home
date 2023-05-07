@@ -1,0 +1,11 @@
+---
+- name: Update resolvconf
+  ansible.builtin.command: resolvconf -u
+  changed_when: true
+  become: true
+
+- name: Recreate pihole
+  ansible.builtin.command:
+    chdir: ~/pihole
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
