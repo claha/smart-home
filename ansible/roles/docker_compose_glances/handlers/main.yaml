@@ -1,0 +1,6 @@
+---
+- name: Recreate glances
+  ansible.builtin.command:
+    chdir: ~/glances
+    cmd: docker compose up -d --force-recreate
+  changed_when: true

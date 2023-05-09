@@ -1,0 +1,17 @@
+---
+- name: Create directory for glances
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - ~/glances
+
+- name: Create file for glances
+  ansible.builtin.copy:
+    src: "files//{{ item }}"
+    dest: "~/glances/{{ item }}"
+    mode: "0640"
+  loop:
+    - compose.yaml
+  notify: Recreate glances
