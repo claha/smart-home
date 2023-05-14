@@ -140,7 +140,7 @@ in
     };
     certs."${secrets.domain}" = {
       domain = "${secrets.domain}";
-      extraDomainNames = [ "*.${secrets.domain}" ];
+      extraDomainNames = [ "*.media.${secrets.domain}" ];
     };
   };
 
@@ -152,13 +152,13 @@ in
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     virtualHosts = {
-      "navidrome.${secrets.domain}" = {
+      "navidrome.media.${secrets.domain}" = {
         useACMEHost = "${secrets.domain}";
         acmeRoot = null;
         forceSSL = true;
         locations."/" = { proxyPass = "http://127.0.0.1:${toString navidromePort}"; proxyWebsockets = true; };
       };
-      "jellyfin.${secrets.domain}" = {
+      "jellyfin.media.${secrets.domain}" = {
         useACMEHost = "${secrets.domain}";
         acmeRoot = null;
         forceSSL = true;
