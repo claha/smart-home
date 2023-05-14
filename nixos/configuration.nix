@@ -170,6 +170,9 @@ in
   # The nginx user needs to be able to read certificates
   users.users.nginx.extraGroups = [ "acme" ];
 
+  # Enable tailscale
+  services.tailscale.enable = true;
+
   # Handle lid closing.
   services.logind.lidSwitch = "ignore";
   services.logind.lidSwitchDocked = "ignore";
