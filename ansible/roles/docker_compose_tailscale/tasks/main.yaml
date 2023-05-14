@@ -1,0 +1,17 @@
+---
+- name: Create directory for tailscale
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - ~/tailscale
+
+- name: Create file for tailscale
+  ansible.builtin.copy:
+    src: "files//{{ item }}"
+    dest: "~/tailscale/{{ item }}"
+    mode: "0640"
+  loop:
+    - compose.yaml
+  notify: Recreate tailscale

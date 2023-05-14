@@ -1,0 +1,6 @@
+---
+- name: Recreate tailscale
+  ansible.builtin.command:
+    chdir: ~/tailscale
+    cmd: docker compose up -d --force-recreate
+  changed_when: true

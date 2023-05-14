@@ -14,3 +14,4 @@
       become: true
     - role: docker_compose_pihole
     - role: docker_compose_glances
+    - role: docker_compose_tailscale
