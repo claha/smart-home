@@ -79,6 +79,8 @@ repos:
     rev: v6.14.3
     hooks:
       - id: ansible-lint
+        always_run: false
+        files: ^ansible/
         args:
           - --project-dir
           - ansible
