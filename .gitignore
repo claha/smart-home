@@ -3,6 +3,7 @@
 .env
 .venv
 __pycache__
+ansible/.vault-password
 diun/data
 homeassistant/config/*.log*
 homeassistant/config/.HA_VERSION

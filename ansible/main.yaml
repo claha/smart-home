@@ -1,6 +1,8 @@
 ---
 - name: Setup pihole
   hosts: pihole
+  vars_files:
+    - vars/vault.yaml
 
   pre_tasks:
     - name: Update cache

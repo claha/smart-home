@@ -25,6 +25,7 @@ repos:
     rev: v1.31.0
     hooks:
       - id: yamllint
+        exclude: ansible/vars/vault.yaml
         args:
           - --strict
 
@@ -75,14 +76,15 @@ repos:
     hooks:
       - id: nixpkgs-fmt
 
+  - repo: https://github.com/iamthefij/ansible-pre-commit
+    rev: v1.0.0
+    hooks:
+      - id: encryption-check
+
   - repo: https://github.com/ansible/ansible-lint
     rev: v6.14.3
     hooks:
       - id: ansible-lint
         always_run: false
         files: ^ansible/
-        args:
-          - --project-dir
-          - ansible
-          - --config
-          - ansible/.ansible-lint
+        entry: bash -c "cd ansible && python3 -m ansiblelint -v --force-color"
