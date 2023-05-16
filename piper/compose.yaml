@@ -1,0 +1,14 @@
+---
+services:
+  piper:
+    image: docker.io/rhasspy/wyoming-piper:latest
+    container_name: piper
+    ports:
+      - 10200:10200
+    volumes:
+      - ./data:/data
+    command: --voice en-us-lessac-low
+    restart: unless-stopped
+    labels:
+      - homepage.group=Smart Home
+      - homepage.name=Piper

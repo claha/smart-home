@@ -18,6 +18,7 @@ mosquitto/data/
 mosquitto/log/
 nixos/secrets.nix
 pihole/etc-pihole/*
+piper/data/
 speedtest-tracker/config/
 syncthing/config/
 traefik/.htpasswd
