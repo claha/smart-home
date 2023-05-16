@@ -2,7 +2,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: docker.io/homeassistant/home-assistant:2023.5.1
+    image: docker.io/homeassistant/home-assistant:2023.5.3
     environment:
       TZ: Europe/Stockholm
     network_mode: host
