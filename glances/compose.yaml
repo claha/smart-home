@@ -1,7 +1,7 @@
 ---
 services:
   glances:
-    image: nicolargo/glances:3.3.1.1-full
+    image: nicolargo/glances:3.4.0-full
     container_name: glances
     pid: host
     volumes:
