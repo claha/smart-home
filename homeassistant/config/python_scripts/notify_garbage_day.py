@@ -10,7 +10,9 @@ def get_entity(entity_id):
     return hass.states.get(entity_id)
 
 
-today = datetime.datetime.now().date()
+now = datetime.datetime.now()
+hour = now.hour
+today = now.date()
 tomorrow = today + datetime.timedelta(days=1)
 today = str(today)
 tomorrow = str(tomorrow)
@@ -27,5 +29,10 @@ message = message + garbage_day
 message = message + "</code>"
 
 # Send notification
-if garbage_day in [today, tomorrow]:
+notify = False
+if garbage_day == today and hour < 12:
+    notify = True
+elif garbage_day == tomorrow and hour > 12:
+    notify = True
+if notify:
     hass.services.call("notify", "telegram", {"message": message})
