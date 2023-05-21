@@ -18,7 +18,6 @@ mosquitto/config/passwd
 mosquitto/data/
 mosquitto/log/
 nixos/secrets.nix
-piper/data/
 speedtest-tracker/config/
 syncthing/config/
 traefik/.htpasswd

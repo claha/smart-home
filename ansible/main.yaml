@@ -37,3 +37,4 @@
       tags:
         - never
         - init
+    - role: docker_compose_piper

@@ -1,0 +1,6 @@
+---
+- name: Recreate piper
+  ansible.builtin.command:
+    chdir: ~/piper
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
