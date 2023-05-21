@@ -20,3 +20,13 @@
     - role: docker_compose_pihole
     - role: docker_compose_glances
     - role: docker_compose_tailscale
+
+- name: Setup smarthome
+  hosts: smarthome
+
+  pre_tasks:
+    - name: Update cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      become: true

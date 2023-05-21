@@ -1,2 +1,2 @@
-run:
-    ansible-playbook main.yaml
+run HOST:
+    ansible-playbook main.yaml --limit {{ HOST }}
