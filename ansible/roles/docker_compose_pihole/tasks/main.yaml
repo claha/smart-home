@@ -7,7 +7,7 @@
   become: true
   notify: Update resolvconf
 
-- name: Create directory for pihole
+- name: Create directories
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -17,12 +17,20 @@
     - ~/pihole/etc-pihole
     - ~/pihole/etc-dnsmasq.d
 
-- name: Create file for pihole
+- name: Create compose file
   ansible.builtin.copy:
-    src: "../pihole/{{ item }}"
+    src: "files/{{ item }}"
     dest: "~/pihole/{{ item }}"
     mode: "0640"
   loop:
     - compose.yaml
-    - etc-pihole/
+  notify: Recreate pihole
+
+- name: Create adlists
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "~/pihole/etc-pihole/{{ item }}"
+    mode: "0640"
+  loop:
+    - adlists.list
   notify: Recreate pihole
