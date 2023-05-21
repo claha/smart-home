@@ -34,3 +34,10 @@
   loop:
     - adlists.list
   notify: Recreate pihole
+
+- name: Create dns overrides
+  ansible.builtin.template:
+    src: "templates/03-dns-overrides.conf.j2"
+    dest: "~/pihole/etc-dnsmasq.d/03-dns-overrides.conf"
+    mode: "0640"
+  notify: Recreate pihole
