@@ -23,6 +23,8 @@
 
 - name: Setup smarthome
   hosts: smarthome
+  vars_files:
+    - vars/vault.yaml
 
   pre_tasks:
     - name: Update cache
@@ -38,3 +40,4 @@
         - never
         - init
     - role: docker_compose_piper
+    - role: docker_compose_speedtest

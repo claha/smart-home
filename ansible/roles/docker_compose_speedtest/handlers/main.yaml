@@ -1,0 +1,6 @@
+---
+- name: Recreate speedtest
+  ansible.builtin.command:
+    chdir: ~/speedtest
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
