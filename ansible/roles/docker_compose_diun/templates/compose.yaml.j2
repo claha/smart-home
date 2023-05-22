@@ -10,8 +10,8 @@ services:
       - ./config.yaml:/config.yaml:ro
     environment:
       - "TZ=Europe/Stockholm"
-      - "DIUN_NOTIF_TELEGRAM_TOKEN=${TELEGRAM_TOKEN}"
-      - "DIUN_NOTIF_TELEGRAM_CHATIDS=${TELEGRAM_CHATIDS}"
+      - "DIUN_NOTIF_TELEGRAM_TOKEN={{ telegram_token }}"
+      - "DIUN_NOTIF_TELEGRAM_CHATIDS={{ telegram_chatids }}"
     labels:
       - homepage.group=Monitor
       - homepage.name=Diun

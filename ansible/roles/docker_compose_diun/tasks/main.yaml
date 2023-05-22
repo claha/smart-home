@@ -1,0 +1,26 @@
+---
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - ~/diun
+    - ~/diun/data
+
+- name: Create compose file
+  ansible.builtin.template:
+    src: "templates/compose.yaml.j2"
+    dest: "~/diun/compose.yaml"
+    mode: "0640"
+  notify: Recreate diun
+
+- name: Create files
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "~/diun/{{ item }}"
+    mode: "0640"
+  loop:
+    - diun.yaml
+    - config.yaml
+  notify: Recreate diun

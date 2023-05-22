@@ -1,0 +1,6 @@
+---
+- name: Recreate diun
+  ansible.builtin.command:
+    chdir: ~/diun
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
