@@ -41,3 +41,4 @@
         - init
     - role: docker_compose_piper
     - role: docker_compose_speedtest
+    - role: docker_compose_duckdns

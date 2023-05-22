@@ -1,0 +1,6 @@
+---
+- name: Recreate duckdns
+  ansible.builtin.command:
+    chdir: ~/duckdns
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
