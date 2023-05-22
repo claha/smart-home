@@ -1,7 +1,7 @@
 ---
 services:
   dozzle:
-    image: docker.io/amir20/dozzle:v4.10.3
+    image: docker.io/amir20/dozzle:v4.10.8
     container_name: dozzle
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -12,14 +12,14 @@ services:
     restart: unless-stopped
     labels:
       - traefik.enable=true
-      - traefik.http.routers.dozzle.rule=Host(`dozzle.${DOMAIN}`)
+      - traefik.http.routers.dozzle.rule=Host(`dozzle.{{ domain }}`)
       - traefik.http.routers.dozzle.tls=true
       - traefik.http.routers.dozzle.service=dozzle
       - traefik.http.services.dozzle.loadbalancer.server.port=8080
       - homepage.group=Monitor
       - homepage.name=Dozzle
       - homepage.icon=dozzle
-      - homepage.href=https://dozzle.${DOMAIN}
+      - homepage.href=https://dozzle.{{ domain }}
 
 networks:
   proxy:

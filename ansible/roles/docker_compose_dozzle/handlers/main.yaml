@@ -1,0 +1,6 @@
+---
+- name: Recreate dozzle
+  ansible.builtin.command:
+    chdir: ~/dozzle
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
