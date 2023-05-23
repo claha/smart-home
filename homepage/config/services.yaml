@@ -33,3 +33,9 @@
           type: tailscale
           deviceid: {{HOMEPAGE_VAR_TAILSCALE_ID_RPI3}}
           key: {{HOMEPAGE_VAR_TAILSCALE_KEY}}
+    - RPi2:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{HOMEPAGE_VAR_TAILSCALE_ID_RPI2}}
+          key: {{HOMEPAGE_VAR_TAILSCALE_KEY}}
