@@ -1,27 +1,36 @@
 ---
 services:
   glances:
-    image: nicolargo/glances:3.4.0-full
+    image: nicolargo/glances:3.4.0.2-full
     container_name: glances
     pid: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      - "GLANCES_OPT=-w"
+{% if glances_proxy %}
     networks:
       - proxy
+    environment:
+      - "GLANCES_OPT=--webserver"
+{% else %}
+    ports:
+      - 61208:61208
+    environment:
+      - "GLANCES_OPT=--webserver --disable-webui"
+{% endif %}
     restart: unless-stopped
+{% if glances_proxy %}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.glances.rule=Host(`glances.${DOMAIN}`)
+      - traefik.http.routers.glances.rule=Host(`glances.{{ domain }}`)
       - traefik.http.routers.glances.tls=true
       - traefik.http.routers.glances.service=glances
       - traefik.http.services.glances.loadbalancer.server.port=61208
       - homepage.group=Monitor
       - homepage.name=Glances
       - homepage.icon=glances
-      - homepage.href=https://glances.${DOMAIN}
+      - homepage.href=https://glances.{{ domain }}
 
 networks:
   proxy:
     external: true
+{% endif %}

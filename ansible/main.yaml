@@ -44,3 +44,4 @@
     - role: docker_compose_duckdns
     - role: docker_compose_dozzle
     - role: docker_compose_diun
+    - role: docker_compose_glances
