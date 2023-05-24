@@ -1,6 +1,7 @@
 ---
 mock_roles:
   - geerlingguy.docker
+  - ironicbadger.figurine
 
 skip_list:
   - package-latest

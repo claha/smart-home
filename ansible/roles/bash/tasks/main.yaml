@@ -10,6 +10,12 @@
     - silversearcher-ag
     - vim
 
+- name: Install and configure figurine
+  ansible.builtin.include_role:
+    name: ironicbadger.figurine
+    apply:
+      become: true
+
 - name: Create bashrc config
   ansible.builtin.copy:
     src: "files/bashrc"

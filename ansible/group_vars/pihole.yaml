@@ -4,3 +4,4 @@ docker_install_compose: false
 docker_users:
   - manager
   - ubuntu
+figurine_font: "Binary.flf"

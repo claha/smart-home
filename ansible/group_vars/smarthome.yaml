@@ -1,3 +1,4 @@
 ---
 glances_proxy: true
 tailscale_homepage_labels: true
+figurine_font: "Binary.flf"
