@@ -13,9 +13,6 @@ homeassistant/config/sensor/fund.yaml
 homeassistant/config/sensor/stock.yaml
 homeassistant/config/tts/
 homepage/config/logs/
-mosquitto/config/passwd
-mosquitto/data/
-mosquitto/log/
 nixos/secrets.nix
 syncthing/config/
 traefik/.htpasswd

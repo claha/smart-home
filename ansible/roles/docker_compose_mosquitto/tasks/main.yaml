@@ -1,0 +1,25 @@
+---
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - ~/mosquitto
+    - ~/mosquitto/config
+    - ~/mosquitto/data
+    - ~/mosquitto/log
+
+- name: Create compose file
+  ansible.builtin.copy:
+    src: "files/compose.yaml"
+    dest: "~/mosquitto/compose.yaml"
+    mode: "0640"
+  notify: Recreate mosquitto
+
+- name: Create config file
+  ansible.builtin.copy:
+    src: "files/mosquitto.conf"
+    dest: "~/mosquitto/config/mosquitto.conf"
+    mode: "0640"
+  notify: Recreate mosquitto

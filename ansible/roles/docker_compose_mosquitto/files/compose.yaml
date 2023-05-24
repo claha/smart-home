@@ -12,7 +12,7 @@ services:
       - ./config:/mosquitto/config:ro
       - ./data:/mosquitto/data
       - ./log:/mosquitto/log
-    restart: always
+    restart: unless-stopped
     labels:
       - homepage.group=Smart Home
       - homepage.name=Mosquitto

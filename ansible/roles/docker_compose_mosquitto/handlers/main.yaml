@@ -1,0 +1,6 @@
+---
+- name: Recreate mosquitto
+  ansible.builtin.command:
+    chdir: ~/mosquitto
+    cmd: docker compose up -d --force-recreate
+  changed_when: true
