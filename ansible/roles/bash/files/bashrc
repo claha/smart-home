@@ -1,0 +1,8 @@
+# shellcheck shell=bash
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Setup aliases
+alias ls='exa'
+alias ll='ls -la'

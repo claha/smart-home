@@ -1,3 +1,6 @@
 ---
 mock_roles:
   - geerlingguy.docker
+
+skip_list:
+  - package-latest

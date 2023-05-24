@@ -17,6 +17,7 @@
       tags:
         - never
         - init
+    - role: bash
     - role: docker_compose_pihole
     - role: docker_compose_glances
     - role: docker_compose_tailscale
@@ -39,6 +40,7 @@
       tags:
         - never
         - init
+    - role: bash
     - role: docker_compose_piper
     - role: docker_compose_speedtest
     - role: docker_compose_duckdns
