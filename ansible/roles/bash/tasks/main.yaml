@@ -16,6 +16,26 @@
     apply:
       become: true
 
+- name: Check if starship is already installed
+  ansible.builtin.command: which starship
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  register: bash_which_starship
+
+- name: Download starship install script
+  ansible.builtin.get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/install.sh
+    mode: "0775"
+  when: bash_which_starship.rc == 1
+
+- name: Run starship install script
+  become: true
+  ansible.builtin.command: /tmp/install.sh --force
+  changed_when: true
+  when: bash_which_starship.rc == 1
+
 - name: Create bashrc config
   ansible.builtin.copy:
     src: "files/bashrc"

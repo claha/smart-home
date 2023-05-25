@@ -6,3 +6,6 @@
 # Setup aliases
 alias ls='exa'
 alias ll='ls -la'
+
+# Configure prompt
+eval "$(starship init bash)"
