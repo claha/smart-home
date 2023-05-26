@@ -18,21 +18,21 @@ services:
       - ./acme.json:/etc/traefik/acme.json
       - ./log:/var/log/traefik
     environment:
-      - DUCKDNS_TOKEN=${DUCKDNS_TOKEN}
+      - DUCKDNS_TOKEN={{ duckdns_token }}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}`)
+      - traefik.http.routers.traefik.rule=Host(`traefik.{{ domain }}`)
       - traefik.http.routers.traefik.middlewares=auth@file,sslheader@file
       - traefik.http.routers.traefik.tls=true
       - traefik.http.routers.traefik.tls.certresolver=letsencrypt
-      - traefik.http.routers.traefik.tls.domains[0].main=${DOMAIN}
-      - traefik.http.routers.traefik.tls.domains[0].sans=*.${DOMAIN}
+      - traefik.http.routers.traefik.tls.domains[0].main={{ domain }}
+      - traefik.http.routers.traefik.tls.domains[0].sans=*.{{ domain }}
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.services.traefik.loadbalancer.server.port=8080
       - homepage.group=Network
       - homepage.name=Traefik
       - homepage.icon=traefik
-      - homepage.href=https://traefik.${DOMAIN}
+      - homepage.href=https://traefik.{{ domain }}
     restart: unless-stopped
 
 networks:

@@ -1,4 +1,7 @@
 ---
+mock_modules:
+  - community.general.htpasswd
+
 mock_roles:
   - geerlingguy.docker
   - ironicbadger.figurine

@@ -15,9 +15,6 @@ homeassistant/config/tts/
 homepage/config/logs/
 nixos/secrets.nix
 syncthing/config/
-traefik/.htpasswd
-traefik/acme.json
-traefik/log/
 zigbee2mqtt/data/coordinator_backup.json
 zigbee2mqtt/data/database.db
 zigbee2mqtt/data/log/

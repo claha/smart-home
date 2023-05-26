@@ -28,7 +28,7 @@ providers:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: hallstrom.claes@gmail.com
+      email: {{ letsencrypt_email }}
       storage: /etc/traefik/acme.json
       dnsChallenge:
-        provider: duckdns
+        provider: {{ letsencrypt_provider }}

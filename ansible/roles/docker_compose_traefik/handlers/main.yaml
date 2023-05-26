@@ -1,0 +1,6 @@
+---
+- name: Recreate traefik
+  ansible.builtin.command:
+    chdir: ~/traefik
+    cmd: docker compose up -d --force-recreate
+  changed_when: true

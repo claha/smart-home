@@ -49,3 +49,4 @@
     - role: docker_compose_glances
     - role: docker_compose_tailscale
     - role: docker_compose_mosquitto
+    - role: docker_compose_traefik
