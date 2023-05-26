@@ -1,0 +1,6 @@
+---
+- name: Recreate zigbee2mqtt
+  ansible.builtin.command:
+    chdir: ~/zigbee2mqtt
+    cmd: docker compose up -d --force-recreate
+  changed_when: true

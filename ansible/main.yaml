@@ -70,3 +70,4 @@
         - never
         - init
     - role: bash
+    - role: docker_compose_zigbee2mqtt

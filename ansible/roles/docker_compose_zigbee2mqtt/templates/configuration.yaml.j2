@@ -3,9 +3,7 @@ homeassistant: true
 permit_join: false
 mqtt:
   base_topic: zigbee2mqtt
-  server: '!secret server'
-  user: '!secret user'
-  password: '!secret password'
+  server: {{ mqtt_server }}
 serial:
   port: /dev/ttyACM0
   disable_led: true
