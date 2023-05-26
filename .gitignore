@@ -1,4 +1,3 @@
-!pihole/etc-pihole/adlists.list
 .autorestic.lock.yml
 .env
 .venv
@@ -14,7 +13,6 @@ homeassistant/config/sensor/stock.yaml
 homeassistant/config/tts/
 homepage/config/logs/
 nixos/secrets.nix
-syncthing/config/
 zigbee2mqtt/data/coordinator_backup.json
 zigbee2mqtt/data/database.db
 zigbee2mqtt/data/log/
