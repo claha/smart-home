@@ -7,5 +7,10 @@
 alias ls='exa'
 alias ll='ls -la'
 
+# Docker/Docker Compose aliases
+alias dup='docker compose up --detach --force-recreate'
+alias dlogs='docker compose logs --follow --tail 100'
+alias dclean='docker system prune --all --volumes'
+
 # Configure prompt
 eval "$(starship init bash)"
