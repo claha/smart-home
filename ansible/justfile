@@ -1,2 +1,2 @@
-run HOST:
-    ansible-playbook main.yaml --limit {{ HOST }}
+run HOST *TAGS:
+    ansible-playbook main.yaml --limit {{HOST}} {{TAGS}}

@@ -14,13 +14,15 @@
   roles:
     - role: geerlingguy.docker
       become: true
-      tags:
-        - never
-        - init
+      tags: never, init
     - role: bash
+      tags: never, init
     - role: docker_compose_pihole
+      tags: compose, pihole
     - role: docker_compose_glances
+      tags: compose, glances
     - role: docker_compose_tailscale
+      tags: compose, tailscale
 
 - name: Setup smarthome
   hosts: smarthome
@@ -37,20 +39,29 @@
   roles:
     - role: geerlingguy.docker
       become: true
-      tags:
-        - never
-        - init
+      tags: never, init
     - role: bash
+      tags: never, init
     - role: docker_compose_piper
+      tags: compose, piper
     - role: docker_compose_speedtest
+      tags: compose, speedtest
     - role: docker_compose_duckdns
+      tags: compose, duckdns
     - role: docker_compose_dozzle
+      tags: compose, dozzle
     - role: docker_compose_diun
+      tags: compose, diun
     - role: docker_compose_glances
+      tags: compose, glances
     - role: docker_compose_tailscale
+      tags: compose, tailscale
     - role: docker_compose_mosquitto
+      tags: compose, mosquitto
     - role: docker_compose_traefik
+      tags: compose, traefik
     - role: docker_compose_homepage
+      tags: compose, homepage
 
 - name: Setup zigbee
   hosts: zigbee
@@ -67,8 +78,8 @@
   roles:
     - role: geerlingguy.docker
       become: true
-      tags:
-        - never
-        - init
+      tags: never, init
     - role: bash
+      tags: never, init
     - role: docker_compose_zigbee2mqtt
+      tags: compose, zigbee2mqtt
