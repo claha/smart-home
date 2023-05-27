@@ -50,6 +50,7 @@
     - role: docker_compose_tailscale
     - role: docker_compose_mosquitto
     - role: docker_compose_traefik
+    - role: docker_compose_homepage
 
 - name: Setup zigbee
   hosts: zigbee

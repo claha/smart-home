@@ -1,0 +1,23 @@
+---
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:v0.6.20
+    container_name: homepage
+    environment:
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - proxy
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.homepage.rule=Host(`homepage.{{ domain }}`)
+      - traefik.http.routers.homepage.tls=true
+      - traefik.http.routers.homepage.service=homepage
+      - traefik.http.services.homepage.loadbalancer.server.port=3000
+
+networks:
+  proxy:
+    external: true

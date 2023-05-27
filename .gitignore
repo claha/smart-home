@@ -11,5 +11,4 @@ homeassistant/config/secrets.yaml
 homeassistant/config/sensor/fund.yaml
 homeassistant/config/sensor/stock.yaml
 homeassistant/config/tts/
-homepage/config/logs/
 nixos/secrets.nix

@@ -1,0 +1,44 @@
+---
+- Network:
+    - Router:
+        href: {{ router_href }}
+        icon: asus-router
+    - Pi-hole (primary):
+        href: {{ pihole_primary_href }}
+        icon: pi-hole
+    - Pi-hole (secondary):
+        href: {{ pihole_secondary_href }}
+        icon: pi-hole
+
+- Smart Home:
+    - Zigbee2Mqtt:
+        href: {{ zigbee2mqtt_href }}
+        icon: zigbee2mqtt
+
+- Media:
+    - Navidrome:
+        href: {{ navidrome_href }}
+        icon: navidrome
+    - Jellyfin:
+        href: {{ jellyfin_href }}
+        icon: jellyfin
+
+- Tailscale:
+    - RPi4:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{ tailscale_id_rpi4 }}
+          key: {{ tailscale_key }}
+    - RPi3:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{ tailscale_id_rpi3 }}
+          key: {{ tailscale_key }}
+    - RPi2:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{ tailscale_id_rpi2 }}
+          key: {{ tailscale_key }}
