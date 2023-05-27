@@ -5,14 +5,14 @@
     state: directory
     mode: "0775"
   loop:
-    - ~/piper
-    - ~/piper/data
+    - "~/{{ service_name }}"
+    - "~/{{ service_name }}/data"
 
 - name: Create files
   ansible.builtin.copy:
     src: "files/{{ item }}"
-    dest: "~/piper/{{ item }}"
+    dest: "~/{{ service_name }}/{{ item }}"
     mode: "0640"
   loop:
     - compose.yaml
-  notify: Recreate piper
+  notify: "Recreate {{ service_name }}"

@@ -5,22 +5,22 @@
     state: directory
     mode: "0775"
   loop:
-    - ~/diun
-    - ~/diun/data
+    - "~/{{ service_name }}"
+    - "~/{{ service_name }}/data"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "~/diun/compose.yaml"
+    dest: "~/{{ service_name }}/compose.yaml"
     mode: "0640"
-  notify: Recreate diun
+  notify: "Recreate {{ service_name }}"
 
 - name: Create files
   ansible.builtin.copy:
     src: "files/{{ item }}"
-    dest: "~/diun/{{ item }}"
+    dest: "~/{{ service_name }}/{{ item }}"
     mode: "0640"
   loop:
     - diun.yaml
     - config.yaml
-  notify: Recreate diun
+  notify: "Recreate {{ service_name }}"

@@ -1,6 +1,6 @@
 ---
-- name: Recreate zigbee2mqtt
+- name: Recreate {{ service_name }}
   ansible.builtin.command:
-    chdir: ~/zigbee2mqtt
+    chdir: "~/{{ service_name }}"
     cmd: docker compose up -d --force-recreate
   changed_when: true

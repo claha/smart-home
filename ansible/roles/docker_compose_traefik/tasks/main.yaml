@@ -5,34 +5,34 @@
     state: directory
     mode: "0775"
   loop:
-    - ~/traefik
-    - ~/traefik/log
+    - "~/{{ service_name }}"
+    - "~/{{ service_name }}/log"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "~/traefik/compose.yaml"
+    dest: "~/{{ service_name }}/compose.yaml"
     mode: "0640"
-  notify: Recreate traefik
+  notify: "Recreate {{ service_name }}"
 
 - name: Create middlewares
   ansible.builtin.copy:
     src: "files/middlewares.yaml"
-    dest: "~/traefik/middlewares.yaml"
+    dest: "~/{{ service_name }}/middlewares.yaml"
     mode: "0640"
-  notify: Recreate traefik
+  notify: "Recreate {{ service_name }}"
 
 - name: Create config
   ansible.builtin.template:
     src: "templates/traefik.yaml.j2"
-    dest: "~/traefik/traefik.yaml"
+    dest: "~/{{ service_name }}/traefik.yaml"
     mode: "0640"
-  notify: Recreate traefik
+  notify: "Recreate {{ service_name }}"
 
 - name: Create initial empty acme
   ansible.builtin.copy:
     content: ""
-    dest: "~/traefik/acme.json"
+    dest: "~/{{ service_name }}/acme.json"
     force: false
     mode: "0600"
 
@@ -46,7 +46,7 @@
 
 - name: Create basic auth file
   community.general.htpasswd:
-    path: ~/traefik/.htpasswd
+    path: "~/{{ service_name }}/.htpasswd"
     name: "{{ traefik_username }}"
     password: "{{ traefik_password }}"
     mode: "0600"

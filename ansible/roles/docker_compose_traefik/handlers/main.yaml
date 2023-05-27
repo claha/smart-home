@@ -1,6 +1,6 @@
 ---
-- name: Recreate traefik
+- name: Recreate {{ service_name }}
   ansible.builtin.command:
-    chdir: ~/traefik
+    chdir: "~/{{ service_name }}"
     cmd: docker compose up -d --force-recreate
   changed_when: true

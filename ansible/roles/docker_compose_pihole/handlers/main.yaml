@@ -4,8 +4,8 @@
   changed_when: true
   become: true
 
-- name: Recreate pihole
+- name: Recreate {{ service_name }}
   ansible.builtin.command:
-    chdir: ~/pihole
+    chdir: "~/{{ service_name }}"
     cmd: docker compose up -d --force-recreate
   changed_when: true

@@ -5,21 +5,21 @@
     state: directory
     mode: "0775"
   loop:
-    - ~/mosquitto
-    - ~/mosquitto/config
-    - ~/mosquitto/data
-    - ~/mosquitto/log
+    - "~/{{ service_name }}"
+    - "~/{{ service_name }}/config"
+    - "~/{{ service_name }}/data"
+    - "~/{{ service_name }}/log"
 
 - name: Create compose file
   ansible.builtin.copy:
     src: "files/compose.yaml"
-    dest: "~/mosquitto/compose.yaml"
+    dest: "~/{{ service_name }}/compose.yaml"
     mode: "0640"
-  notify: Recreate mosquitto
+  notify: "Recreate {{ service_name }}"
 
 - name: Create config file
   ansible.builtin.copy:
     src: "files/mosquitto.conf"
-    dest: "~/mosquitto/config/mosquitto.conf"
+    dest: "~/{{ service_name }}/config/mosquitto.conf"
     mode: "0640"
-  notify: Recreate mosquitto
+  notify: "Recreate {{ service_name }}"
