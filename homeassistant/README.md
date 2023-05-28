@@ -21,5 +21,5 @@ resources can not be added to a config file but must be added manually. Add the
 following resources to Configuration/Lovelace Dashboards/Resources.
 
 | URL                          | Type              |
-|------------------------------|-------------------|
+| ---------------------------- | ----------------- |
 | /local/kiosk-mode.js?v=1.6.5 | JavaScript Module |
