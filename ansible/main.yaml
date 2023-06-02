@@ -83,3 +83,8 @@
       tags: never, init
     - role: docker_compose_zigbee2mqtt
       tags: compose, zigbee2mqtt
+
+- name: Setup nixos
+  hosts: nixos
+  vars_files:
+    - vars/vault.yaml
