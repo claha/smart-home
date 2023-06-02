@@ -88,3 +88,6 @@
   hosts: nixos
   vars_files:
     - vars/vault.yaml
+
+  roles:
+    - role: nixos

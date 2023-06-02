@@ -1,0 +1,6 @@
+---
+- name: Rebuild nixos
+  ansible.builtin.command:
+    cmd: nixos-rebuild switch
+  become: true
+  changed_when: true

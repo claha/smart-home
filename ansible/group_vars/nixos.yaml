@@ -1,0 +1,3 @@
+---
+ansible_become: true
+ansible_become_password: "{{ nixos_become_password }}"
