@@ -1,0 +1,11 @@
+check:
+  docker compose run autorestic autorestic check --verbose
+
+backup:
+  docker compose run autorestic autorestic backup --verbose --all
+
+restore:
+  docker compose run autorestic autorestic restore --verbose --location homeassistant --from backblaze --to /data/homeassistant-restore
+
+snapshots:
+  docker compose run autorestic autorestic exec --verbose --all -- snapshots

@@ -62,6 +62,8 @@
       tags: compose, traefik
     - role: docker_compose_homepage
       tags: compose, homepage
+    - role: docker_compose_autorestic
+      tags: compose, autorestic
 
 - name: Setup zigbee
   hosts: zigbee

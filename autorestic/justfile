@@ -1,3 +1,0 @@
-# ACTION: backup, restore, check, snapshots
-autorestic ACTION:
-  sudo docker compose run autorestic /data/autorestic/{{ACTION}}.sh
