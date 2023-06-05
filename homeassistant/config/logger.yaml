@@ -5,3 +5,4 @@ logs:
   homeassistant.loader: warning
   homeassistant.components: warning
   gql: warning
+  httpx: warning
