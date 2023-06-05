@@ -93,3 +93,8 @@
 
   roles:
     - role: nixos
+
+- name: Setup localhost
+  hosts: localhost
+  vars_files:
+    - vars/vault.yaml
