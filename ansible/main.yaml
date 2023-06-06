@@ -98,3 +98,31 @@
   hosts: localhost
   vars_files:
     - vars/vault.yaml
+
+  roles:
+    - role: docker_compose_autorestic
+      tags: never, autorestic
+    - role: docker_compose_diun
+      tags: never, diun
+    - role: docker_compose_dozzle
+      tags: never, dozzle
+    - role: docker_compose_duckdns
+      tags: never, duckdns
+    - role: docker_compose_glances
+      tags: never, glances
+    - role: docker_compose_homepage
+      tags: never, homepage
+    - role: docker_compose_mosquitto
+      tags: never, mosquitto
+    - role: docker_compose_pihole
+      tags: never, pihole
+    - role: docker_compose_piper
+      tags: never, piper
+    - role: docker_compose_speedtest
+      tags: never, speedtest
+    - role: docker_compose_tailscale
+      tags: never, tailscale
+    - role: docker_compose_traefik
+      tags: never, traefik
+    - role: docker_compose_zigbee2mqtt
+      tags: never, zigbee2mqtt
