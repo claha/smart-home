@@ -16,6 +16,6 @@ jobs:
         with:
           python-version: 3.x
       - run: |
-          sed -i '/vars_files/I,+1 d' ansible/main.yaml
-          sed -i '/vault_password_file/d' ansible/ansible.cfg
+          sed -i '/vars_files/I,+1 d' main.yaml
+          sed -i '/vault_password_file/d' ansible.cfg
       - uses: pre-commit/action@v3.0.0

@@ -6,7 +6,7 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - ansible/roles/docker_compose_homeassistant/**
+      - roles/docker_compose_homeassistant/**
   pull_request:
 
 jobs:
@@ -18,8 +18,7 @@ jobs:
         with:
           python-version: 3.x
 
-      - working-directory: ansible
-        run: |
+      - run: |
           sed -i '/vars_files/I,+1 d' main.yaml
           sed -i '/vault_password_file/d' ansible.cfg
 
