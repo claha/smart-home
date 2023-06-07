@@ -8,3 +8,6 @@ mock_roles:
 
 skip_list:
   - package-latest
+
+exclude_paths:
+  - roles/docker_compose_homeassistant/files

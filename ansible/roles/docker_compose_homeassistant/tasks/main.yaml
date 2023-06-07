@@ -1,0 +1,30 @@
+---
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - "~/{{ service_name }}"
+    - "~/{{ service_name }}/config"
+
+- name: Create compose file
+  ansible.builtin.template:
+    src: "templates/compose.yaml.j2"
+    dest: "~/{{ service_name }}/compose.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
+- name: Create config
+  ansible.builtin.copy:
+    src: "files/config/"
+    dest: "~/{{ service_name }}/config"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
+- name: Create secrets
+  ansible.builtin.template:
+    src: "templates/secrets.yaml.j2"
+    dest: "~/{{ service_name }}/config/secrets.yaml"
+    mode: "0600"
+  notify: "Recreate {{ service_name }}"

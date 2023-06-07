@@ -64,6 +64,8 @@
       tags: compose, homepage
     - role: docker_compose_autorestic
       tags: compose, autorestic
+    - role: docker_compose_homeassistant
+      tags: compose, homeassistant
 
 - name: Setup zigbee
   hosts: zigbee
@@ -110,6 +112,8 @@
       tags: never, duckdns
     - role: docker_compose_glances
       tags: never, glances
+    - role: docker_compose_homeassistant
+      tags: never, homeassistant
     - role: docker_compose_homepage
       tags: never, homepage
     - role: docker_compose_mosquitto

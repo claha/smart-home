@@ -6,7 +6,7 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - homeassistant/**
+      - ansible/roles/docker_compose_homeassistant/**
   pull_request:
 
 jobs:
@@ -14,51 +14,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.1.0
-      - working-directory: homeassistant
+      - uses: actions/setup-python@v4.3.0
+        with:
+          python-version: 3.x
+
+      - working-directory: ansible
         run: |
-          HA_TAG=$(grep image compose.yaml | cut -d: -f3)
+          sed -i '/vars_files/I,+1 d' main.yaml
+          sed -i '/vault_password_file/d' ansible.cfg
 
-          mv config/secrets.fake.yaml config/secrets.yaml
+          pip install ansible
+          ansible-galaxy install --role-file requirements.yaml
+          ansible-playbook main.yaml --limit localhost --tags homeassistant \
+          --extra-vars "domain=ci"
 
-          docker run --rm --volume $PWD/config:/config \
-          homeassistant/home-assistant:$HA_TAG \
-          hass --config /config --script check_config
-
-  home-assistant-latest:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v3.1.0
-      - working-directory: homeassistant
-        run: |
-          mv config/secrets.fake.yaml config/secrets.yaml
-
-          docker run --rm --volume $PWD/config:/config \
-          homeassistant/home-assistant:latest \
-          hass --config /config --script check_config
-
-  home-assistant-rc:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v3.1.0
-      - working-directory: homeassistant
-        run: |
-          mv config/secrets.fake.yaml config/secrets.yaml
-
-          docker run --rm --volume $PWD/config:/config \
-          homeassistant/home-assistant:rc \
-          hass --config /config --script check_config
-
-  home-assistant-dev:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v3.1.0
-      - working-directory: homeassistant
-        run: |
-          mv config/secrets.fake.yaml config/secrets.yaml
-
-          docker run --rm --volume $PWD/config:/config \
-          homeassistant/home-assistant:dev \
-          hass --config /config --script check_config
+          docker ps --filter name=homeassistant | grep --quiet homeassistant
+          docker exec homeassistant hass --config /config --script check_config
