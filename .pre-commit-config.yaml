@@ -92,3 +92,8 @@ repos:
     rev: v6.17.0
     hooks:
       - id: ansible-lint
+
+  - repo: https://github.com/semaphor-dk/dansabel
+    rev: 1.3.0
+    hooks:
+      - id: dansabel
