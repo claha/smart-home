@@ -1,6 +1,1 @@
-.autorestic.lock.yml
-.env
-.venv
-__pycache__
 ansible/.vault-password
-nixos/secrets.nix
