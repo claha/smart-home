@@ -66,6 +66,8 @@
       tags: compose, autorestic
     - role: docker_compose_homeassistant
       tags: compose, homeassistant
+    - role: github_deploy
+      tags: deploy
 
 - name: Setup zigbee
   hosts: zigbee

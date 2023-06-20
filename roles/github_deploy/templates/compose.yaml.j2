@@ -1,0 +1,11 @@
+---
+services:
+  github-deploy:
+    container_name: github-deploy
+    build:
+      context: .
+    environment:
+      - "GITHUB_ACCESS_TOKEN={{ github_token }}"
+    volumes:
+      - ./processed_runs.txt:/app/processed_runs.txt
+    restart: unless-stopped

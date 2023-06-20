@@ -1,0 +1,6 @@
+---
+- name: Recreate {{ service_name }}
+  ansible.builtin.command:
+    chdir: "~/{{ service_name }}"
+    cmd: docker compose up -d --force-recreate --build
+  changed_when: true
