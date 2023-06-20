@@ -1,5 +1,5 @@
 ---
-name: Run duckdns checks
+name: Deploy duckdns
 
 on:  # yamllint disable-line rule:truthy
   push:
