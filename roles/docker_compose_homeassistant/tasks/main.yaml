@@ -20,6 +20,7 @@
     src: "files/config/"
     dest: "~/{{ service_name }}/config"
     mode: "0640"
+    backup: true
   notify: "Recreate {{ service_name }}"
 
 - name: Create portfolio
