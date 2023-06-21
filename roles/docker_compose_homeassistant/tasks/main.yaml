@@ -22,6 +22,13 @@
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
+- name: Create portfolio
+  ansible.builtin.template:
+    src: "templates/portfolio.yaml.j2"
+    dest: "~/{{ service_name }}/config/sensor/portfolio.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
 - name: Create secrets
   ansible.builtin.template:
     src: "templates/secrets.yaml.j2"

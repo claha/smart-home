@@ -1,0 +1,41 @@
+---
+- platform: avanza_stock
+  scan_interval: 60
+  stock:
+{% for stock in stocks %}
+    - id: {{ stock.id }}
+      name: Stock {{ stock.name }}
+{% if stock.shares|int != 0 %}
+      shares: {{ stock.shares }}
+{% else %}
+      shares: {{ stock.shares|sum }}
+{% endif %}
+{% endfor %}
+  monitored_conditions:
+    - change
+    - changePercent
+    - dividends
+    - name
+    - tickerSymbol
+    - priceOneMonthAgo
+    - priceOneWeekAgo
+
+- platform: avanza_stock
+  scan_interval: 60
+  stock:
+{% for fund in funds %}
+    - id: {{ fund.id }}
+      name: Fund {{ fund.name }}
+{% if fund.shares|float != 0 %}
+      shares: {{ fund.shares }}
+{% else %}
+      shares: {{ fund.shares|sum }}
+{% endif %}
+{% endfor %}
+  monitored_conditions:
+    - change
+    - changePercent
+    - name
+    - tickerSymbol
+    - priceOneMonthAgo
+    - priceOneWeekAgo
