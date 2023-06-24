@@ -23,6 +23,11 @@
         href: {{ jellyfin_href }}
         icon: jellyfin
 
+- Monitor:
+    - Uptime Kuma:
+        href: {{ uptimekuma_href }}
+        icon: uptime-kuma
+
 - Tailscale:
     - RPi4:
         icon: tailscale
@@ -41,4 +46,10 @@
         widget:
           type: tailscale
           deviceid: {{ tailscale_id_rpi2 }}
+          key: {{ tailscale_key }}
+    - Cloud Monitor:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{ tailscale_id_cloud_monitor }}
           key: {{ tailscale_key }}

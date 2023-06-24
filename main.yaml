@@ -153,3 +153,5 @@
       tags: never, init
     - role: docker_compose_tailscale
       tags: compose, tailscale
+    - role: docker_compose_uptimekuma
+      tags: compose, uptimekuma
