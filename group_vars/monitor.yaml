@@ -1,0 +1,6 @@
+---
+docker_install_compose_plugin: true
+docker_install_compose: false
+docker_users:
+  - ubuntu
+figurine_font: "3d.flf"
