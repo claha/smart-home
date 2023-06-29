@@ -112,6 +112,8 @@
       tags: never, dozzle
     - role: docker_compose_duckdns
       tags: never, duckdns
+    - role: docker_compose_gatus
+      tags: never, gatus
     - role: docker_compose_glances
       tags: never, glances
     - role: docker_compose_homeassistant
@@ -130,6 +132,8 @@
       tags: never, tailscale
     - role: docker_compose_traefik
       tags: never, traefik
+    - role: docker_compose_uptimekuma
+      tags: never, uptimekuma
     - role: docker_compose_zigbee2mqtt
       tags: never, zigbee2mqtt
 
