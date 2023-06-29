@@ -155,3 +155,5 @@
       tags: compose, tailscale
     - role: docker_compose_uptimekuma
       tags: compose, uptimekuma
+    - role: docker_compose_gatus
+      tags: compose, gatus

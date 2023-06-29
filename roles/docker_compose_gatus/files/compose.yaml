@@ -1,0 +1,10 @@
+---
+services:
+  gatus:
+    image: ghcr.io/twin/gatus:v5.4.0
+    container_name: gatus
+    ports:
+      - 8080:8080
+    volumes:
+      - ./config.yaml:/config/config.yaml
+    restart: unless-stopped

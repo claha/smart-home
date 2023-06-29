@@ -1,0 +1,22 @@
+---
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0775"
+  loop:
+    - "~/{{ service_name }}"
+
+- name: Create compose file
+  ansible.builtin.copy:
+    src: "files/compose.yaml"
+    dest: "~/{{ service_name }}/compose.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
+- name: Create config
+  ansible.builtin.template:
+    src: "templates/config.yaml.j2"
+    dest: "~/{{ service_name }}/config.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"

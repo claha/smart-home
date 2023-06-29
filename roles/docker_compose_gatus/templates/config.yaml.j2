@@ -1,0 +1,26 @@
+debug: true
+
+endpoints:
+  - name: RPi2
+    url: "icmp://{{ rpi2_ip_tailscale }}"
+    interval: 5m
+    conditions:
+      - "[CONNECTED] == true"
+  - name: RPi3
+    url: "icmp://{{ rpi3_ip_tailscale }}"
+    interval: 5m
+    conditions:
+      - "[CONNECTED] == true"
+  - name: RPi4
+    url: "icmp://{{ rpi4_ip_tailscale }}"
+    interval: 5m
+    conditions:
+      - "[CONNECTED] == true"
+  - name: Pi-hole
+    url: "{{ rpi3_ip_tailscale }}"
+    dns:
+      query-name: "{{ domain }}"
+      query-type: "A"
+    conditions:
+      - "[BODY] == {{ rpi4_ip }}"
+      - "[DNS_RCODE] == NOERROR"
