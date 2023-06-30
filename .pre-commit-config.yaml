@@ -97,3 +97,9 @@ repos:
     rev: 1.3.0
     hooks:
       - id: dansabel
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.81.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
