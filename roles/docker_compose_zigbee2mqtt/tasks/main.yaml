@@ -13,14 +13,14 @@
     src: "files/compose.yaml"
     dest: "~/{{ service_name }}/compose.yaml"
     mode: "0640"
-  notify: "Recerate {{ service_name }}"
+  notify: "Recreate {{ service_name }}"
 
 - name: Create config
   ansible.builtin.template:
     src: "templates/configuration.yaml.j2"
     dest: "~/{{ service_name }}/data/configuration.yaml"
     mode: "0640"
-  notify: "Recerate {{ service_name }}"
+  notify: "Recreate {{ service_name }}"
 
 - name: Create devices and groups
   ansible.builtin.copy:
@@ -30,4 +30,4 @@
   loop:
     - devices.yaml
     - groups.yaml
-  notify: "Recerate {{ service_name }}"
+  notify: "Recreate {{ service_name }}"

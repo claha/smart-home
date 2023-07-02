@@ -2,7 +2,7 @@
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.30.4
+    image: koenkk/zigbee2mqtt:1.32.0
     platform: linux/arm/v6
     environment:
       - TZ=Europe/Stockholm
