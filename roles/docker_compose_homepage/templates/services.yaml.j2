@@ -24,11 +24,17 @@
         icon: jellyfin
 
 - Monitor:
-    - Uptime Kuma:
-        href: {{ uptimekuma_href }}
+    - Uptime Kuma (OCI 0):
+        href: {{ uptimekuma0_href }}
         icon: uptime-kuma
-    - Gatus:
-        href: {{ gatus_href }}
+    - Uptime Kuma (OCI 1):
+        href: {{ uptimekuma1_href }}
+        icon: uptime-kuma
+    - Gatus (OCI 0):
+        href: {{ gatus0_href }}
+        icon: gatus
+    - Gatus (OCI 1):
+        href: {{ gatus1_href }}
         icon: gatus
 
 - Tailscale:
@@ -50,9 +56,15 @@
           type: tailscale
           deviceid: {{ tailscale_id_rpi2 }}
           key: {{ tailscale_key }}
-    - Cloud Monitor:
+    - OCI 0:
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_cloud_monitor }}
+          deviceid: {{ tailscale_id_oci0 }}
+          key: {{ tailscale_key }}
+    - OCI 1:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{ tailscale_id_oci1 }}
           key: {{ tailscale_key }}
