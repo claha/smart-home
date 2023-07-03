@@ -159,3 +159,5 @@
       tags: compose, tailscale
     - role: docker_compose_gatus
       tags: compose, gatus
+    - role: docker_compose_glances
+      tags: compose, glances
