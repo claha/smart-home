@@ -5,12 +5,15 @@ WORKDIR /app
 
 # Install dependencies
 RUN apk add --no-cache gcc==12.2.1_git20220924-r10 libc-dev==0.7.2-r5 libffi-dev==3.4.4-r2 && \
-    pip install --user --no-cache-dir PyGithub==1.58.2
+    pip install --user --no-cache-dir PyGithub==1.58.2 ansible==8.1.0
 
 # Stage 2: Final stage
 FROM python:3.11-alpine
 
 WORKDIR /app
+
+# Install dependencies
+RUN apk add --no-cache git==2.40.1-r0 openssh==9.3_p1-r3
 
 # Copy the script
 COPY main.py .

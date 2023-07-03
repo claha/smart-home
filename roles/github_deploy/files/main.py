@@ -2,6 +2,7 @@
 
 import logging
 import os
+import subprocess
 import time
 
 from github import Github, Repository, WorkflowRun
@@ -68,9 +69,28 @@ def listen_for_events() -> None:
         time.sleep(60)
 
 
+def run_command(command: str) -> None:
+    """Run and log command output."""
+    result = subprocess.run(
+        command,
+        cwd=f"/{REPO}",
+        shell=True,
+        capture_output=True,
+    )
+    logging.info(result.stderr.decode("UTF-8").strip())
+    logging.info(result.stdout.decode("UTF-8").strip())
+
+
 def deploy(name: str) -> None:
     """Perform deployment based on the name."""
     logging.info(f"Deploy: {name}")
+    for command in [
+        f"git config --global --add safe.directory /{REPO}",
+        "git fetch && git reset --hard origin/main",
+        "ansible-galaxy install -r requirements.yaml",
+        f"ansible-playbook main.yaml --limit all,!localhost --tags {name}",
+    ]:
+        run_command(command)
 
 
 def get_non_processed_runs(
@@ -85,7 +105,7 @@ def get_non_processed_runs(
     # Filter and return non-processed runs
     non_processed_runs = []
     for i, run in enumerate(runs):
-        if i > 10:  # Only check the latest runs
+        if i > 100:  # Only check the latest runs
             break
         if run.id not in processed_runs:
             non_processed_runs.append(run)
