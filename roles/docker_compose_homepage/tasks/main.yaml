@@ -33,4 +33,3 @@
     src: "templates/services.yaml.j2"
     dest: "~/{{ service_name }}/config/services.yaml"
     mode: "0640"
-  notify: "Recreate {{ service_name }}"
