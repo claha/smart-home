@@ -1,0 +1,5 @@
+{% for host in smart_home_hosts %}
+Host {{ host.name }}
+	Hostname {{ host.ip }}
+	User {{ host.user }}
+{% endfor %}

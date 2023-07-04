@@ -1,0 +1,6 @@
+---
+- name: Create smart-home ssh config
+  ansible.builtin.template:
+    src: "templates/smart-home.conf.j2"
+    dest: "~/.ssh/smart-home.conf"
+    mode: "0600"
