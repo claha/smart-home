@@ -1,34 +1,34 @@
 ---
 - Network:
     - Router:
-        href: {{ router_href }}
+        href: {{ router_href | default() }}
         icon: asus-router
     - Pi-hole (primary):
-        href: {{ pihole_primary_href }}
+        href: {{ pihole_primary_href | default() }}
         icon: pi-hole
     - Pi-hole (secondary):
-        href: {{ pihole_secondary_href }}
+        href: {{ pihole_secondary_href | default() }}
         icon: pi-hole
 
 - Smart Home:
     - Zigbee2Mqtt:
-        href: {{ zigbee2mqtt_href }}
+        href: {{ zigbee2mqtt_href | default() }}
         icon: zigbee2mqtt
 
 - Media:
     - Navidrome:
-        href: {{ navidrome_href }}
+        href: {{ navidrome_href | default() }}
         icon: navidrome
     - Jellyfin:
-        href: {{ jellyfin_href }}
+        href: {{ jellyfin_href | default() }}
         icon: jellyfin
 
 - Monitor:
     - Gatus (OCI 0):
-        href: {{ gatus0_href }}
+        href: {{ gatus0_href | default() }}
         icon: gatus
     - Gatus (OCI 1):
-        href: {{ gatus1_href }}
+        href: {{ gatus1_href | default() }}
         icon: gatus
 
 - Tailscale:
@@ -36,29 +36,29 @@
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_rpi4 }}
-          key: {{ tailscale_key }}
+          deviceid: {{ tailscale_id_rpi4 | default()}}
+          key: {{ tailscale_key | default()}}
     - RPi3:
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_rpi3 }}
-          key: {{ tailscale_key }}
+          deviceid: {{ tailscale_id_rpi3 | default() }}
+          key: {{ tailscale_key | default() }}
     - RPi2:
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_rpi2 }}
-          key: {{ tailscale_key }}
+          deviceid: {{ tailscale_id_rpi2 | default() }}
+          key: {{ tailscale_key | default() }}
     - OCI 0:
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_oci0 }}
-          key: {{ tailscale_key }}
+          deviceid: {{ tailscale_id_oci0 | default() }}
+          key: {{ tailscale_key | default() }}
     - OCI 1:
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_oci1 }}
-          key: {{ tailscale_key }}
+          deviceid: {{ tailscale_id_oci1 | default() }}
+          key: {{ tailscale_key | default() }}
