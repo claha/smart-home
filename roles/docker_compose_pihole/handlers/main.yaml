@@ -4,6 +4,12 @@
   changed_when: true
   become: true
 
+- name: Restart resolved
+  ansible.builtin.service:
+    name: systemd-resolved
+    state: restarted
+  become: true
+
 - name: Recreate {{ service_name }}
   ansible.builtin.command:
     chdir: "~/{{ service_name }}"

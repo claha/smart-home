@@ -1,11 +1,23 @@
 ---
 - name: Use local nameserver
+  become: true
   ansible.builtin.lineinfile:
     line: "name_serves=127.0.0.1"
     dest: /etc/resolvconf.conf
     regexp: "^#?name_servers="
-  become: true
+    create: true
+    mode: "0644"
   notify: Update resolvconf
+
+- name: Do not stub dns listener
+  become: true
+  ansible.builtin.lineinfile:
+    line: "DNSStubListener=no"
+    dest: /etc/systemd/resolved.conf
+    regexp: "^#?DNSStubListener="
+    create: true
+    mode: "0644"
+  notify: Restart resolved
 
 - name: Create directories
   ansible.builtin.file:
