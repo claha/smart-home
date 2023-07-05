@@ -1,0 +1,33 @@
+---
+name: Deploy mosquitto
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - roles/docker_compose_mosquitto/**
+      - .github/workflows/mosquitto.yaml
+  pull_request:
+    paths:
+      - roles/docker_compose_mosquitto/**
+      - .github/workflows/mosquitto.yaml
+
+jobs:
+  mosquitto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.3
+      - uses: actions/setup-python@v4.6.1
+        with:
+          python-version: 3.x
+
+      - run: |
+          sed -i '/vars_files/I,+1 d' main.yaml
+          sed -i '/vault_password_file/d' ansible.cfg
+
+          pip install ansible
+          ansible-galaxy install --role-file requirements.yaml
+          ansible-playbook main.yaml --limit localhost --tags mosquitto
+
+          docker ps --filter name=mosquitto | grep --quiet mosquitto
