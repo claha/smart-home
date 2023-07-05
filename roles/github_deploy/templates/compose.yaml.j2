@@ -9,5 +9,5 @@ services:
     volumes:
       - ./processed_runs.txt:/app/processed_runs.txt
       - ~/smart-home:/smart-home
-      - ~/.ssh:/root/.ssh
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro
     restart: unless-stopped

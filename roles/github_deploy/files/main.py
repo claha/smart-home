@@ -88,6 +88,7 @@ def deploy(name: str) -> None:
         f"git config --global --add safe.directory /{REPO}",
         "git fetch && git reset --hard origin/main",
         "ansible-galaxy install -r requirements.yaml",
+        "ansible-playbook main.yaml --limit localhost --tags ssh_config",
         f"ansible-playbook main.yaml --limit all,!localhost --tags {name}",
     ]:
         run_command(command)
