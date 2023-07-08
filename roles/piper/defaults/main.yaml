@@ -1,0 +1,3 @@
+---
+service_name: "{{ ansible_role_name }}"
+piper_homepage_labels: false

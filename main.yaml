@@ -122,7 +122,7 @@
       tags: never, mosquitto
     - role: docker_compose_pihole
       tags: never, pihole
-    - role: docker_compose_piper
+    - role: piper
       tags: never, piper
     - role: docker_compose_speedtest
       tags: never, speedtest
@@ -184,5 +184,5 @@
       tags: compose, tailscale
     - role: docker_compose_glances
       tags: compose, glances
-    - role: docker_compose_piper
+    - role: piper
       tags: compose, piper
