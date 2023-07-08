@@ -132,6 +132,8 @@
       tags: never, traefik
     - role: docker_compose_uptimekuma
       tags: never, uptimekuma
+    - role: whisper
+      tags: never, whisper
     - role: docker_compose_zigbee2mqtt
       tags: never, zigbee2mqtt
     - role: ssh_config
@@ -186,3 +188,5 @@
       tags: compose, glances
     - role: piper
       tags: compose, piper
+    - role: whisper
+      tags: compose, whisper
