@@ -9,7 +9,9 @@ services:
       - ./data:/data
     command: --voice en-us-lessac-low
     restart: unless-stopped
+{% if piper_homepage_labels %}
     labels:
       - homepage.group=Smart Home
       - homepage.name=Piper
       - homepage.icon=https://github.com/home-assistant/brands/blob/master/core_integrations/piper/icon.png?raw=true
+{% endif %}

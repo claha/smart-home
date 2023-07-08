@@ -42,8 +42,6 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: docker_compose_piper
-      tags: compose, piper
     - role: docker_compose_speedtest
       tags: compose, speedtest
     - role: docker_compose_duckdns
@@ -186,3 +184,5 @@
       tags: compose, tailscale
     - role: docker_compose_glances
       tags: compose, glances
+    - role: docker_compose_piper
+      tags: compose, piper
