@@ -21,7 +21,7 @@
       tags: compose, pihole
     - role: docker_compose_glances
       tags: compose, glances
-    - role: docker_compose_tailscale
+    - role: tailscale
       tags: compose, tailscale
 
 - name: Setup smarthome
@@ -52,7 +52,7 @@
       tags: compose, diun
     - role: docker_compose_glances
       tags: compose, glances
-    - role: docker_compose_tailscale
+    - role: tailscale
       tags: compose, tailscale
     - role: docker_compose_mosquitto
       tags: compose, mosquitto
@@ -126,7 +126,7 @@
       tags: never, piper
     - role: docker_compose_speedtest
       tags: never, speedtest
-    - role: docker_compose_tailscale
+    - role: tailscale
       tags: never, tailscale
     - role: docker_compose_traefik
       tags: never, traefik
@@ -157,7 +157,7 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: docker_compose_tailscale
+    - role: tailscale
       tags: compose, tailscale
     - role: docker_compose_gatus
       tags: compose, gatus
@@ -182,7 +182,7 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: docker_compose_tailscale
+    - role: tailscale
       tags: compose, tailscale
     - role: docker_compose_glances
       tags: compose, glances

@@ -6,11 +6,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_tailscale/**
+      - roles/tailscale/**
       - .github/workflows/tailscale.yaml
   pull_request:
     paths:
-      - roles/docker_compose_tailscale/**
+      - roles/tailscale/**
       - .github/workflows/tailscale.yaml
 
 jobs:
