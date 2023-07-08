@@ -163,3 +163,26 @@
       tags: compose, gatus
     - role: docker_compose_glances
       tags: compose, glances
+
+- name: Setup ampere
+  hosts: ampere
+  vars_files:
+    - vars/vault.yaml
+
+  pre_tasks:
+    - name: Update cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      become: true
+
+  roles:
+    - role: geerlingguy.docker
+      become: true
+      tags: never, init
+    - role: bash
+      tags: never, init
+    - role: docker_compose_tailscale
+      tags: compose, tailscale
+    - role: docker_compose_glances
+      tags: compose, glances
