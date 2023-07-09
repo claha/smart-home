@@ -104,6 +104,8 @@
   roles:
     - role: docker_compose_autorestic
       tags: never, autorestic
+    - role: dashdot
+      tags: never, dashdot
     - role: docker_compose_diun
       tags: never, diun
     - role: docker_compose_dozzle
@@ -163,6 +165,8 @@
       tags: compose, gatus
     - role: docker_compose_glances
       tags: compose, glances
+    - role: dashdot
+      tags: compose, dashdot
 
 - name: Setup ampere
   hosts: ampere
@@ -190,3 +194,5 @@
       tags: compose, piper
     - role: whisper
       tags: compose, whisper
+    - role: dashdot
+      tags: compose, dashdot
