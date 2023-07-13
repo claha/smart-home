@@ -1,8 +1,8 @@
 ---
 services:
-  uptime-kuma:
+  uptimekuma:
     image: louislam/uptime-kuma:1.21.3
-    container_name: uptime-kuma
+    container_name: uptimekuma
     ports:
       - 3001:3001
     volumes:
