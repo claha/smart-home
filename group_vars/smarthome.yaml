@@ -1,6 +1,4 @@
 ---
-docker_install_compose_plugin: true
-docker_install_compose: false
 docker_users:
   - ubuntu
 glances_proxy: true
