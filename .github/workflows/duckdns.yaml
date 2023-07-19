@@ -6,11 +6,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_duckdns/**
+      - roles/duckdns/**
       - .github/workflows/duckdns.yaml
   pull_request:
     paths:
-      - roles/docker_compose_duckdns/**
+      - roles/duckdns/**
       - .github/workflows/duckdns.yaml
 
 jobs:

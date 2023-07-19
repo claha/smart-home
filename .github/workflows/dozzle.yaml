@@ -6,11 +6,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_dozzle/**
+      - roles/dozzle/**
       - .github/workflows/dozzle.yaml
   pull_request:
     paths:
-      - roles/docker_compose_dozzle/**
+      - roles/dozzle/**
       - .github/workflows/dozzle.yaml
 
 jobs:

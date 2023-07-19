@@ -6,11 +6,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_diun/**
+      - roles/diun/**
       - .github/workflows/diun.yaml
   pull_request:
     paths:
-      - roles/docker_compose_diun/**
+      - roles/diun/**
       - .github/workflows/diun.yaml
 
 jobs:

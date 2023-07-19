@@ -19,7 +19,7 @@
       tags: never, init
     - role: docker_compose_pihole
       tags: compose, pihole
-    - role: docker_compose_glances
+    - role: glances
       tags: compose, glances
     - role: tailscale
       tags: compose, tailscale
@@ -42,25 +42,25 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: docker_compose_speedtest
+    - role: speedtest
       tags: compose, speedtest
-    - role: docker_compose_duckdns
+    - role: duckdns
       tags: compose, duckdns
-    - role: docker_compose_dozzle
+    - role: dozzle
       tags: compose, dozzle
-    - role: docker_compose_diun
+    - role: diun
       tags: compose, diun
-    - role: docker_compose_glances
+    - role: glances
       tags: compose, glances
     - role: tailscale
       tags: compose, tailscale
-    - role: docker_compose_mosquitto
+    - role: mosquitto
       tags: compose, mosquitto
     - role: docker_compose_traefik
       tags: compose, traefik
     - role: docker_compose_homepage
       tags: compose, homepage
-    - role: docker_compose_autorestic
+    - role: autorestic
       tags: compose, autorestic
     - role: docker_compose_homeassistant
       tags: compose, homeassistant
@@ -102,37 +102,37 @@
     - vars/vault.yaml
 
   roles:
-    - role: docker_compose_autorestic
+    - role: autorestic
       tags: never, autorestic
     - role: dashdot
       tags: never, dashdot
-    - role: docker_compose_diun
+    - role: diun
       tags: never, diun
-    - role: docker_compose_dozzle
+    - role: dozzle
       tags: never, dozzle
-    - role: docker_compose_duckdns
+    - role: duckdns
       tags: never, duckdns
-    - role: docker_compose_gatus
+    - role: gatus
       tags: never, gatus
-    - role: docker_compose_glances
+    - role: glances
       tags: never, glances
     - role: docker_compose_homeassistant
       tags: never, homeassistant
     - role: docker_compose_homepage
       tags: never, homepage
-    - role: docker_compose_mosquitto
+    - role: mosquitto
       tags: never, mosquitto
     - role: docker_compose_pihole
       tags: never, pihole
     - role: piper
       tags: never, piper
-    - role: docker_compose_speedtest
+    - role: speedtest
       tags: never, speedtest
     - role: tailscale
       tags: never, tailscale
     - role: docker_compose_traefik
       tags: never, traefik
-    - role: docker_compose_uptimekuma
+    - role: uptimekuma
       tags: never, uptimekuma
     - role: whisper
       tags: never, whisper
@@ -161,9 +161,9 @@
       tags: never, init
     - role: tailscale
       tags: compose, tailscale
-    - role: docker_compose_gatus
+    - role: gatus
       tags: compose, gatus
-    - role: docker_compose_glances
+    - role: glances
       tags: compose, glances
     - role: dashdot
       tags: compose, dashdot
@@ -188,7 +188,7 @@
       tags: never, init
     - role: tailscale
       tags: compose, tailscale
-    - role: docker_compose_glances
+    - role: glances
       tags: compose, glances
     - role: piper
       tags: compose, piper
