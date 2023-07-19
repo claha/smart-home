@@ -6,11 +6,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_homepage/**
+      - roles/homepage/**
       - .github/workflows/homepage.yaml
   pull_request:
     paths:
-      - roles/docker_compose_homepage/**
+      - roles/homepage/**
       - .github/workflows/homepage.yaml
 
 jobs:

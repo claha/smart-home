@@ -58,7 +58,7 @@
       tags: compose, mosquitto
     - role: docker_compose_traefik
       tags: compose, traefik
-    - role: docker_compose_homepage
+    - role: homepage
       tags: compose, homepage
     - role: autorestic
       tags: compose, autorestic
@@ -118,7 +118,7 @@
       tags: never, glances
     - role: homeassistant
       tags: never, homeassistant
-    - role: docker_compose_homepage
+    - role: homepage
       tags: never, homepage
     - role: mosquitto
       tags: never, mosquitto
