@@ -44,7 +44,7 @@
   include_tags:
     - ^[\d+\.]+\d+$
 
-- name: docker.io/homeassistant/home-assistant
+- name: ghcr.io/home-assistant/home-assistant
   watch_repo: true
   max_tags: 50
   sort_tags: semver
