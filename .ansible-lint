@@ -10,4 +10,4 @@ skip_list:
   - package-latest
 
 exclude_paths:
-  - roles/docker_compose_homeassistant/files
+  - roles/homeassistant/files

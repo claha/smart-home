@@ -62,7 +62,7 @@
       tags: compose, homepage
     - role: autorestic
       tags: compose, autorestic
-    - role: docker_compose_homeassistant
+    - role: homeassistant
       tags: compose, homeassistant
     - role: github_deploy
       tags: deploy
@@ -116,7 +116,7 @@
       tags: never, gatus
     - role: glances
       tags: never, glances
-    - role: docker_compose_homeassistant
+    - role: homeassistant
       tags: never, homeassistant
     - role: docker_compose_homepage
       tags: never, homepage

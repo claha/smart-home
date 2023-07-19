@@ -6,11 +6,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_homeassistant/**
+      - roles/homeassistant/**
       - .github/workflows/homeassistant.yaml
   pull_request:
     paths:
-      - roles/docker_compose_homeassistant/**
+      - roles/homeassistant/**
       - .github/workflows/homeassistant.yaml
 
 jobs:
