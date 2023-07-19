@@ -1,7 +1,22 @@
 # Smart Home
 
 ![pre-commit](https://github.com/claha/smart-home/actions/workflows/pre-commit.yaml/badge.svg)
-![home-assistant](https://github.com/claha/smart-home/actions/workflows/home-assistant.yaml/badge.svg)
+
+![dashdot](https://github.com/claha/smart-home/actions/workflows/dashdot.yaml/badge.svg)
+![diun](https://github.com/claha/smart-home/actions/workflows/diun.yaml/badge.svg)
+![dozzle](https://github.com/claha/smart-home/actions/workflows/dozzle.yaml/badge.svg)
+![duckdns](https://github.com/claha/smart-home/actions/workflows/duckdns.yaml/badge.svg)
+![gatus](https://github.com/claha/smart-home/actions/workflows/gatus.yaml/badge.svg)
+![glances](https://github.com/claha/smart-home/actions/workflows/glances.yaml/badge.svg)
+![homeassistant](https://github.com/claha/smart-home/actions/workflows/homeassistant.yaml/badge.svg)
+![homepage](https://github.com/claha/smart-home/actions/workflows/homepage.yaml/badge.svg)
+![mosquitto](https://github.com/claha/smart-home/actions/workflows/mosquitto.yaml/badge.svg)
+![piper](https://github.com/claha/smart-home/actions/workflows/piper.yaml/badge.svg)
+![speedtest](https://github.com/claha/smart-home/actions/workflows/speedtest.yaml/badge.svg)
+![tailscale](https://github.com/claha/smart-home/actions/workflows/tailscale.yaml/badge.svg)
+![uptimekuma](https://github.com/claha/smart-home/actions/workflows/uptimekuma.yaml/badge.svg)
+![whisper](https://github.com/claha/smart-home/actions/workflows/whisper.yaml/badge.svg)
+![zigbee2mqtt](https://github.com/claha/smart-home/actions/workflows/zigbee2mqtt.yaml/badge.svg)
 
 Welcome to the documentation of my smart home setup, which leverages the power of
 Ansible, Docker Compose, and NixOS to manage and orchestrate various services. This
