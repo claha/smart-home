@@ -17,7 +17,7 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: docker_compose_pihole
+    - role: pihole
       tags: compose, pihole
     - role: glances
       tags: compose, glances
@@ -124,7 +124,7 @@
       tags: never, homepage
     - role: mosquitto
       tags: never, mosquitto
-    - role: docker_compose_pihole
+    - role: pihole
       tags: never, pihole
     - role: piper
       tags: never, piper
