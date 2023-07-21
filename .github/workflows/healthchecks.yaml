@@ -1,0 +1,33 @@
+---
+name: Deploy healthchecks
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - roles/healthchecks/**
+      - .github/workflows/healthchecks.yaml
+  pull_request:
+    paths:
+      - roles/healthchecks/**
+      - .github/workflows/healthchecks.yaml
+
+jobs:
+  healthchecks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.3
+      - uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.x
+
+      - run: |
+          sed -i '/vars_files/I,+1 d' main.yaml
+          sed -i '/vault_password_file/d' ansible.cfg
+
+          pip install ansible
+          ansible-galaxy install --role-file requirements.yaml
+          ansible-playbook main.yaml --limit localhost --tags healthchecks
+
+          docker ps --filter name=healthchecks | grep --quiet healthchecks

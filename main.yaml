@@ -116,6 +116,8 @@
       tags: never, gatus
     - role: glances
       tags: never, glances
+    - role: healthchecks
+      tags: never, healthchecks
     - role: homeassistant
       tags: never, homeassistant
     - role: homepage
@@ -167,6 +169,8 @@
       tags: compose, glances
     - role: dashdot
       tags: compose, dashdot
+    - role: healthchecks
+      tags: compose, healthchecks
 
 - name: Setup ampere
   hosts: ampere

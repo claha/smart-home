@@ -1,0 +1,13 @@
+---
+services:
+  healthchecks:
+    image: docker.io/healthchecks/healthchecks:v2.10
+    container_name: healthchecks
+    ports:
+      - 8000:8000
+    environment:
+      - DB=sqlite
+      - DB_NAME=/data/hc.sqlite
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

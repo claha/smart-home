@@ -1,0 +1,21 @@
+---
+- name: Create service directory
+  ansible.builtin.file:
+    path: "~/{{ service_name }}"
+    state: directory
+    mode: "0775"
+
+- name: Create data directory
+  ansible.builtin.file:
+    path: "~/{{ service_name }}/data"
+    state: directory
+    mode: "0775"
+    owner: 999
+    group: 999
+
+- name: Create compose file
+  ansible.builtin.copy:
+    src: "files/compose.yaml"
+    dest: "~/{{ service_name }}/compose.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
