@@ -1,0 +1,37 @@
+---
+name: Deploy autorestic
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - roles/autorestic/**
+      - .github/workflows/autorestic.yaml
+  pull_request:
+    paths:
+      - roles/autorestic/**
+      - .github/workflows/autorestic.yaml
+
+jobs:
+  autorestic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.3
+      - uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.x
+
+      - run: |
+          sed -i '/vars_files/I,+1 d' main.yaml
+          sed -i '/vault_password_file/d' ansible.cfg
+
+          pip install ansible
+          ansible-galaxy install --role-file requirements.yaml
+          ansible-playbook main.yaml --limit localhost --tags autorestic \
+          --extra-vars "b2_account_id=ci b2_account_key=ci \
+          autorestic_backblaze_key=ci \
+          autorestic_dropbox_key=ci \
+          rclone_dropbox_token=ci"
+
+          cd ~/autorestic && docker compose run autorestic
