@@ -5,27 +5,27 @@
     state: directory
     mode: "0775"
   loop:
-    - "~/{{ service_name }}"
-    - "~/{{ service_name }}/data"
+    - "{{ service_path }}"
+    - "{{ service_path }}/data"
 
 - name: Create compose file
   ansible.builtin.copy:
     src: "files/compose.yaml"
-    dest: "~/{{ service_name }}/compose.yaml"
+    dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
 - name: Create config
   ansible.builtin.template:
     src: "templates/configuration.yaml.j2"
-    dest: "~/{{ service_name }}/data/configuration.yaml"
+    dest: "{{ service_path }}/data/configuration.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
 - name: Create devices and groups
   ansible.builtin.copy:
     src: "files/{{ item }}"
-    dest: "~/{{ service_name }}/data/{{ item }}"
+    dest: "{{ service_path }}/data/{{ item }}"
     mode: "0400"
   loop:
     - devices.yaml

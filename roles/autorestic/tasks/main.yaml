@@ -5,18 +5,18 @@
     state: directory
     mode: "0775"
   loop:
-    - "~/{{ service_name }}"
+    - "{{ service_path }}"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "~/{{ service_name }}/compose.yaml"
+    dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
 
 - name: Create config files
   ansible.builtin.copy:
     src: "files/{{ item }}"
-    dest: "~/{{ service_name }}/{{ item }}"
+    dest: "{{ service_path }}/{{ item }}"
     mode: "0640"
   loop:
     - autorestic.yaml

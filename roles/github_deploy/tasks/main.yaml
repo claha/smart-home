@@ -5,19 +5,19 @@
     state: directory
     mode: "0775"
   loop:
-    - "~/{{ service_name }}"
+    - "{{ service_path }}"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "~/{{ service_name }}/compose.yaml"
+    dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
 - name: Create files for image
   ansible.builtin.copy:
     src: "files/{{ item }}"
-    dest: "~/{{ service_name }}/{{ item }}"
+    dest: "{{ service_path }}/{{ item }}"
     mode: "0640"
   loop:
     - Dockerfile
@@ -28,6 +28,6 @@
 - name: Create initial empty processed_runs.txt
   ansible.builtin.copy:
     content: ""
-    dest: "~/{{ service_name }}/processed_runs.txt"
+    dest: "{{ service_path }}/processed_runs.txt"
     force: false
     mode: "0600"

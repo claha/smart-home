@@ -5,20 +5,20 @@
     state: directory
     mode: "0775"
   loop:
-    - "~/{{ service_name }}"
-    - "~/{{ service_name }}/config"
+    - "{{ service_path }}"
+    - "{{ service_path }}/config"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "~/{{ service_name }}/compose.yaml"
+    dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
 - name: Create config
   ansible.builtin.copy:
     src: "files/config/"
-    dest: "~/{{ service_name }}/config"
+    dest: "{{ service_path }}/config"
     mode: "0640"
     backup: true
   notify: "Recreate {{ service_name }}"
@@ -26,13 +26,13 @@
 - name: Create portfolio
   ansible.builtin.template:
     src: "templates/portfolio.yaml.j2"
-    dest: "~/{{ service_name }}/config/sensor/portfolio.yaml"
+    dest: "{{ service_path }}/config/sensor/portfolio.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
 - name: Create secrets
   ansible.builtin.template:
     src: "templates/secrets.yaml.j2"
-    dest: "~/{{ service_name }}/config/secrets.yaml"
+    dest: "{{ service_path }}/config/secrets.yaml"
     mode: "0600"
   notify: "Recreate {{ service_name }}"

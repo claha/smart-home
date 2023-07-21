@@ -5,12 +5,12 @@
     state: directory
     mode: "0775"
   loop:
-    - "~/{{ service_name }}"
-    - "~/{{ service_name }}/config"
+    - "{{ service_path }}"
+    - "{{ service_path }}/config"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "~/{{ service_name }}/compose.yaml"
+    dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"

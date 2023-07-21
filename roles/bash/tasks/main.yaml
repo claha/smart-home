@@ -39,11 +39,11 @@
 - name: Create bashrc config
   ansible.builtin.copy:
     src: "files/bashrc"
-    dest: "~/.bashrc"
+    dest: ".bashrc"
     mode: "0640"
 
 - name: Make it quiet when logging in through ssh
   ansible.builtin.copy:
     content: ""
-    dest: "~/.hushlogin"
+    dest: ".hushlogin"
     mode: "0640"
