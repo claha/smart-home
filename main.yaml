@@ -18,11 +18,11 @@
     - role: bash
       tags: never, init
     - role: pihole
-      tags: compose, pihole
+      tags: pihole
     - role: glances
-      tags: compose, glances
+      tags: glances
     - role: tailscale
-      tags: compose, tailscale
+      tags: tailscale
 
 - name: Setup smarthome
   hosts: smarthome
@@ -43,27 +43,27 @@
     - role: bash
       tags: never, init
     - role: speedtest
-      tags: compose, speedtest
+      tags: speedtest
     - role: duckdns
-      tags: compose, duckdns
+      tags: duckdns
     - role: dozzle
-      tags: compose, dozzle
+      tags: dozzle
     - role: diun
-      tags: compose, diun
+      tags: diun
     - role: glances
-      tags: compose, glances
+      tags: glances
     - role: tailscale
-      tags: compose, tailscale
+      tags: tailscale
     - role: mosquitto
-      tags: compose, mosquitto
+      tags: mosquitto
     - role: traefik
-      tags: compose, traefik
+      tags: traefik
     - role: homepage
-      tags: compose, homepage
+      tags: homepage
     - role: autorestic
-      tags: compose, autorestic
+      tags: autorestic
     - role: homeassistant
-      tags: compose, homeassistant
+      tags: homeassistant
     - role: github_deploy
       tags: deploy
 
@@ -86,7 +86,7 @@
     - role: bash
       tags: never, init
     - role: zigbee2mqtt
-      tags: compose, zigbee2mqtt
+      tags: zigbee2mqtt
 
 - name: Setup nixos
   hosts: nixos
@@ -162,15 +162,15 @@
     - role: bash
       tags: never, init
     - role: tailscale
-      tags: compose, tailscale
+      tags: tailscale
     - role: gatus
-      tags: compose, gatus
+      tags: gatus
     - role: glances
-      tags: compose, glances
+      tags: glances
     - role: dashdot
-      tags: compose, dashdot
+      tags: dashdot
     - role: healthchecks
-      tags: compose, healthchecks
+      tags: healthchecks
 
 - name: Setup ampere
   hosts: ampere
@@ -191,12 +191,12 @@
     - role: bash
       tags: never, init
     - role: tailscale
-      tags: compose, tailscale
+      tags: tailscale
     - role: glances
-      tags: compose, glances
+      tags: glances
     - role: piper
-      tags: compose, piper
+      tags: piper
     - role: whisper
-      tags: compose, whisper
+      tags: whisper
     - role: dashdot
-      tags: compose, dashdot
+      tags: dashdot
