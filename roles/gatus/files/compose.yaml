@@ -1,7 +1,7 @@
 ---
 services:
   gatus:
-    image: ghcr.io/twin/gatus:v5.5.0
+    image: ghcr.io/twin/gatus:v5.5.1
     container_name: gatus
     ports:
       - 8080:8080
