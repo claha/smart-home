@@ -7,11 +7,11 @@ on:  # yamllint disable-line rule:truthy
     branches:
       - main
     paths:
-      - roles/docker_compose_zigbee2mqtt/**
+      - roles/zigbee2mqtt/**
       - .github/workflows/zigbee2mqtt.yaml
   pull_request:
     paths:
-      - roles/docker_compose_zigbee2mqtt/**
+      - roles/zigbee2mqtt/**
       - .github/workflows/zigbee2mqtt.yaml
 
 jobs:
@@ -27,8 +27,8 @@ jobs:
           sed -i '/vars_files/I,+1 d' main.yaml
           sed -i '/vault_password_file/d' ansible.cfg
 
-          sed -i '/devices/I,+1 d' roles/docker_compose_zigbee2mqtt/files/compose.yaml
-          sed -i '/platform/d' roles/docker_compose_zigbee2mqtt/files/compose.yaml
+          sed -i '/devices/I,+1 d' roles/zigbee2mqtt/files/compose.yaml
+          sed -i '/platform/d' roles/zigbee2mqtt/files/compose.yaml
 
           pip install ansible
           ansible-galaxy install --role-file requirements.yaml

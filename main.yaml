@@ -85,7 +85,7 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: docker_compose_zigbee2mqtt
+    - role: zigbee2mqtt
       tags: compose, zigbee2mqtt
 
 - name: Setup nixos
@@ -138,7 +138,7 @@
       tags: never, uptimekuma
     - role: whisper
       tags: never, whisper
-    - role: docker_compose_zigbee2mqtt
+    - role: zigbee2mqtt
       tags: never, zigbee2mqtt
     - role: ssh_config
       tags: never, ssh_config
