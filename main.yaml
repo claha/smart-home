@@ -56,7 +56,7 @@
       tags: compose, tailscale
     - role: mosquitto
       tags: compose, mosquitto
-    - role: docker_compose_traefik
+    - role: traefik
       tags: compose, traefik
     - role: homepage
       tags: compose, homepage
@@ -132,7 +132,7 @@
       tags: never, speedtest
     - role: tailscale
       tags: never, tailscale
-    - role: docker_compose_traefik
+    - role: traefik
       tags: never, traefik
     - role: uptimekuma
       tags: never, uptimekuma
