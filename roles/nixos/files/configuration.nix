@@ -92,7 +92,7 @@ in
 
       navidrome = {
         autoStart = true;
-        image = "deluan/navidrome:0.49.3";
+        image = "docker.io/deluan/navidrome:0.49.3";
         ports = [ "${toString navidromePort}:${toString navidromePort}" ];
         # environment = {}
         volumes = [
@@ -102,7 +102,7 @@ in
       };
       bonob = {
         autoStart = true;
-        image = "simojenki/bonob:v0.6.5";
+        image = "ghcr.io/simojenki/bonob:v0.6.8";
         ports = [ "${toString bonobPort}:${toString bonobPort}" ];
         environment = {
           BNB_URL = "http://192.168.1.106:${toString bonobPort}";
@@ -115,7 +115,7 @@ in
 
       jellyfin = {
         autoStart = true;
-        image = "jellyfin/jellyfin:10.8.9";
+        image = "docker.io/jellyfin/jellyfin:10.8.10";
         volumes = [
           "/etc/jellyfin/config:/config"
           "/etc/jellyfin/cache:/cache"
