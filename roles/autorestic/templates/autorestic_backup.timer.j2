@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup {{ autorestic_location }} timer
+
+[Timer]
+OnCalendar=*-*-* 12:00:00
+Unit=autorestic_backup_{{ autorestic_location }}.service
+
+[Install]
+WantedBy=timers.target

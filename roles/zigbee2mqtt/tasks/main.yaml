@@ -31,3 +31,9 @@
     - devices.yaml
     - groups.yaml
   notify: "Recreate {{ service_name }}"
+
+- name: Create backups with autorestic
+  ansible.builtin.include_role:
+    name: autorestic
+  vars:
+    autorestic_location: "zigbee2mqtt"

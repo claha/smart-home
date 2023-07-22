@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup {{ autorestic_location }} using autorestic
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/autorestic_backup_{{ autorestic_location }}.sh

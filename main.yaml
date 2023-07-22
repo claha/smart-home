@@ -60,10 +60,8 @@
       tags: traefik
     - role: homepage
       tags: homepage
-    - role: autorestic
-      tags: autorestic
     - role: homeassistant
-      tags: homeassistant
+      tags: homeassistant, autorestic
     - role: github_deploy
       tags: deploy
 
@@ -86,7 +84,7 @@
     - role: bash
       tags: never, init
     - role: zigbee2mqtt
-      tags: zigbee2mqtt
+      tags: zigbee2mqtt, autorestic
 
 - name: Setup nixos
   hosts: nixos

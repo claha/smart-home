@@ -33,6 +33,7 @@ jobs:
           pip install ansible
           ansible-galaxy install --role-file requirements.yaml
           ansible-playbook main.yaml --limit localhost --tags zigbee2mqtt \
-          --extra-vars "mqtt_server=ci"
+          --extra-vars "mqtt_server=ci b2_account_id=ci b2_account_key=ci \
+          backblaze_homeassistant_key=ci backblaze_zigbee2mqtt_key=ci"
 
           docker ps --filter name=zigbee2mqtt | grep --quiet zigbee2mqtt
