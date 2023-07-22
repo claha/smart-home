@@ -20,5 +20,4 @@
     mode: "0640"
   loop:
     - autorestic.yaml
-    - rclone.conf
     - justfile

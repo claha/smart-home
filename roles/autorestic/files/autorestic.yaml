@@ -5,9 +5,6 @@ backends:
   backblaze:
     type: b2
     path: home-assistant-bucket
-  dropbox:
-    type: rclone
-    path: dropbox:backup
 
 locations:
   homeassistant:
@@ -15,7 +12,6 @@ locations:
       - /data/homeassistant
     to:
       - backblaze
-      - dropbox
     forget: prune
     options:
       backup:

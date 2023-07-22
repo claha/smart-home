@@ -6,13 +6,10 @@ services:
     volumes:
       - ../:/data
       - ./autorestic.yaml:/root/.autorestic.yaml:ro
-      - ./rclone.conf:/root/.config/rclone/rclone.conf:ro
     environment:
       - "AUTORESTIC_BACKBLAZE_B2_ACCOUNT_ID={{ b2_account_id }}"
       - "AUTORESTIC_BACKBLAZE_B2_ACCOUNT_KEY={{ b2_account_key }}"
       - "AUTORESTIC_BACKBLAZE_RESTIC_PASSWORD={{ autorestic_backblaze_key }}"
-      - "AUTORESTIC_DROPBOX_RESTIC_PASSWORD={{ autorestic_dropbox_key }}"
-      - "RCLONE_CONFIG_DROPBOX_TOKEN={{ rclone_dropbox_token }}"
     command:
       - autorestic
       - --help
