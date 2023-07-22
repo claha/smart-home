@@ -1,0 +1,36 @@
+---
+version: 2
+
+backends:
+  backblaze-homeassistant:
+    type: b2
+    path: smart-home-bucket:homeassistant
+    key: "{{ backblaze_homeassistant_key }}"
+    env:
+      B2_ACCOUNT_ID: "{{ b2_account_id }}"
+      B2_ACCOUNT_KEY: "{{ b2_account_key }}"
+  backblaze-zigbee2mqtt:
+    type: b2
+    path: smart-home-bucket:zigbee2mqtt
+    key: "{{ backblaze_zigbee2mqtt_key }}"
+    env:
+      B2_ACCOUNT_ID: "{{ b2_account_id }}"
+      B2_ACCOUNT_KEY: "{{ b2_account_key }}"
+
+locations:
+  homeassistant:
+    from: /data/homeassistant
+    to:
+      - backblaze-homeassistant
+    forget: prune
+    options:
+      forget:
+        keep-last: 5
+  zigbee2mqtt:
+    from: /data/zigbee2mqtt
+    to:
+      - backblaze-zigbee2mqtt
+    forget: prune
+    options:
+      forget:
+        keep-last: 5

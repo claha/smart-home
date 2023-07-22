@@ -13,11 +13,14 @@
     dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
 
-- name: Create config files
-  ansible.builtin.copy:
-    src: "files/{{ item }}"
-    dest: "{{ service_path }}/{{ item }}"
+- name: Create autorestic config
+  ansible.builtin.template:
+    src: "templates/autorestic.yaml.j2"
+    dest: "{{ service_path }}/autorestic.yaml"
     mode: "0640"
-  loop:
-    - autorestic.yaml
-    - justfile
+
+- name: Create justfile
+  ansible.builtin.copy:
+    src: "files/justfile"
+    dest: "{{ service_path }}/justfile"
+    mode: "0640"

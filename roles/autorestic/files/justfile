@@ -1,11 +1,14 @@
+default:
+  just --list
+
 check:
   docker compose run autorestic autorestic check --verbose
 
-backup:
-  docker compose run autorestic autorestic backup --verbose --all
+backup LOCATION:
+  docker compose run autorestic autorestic backup --verbose --location {{LOCATION}}
 
-restore:
-  docker compose run autorestic autorestic restore --verbose --location homeassistant --from backblaze --to /data/homeassistant-restore
+restore LOCATION BACKEND:
+  docker compose run autorestic autorestic restore --verbose --location {{LOCATION}} --from {{BACKEND}} --to /data/{{LOCATION}}-restore
 
-snapshots:
-  docker compose run autorestic autorestic exec --verbose --all -- snapshots
+snapshots BACKEND:
+  docker compose run autorestic autorestic exec --verbose --backend {{BACKEND}} -- snapshots

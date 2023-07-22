@@ -2,6 +2,7 @@
 
 ![pre-commit](https://github.com/claha/smart-home/actions/workflows/pre-commit.yaml/badge.svg)
 
+![autorestic](https://github.com/claha/smart-home/actions/workflows/autorestic.yaml/badge.svg)
 ![dashdot](https://github.com/claha/smart-home/actions/workflows/dashdot.yaml/badge.svg)
 ![diun](https://github.com/claha/smart-home/actions/workflows/diun.yaml/badge.svg)
 ![dozzle](https://github.com/claha/smart-home/actions/workflows/dozzle.yaml/badge.svg)

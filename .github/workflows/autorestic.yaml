@@ -30,8 +30,7 @@ jobs:
           ansible-galaxy install --role-file requirements.yaml
           ansible-playbook main.yaml --limit localhost --tags autorestic \
           --extra-vars "b2_account_id=ci b2_account_key=ci \
-          autorestic_backblaze_key=ci \
-          autorestic_dropbox_key=ci \
-          rclone_dropbox_token=ci"
+          backblaze_homeassistant_key=ci \
+          backblaze_zigbee2mqtt_key=ci"
 
           cd ~/autorestic && docker compose run autorestic

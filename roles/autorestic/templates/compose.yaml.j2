@@ -4,12 +4,8 @@ services:
     image: cupcakearmy/autorestic:1.7.4
     container_name: autorestic
     volumes:
-      - ../:/data
+      - {{ services_path }}:/data
       - ./autorestic.yaml:/root/.autorestic.yaml:ro
-    environment:
-      - "AUTORESTIC_BACKBLAZE_B2_ACCOUNT_ID={{ b2_account_id }}"
-      - "AUTORESTIC_BACKBLAZE_B2_ACCOUNT_KEY={{ b2_account_key }}"
-      - "AUTORESTIC_BACKBLAZE_RESTIC_PASSWORD={{ autorestic_backblaze_key }}"
     command:
       - autorestic
       - --help
