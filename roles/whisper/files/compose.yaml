@@ -1,7 +1,7 @@
 ---
 services:
   whisper:
-    image: docker.io/rhasspy/wyoming-whisper:latest
+    image: docker.io/rhasspy/wyoming-whisper:0.0.3
     container_name: whisper
     ports:
       - 10300:10300
