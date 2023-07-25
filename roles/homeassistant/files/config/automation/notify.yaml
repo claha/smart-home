@@ -34,6 +34,13 @@
       data:
         report: stock
         timespan: week
+    - service: python_script.notify_portfolio_state
+      data:
+        report: fund
+        timespan: week
+    - service: python_script.notify_portfolio_state
+      data:
+        timespan: week
 
 - alias: "Notify: Portfolio monthly"
 
@@ -50,6 +57,13 @@
     - service: python_script.notify_portfolio_state
       data:
         report: stock
+        timespan: month
+    - service: python_script.notify_portfolio_state
+      data:
+        report: fund
+        timespan: month
+    - service: python_script.notify_portfolio_state
+      data:
         timespan: month
 
 - alias: "Notify: Portfolio dividend"
