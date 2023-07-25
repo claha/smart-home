@@ -1,5 +1,5 @@
 ---
-services_path: "~"
+services_path: "/home/{{ ansible_ssh_user }}"
 docker_install_compose_plugin: true
 docker_install_compose: false
 figurine_font: "3d.flf"
