@@ -3,4 +3,6 @@ Description=Backup {{ autorestic_location }} using autorestic
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/autorestic_backup_{{ autorestic_location }}.sh
+User={{ ansible_ssh_user }}
+WorkingDirectory={{ service_path }}
+ExecStart=docker compose run autorestic bash -c "apk add curl && autorestic backup --verbose --location {{ autorestic_location }}"

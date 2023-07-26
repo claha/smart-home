@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd {{ service_path }}
-docker compose run autorestic autorestic backup --verbose --location {{ autorestic_location }}

@@ -31,6 +31,7 @@ jobs:
           ansible-playbook main.yaml --limit localhost --tags autorestic \
           --extra-vars "b2_account_id=ci b2_account_key=ci \
           backblaze_homeassistant_key=ci \
-          backblaze_zigbee2mqtt_key=ci"
+          backblaze_zigbee2mqtt_key=ci \
+          healthchecks_backup_homeassistant_url=ci"
 
           cd ~/autorestic && docker compose run autorestic

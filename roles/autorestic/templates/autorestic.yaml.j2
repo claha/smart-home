@@ -1,6 +1,12 @@
 ---
 version: 2
 
+extras:
+  healthchecks: &healthchecks
+    hooks:
+      success:
+        - 'curl {{ healthchecks_backup_homeassistant_url }}'
+
 backends:
   backblaze-homeassistant:
     type: b2
@@ -19,6 +25,7 @@ backends:
 
 locations:
   homeassistant:
+    <<: *healthchecks
     from: /data/homeassistant
     to:
       - backblaze-homeassistant

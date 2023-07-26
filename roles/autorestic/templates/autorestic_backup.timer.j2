@@ -2,7 +2,8 @@
 Description=Backup {{ autorestic_location }} timer
 
 [Timer]
-OnCalendar=*-*-* 12:00:00
+OnCalendar=0/6:00:00
+RandomizedDelaySec=600
 Unit=autorestic_backup_{{ autorestic_location }}.service
 
 [Install]

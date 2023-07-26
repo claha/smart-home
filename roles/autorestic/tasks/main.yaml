@@ -28,13 +28,6 @@
 - name: Create periodic backup service
   when: autorestic_location is defined
   block:
-    - name: Create backup script
-      become: true
-      ansible.builtin.template:
-        src: autorestic_backup.sh.j2
-        dest: "/usr/bin/autorestic_backup_{{ autorestic_location }}.sh"
-        mode: "0755"
-
     - name: Create backup service file
       become: true
       ansible.builtin.template:
@@ -48,6 +41,11 @@
         src: autorestic_backup.timer.j2
         dest: "/etc/systemd/system/autorestic_backup_{{ autorestic_location }}.timer"  # yamllint disable-line rule:line-length
         mode: "0755"
+
+    - name: Reload systemd
+      become: true
+      ansible.builtin.systemd:
+        daemon_reload: true
 
     - name: Enable and start the backup timer
       become: true
