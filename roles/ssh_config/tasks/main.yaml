@@ -2,12 +2,12 @@
 - name: Create smart-home ssh config
   ansible.builtin.template:
     src: "templates/smart-home.conf.j2"
-    dest: ".ssh/smart-home.conf"
+    dest: "~/.ssh/smart-home.conf"
     mode: "0600"
 
 - name: Include other config files
   ansible.builtin.lineinfile:
-    path: ".ssh/config"
+    path: "~/.ssh/config"
     regexp: "Include ./*.conf"
     line: "Include ./*.conf"
     create: true
