@@ -1,5 +1,19 @@
 debug: true
 
+ui:
+  header: "Gatus {{ ansible_hostname }}"
+
+alerting:
+  telegram:
+    token: "{{ telegram_token }}"
+    id: "{{ telegram_chatids }}"
+    default-alert:
+      enabled: true
+      failure-threshold: 3
+      success-threshold: 3
+      send-on-resolved: true
+      description: "Sent from {{ ansible_hostname }}"
+
 endpoints:
 {% for endpoint in gatus_icmp_endpoints %}
   - name: {{ endpoint.name }}
@@ -7,6 +21,8 @@ endpoints:
     interval: 5m
     conditions:
       - "[CONNECTED] == true"
+    alerts:
+      - type: telegram
 {% endfor %}
 {% for endpoint in gatus_dns_endpoints %}
   - name: {{ endpoint.name }}
@@ -17,4 +33,6 @@ endpoints:
     conditions:
       - "[BODY] == {{ endpoint.body }}"
       - "[DNS_RCODE] == NOERROR"
+    alerts:
+      - type: telegram
 {% endfor %}

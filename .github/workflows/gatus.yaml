@@ -28,6 +28,7 @@ jobs:
 
           pip install ansible
           ansible-galaxy install --role-file requirements.yaml
-          ansible-playbook main.yaml --limit localhost --tags gatus
+          ansible-playbook main.yaml --limit localhost --tags gatus \
+          --extra-vars "telegram_token=ci telegram_chatids=ci"
 
           docker ps --filter name=gatus | grep --quiet gatus
