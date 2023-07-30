@@ -19,21 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.3
-      - uses: actions/setup-python@v4.7.0
-        with:
-          python-version: 3.x
-
+      - uses: ./.github/actions/setup-ansible
       - run: |
-          sed -i '/vars_files/I,+1 d' main.yaml
-          sed -i '/vault_password_file/d' ansible.cfg
-
           sed -i '/devices/I,+1 d' roles/zigbee2mqtt/files/compose.yaml
           sed -i '/platform/d' roles/zigbee2mqtt/files/compose.yaml
 
-          pip install ansible
-          ansible-galaxy install --role-file requirements.yaml
           ansible-playbook main.yaml --limit localhost --tags zigbee2mqtt \
           --extra-vars "mqtt_server=ci b2_account_id=ci b2_account_key=ci \
-          backblaze_homeassistant_key=ci backblaze_zigbee2mqtt_key=ci"
+          backblaze_homeassistant_key=ci backblaze_zigbee2mqtt_key=ci \
+          healthchecks_backup_homeassistant_url=ci"
 
           docker ps --filter name=zigbee2mqtt | grep --quiet zigbee2mqtt
