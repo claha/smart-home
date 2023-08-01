@@ -1,3 +1,4 @@
+---
 debug: true
 
 ui:
@@ -23,6 +24,12 @@ endpoints:
       - "[CONNECTED] == true"
     alerts:
       - type: telegram
+{% if endpoint.failure_threshold is defined %}
+        failure-threshold: {{ endpoint.failure_threshold }}
+{% endif %}
+{% if endpoint.success_threshold is defined %}
+        success-threshold: {{ endpoint.success_threshold }}
+{% endif %}
 {% endfor %}
 {% for endpoint in gatus_dns_endpoints %}
   - name: {{ endpoint.name }}
@@ -35,4 +42,10 @@ endpoints:
       - "[DNS_RCODE] == NOERROR"
     alerts:
       - type: telegram
+{% if endpoint.failure_threshold is defined %}
+        failure-threshold: {{ endpoint.failure_threshold }}
+{% endif %}
+{% if endpoint.success_threshold is defined %}
+        success-threshold: {{ endpoint.success_threshold }}
+{% endif %}
 {% endfor %}
