@@ -1,0 +1,17 @@
+default:
+  just --list
+
+check:
+  docker compose run autorestic autorestic check --verbose
+
+backup LOCATION:
+  docker compose run autorestic autorestic backup --verbose --location {{ '{{' }}LOCATION}}
+
+forget LOCATION:
+  docker compose run autorestic autorestic forget --verbose --location {{ '{{' }}LOCATION}}
+
+restore LOCATION BACKEND:
+  docker compose run autorestic autorestic restore --verbose --location {{ '{{' }}LOCATION}} --from {{ '{{' }}BACKEND}} --to {{ services_path }}/{{ '{{' }}LOCATION}}-restore
+
+snapshots BACKEND:
+  docker compose run autorestic autorestic exec --verbose --backend {{ '{{' }}BACKEND}} -- snapshots

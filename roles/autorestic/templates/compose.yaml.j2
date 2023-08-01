@@ -4,7 +4,7 @@ services:
     image: cupcakearmy/autorestic:1.7.4
     container_name: autorestic
     volumes:
-      - {{ services_path }}:/data
+      - {{ services_path }}:{{ services_path }}
       - ./autorestic.yaml:/root/.autorestic.yaml:ro
     command:
       - autorestic

@@ -20,8 +20,8 @@
     mode: "0640"
 
 - name: Create justfile
-  ansible.builtin.copy:
-    src: "files/justfile"
+  ansible.builtin.template:
+    src: "templates/justfile.j2"
     dest: "{{ service_path }}/justfile"
     mode: "0640"
 

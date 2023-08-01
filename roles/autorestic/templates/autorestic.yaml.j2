@@ -1,12 +1,6 @@
 ---
 version: 2
 
-extras:
-  healthchecks: &healthchecks
-    hooks:
-      success:
-        - 'curl {{ healthchecks_backup_homeassistant_url }}'
-
 backends:
   backblaze-homeassistant:
     type: b2
@@ -25,19 +19,30 @@ backends:
 
 locations:
   homeassistant:
-    <<: *healthchecks
-    from: /data/homeassistant
+    from: {{ services_path }}/homeassistant
     to:
       - backblaze-homeassistant
     forget: prune
     options:
+      backup:
+        host: homeassistant
       forget:
-        keep-last: 5
+        keep-last: 2
+        keep-daily: 7
+    hooks:
+      success:
+        - 'curl {{ healthchecks_backup_homeassistant_url }}'
   zigbee2mqtt:
-    from: /data/zigbee2mqtt
+    from: {{ services_path }}/zigbee2mqtt
     to:
       - backblaze-zigbee2mqtt
     forget: prune
     options:
+      backup:
+        host: zigbee2mqtt
       forget:
-        keep-last: 5
+        keep-last: 2
+        keep-daily: 7
+    hooks:
+      success:
+        - 'curl {{ healthchecks_backup_zigbee2mqtt_url }}'

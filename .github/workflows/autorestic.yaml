@@ -24,6 +24,7 @@ jobs:
           --extra-vars "b2_account_id=ci b2_account_key=ci \
           backblaze_homeassistant_key=ci \
           backblaze_zigbee2mqtt_key=ci \
-          healthchecks_backup_homeassistant_url=ci"
+          healthchecks_backup_homeassistant_url=ci \
+          healthchecks_backup_zigbee2mqtt_url=ci"
 
           cd ~/autorestic && docker compose run autorestic
