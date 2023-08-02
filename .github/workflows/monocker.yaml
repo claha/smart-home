@@ -1,0 +1,26 @@
+---
+name: Deploy monocker
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - roles/monocker/**
+      - .github/workflows/monocker.yaml
+  pull_request:
+    paths:
+      - roles/monocker/**
+      - .github/workflows/monocker.yaml
+
+jobs:
+  monocker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.3
+      - uses: ./.github/actions/setup-ansible
+      - run: |
+          ansible-playbook main.yaml --limit localhost --tags monocker \
+          --extra-vars "telegram_token=ci telegram_chatids=ci"
+
+          docker ps --filter name=monocker | grep --quiet monocker

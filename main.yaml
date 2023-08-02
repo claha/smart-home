@@ -120,6 +120,8 @@
       tags: never, homeassistant
     - role: homepage
       tags: never, homepage
+    - role: monocker
+      tags: never, monocker
     - role: mosquitto
       tags: never, mosquitto
     - role: pihole
@@ -198,3 +200,5 @@
       tags: whisper
     - role: dashdot
       tags: dashdot
+    - role: monocker
+      tags: monocker
