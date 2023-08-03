@@ -1,17 +1,16 @@
 ---
 - name: Create directories
   ansible.builtin.file:
-    path: "{{ item }}"
+    path: "{{ service_path }}"
     state: directory
     mode: "0775"
-  loop:
-    - "{{ service_path }}"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
     dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
+  when: autorestic_docker
 
 - name: Create autorestic config
   ansible.builtin.template:
@@ -24,6 +23,41 @@
     src: "templates/justfile.j2"
     dest: "{{ service_path }}/justfile"
     mode: "0640"
+
+- name: Install autorestic
+  when: not autorestic_docker
+  block:
+    - name: Check if autorestic is already installed
+      ansible.builtin.command: which autorestic
+      failed_when: false
+      changed_when: false
+      check_mode: false
+      register: autorestic_which_autorestic
+
+    - name: Install dependencies
+      become: true
+      ansible.builtin.package:
+        name:
+          - bash
+          - wget
+          - bzip2
+          - curl
+          - restic
+        state: latest
+      when: autorestic_which_autorestic.rc == 1
+
+    - name: Download autorestic install script
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/cupcakearmy/autorestic/master/install.sh  # yamllint disable-line rule:line-length
+        dest: /tmp/install.sh
+        mode: "0775"
+      when: autorestic_which_autorestic.rc == 1
+
+    - name: Run autorestic install script
+      become: true
+      ansible.builtin.command: /tmp/install.sh
+      changed_when: true
+      when: autorestic_which_autorestic.rc == 1
 
 - name: Create periodic backup service
   when: autorestic_location is defined

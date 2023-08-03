@@ -85,6 +85,8 @@
       tags: never, init
     - role: zigbee2mqtt
       tags: zigbee2mqtt, autorestic
+      vars:
+        autorestic_docker: false
 
 - name: Setup nixos
   hosts: nixos
