@@ -31,7 +31,7 @@ locations:
         keep-daily: 7
     hooks:
       success:
-        - 'curl {{ healthchecks_backup_homeassistant_url }}'
+        - 'curl {{ healthchecks_backup_homeassistant_ping_url }}'
   zigbee2mqtt:
     from: {{ services_path }}/zigbee2mqtt
     to:
@@ -45,4 +45,4 @@ locations:
         keep-daily: 7
     hooks:
       success:
-        - 'curl {{ healthchecks_backup_zigbee2mqtt_url }}'
+        - 'curl {{ healthchecks_backup_zigbee2mqtt_ping_url }}'
