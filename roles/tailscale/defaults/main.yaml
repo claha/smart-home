@@ -2,3 +2,4 @@
 service_name: "{{ ansible_role_name }}"
 service_path: "{{ services_path }}/{{ service_name }}"
 tailscale_homepage_labels: false
+tailscale_docker: true

@@ -1,11 +1,10 @@
 ---
 - name: Create directories
   ansible.builtin.file:
-    path: "{{ item }}"
+    path: "{{ service_path }}"
     state: directory
     mode: "0775"
-  loop:
-    - "{{ service_path }}"
+  when: tailscale_docker
 
 - name: Create compose file
   ansible.builtin.template:
@@ -13,3 +12,27 @@
     dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
+  when: tailscale_docker
+
+- name: Install tailscale
+  when: not tailscale_docker
+  block:
+    - name: Check if tailscale is already installed
+      ansible.builtin.command: which tailscale
+      failed_when: false
+      changed_when: false
+      check_mode: false
+      register: tailscale_which_tailscale
+
+    - name: Download tailscale install script
+      ansible.builtin.get_url:
+        url: https://tailscale.com/install.sh
+        dest: /tmp/install.sh
+        mode: "0775"
+      when: tailscale_which_tailscale.rc == 1
+
+    - name: Run tailscale install script
+      become: true
+      ansible.builtin.command: /tmp/install.sh
+      changed_when: true
+      when: tailscale_which_tailscale.rc == 1

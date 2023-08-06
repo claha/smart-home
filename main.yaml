@@ -87,6 +87,10 @@
       tags: zigbee2mqtt, autorestic
       vars:
         autorestic_docker: false
+    - role: tailscale
+      tags: tailscale
+      vars:
+        tailscale_docker: false
 
 - name: Setup nixos
   hosts: nixos
