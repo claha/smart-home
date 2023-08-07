@@ -48,7 +48,7 @@ repos:
       - id: black
 
   - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -57,7 +57,7 @@ repos:
           - --ignore=E501,W503
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.278
+    rev: v0.0.282
     hooks:
       - id: ruff
         args:
