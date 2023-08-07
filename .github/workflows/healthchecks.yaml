@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@v3.5.3
       - uses: ./.github/actions/setup-ansible
       - run: |
-          ansible-playbook main.yaml --limit localhost --tags healthchecks
+          ansible-playbook main.yaml --limit localhost --tags healthchecks \
+          --extra-vars "healthchecks_secret_key=ci"
 
           docker ps --filter name=healthchecks | grep --quiet healthchecks

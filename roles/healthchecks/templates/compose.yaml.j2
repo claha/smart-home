@@ -8,6 +8,8 @@ services:
     environment:
       - DB=sqlite
       - DB_NAME=/data/hc.sqlite
+      - DEBUG=False
+      - SECRET_KEY={{ healthchecks_secret_key }}
     volumes:
       - ./data:/data
     restart: unless-stopped
