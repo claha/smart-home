@@ -20,3 +20,10 @@
     dest: "{{ service_path }}/compose.yaml"
     mode: "0640"
   notify: "Recreate {{ service_name }}"
+
+- name: Create uWSGI config
+  ansible.builtin.copy:
+    src: "files/uwsgi.ini"
+    dest: "{{ service_path }}/uwsgi.ini"
+    mode: "0644"
+  notify: "Recreate {{ service_name }}"

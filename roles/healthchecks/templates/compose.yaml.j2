@@ -12,4 +12,5 @@ services:
       - SECRET_KEY={{ healthchecks_secret_key }}
     volumes:
       - ./data:/data
+      - ./uwsgi.ini:/opt/healthchecks/docker/uwsgi.ini:ro
     restart: unless-stopped
