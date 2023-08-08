@@ -54,6 +54,7 @@ endpoints:
     url: "{{ endpoint.url }}"
     headers:
       X-Api-Key: {{ healthchecks_api_key }}
+    interval: 15m
     conditions:
       - "[BODY].status == up"
     alerts:
