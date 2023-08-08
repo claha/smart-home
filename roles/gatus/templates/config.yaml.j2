@@ -51,7 +51,7 @@ endpoints:
 {% endfor %}
 {% for endpoint in gatus_healthcheck_endpoints %}
   - name: {{ endpoint.name }}
-    url: "{{ endpoint.url }}"
+    url: "{{ gatus_healthchecks_url }}:8000/api/v3/checks/{{ endpoint.uuid }}"
     headers:
       X-Api-Key: {{ healthchecks_api_key }}
     interval: 15m

@@ -3,6 +3,10 @@ services:
   healthchecks:
     image: docker.io/healthchecks/healthchecks:v2.10
     container_name: healthchecks
+{% if healthchecks_network is defined %}
+    networks:
+      - {{ healthchecks_network }}
+{% endif %}
     ports:
       - 8000:8000
     environment:
@@ -14,3 +18,10 @@ services:
       - ./data:/data
       - ./uwsgi.ini:/opt/healthchecks/docker/uwsgi.ini:ro
     restart: unless-stopped
+
+{% if healthchecks_network is defined %}
+networks:
+  {{ healthchecks_network }}:
+    name: {{ healthchecks_network }}
+    driver: bridge
+{% endif %}

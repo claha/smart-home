@@ -1,0 +1,20 @@
+---
+services:
+  gatus:
+    image: ghcr.io/twin/gatus:v5.5.1
+    container_name: gatus
+{% if gatus_healthchecks_network is defined %}
+    networks:
+      - {{ gatus_healthchecks_network }}
+{% endif %}
+    ports:
+      - 8080:8080
+    volumes:
+      - ./config.yaml:/config/config.yaml
+    restart: unless-stopped
+
+{% if gatus_healthchecks_network is defined %}
+networks:
+  {{ gatus_healthchecks_network }}:
+    external: true
+{% endif %}

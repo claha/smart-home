@@ -171,14 +171,14 @@
       tags: never, init
     - role: tailscale
       tags: tailscale
+    - role: healthchecks
+      tags: healthchecks
     - role: gatus
       tags: gatus
     - role: glances
       tags: glances
     - role: dashdot
       tags: dashdot
-    - role: healthchecks
-      tags: healthchecks
 
 - name: Setup ampere
   hosts: ampere

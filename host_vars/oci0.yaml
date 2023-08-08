@@ -1,0 +1,2 @@
+---
+gatus_healthchecks_url: "http://{{ oci1_ip_tailscale }}"
