@@ -56,7 +56,7 @@ endpoints:
       X-Api-Key: {{ healthchecks_api_key }}
     interval: 15m
     conditions:
-      - "[BODY].status == up"
+      - "[BODY].status == any(grace, up)"
     alerts:
       - type: telegram
 {% if endpoint.failure_threshold is defined %}
