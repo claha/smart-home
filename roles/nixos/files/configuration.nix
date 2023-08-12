@@ -60,6 +60,8 @@ in
     wget
     screen
     python3
+    restic
+    autorestic
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
