@@ -24,10 +24,6 @@ jobs:
           sed -i '/devices/I,+1 d' roles/zigbee2mqtt/files/compose.yaml
           sed -i '/platform/d' roles/zigbee2mqtt/files/compose.yaml
 
-          ansible-playbook main.yaml --limit localhost --tags zigbee2mqtt \
-          --extra-vars "mqtt_server=ci b2_account_id=ci b2_account_key=ci \
-          backblaze_homeassistant_key=ci backblaze_zigbee2mqtt_key=ci \
-          healthchecks_backup_homeassistant_url=ci \
-          healthchecks_backup_zigbee2mqtt_url=ci"
+          ansible-playbook main.yaml --limit localhost --tags zigbee2mqtt
 
           docker ps --filter name=zigbee2mqtt | grep --quiet zigbee2mqtt

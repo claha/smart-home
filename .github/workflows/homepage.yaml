@@ -22,7 +22,6 @@ jobs:
       - run: |
           docker network create --driver bridge proxy
 
-          ansible-playbook main.yaml --limit localhost --tags homepage \
-          --extra-vars "domain=ci"
+          ansible-playbook main.yaml --limit localhost --tags homepage
 
           docker ps --filter name=homepage | grep --quiet homepage

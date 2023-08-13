@@ -20,9 +20,6 @@ jobs:
       - uses: actions/checkout@v3.5.3
       - uses: ./.github/actions/setup-ansible
       - run: |
-          ansible-playbook main.yaml --limit localhost --tags traefik \
-          --extra-vars "domain=ci duckdns_token=ci \
-          traefik_username=ci traefik_password=ci \
-          letsencrypt_email=ci letsencrypt_provider=ci"
+          ansible-playbook main.yaml --limit localhost --tags traefik
 
           docker ps --filter name=traefik | grep --quiet traefik

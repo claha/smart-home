@@ -20,11 +20,7 @@ jobs:
       - uses: actions/checkout@v3.5.3
       - uses: ./.github/actions/setup-ansible
       - run: |
-          ansible-playbook main.yaml --limit localhost --tags homeassistant \
-          --extra-vars "domain=ci b2_account_id=ci b2_account_key=ci \
-          backblaze_homeassistant_key=ci backblaze_zigbee2mqtt_key=ci \
-          healthchecks_backup_homeassistant_url=ci \
-          healthchecks_backup_zigbee2mqtt_url=ci"
+          ansible-playbook main.yaml --limit localhost --tags homeassistant
 
           docker ps --filter name=homeassistant | grep --quiet homeassistant
           docker exec homeassistant hass --config /config --script check_config
