@@ -74,6 +74,11 @@ repos:
           - --ignore-regex
           - \\n
 
+  - repo: https://github.com/claha/docker-compose-check
+    rev: v0.1.0
+    hooks:
+      - id: check-registry
+
   - repo: https://github.com/iamthefij/docker-pre-commit
     rev: v3.0.1
     hooks:

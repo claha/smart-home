@@ -2,7 +2,7 @@
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:2023.05.2
+    image: docker.io/pihole/pihole:2023.05.2
     hostname: pihole
     environment:
       TZ: Europe/Stockholm
