@@ -10,6 +10,12 @@
 {% else %}
       shares: {{ stock.shares|sum }}
 {% endif %}
+{%if stock.purchase_price is defined %}
+      purchase_price: {{ stock.purchase_price }}
+{% endif%}
+{%if stock.currency is defined %}
+      currency: {{ stock.currency }}
+{% endif%}
 {% endfor %}
   monitored_conditions:
     - change
