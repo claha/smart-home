@@ -1,4 +1,11 @@
 ---
+- name: Check if resolvconf is used
+  ansible.builtin.command: which resolvconf
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  register: pihole_which_resolvconf
+
 - name: Use local nameserver
   ansible.builtin.lineinfile:
     line: "name_serves=127.0.0.1"
@@ -6,6 +13,7 @@
     regexp: "^#?name_servers="
   become: true
   notify: Update resolvconf
+  when: pihole_which_resolvconf.rc == 0
 
 - name: Create directories
   ansible.builtin.file:
