@@ -18,6 +18,7 @@ alerting:
 endpoints:
 {% for endpoint in gatus_icmp_endpoints %}
   - name: {{ endpoint.name }}
+    group: Servers
     url: "icmp://{{ endpoint.url }}"
     interval: 5m
     conditions:
@@ -33,6 +34,7 @@ endpoints:
 {% endfor %}
 {% for endpoint in gatus_dns_endpoints %}
   - name: {{ endpoint.name }}
+    group: DNS
     url: "{{ endpoint.server }}"
     dns:
       query-name: "{{ endpoint.query }}"
@@ -51,6 +53,7 @@ endpoints:
 {% endfor %}
 {% for endpoint in gatus_healthcheck_endpoints %}
   - name: {{ endpoint.name }}
+    group: Healthchecks
     url: "{{ gatus_healthchecks_url }}:8000/api/v3/checks/{{ endpoint.uuid }}"
     headers:
       X-Api-Key: {{ healthchecks_api_key }}
