@@ -18,7 +18,7 @@ jobs:
   zigbee2mqtt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v3.6.0
       - uses: ./.github/actions/setup-ansible
       - run: |
           sed -i '/devices/I,+1 d' roles/zigbee2mqtt/files/compose.yaml
