@@ -21,6 +21,8 @@ jobs:
       - uses: actions/checkout@v3.6.0
       - uses: ./.github/actions/setup-ansible
       - run: |
+          # Pull the image before (hack that should be removed)
+          docker compose --file roles/pihole/files/compose.yaml pull
           # These lines are from https://github.com/pi-hole/docker-pi-hole,
           # should really be part of the ansible role but currently running
           # pihole on Raspberry Pi OS were this is not needed.
