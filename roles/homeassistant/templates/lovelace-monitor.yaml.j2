@@ -1,0 +1,72 @@
+---
+title: Monitor
+views:
+  - title: CPU
+    icon: mdi:cpu-64-bit
+    path: cpu
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+{% for instance in glances %}
+          - type: statistics-graph
+            title: {{ instance.name }}
+            chart_type: line
+            days_to_show: 7
+            period: hour
+            hide_legend: true
+            entities:
+              - sensor.{{ instance.hostname | replace('.', '_') }}_cpu_used
+              - sensor.usage_100
+              - sensor.usage_0
+            stat_types:
+              - mean
+              - min
+              - max
+{% endfor %}
+  - title: RAM
+    icon: mdi:memory
+    path: ram
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+{% for instance in glances %}
+          - type: statistics-graph
+            title: {{ instance.name }}
+            chart_type: line
+            days_to_show: 7
+            period: hour
+            hide_legend: true
+            entities:
+              - sensor.{{ instance.hostname | replace('.', '_') }}_ram_used_percent
+              - sensor.usage_100
+              - sensor.usage_0
+            stat_types:
+              - mean
+              - min
+              - max
+{% endfor %}
+  - title: Disk
+    icon: mdi:harddisk
+    path: disk
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+{% for instance in glances %}
+          - type: statistics-graph
+            title: {{ instance.name }}
+            chart_type: line
+            days_to_show: 7
+            period: hour
+            hide_legend: true
+            entities:
+              - sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_used_percent
+              - sensor.usage_100
+              - sensor.usage_0
+            stat_types:
+              - mean
+              - min
+              - max
+{% endfor %}

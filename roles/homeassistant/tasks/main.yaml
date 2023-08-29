@@ -30,6 +30,12 @@
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
+- name: Create monitor dashboard
+  ansible.builtin.template:
+    src: "templates/lovelace-monitor.yaml.j2"
+    dest: "{{ service_path }}/config/lovelace-monitor.yaml"
+    mode: "0640"
+
 - name: Create secrets
   ansible.builtin.template:
     src: "templates/secrets.yaml.j2"

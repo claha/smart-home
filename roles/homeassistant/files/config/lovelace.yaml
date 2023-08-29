@@ -8,3 +8,10 @@ dashboards:
     icon: mdi:weather-partly-cloudy
     show_in_sidebar: true
     require_admin: false
+  lovelace-monitor:
+    mode: yaml
+    filename: lovelace-monitor.yaml
+    title: Monitor
+    icon: mdi:chart-areaspline
+    show_in_sidebar: true
+    require_admin: false
