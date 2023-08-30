@@ -65,6 +65,12 @@
           type: tailscale
           deviceid: {{ tailscale_id_rpi2 | default() }}
           key: {{ tailscale_key | default() }}
+    - RPi0:
+        icon: tailscale
+        widget:
+          type: tailscale
+          deviceid: {{ tailscale_id_rpi0 | default() }}
+          key: {{ tailscale_key | default() }}
     - OCI 0:
         icon: tailscale
         widget:
