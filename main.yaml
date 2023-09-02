@@ -48,8 +48,6 @@
       tags: duckdns
     - role: dozzle
       tags: dozzle
-    - role: diun
-      tags: diun
     - role: glances
       tags: glances
     - role: tailscale
