@@ -101,7 +101,7 @@ repos:
       - id: encryption-check
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v6.18.0
+    rev: v6.19.0
     hooks:
       - id: ansible-lint
 
