@@ -4,3 +4,7 @@ service_path: "{{ services_path }}/{{ service_name }}"
 stocks: []
 funds: []
 glances: []
+glances_used_sensors:
+  - etc_hosts_used_percent
+  - ram_used_percent
+  - cpu_used

@@ -62,3 +62,12 @@
   vars:
     hass_cli_hide_entity_id: "sensor.fund_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
   loop: "{{ funds }}"
+
+- name: Hide glances entities
+  ansible.builtin.include_role:
+    name: hass_cli_hide_entity
+  vars:
+    hass_cli_hide_entity_id: "sensor.{{ item.0.hostname | replace('.', '_') }}_{{ item.1 }}"  # yamllint disable rule:line-length
+  with_nested:
+    - "{{ glances }}"
+    - "{{ glances_used_sensors }}"
