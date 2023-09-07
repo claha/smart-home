@@ -70,3 +70,20 @@ views:
               - min
               - max
 {% endfor %}
+  - title: Portfolio
+    icon: mdi:cash-100
+    path: portfolio
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+{% for stock in stocks %}
+          - type: tile
+            entity: sensor.stock_{{ stock.name | lower | replace(' ','_') }}
+            color: green
+{% endfor %}
+{% for fund in funds %}
+          - type: tile
+            entity: sensor.fund_{{ fund.name | lower | replace(' ','_') }}
+            color: green
+{% endfor %}
