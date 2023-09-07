@@ -1,0 +1,38 @@
+---
+- name: "Get entity {{ hass_cli_hide_entity_id }}"
+  delegate_to: localhost
+  ansible.builtin.command:
+    argv:
+      - hass-cli
+      - --server
+      - "{{ homeassistant_cli_server }}"
+      - --token
+      - "{{ homeassistant_cli_token }}"
+      - --output
+      - json
+      - raw
+      - ws
+      - config/entity_registry/update
+      - --json
+      - ' {"entity_id":"{{ hass_cli_hide_entity_id }}"}'
+  changed_when: false
+  register: response
+
+- name: "Hide entity {{ hass_cli_hide_entity_id }}"
+  delegate_to: localhost
+  ansible.builtin.command:
+    argv:
+      - hass-cli
+      - --server
+      - "{{ homeassistant_cli_server }}"
+      - --token
+      - "{{ homeassistant_cli_token }}"
+      - --output
+      - json
+      - raw
+      - ws
+      - config/entity_registry/update
+      - --json
+      - ' {"entity_id":"{{ hass_cli_hide_entity_id }}", "hidden_by":"user"}'
+  changed_when: true
+  when: response.stdout|from_json|json_query('result.entity_entry.hidden_by') != "user"  # yamllint disable-line rule:line-length

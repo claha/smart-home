@@ -48,3 +48,17 @@
     name: autorestic
   vars:
     autorestic_location: "homeassistant"
+
+- name: Hide stock entities
+  ansible.builtin.include_role:
+    name: hass_cli_hide_entity
+  vars:
+    hass_cli_hide_entity_id: "sensor.stock_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
+  loop: "{{ stocks }}"
+
+- name: Hide fund entities
+  ansible.builtin.include_role:
+    name: hass_cli_hide_entity
+  vars:
+    hass_cli_hide_entity_id: "sensor.fund_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
+  loop: "{{ funds }}"
