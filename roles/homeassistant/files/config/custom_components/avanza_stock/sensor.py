@@ -40,7 +40,10 @@ from custom_components.avanza_stock.const import (
     MONITORED_CONDITIONS_DEFAULT,
     MONITORED_CONDITIONS_DIVIDENDS,
     MONITORED_CONDITIONS_KEYRATIOS,
+    MONITORED_CONDITIONS_LISTING,
+    MONITORED_CONDITIONS_PRICE,
     MONITORED_CONDITIONS_QUOTE,
+    PRICE_MAPPING,
     TOTAL_CHANGE_PRICE_MAPPING,
 )
 
@@ -274,8 +277,14 @@ class AvanzaStockSensor(SensorEntity):
                 self._update_company(data, condition)
             elif condition in MONITORED_CONDITIONS_QUOTE:
                 self._update_quote(data, condition)
+            elif condition in MONITORED_CONDITIONS_LISTING:
+                self._update_listing(data, condition)
+            elif condition in MONITORED_CONDITIONS_PRICE:
+                self._update_price(data, condition)
             elif condition == "dividends":
                 self._update_dividends(data)
+            elif condition == "id":
+                self._state_attributes[condition] = data.get("orderbookId", None)
             else:
                 self._state_attributes[condition] = data.get(condition, None)
 
@@ -341,6 +350,19 @@ class AvanzaStockSensor(SensorEntity):
     def _update_quote(self, data, attr):
         quote = data.get("quote", {})
         self._state_attributes[attr] = quote.get(attr, None)
+
+    def _update_listing(self, data, attr):
+        listing = data.get("listing", {})
+        if attr == "marketPlace":
+            self._state_attributes[attr] = listing.get("marketPlaceName", None)
+        elif attr == "flagCode":
+            self._state_attributes[attr] = listing.get("countryCode", None)
+        else:
+            self._state_attributes[attr] = listing.get(attr, None)
+
+    def _update_price(self, data, attr):
+        prices = data.get("historicalClosingPrices", {})
+        self._state_attributes[attr] = prices.get(PRICE_MAPPING[attr], None)
 
     def _update_profit_loss(self, price):
         if self._purchase_date is not None:
