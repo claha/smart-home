@@ -8,3 +8,19 @@ glances_used_sensors:
   - etc_hosts_used_percent
   - ram_used_percent
   - cpu_used
+glances_unused_sensors:
+  - etc_resolv_conf_used
+  - etc_resolv_conf_used_percent
+  - etc_resolv_conf_free
+  - etc_hostname_used
+  - etc_hostname_used_percent
+  - etc_hostname_free
+  - cpu_thermal_0_temperature
+  - swap_used_percent
+  - swap_used
+  - swap_free
+  - cpu_load
+  - running
+  - total
+  - thread
+  - sleeping
