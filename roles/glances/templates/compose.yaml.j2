@@ -8,7 +8,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 {% if glances_proxy %}
     networks:
-      - proxy
+      proxy:
+        ipv4_address: {{ glances_docker_ip }}
     environment:
       - "GLANCES_OPT=--webserver"
 {% else %}
