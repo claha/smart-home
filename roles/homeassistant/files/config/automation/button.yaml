@@ -10,7 +10,16 @@
       discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_single
 
   action:
-    - service: script.lights_office_on
+    - service: tts.speak
+      data:
+        cache: true
+        media_player_entity_id: media_player.sonos_beam
+        message: !secret bathroom_message
+        language: sv_SE
+        options:
+          voice: "sv_SE-nst-medium"
+      target:
+        entity_id: tts.piper
 
 
 - alias: "Xiaomi Wirless Switch 0: Action double"
