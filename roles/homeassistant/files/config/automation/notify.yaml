@@ -110,27 +110,3 @@
 
   action:
     - service: python_script.notify_garbage_day
-
-- alias: "Notify: GitHub Smart-Home failure"
-
-  trigger:
-    platform: state
-    entity_id: sensor.github_smart_home
-    to: failure
-
-  action:
-    service: notify.telegram
-    data:
-      message: GitHub Smart-Home workflow failed
-
-- alias: "Notify: GitHub dotfiles failure"
-
-  trigger:
-    platform: state
-    entity_id: sensor.github_dotfiles
-    to: failure
-
-  action:
-    service: notify.telegram
-    data:
-      message: GitHub dotfiles workflow failed
