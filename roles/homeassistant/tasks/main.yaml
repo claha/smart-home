@@ -30,6 +30,13 @@
     mode: "0640"
   notify: "Recreate {{ service_name }}"
 
+- name: Create static template sensors
+  ansible.builtin.template:
+    src: "templates/static.yaml.j2"
+    dest: "{{ service_path }}/config/template/static.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
 - name: Create monitor dashboard
   ansible.builtin.template:
     src: "templates/lovelace-monitor.yaml.j2"
@@ -80,3 +87,10 @@
   with_nested:
     - "{{ glances }}"
     - "{{ glances_unused_sensors }}"
+
+- name: Hide static template entities
+  ansible.builtin.include_role:
+    name: hass_cli_hide_entity
+  vars:
+    hass_cli_hide_entity_id: "sensor.{{ item.name | lower }}_{{ item.state }}"
+  loop: "{{ static_template_sensors }}"

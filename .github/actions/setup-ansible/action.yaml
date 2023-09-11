@@ -29,6 +29,7 @@ runs:
         letsencrypt_email: ci
         letsencrypt_provider: ci
         mqtt_server: ci
+        static_template_sensors: []
         telegram_chatids: 0
         telegram_token: ci
         traefik_password: ci

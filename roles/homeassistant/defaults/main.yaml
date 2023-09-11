@@ -24,3 +24,26 @@ glances_unused_sensors:
   - total
   - thread
   - sleeping
+static_template_sensors:
+  - name: Usage
+    unit_of_measurement: "%"
+    state: 0
+  - name: Usage
+    unit_of_measurement: "%"
+    state: 100
+  - name: Temperature
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state: 0
+  - name: Temperature
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state: 40
+  - name: Humidity
+    unit_of_measurement: "%"
+    device_class: humidity
+    state: 0
+  - name: Humidity
+    unit_of_measurement: "%"
+    device_class: humidity
+    state: 100
