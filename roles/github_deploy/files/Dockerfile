@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Install dependencies
 RUN apk add --no-cache gcc==12.2.1_git20220924-r10 libc-dev==0.7.2-r5 libffi-dev==3.4.4-r2 && \
-    pip install --user --no-cache-dir PyGithub==1.58.2 ansible==8.1.0 homeassistant-cli==0.9.6
+    pip install --user --no-cache-dir PyGithub==1.58.2 ansible==8.1.0 homeassistant-cli==0.9.6 jmespath==1.0.1
 
 # Stage 2: Final stage
 FROM python:3.11-alpine

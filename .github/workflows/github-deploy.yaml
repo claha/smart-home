@@ -1,0 +1,22 @@
+---
+name: Build github-deploy
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - roles/github_deploy/**
+      - .github/workflows/github_deploy.yaml
+  pull_request:
+    paths:
+      - roles/github_deploy/**
+      - .github/workflows/github_deploy.yaml
+
+jobs:
+  github_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.0.0
+      - working-directory: roles/github_deploy/files
+        run: docker build .
