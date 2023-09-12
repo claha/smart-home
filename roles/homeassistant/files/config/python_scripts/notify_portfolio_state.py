@@ -13,8 +13,6 @@ def get_entity(entity_id):
 def convert_to_sek(amount, currency):
     """Convert CAD, EUR or USD to SEK."""
     convert = {
-        "EUR": float(get_entity("sensor.currency_eur_sek").state),
-        "USD": float(get_entity("sensor.currency_usd_sek").state),
         "SEK": 1.0,
     }
     if currency not in convert.keys():
@@ -63,12 +61,6 @@ def adjust_lenght(string, max_length):
     return string
 
 
-indices = [
-    "sensor.index_omx_stockholm_pi",
-    "sensor.index_omx_stockholm_gi",
-    "sensor.index_omx_stockholm_30",
-    "sensor.index_omx_stockholm_30_gi",
-]
 stocks = []
 funds = []
 for entity_id in hass.states.entity_ids("sensor"):
@@ -142,17 +134,6 @@ summary_data[0] = to_string(summary_data[0])
 summary_data[1] = to_string(summary_data[1])
 summary_data[2] = to_string(summary_data[2]) + "%"
 
-index_data = []
-for entity_id in indices:
-    entity = get_entity(entity_id)
-    try:
-        name = entity.attributes["name"]
-        _, change_percent = get_change(entity, None, change_percent_key, True)
-        index_data.append((name, change_percent))
-    except Exception:
-        logger.warning("Failed for %s", entity_id)
-        index_data.append((entity_id, "?"))
-
 # Create message
 message_data_len = [0] * len(message_data[0])
 for data in message_data:
@@ -175,13 +156,6 @@ for name, change_percent, total_change in message_data:
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
 message = message + "Total Value: {}\n".format(summary_data[0])
 message = message + "Total Change: {} ({})\n".format(summary_data[1], summary_data[2])
-message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
-for name, change_percent in index_data:
-    change_percent = change_percent.rjust(message_data_len[1] + 1)
-    name = adjust_lenght(name, MESSAGE_MAX_WIDTH - len(change_percent))
-    space = " " * (MESSAGE_MAX_WIDTH - len(name) - len(change_percent))
-    message = message + "{}{}{}\n".format(name, space, change_percent)
-
 message = message + "</code>"
 
 # Send notification

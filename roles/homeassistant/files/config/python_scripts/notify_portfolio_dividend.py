@@ -15,8 +15,6 @@ def get_entity(entity_id):
 def convert_to_sek(amount, currency):
     """Convert CAD, EUR or USD to SEK."""
     convert = {
-        "EUR": float(get_entity("sensor.currency_eur_sek").state),
-        "USD": float(get_entity("sensor.currency_usd_sek").state),
         "SEK": 1.0,
     }
     if currency not in convert.keys():
