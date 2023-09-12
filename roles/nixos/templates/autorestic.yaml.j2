@@ -1,0 +1,29 @@
+---
+version: 2
+
+backends:
+  backblaze-navidrome:
+    type: b2
+    path: smart-home-bucket:navidrome
+    key: "{{ backblaze_navidrome_key }}"
+    env:
+      B2_ACCOUNT_ID: "{{ b2_account_id }}"
+      B2_ACCOUNT_KEY: "{{ b2_account_key }}"
+
+locations:
+  navidrome:
+    from: /etc/navidrome
+    to:
+      - backblaze-navidrome
+    forget: prune
+    options:
+      backup:
+        host: navidrome
+        exclude:
+          - cache
+      forget:
+        keep-last: 2
+        keep-daily: 7
+    hooks:
+      success:
+        - 'curl {{ healthchecks_backup_navidrome_ping_url }}'

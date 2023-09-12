@@ -19,3 +19,9 @@
     dest: "/etc/nixos/duckdns.env"
     mode: "0600"
   notify: "Rebuild nixos"
+
+- name: Create autorestic config
+  ansible.builtin.template:
+    src: "templates/autorestic.yaml.j2"
+    dest: "/etc/autorestic.yaml"
+    mode: "0600"

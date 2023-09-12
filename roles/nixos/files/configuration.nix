@@ -172,6 +172,30 @@ in
   # The nginx user needs to be able to read certificates
   users.users.nginx.extraGroups = [ "acme" ];
 
+  # Add backup service
+  systemd.timers."autorestic_backup_navidrome" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "0/6:00:00";
+      RandomizedDelaySec = 600;
+      Unit = "autorestic_backup_navidrome.service";
+    };
+  };
+
+  systemd.services."autorestic_backup_navidrome" = {
+    script = "autorestic --config /etc/autorestic.yaml --verbose backup --location navidrome";
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+    };
+    path = [
+      pkgs.autorestic
+      pkgs.restic
+      pkgs.bash
+      pkgs.curl
+    ];
+  };
+
   # Enable tailscale
   services.tailscale.enable = true;
 
