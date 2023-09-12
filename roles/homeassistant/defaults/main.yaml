@@ -6,7 +6,11 @@ funds: []
 glances: []
 glances_used_sensors:
   - etc_hosts_used_percent
+  - etc_hosts_used
+  - etc_hosts_free
   - ram_used_percent
+  - ram_used
+  - ram_free
   - cpu_used
 glances_unused_sensors:
   - etc_resolv_conf_used

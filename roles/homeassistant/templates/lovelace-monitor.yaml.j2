@@ -31,6 +31,22 @@ views:
     cards:
       - type: vertical-stack
         cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                title: Used
+                entities:
+{% for instance in glances %}
+                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_ram_used
+                    name: {{ instance.name }}
+{% endfor %}
+              - type: entities
+                title: Free
+                entities:
+{% for instance in glances %}
+                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_ram_free
+                    name: {{ instance.name }}
+{% endfor %}
 {% for instance in glances %}
           - type: statistics-graph
             title: {{ instance.name }}
@@ -54,6 +70,22 @@ views:
     cards:
       - type: vertical-stack
         cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                title: Used
+                entities:
+{% for instance in glances %}
+                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_used
+                    name: {{ instance.name }}
+{% endfor %}
+              - type: entities
+                title: Free
+                entities:
+{% for instance in glances %}
+                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_free
+                    name: {{ instance.name }}
+{% endfor %}
 {% for instance in glances %}
           - type: statistics-graph
             title: {{ instance.name }}
