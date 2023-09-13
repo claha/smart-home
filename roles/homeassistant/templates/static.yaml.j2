@@ -3,9 +3,11 @@
     - platform: time_pattern
       hours: "*"
       minutes: "/1"
+  unique_id: {{ 'static.yaml' | hash('sha1') }}
   sensor:
 {% for sensor in static_template_sensors %}
     - name: {{ sensor.name }} {{ sensor.state }}
+      unique_id: -{{ sensor.name | lower | replace(' ','-') }}-{{ sensor.state }}
       unit_of_measurement: "{{ sensor.unit_of_measurement }}"
       state_class: measurement
 {% if sensor.device_class is defined %}
