@@ -35,4 +35,5 @@
       - --json
       - ' {"entity_id":"{{ hass_cli_disable_entity_id }}", "disabled_by":"user"}'  # yamllint disable-line rule:line-length
   changed_when: true
+  failed_when: response.stdout|from_json|json_query('success') == false
   when: response.stdout|from_json|json_query('result.entity_entry.disabled_by') != "user"  # yamllint disable-line rule:line-length
