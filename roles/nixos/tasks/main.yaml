@@ -25,3 +25,9 @@
     src: "templates/autorestic.yaml.j2"
     dest: "/etc/autorestic.yaml"
     mode: "0600"
+
+- name: Create playlists
+  ansible.builtin.copy:
+    src: "files/claes-girls.json"
+    dest: "/media/music/Claes\ Girls.nsp"
+    mode: "0644"
