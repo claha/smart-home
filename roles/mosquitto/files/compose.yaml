@@ -2,7 +2,7 @@
 services:
   mosquitto:
     container_name: mosquitto
-    image: docker.io/eclipse-mosquitto:2.0.17
+    image: docker.io/eclipse-mosquitto:2.0.18
     environment:
       TZ: Europe/Stockholm
     user: 1000:1000
