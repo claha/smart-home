@@ -15,6 +15,12 @@
   notify: Update resolvconf
   when: pihole_which_resolvconf.rc == 0
 
+- name: Setup service
+  ansible.builtin.include_role:
+    name: service
+  vars:
+    service_name: "pihole"
+
 - name: Create directories
   ansible.builtin.file:
     path: "{{ item }}"

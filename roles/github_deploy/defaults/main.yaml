@@ -1,3 +1,0 @@
----
-service_name: github-deploy
-service_path: "{{ services_path }}/{{ service_name }}"

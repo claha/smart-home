@@ -1,0 +1,5 @@
+---
+- name: Set facts
+  ansible.builtin.set_fact:
+    service_name: "{{ service_name }}"
+    service_path: "{{ services_path }}/{{ service_name }}"

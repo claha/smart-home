@@ -1,4 +1,11 @@
 ---
+- name: Setup service
+  ansible.builtin.include_role:
+    name: service
+  vars:
+    service_name: "tailscale"
+  when: tailscale_docker
+
 - name: Create directories
   ansible.builtin.file:
     path: "{{ service_path }}"

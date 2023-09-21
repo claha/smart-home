@@ -1,3 +1,0 @@
----
-service_name: zigbee2mqtt
-service_path: "{{ services_path }}/{{ service_name }}"

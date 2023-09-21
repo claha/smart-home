@@ -1,4 +1,10 @@
 ---
+- name: Setup service
+  ansible.builtin.include_role:
+    name: service
+  vars:
+    service_name: "healthchecks"
+
 - name: Create service directory
   ansible.builtin.file:
     path: "{{ service_path }}"

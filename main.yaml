@@ -146,6 +146,8 @@
       tags: never, whisper
     - role: zigbee2mqtt
       tags: never, zigbee2mqtt
+      vars:
+        autorestic_docker: false
     - role: ssh_config
       tags: never, ssh_config
 

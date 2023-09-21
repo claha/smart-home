@@ -1,10 +1,8 @@
 ---
-service_name: "{{ ansible_role_name }}"
-service_path: "{{ services_path }}/{{ service_name }}"
-stocks: []
-funds: []
-glances: []
-glances_used_sensors:
+homeassistant_stocks: []
+homeassistant_funds: []
+homeassistant_glances: []
+homeassistant_glances_used_sensors:
   - etc_hosts_used_percent
   - etc_hosts_used
   - etc_hosts_free
@@ -12,7 +10,7 @@ glances_used_sensors:
   - ram_used
   - ram_free
   - cpu_used
-glances_unused_sensors:
+homeassistant_glances_unused_sensors:
   - etc_resolv_conf_used
   - etc_resolv_conf_used_percent
   - etc_resolv_conf_free
@@ -28,7 +26,7 @@ glances_unused_sensors:
   - total
   - thread
   - sleeping
-static_template_sensors:
+homeassistant_static_template_sensors:
   - name: Usage
     unit_of_measurement: "%"
     state: 0

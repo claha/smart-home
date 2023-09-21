@@ -8,7 +8,7 @@ views:
     cards:
       - type: vertical-stack
         cards:
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
           - type: statistics-graph
             title: {{ instance.name }}
             chart_type: line
@@ -36,18 +36,18 @@ views:
               - type: entities
                 title: Used
                 entities:
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
                   - entity: sensor.{{ instance.hostname | replace('.', '_') }}_ram_used
                     name: {{ instance.name }}
 {% endfor %}
               - type: entities
                 title: Free
                 entities:
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
                   - entity: sensor.{{ instance.hostname | replace('.', '_') }}_ram_free
                     name: {{ instance.name }}
 {% endfor %}
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
           - type: statistics-graph
             title: {{ instance.name }}
             chart_type: line
@@ -75,18 +75,18 @@ views:
               - type: entities
                 title: Used
                 entities:
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
                   - entity: sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_used
                     name: {{ instance.name }}
 {% endfor %}
               - type: entities
                 title: Free
                 entities:
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
                   - entity: sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_free
                     name: {{ instance.name }}
 {% endfor %}
-{% for instance in glances %}
+{% for instance in homeassistant_glances %}
           - type: statistics-graph
             title: {{ instance.name }}
             chart_type: line
@@ -109,12 +109,12 @@ views:
     cards:
       - type: vertical-stack
         cards:
-{% for stock in stocks %}
+{% for stock in homeassistant_stocks %}
           - type: tile
             entity: sensor.stock_{{ stock.name | lower | replace(' ','_') }}
             color: green
 {% endfor %}
-{% for fund in funds %}
+{% for fund in homeassistant_funds %}
           - type: tile
             entity: sensor.fund_{{ fund.name | lower | replace(' ','_') }}
             color: green

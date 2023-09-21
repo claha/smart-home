@@ -3,9 +3,3 @@
   ansible.builtin.command: resolvconf -u
   changed_when: true
   become: true
-
-- name: Recreate {{ service_name }}
-  ansible.builtin.command:
-    chdir: "{{ service_path }}"
-    cmd: docker compose up -d --force-recreate
-  changed_when: true
