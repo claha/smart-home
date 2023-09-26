@@ -84,6 +84,7 @@
     name: hass_cli_disable_entity
   vars:
     hass_cli_disable_entity_id: "sensor.{{ item.0.hostname | replace('.', '_') }}_{{ item.1 }}"  # yamllint disable rule:line-length
+    hass_cli_disable_entity_check: false
   with_nested:
     - "{{ glances }}"
     - "{{ glances_unused_sensors }}"
