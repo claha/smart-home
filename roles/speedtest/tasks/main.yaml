@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
-    mode: "0775"
+    mode: "0755"
   loop:
     - "{{ service_path }}"
     - "{{ service_path }}/config"
