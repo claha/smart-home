@@ -59,10 +59,13 @@ in
     emacs-nox
     wget
     screen
-    python3
+    (python3.withPackages (ps: with ps; [ pipx ]))
     restic
     autorestic
   ];
+
+  # Add ~/.local/bin to PATH
+  environment.localBinInPath = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
