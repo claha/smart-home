@@ -1,33 +1,5 @@
 ---
 # yamllint disable rule:line-length
-- alias: "Lights master bedroom off"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dark_outside
-    from: "on"
-    to: "off"
-
-  action:
-    service: script.lights_master_bedroom_off
-
-
-- alias: "Lights master bedroom on"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dark_outside
-    from: "off"
-    to: "on"
-
-  condition:
-    condition: time
-    before: input_datetime.lights_master_bedroom_off_evening
-
-  action:
-    service: script.lights_master_bedroom_on
-
-
 - alias: "Lights master bedroom dim"
 
   trigger:
@@ -36,19 +8,3 @@
 
   action:
     service: script.lights_master_bedroom_dim
-
-
-- alias: "Lights master bedroom off time morning"
-  use_blueprint:
-    path: run_script_at.yaml
-    input:
-      datetime: input_datetime.lights_master_bedroom_off_morning
-      script: script.lights_master_bedroom_off
-
-
-- alias: "Lights master bedroom off time evening"
-  use_blueprint:
-    path: run_script_at.yaml
-    input:
-      datetime: input_datetime.lights_master_bedroom_off_evening
-      script: script.lights_master_bedroom_off

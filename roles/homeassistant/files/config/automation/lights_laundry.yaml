@@ -1,33 +1,5 @@
 ---
 # yamllint disable rule:line-length
-- alias: "Lights laundry off"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dark_outside
-    from: "on"
-    to: "off"
-
-  action:
-    service: script.lights_laundry_off
-
-
-- alias: "Lights laundry on"
-
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dark_outside
-    from: "off"
-    to: "on"
-
-  condition:
-    condition: time
-    before: input_datetime.lights_laundry_off_evening
-
-  action:
-    service: script.lights_laundry_on
-
-
 - alias: "Lights laundry dim"
 
   trigger:
@@ -36,23 +8,6 @@
 
   action:
     service: script.lights_laundry_dim
-
-
-- alias: "Lights laundry off time"
-
-  trigger:
-    - platform: time
-      at: input_datetime.lights_laundry_off_morning
-    - platform: time
-      at: input_datetime.lights_laundry_off_evening
-
-  condition:
-    condition: state
-    entity_id: binary_sensor.xiaomi_movement_and_illuminance_0_occupancy
-    state: "off"
-
-  action:
-    service: script.lights_laundry_off
 
 
 - alias: "Lights laundry on motion"

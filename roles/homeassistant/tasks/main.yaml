@@ -23,6 +23,20 @@
     backup: true
   notify: "Recreate {{ service_name }}"
 
+- name: Create lights timer automations
+  ansible.builtin.template:
+    src: "templates/lights_timer.yaml.j2"
+    dest: "{{ service_path }}/config/automation/lights_timer.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
+- name: Create lights darkness automations
+  ansible.builtin.template:
+    src: "templates/lights_darkness.yaml.j2"
+    dest: "{{ service_path }}/config/automation/lights_darkness.yaml"
+    mode: "0640"
+  notify: "Recreate {{ service_name }}"
+
 - name: Create portfolio
   ansible.builtin.template:
     src: "templates/portfolio.yaml.j2"

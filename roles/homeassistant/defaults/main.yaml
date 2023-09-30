@@ -1,6 +1,15 @@
 ---
 service_name: "{{ ansible_role_name }}"
 service_path: "{{ services_path }}/{{ service_name }}"
+areas:
+  - bedroom
+  - guest_room
+  - kitchen
+  - living_room
+  - laundry
+  - master_bedroom
+  - office
+
 stocks: []
 funds: []
 glances: []

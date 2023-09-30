@@ -1,0 +1,17 @@
+---
+{% for area in areas %}
+- alias: "Lights {{ area | replace('_', ' ') }} off time morning"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_{{ area }}_off_morning
+      script: script.lights_{{ area }}_off
+
+- alias: "Lights {{ area | replace('_', ' ') }} off time evening"
+  use_blueprint:
+    path: run_script_at.yaml
+    input:
+      datetime: input_datetime.lights_{{ area }}_off_evening
+      script: script.lights_{{ area }}_off
+
+{% endfor %}

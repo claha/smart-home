@@ -1,0 +1,29 @@
+---
+{% for area in areas %}
+- alias: "Lights {{ area | replace('_', ' ') }} off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+
+  action:
+    service: script.lights_{{ area }}_off
+
+- alias: "Lights {{ area | replace('_', ' ') }} on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+
+  condition:
+    condition: time
+    before: input_datetime.lights_{{ area }}_off_evening
+
+  action:
+    service: script.lights_{{ area }}_on
+
+{% endfor %}
