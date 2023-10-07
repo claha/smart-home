@@ -53,7 +53,7 @@
   include_tags:
     - ^20\d+\.\d+\.\d+$
 
-- name: ghcr.io/benphelps/homepage
+- name: ghcr.io/gethomepage/homepage
   watch_repo: true
   max_tags: 50
   sort_tags: semver
