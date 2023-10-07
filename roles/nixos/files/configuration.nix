@@ -62,6 +62,8 @@ in
     (python3.withPackages (ps: with ps; [ pipx ]))
     restic
     autorestic
+    just
+    fzf
   ];
 
   # Add ~/.local/bin to PATH
