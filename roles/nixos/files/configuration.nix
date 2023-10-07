@@ -51,7 +51,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manager = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "transmission" ];
   };
 
   # List packages installed in system profile.
@@ -201,6 +201,12 @@ in
 
   # Enable tailscale
   services.tailscale.enable = true;
+
+  # Enable transmission
+  services.transmission = {
+    enable = true;
+    openRPCPort = true;
+  };
 
   # Handle lid closing.
   services.logind.lidSwitch = "ignore";
