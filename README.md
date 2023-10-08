@@ -22,7 +22,6 @@
 ![speedtest](https://github.com/claha/smart-home/actions/workflows/speedtest.yaml/badge.svg)
 ![tailscale](https://github.com/claha/smart-home/actions/workflows/tailscale.yaml/badge.svg)
 ![traefik](https://github.com/claha/smart-home/actions/workflows/traefik.yaml/badge.svg)
-![uptimekuma](https://github.com/claha/smart-home/actions/workflows/uptimekuma.yaml/badge.svg)
 ![whisper](https://github.com/claha/smart-home/actions/workflows/whisper.yaml/badge.svg)
 ![zigbee2mqtt](https://github.com/claha/smart-home/actions/workflows/zigbee2mqtt.yaml/badge.svg)
 

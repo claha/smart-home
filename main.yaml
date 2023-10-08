@@ -140,8 +140,6 @@
       tags: never, tailscale
     - role: traefik
       tags: never, traefik
-    - role: uptimekuma
-      tags: never, uptimekuma
     - role: whisper
       tags: never, whisper
     - role: zigbee2mqtt

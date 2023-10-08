@@ -127,15 +127,6 @@
   include_tags:
     - ^v[\d+\.]+\d+$
 
-- name: docker.io/louislam/uptime-kuma
-  watch_repo: true
-  max_tags: 50
-  sort_tags: semver
-  notify_on:
-    - new
-  include_tags:
-    - ^[\d+\.]+\d+$
-
 - name: docker.io/koenkk/zigbee2mqtt
   watch_repo: true
   max_tags: 50
