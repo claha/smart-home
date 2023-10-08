@@ -2,7 +2,7 @@
 - platform: avanza_stock
   scan_interval: 60
   stock:
-{% for stock in stocks %}
+{% for stock in homeassistant_stocks %}
     - id: {{ stock.id }}
       name: Stock {{ stock.name }}
 {% if stock.shares|int != 0 %}
@@ -29,7 +29,7 @@
 - platform: avanza_stock
   scan_interval: 60
   stock:
-{% for fund in funds %}
+{% for fund in homeassistant_funds %}
     - id: {{ fund.id }}
       name: Fund {{ fund.name }}
 {% if fund.shares|float != 0 %}

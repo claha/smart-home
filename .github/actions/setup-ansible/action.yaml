@@ -26,10 +26,10 @@ runs:
         healthchecks_backup_homeassistant_ping_url: ci
         healthchecks_backup_zigbee2mqtt_ping_url: ci
         healthchecks_secret_key: ci
+        homeassistant_static_template_sensors: []
         letsencrypt_email: ci
         letsencrypt_provider: ci
         mqtt_server: ci
-        static_template_sensors: []
         telegram_chatids: 0
         telegram_token: ci
         traefik_password: ci

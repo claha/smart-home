@@ -1,5 +1,5 @@
 ---
-{% for area in areas %}
+{% for area in homeassistant_areas %}
 - alias: "Lights {{ area | replace('_', ' ') }} off time morning"
   use_blueprint:
     path: run_script_at.yaml

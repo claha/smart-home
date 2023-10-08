@@ -75,14 +75,14 @@
     name: hass_cli_hide_entity
   vars:
     hass_cli_hide_entity_id: "sensor.stock_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
-  loop: "{{ stocks }}"
+  loop: "{{ homeassistant_stocks }}"
 
 - name: Hide fund entities
   ansible.builtin.include_role:
     name: hass_cli_hide_entity
   vars:
     hass_cli_hide_entity_id: "sensor.fund_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
-  loop: "{{ funds }}"
+  loop: "{{ homeassistant_funds }}"
 
 - name: Hide glances entities
   ansible.builtin.include_role:
@@ -90,8 +90,8 @@
   vars:
     hass_cli_hide_entity_id: "sensor.{{ item.0.hostname | replace('.', '_') }}_{{ item.1 }}"  # yamllint disable rule:line-length
   with_nested:
-    - "{{ glances }}"
-    - "{{ glances_used_sensors }}"
+    - "{{ homeassistant_glances }}"
+    - "{{ homeassistant_glances_used_sensors }}"
 
 - name: Disable glances entities
   ansible.builtin.include_role:
@@ -100,12 +100,12 @@
     hass_cli_disable_entity_id: "sensor.{{ item.0.hostname | replace('.', '_') }}_{{ item.1 }}"  # yamllint disable rule:line-length
     hass_cli_disable_entity_check: false
   with_nested:
-    - "{{ glances }}"
-    - "{{ glances_unused_sensors }}"
+    - "{{ homeassistant_glances }}"
+    - "{{ homeassistant_glances_unused_sensors }}"
 
 - name: Hide static template entities
   ansible.builtin.include_role:
     name: hass_cli_hide_entity
   vars:
     hass_cli_hide_entity_id: "sensor.{{ item.name | lower }}_{{ item.state }}"
-  loop: "{{ static_template_sensors }}"
+  loop: "{{ homeassistant_static_template_sensors }}"
