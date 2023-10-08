@@ -1,0 +1,4 @@
+---
+docker_compose_service_file: false
+docker_compose_service_template: false
+docker_compose_service_sub_directories: []

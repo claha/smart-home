@@ -1,16 +1,9 @@
 ---
-- name: Create directories
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: "0775"
-  loop:
-    - "{{ service_path }}"
-    - "{{ service_path }}/data"
-
-- name: Create compose file
-  ansible.builtin.template:
-    src: "templates/compose.yaml.j2"
-    dest: "{{ service_path }}/compose.yaml"
-    mode: "0640"
-  notify: "Recreate {{ service_name }}"
+- name: Create docker compose service
+  ansible.builtin.include_role:
+    name: docker_compose_service
+  vars:
+    docker_compose_service_name: piper
+    docker_compose_service_sub_directories:
+      - data
+    docker_compose_service_file: true
