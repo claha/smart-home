@@ -1,4 +1,5 @@
 ---
+# yamllint disable rule:line-length
 name: Setup ansible
 descriptions: Install ansible and required roles/collections
 
@@ -36,3 +37,13 @@ runs:
         traefik_username: ci
         " > vars/vault.yaml
         sed -i '/vault_password_file/d' ansible.cfg
+
+        roles=$(ls roles | awk '{print "    - role: " $1 "\n      tags: never, " $1}')
+        echo "
+        - name: Setup localhost
+          hosts: localhost
+          vars_files:
+            - vars/vault.yaml
+          roles:
+        $roles
+        " >> main.yaml
