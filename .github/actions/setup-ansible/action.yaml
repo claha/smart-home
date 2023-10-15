@@ -46,4 +46,4 @@ runs:
             - vars/vault.yaml
           roles:
         $roles
-        " >> main.yaml
+        " > main.yaml

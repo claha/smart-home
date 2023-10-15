@@ -159,3 +159,12 @@
       tags: monocker
     - role: doku
       tags: doku
+
+- name: Setup localhost
+  hosts: localhost
+  vars_files:
+    - vars/vault.yaml
+
+  roles:
+    - role: ssh_config
+      tags: never, ssh_config
