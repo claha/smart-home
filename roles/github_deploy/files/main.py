@@ -35,6 +35,9 @@ def listen_for_events() -> None:
     # Set up persistence
     processed_runs: set[int] = read_processed_runs()
 
+    # Make the repo safe
+    run_command(f"git config --global --add safe.directory /{REPO}")
+
     # Check events
     while True:
         try:
@@ -85,7 +88,6 @@ def deploy(name: str) -> None:
     """Perform deployment based on the name."""
     logging.info(f"Deploy: {name}")
     for command in [
-        f"git config --global --add safe.directory /{REPO}",
         "git fetch && git reset --hard origin/main",
         "ansible-galaxy install -r requirements.yaml",
         "ansible-playbook main.yaml --limit localhost --tags ssh_config",

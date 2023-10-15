@@ -18,6 +18,9 @@ RUN apk add --no-cache git==2.40.1-r0 openssh==9.3_p2-r0
 # Copy the script
 COPY main.py .
 
+# Add knowns hosts
+COPY known_hosts /root/.ssh/known_hosts
+
 # Copy files from the builder stage
 COPY --from=builder /root/.local /root/.local
 

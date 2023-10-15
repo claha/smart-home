@@ -16,13 +16,9 @@
 
 - name: Create files for image
   ansible.builtin.copy:
-    src: "files/{{ item }}"
-    dest: "{{ service_path }}/{{ item }}"
+    src: "files/"
+    dest: "{{ service_path }}/"
     mode: "0640"
-  loop:
-    - Dockerfile
-    - .dockerignore
-    - main.py
   notify: "Recreate {{ service_name }}"
 
 - name: Create initial empty processed_runs.txt
