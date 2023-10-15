@@ -12,7 +12,7 @@ runs:
     - name: Install ansible and required roles/collections
       shell: bash
       run: |
-        pip install ansible
+        pip install --upgrade --requirement requirements.txt
         ansible-galaxy install --role-file requirements.yaml
 
         echo "---
