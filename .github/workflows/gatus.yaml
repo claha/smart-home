@@ -17,7 +17,7 @@ jobs:
   gatus:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.0
+      - uses: actions/checkout@v4.1.1
       - uses: ./.github/actions/setup-ansible
       - run: |
           ansible-playbook main.yaml --limit localhost --tags gatus
