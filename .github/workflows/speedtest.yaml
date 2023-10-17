@@ -17,7 +17,7 @@ jobs:
   speedtest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.0
+      - uses: actions/checkout@v4.1.1
       - uses: ./.github/actions/setup-ansible
       - run: |
           docker network create --driver bridge proxy
