@@ -37,6 +37,12 @@
 {% else %}
       shares: {{ fund.shares|sum }}
 {% endif %}
+{%if fund.purchase_price is defined %}
+      purchase_price: {{ fund.purchase_price }}
+{% endif%}
+{%if fund.currency is defined %}
+      currency: {{ fund.currency }}
+{% endif%}
 {% endfor %}
   monitored_conditions:
     - change
