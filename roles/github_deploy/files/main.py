@@ -47,9 +47,6 @@ def listen_for_events() -> None:
             )
 
             for run in non_processed_runs:
-                run.name = run._rawData[
-                    "name"
-                ]  # TODO: Remove with new version of PyGithub
                 logging.info(f"Check run: {run.name}")
                 # Perform actions based on the workflow run
                 if run.name.startswith("Deploy"):
