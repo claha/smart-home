@@ -20,6 +20,7 @@ in
   # Use the GRUB boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # Configure networking
   networking.hostName = "asus-nixos";
