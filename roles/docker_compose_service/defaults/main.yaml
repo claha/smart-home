@@ -2,3 +2,5 @@
 docker_compose_service_file: false
 docker_compose_service_template: false
 docker_compose_service_sub_directories: []
+docker_compose_service_extra_files: []
+docker_compose_service_extra_templates: []

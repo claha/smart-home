@@ -29,5 +29,23 @@
   notify: "Recreate {{ docker_compose_service_name }}"
   when: docker_compose_service_file
 
+- name: "Copy extra files for {{ docker_compose_service_name }}"
+  ansible.builtin.copy:
+    src: "files/{{ item | ansible.builtin.basename }}"
+    dest: "{{ services_path }}/{{ docker_compose_service_name }}/{{ item }}"
+    mode: "0644"
+  loop: "{{ docker_compose_service_extra_files }}"
+  notify: "Recreate {{ docker_compose_service_name }}"
+  when: docker_compose_service_extra_files | length > 0
+
+- name: "Template extra files for {{ docker_compose_service_name }}"
+  ansible.builtin.template:
+    src: "templates/{{ item | ansible.builtin.basename }}.j2"
+    dest: "{{ services_path }}/{{ docker_compose_service_name }}/{{ item }}"
+    mode: "0644"
+  loop: "{{ docker_compose_service_extra_templates }}"
+  notify: "Recreate {{ docker_compose_service_name }}"
+  when: docker_compose_service_extra_templates | length > 0
+
 - name: "Flush handlers"
   ansible.builtin.meta: flush_handlers

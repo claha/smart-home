@@ -1,3 +1,0 @@
----
-service_name: "{{ ansible_role_name }}"
-service_path: "{{ services_path }}/{{ service_name }}"

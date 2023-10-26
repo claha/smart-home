@@ -15,37 +15,16 @@
   notify: Update resolvconf
   when: pihole_which_resolvconf.rc == 0
 
-- name: Create directories
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: "0775"
-  loop:
-    - "{{ service_path }}"
-    - "{{ service_path }}/etc-pihole"
-    - "{{ service_path }}/etc-dnsmasq.d"
-
-- name: Create compose file
-  ansible.builtin.copy:
-    src: "files/{{ item }}"
-    dest: "{{ service_path }}/{{ item }}"
-    mode: "0640"
-  loop:
-    - compose.yaml
-  notify: "Recreate {{ service_name }}"
-
-- name: Create adlists
-  ansible.builtin.copy:
-    src: "files/{{ item }}"
-    dest: "{{ service_path }}/etc-pihole/{{ item }}"
-    mode: "0640"
-  loop:
-    - adlists.list
-  notify: "Recreate {{ service_name }}"
-
-- name: Create dns overrides
-  ansible.builtin.template:
-    src: "templates/03-dns-overrides.conf.j2"
-    dest: "{{ service_path }}/etc-dnsmasq.d/03-dns-overrides.conf"
-    mode: "0640"
-  notify: "Recreate {{ service_name }}"
+- name: Create docker compose service
+  ansible.builtin.include_role:
+    name: docker_compose_service
+  vars:
+    docker_compose_service_name: pihole
+    docker_compose_service_sub_directories:
+      - etc-pihole
+      - etc-dnsmasq.d
+    docker_compose_service_file: true
+    docker_compose_service_extra_files:
+      - etc-pihole/adlists.list
+    docker_compose_service_extra_templates:
+      - etc-dnsmasq.d/03-dns-overrides.conf
