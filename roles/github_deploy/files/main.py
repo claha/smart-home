@@ -60,10 +60,7 @@ def listen_for_events() -> None:
             write_processed_runs(processed_runs)
 
         except Exception as exception:
-            logging.error({str(exception)})
-
-        # Check rate limit
-        logging.info(f"{github.get_rate_limit()}")
+            logging.error(str(exception))
 
         # Wait some time before checking next time
         time.sleep(60)
