@@ -1,6 +1,6 @@
 ---
-- name: Recreate {{ service_name }}
+- name: Recreate {{ healthchecks_service_name }}
   ansible.builtin.command:
-    chdir: "{{ service_path }}"
+    chdir: "{{ healthchecks_service_path }}"
     cmd: docker compose up -d --force-recreate
   changed_when: true

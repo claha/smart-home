@@ -1,3 +1,3 @@
 ---
-service_name: github-deploy
-service_path: "{{ services_path }}/{{ service_name }}"
+github_deploy_service_name: github-deploy
+github_deploy_service_path: "{{ services_path }}/{{ github_deploy_service_name }}"  # yamllint disable rule:line-length

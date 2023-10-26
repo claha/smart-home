@@ -1,27 +1,27 @@
 ---
 - name: Create directories
   ansible.builtin.file:
-    path: "{{ service_path }}"
+    path: "{{ autorestic_service_path }}"
     state: directory
     mode: "0775"
 
 - name: Create compose file
   ansible.builtin.template:
     src: "templates/compose.yaml.j2"
-    dest: "{{ service_path }}/compose.yaml"
+    dest: "{{ autorestic_service_path }}/compose.yaml"
     mode: "0640"
   when: autorestic_docker
 
 - name: Create autorestic config
   ansible.builtin.template:
     src: "templates/autorestic.yaml.j2"
-    dest: "{{ service_path }}/autorestic.yaml"
+    dest: "{{ autorestic_service_path }}/autorestic.yaml"
     mode: "0640"
 
 - name: Create justfile
   ansible.builtin.template:
     src: "templates/justfile.j2"
-    dest: "{{ service_path }}/justfile"
+    dest: "{{ autorestic_service_path }}/justfile"
     mode: "0640"
 
 - name: Install autorestic

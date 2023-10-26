@@ -84,7 +84,7 @@
     - role: zigbee2mqtt
       tags: zigbee2mqtt, autorestic
       vars:
-        autorestic_docker: false
+        zigbee2mqtt_autorestic_docker: false
     - role: tailscale
       tags: tailscale
       vars:

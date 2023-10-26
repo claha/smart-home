@@ -4,9 +4,9 @@ Description=Backup {{ autorestic_location }} using autorestic
 [Service]
 Type=simple
 User={{ ansible_ssh_user | default(ansible_user_id) }}
-WorkingDirectory={{ service_path }}
+WorkingDirectory={{ autorestic_service_path }}
 {% if autorestic_docker %}
 ExecStart=docker compose run autorestic bash -c "apk add curl && autorestic backup --verbose --location {{ autorestic_location }}"
 {% else %}
-ExecStart=autorestic backup --verbose --location {{ autorestic_location }} --config {{ service_path }}/autorestic.yaml
+ExecStart=autorestic backup --verbose --location {{ autorestic_location }} --config {{ autorestic_service_path }}/autorestic.yaml
 {% endif %}

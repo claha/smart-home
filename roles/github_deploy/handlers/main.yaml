@@ -1,6 +1,6 @@
 ---
-- name: Recreate {{ service_name }}
+- name: Recreate {{ github_deploy_service_name }}
   ansible.builtin.command:
-    chdir: "{{ service_path }}"
+    chdir: "{{ github_deploy_service_path }}"
     cmd: docker compose up -d --force-recreate --build
   changed_when: true
