@@ -6,6 +6,11 @@
     platform: template
     value_template: '{{ ((utcnow().strftime("%s") | int  + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_laundry_off_evening.state }}'
 
+  condition:
+    condition: state
+    entity_id: light.tradfri_bulb_2
+    state: "on"
+
   action:
     service: script.lights_laundry_dim
 
