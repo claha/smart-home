@@ -1,14 +1,18 @@
+
 {
-  "any": [
-    {"is": {"artist": "Avril Lavigne"}},
-    {"is": {"artist": "Billie Eilish"}},
-    {"is": {"artist": "Britney Spears"}},
-    {"is": {"artist": "Katy Perry"}},
-    {"is": {"artist": "Lady Gaga"}},
-    {"is": {"artist": "Miley Cyrus"}},
-    {"is": {"artist": "Miss Li"}},
-    {"is": {"artist": "P!nk"}},
-    {"is": {"artist": "Taylor Swift"}}
+  "all": [
+    {"any": [
+      {"is": {"artist": "Avril Lavigne"}},
+      {"is": {"artist": "Billie Eilish"}},
+      {"is": {"artist": "Britney Spears"}},
+      {"is": {"artist": "Katy Perry"}},
+      {"is": {"artist": "Lady Gaga"}},
+      {"is": {"artist": "Miley Cyrus"}},
+      {"is": {"artist": "Miss Li"}},
+      {"is": {"artist": "P!nk"}},
+      {"is": {"artist": "Taylor Swift"}}
+    ]},
+    {"is": {"loved": true}}
   ],
   "sort": "playCount",
   "order": "desc",
