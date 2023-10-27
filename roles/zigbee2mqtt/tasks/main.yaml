@@ -18,4 +18,4 @@
     name: autorestic
   vars:
     autorestic_location: "zigbee2mqtt"
-    autorestic_docker: zigbee2mqtt_autorestic_docker
+    autorestic_docker: "{{ zigbee2mqtt_autorestic_docker }}"
