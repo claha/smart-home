@@ -56,7 +56,7 @@ repos:
         additional_dependencies:
           - flake8-docstrings==1.6.0
         args:
-          - --ignore=E501,W503
+          - --ignore=E203,E501,W503
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.1.2
