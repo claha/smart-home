@@ -1,1 +1,0 @@
-"""Tekniska Verken Sopor Sensor."""

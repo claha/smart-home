@@ -7,6 +7,9 @@
   loop:
     - "{{ homeassistant_service_path }}"
     - "{{ homeassistant_service_path }}/config"
+    - "{{ homeassistant_service_path }}/config/custom_components"
+    - "{{ homeassistant_service_path }}/config/custom_components/avanza_stock"
+    - "{{ homeassistant_service_path }}/config/custom_components/tekniska_verken_garbage"  # yamllint disable rule:line-length
 
 - name: Create compose file
   ansible.builtin.template:
@@ -22,6 +25,27 @@
     mode: "0640"
     backup: true
   notify: "Recreate {{ homeassistant_service_name }}"
+
+- name: Download custom component avanza stock
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/custom-components/sensor.avanza_stock/v1.4.0/custom_components/avanza_stock/{{ item }}"  # yamllint disable rule:line-length
+    dest: "{{ homeassistant_service_path }}/config/custom_components/avanza_stock/{{ item }}"  # yamllint disable rule:line-length
+    mode: "0644"
+  loop:
+    - __init__.py
+    - const.py
+    - manifest.json
+    - sensor.py
+
+- name: Download custom component tekniska verken garbage
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/custom-components/sensor.tekniska_verken_garbage/v1.0.0/custom_components/tekniska_verken_garbage/{{ item }}"  # yamllint disable rule:line-length
+    dest: "{{ homeassistant_service_path }}/config/custom_components/tekniska_verken_garbage/{{ item }}"  # yamllint disable rule:line-length
+    mode: "0644"
+  loop:
+    - __init__.py
+    - manifest.json
+    - sensor.py
 
 - name: Create lights timer automations
   ansible.builtin.template:
