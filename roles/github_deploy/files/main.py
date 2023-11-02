@@ -16,7 +16,8 @@ PROCESSED_RUNS_FILE: str = "processed_runs.txt"
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
 )
 
 
@@ -43,7 +44,8 @@ def listen_for_events() -> None:
         try:
             # Get the latest workflow runs
             non_processed_runs: list[WorkflowRun.WorkflowRun] = get_non_processed_runs(
-                repository, processed_runs
+                repository,
+                processed_runs,
             )
 
             for run in non_processed_runs:
@@ -91,12 +93,15 @@ def deploy(name: str) -> None:
 
 
 def get_non_processed_runs(
-    repository: Repository.Repository, processed_runs: set[int]
+    repository: Repository.Repository,
+    processed_runs: set[int],
 ) -> list[WorkflowRun.WorkflowRun]:
     """Retrieve non-processed workflow runs from the repository."""
     # Get the latest workflow runs
     runs: list[WorkflowRun.WorkflowRun] = repository.get_workflow_runs(
-        branch="main", event="push", status="success"
+        branch="main",
+        event="push",
+        status="success",
     )
 
     # Filter and return non-processed runs

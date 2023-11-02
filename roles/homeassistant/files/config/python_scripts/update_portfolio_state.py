@@ -16,5 +16,8 @@ entities = indices + stocks + funds
 
 # Update entities
 hass.services.call(
-    "homeassistant", "update_entity", {"entity_id": entities}, blocking=True
+    "homeassistant",
+    "update_entity",
+    {"entity_id": entities},
+    blocking=True,
 )

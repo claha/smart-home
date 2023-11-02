@@ -26,7 +26,8 @@ def convert_to_sek(amount, currency):
 def get_value(entity, value_key):
     """Get value of entity in correct currency."""
     return convert_to_sek(
-        entity.attributes[value_key], entity.attributes["unit_of_measurement"]
+        entity.attributes[value_key],
+        entity.attributes["unit_of_measurement"],
     )
 
 

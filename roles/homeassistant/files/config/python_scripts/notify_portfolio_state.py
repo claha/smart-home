@@ -24,7 +24,8 @@ def convert_to_sek(amount, currency):
 def get_value(entity, value_key):
     """Get value of entity in correct currency."""
     return convert_to_sek(
-        entity.attributes[value_key], entity.attributes["unit_of_measurement"]
+        entity.attributes[value_key],
+        entity.attributes["unit_of_measurement"],
     )
 
 
@@ -33,7 +34,8 @@ def get_change(entity, change_key, change_percent_key, as_string=False):
     change, change_percent = None, None
     if change_key:
         change = convert_to_sek(
-            entity.attributes[change_key], entity.attributes["unit_of_measurement"]
+            entity.attributes[change_key],
+            entity.attributes["unit_of_measurement"],
         )
     if change_percent_key:
         change_percent = entity.attributes[change_percent_key]
@@ -111,7 +113,10 @@ for entity_id in entities:
     try:
         name = entity.attributes["name"]
         total_change, change_percent = get_change(
-            entity, change_key, change_percent_key, True
+            entity,
+            change_key,
+            change_percent_key,
+            True,
         )
         message_data.append((name, change_percent, total_change))
     except Exception:
@@ -147,7 +152,8 @@ for name, change_percent, total_change in message_data:
     change_percent = change_percent.rjust(message_data_len[1] + 1)
     total_change = total_change.rjust(message_data_len[2] + 1)
     name = adjust_lenght(
-        name, MESSAGE_MAX_WIDTH - len(change_percent) - len(total_change)
+        name,
+        MESSAGE_MAX_WIDTH - len(change_percent) - len(total_change),
     )
     space = " " * (
         MESSAGE_MAX_WIDTH - len(name) - len(change_percent) - len(total_change)

@@ -44,6 +44,11 @@ repos:
         additional_dependencies:
           - mdformat-gfm
 
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v3.1.0
+    hooks:
+      - id: add-trailing-comma
+
   - repo: https://github.com/psf/black
     rev: 23.10.1
     hooks:
