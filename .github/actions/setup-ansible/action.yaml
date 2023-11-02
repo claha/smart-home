@@ -35,6 +35,7 @@ runs:
         telegram_token: ci
         traefik_password: ci
         traefik_username: ci
+        zigbee2mqtt_autorestic_docker: false
         " > vars/vault.yaml
         sed -i '/vault_password_file/d' ansible.cfg
 
