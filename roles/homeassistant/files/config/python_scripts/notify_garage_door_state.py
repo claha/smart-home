@@ -17,8 +17,8 @@ message = "<b>Garage Door</b><code>"
 name = get_entity_friendly_name(entity_id)
 status = get_entity_state(entity_id)
 if status == "on":
-    message = message + "\n{}: is open".format(name)
+    message = message + f"\n{name}: is open"
 elif status == "off":
-    message = message + "\n{}: is closed".format(name)
+    message = message + f"\n{name}: is closed"
 message = message + "</code>"
 hass.services.call("notify", "telegram", {"message": message})

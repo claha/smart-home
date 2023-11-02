@@ -34,9 +34,9 @@ def get_value(entity, value_key):
 def to_string(data):
     """Convert object to string, potentially format."""
     if isinstance(data, float):
-        return "{:.2f}".format(data)
+        return f"{data:.2f}"
     if isinstance(data, int):
-        return "{}".format(data)
+        return f"{data}"
     return data
 
 
@@ -85,14 +85,14 @@ for entity_id in stocks:
 dividends.sort()
 
 # Create message
-message = "<b>{}</b><code>\n".format(title)
+message = f"<b>{title}</b><code>\n"
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
 for date, name, amount in dividends:
     date = date.ljust(len(date) + 1)
     amount = amount.rjust(len("10000.00") + 1)
     name = adjust_lenght(name, MESSAGE_MAX_WIDTH - len(date) - len(amount))
     space = " " * (MESSAGE_MAX_WIDTH - len(date) - len(name) - len(amount))
-    message = message + "{}{}{}{}\n".format(date, name, space, amount)
+    message = message + f"{date}{name}{space}{amount}\n"
 message = message + "</code>"
 
 # Send notification

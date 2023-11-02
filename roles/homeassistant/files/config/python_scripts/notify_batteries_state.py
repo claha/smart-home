@@ -23,6 +23,6 @@ for battery in batteries:
     name = get_entity_friendly_name(battery)
     name = name.replace(" battery", "")
     level = get_entity_state_int(battery)
-    message = message + "\n{}: {}%".format(name, level)
+    message = message + f"\n{name}: {level}%"
 message = message + "</code>"
 hass.services.call("notify", "telegram", {"message": message})

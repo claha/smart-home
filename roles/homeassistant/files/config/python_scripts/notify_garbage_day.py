@@ -20,7 +20,7 @@ garbage_day = get_entity("sensor.tekniska_verken_garbage").state
 
 # Create message
 title = "Remember to take out the trash"
-message = "<b>{}</b><code>\n".format(title)
+message = f"<b>{title}</b><code>\n"
 if garbage_day == today:
     message = message + "The trash will be picked up today\n"
 elif garbage_day == tomorrow:

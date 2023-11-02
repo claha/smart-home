@@ -50,9 +50,9 @@ def get_change(entity, change_key, change_percent_key, as_string=False):
 def to_string(data):
     """Convert óbject to string, potentially format."""
     if isinstance(data, float):
-        return "{:.2f}".format(data)
+        return f"{data:.2f}"
     if isinstance(data, int):
-        return "{}".format(data)
+        return f"{data}"
     return data
 
 
@@ -146,7 +146,7 @@ for data in message_data:
         if len(data[i]) > message_data_len[i]:
             message_data_len[i] = len(data[i])
 
-message = "<b>{}Portfolio{}</b><code>\n".format(title_prefix, title_suffix)
+message = f"<b>{title_prefix}Portfolio{title_suffix}</b><code>\n"
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
 for name, change_percent, total_change in message_data:
     change_percent = change_percent.rjust(message_data_len[1] + 1)
@@ -158,10 +158,10 @@ for name, change_percent, total_change in message_data:
     space = " " * (
         MESSAGE_MAX_WIDTH - len(name) - len(change_percent) - len(total_change)
     )
-    message = message + "{}{}{}{}\n".format(name, space, change_percent, total_change)
+    message = message + f"{name}{space}{change_percent}{total_change}\n"
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
-message = message + "Total Value: {}\n".format(summary_data[0])
-message = message + "Total Change: {} ({})\n".format(summary_data[1], summary_data[2])
+message = message + f"Total Value: {summary_data[0]}\n"
+message = message + f"Total Change: {summary_data[1]} ({summary_data[2]})\n"
 message = message + "</code>"
 
 # Send notification

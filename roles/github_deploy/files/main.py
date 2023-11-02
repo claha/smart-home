@@ -119,7 +119,7 @@ def read_processed_runs() -> set[int]:
     """Read and return the set of processed run IDs from the file."""
     processed_runs: set[int] = set()
     if os.path.exists(PROCESSED_RUNS_FILE):
-        with open(PROCESSED_RUNS_FILE, "r", encoding="UTF-8") as file:
+        with open(PROCESSED_RUNS_FILE, encoding="UTF-8") as file:
             processed_runs = {int(line.strip()) for line in file}
     return processed_runs
 

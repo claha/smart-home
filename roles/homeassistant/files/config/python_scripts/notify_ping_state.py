@@ -28,6 +28,6 @@ for ping in pings:
         status = "Connected"
     elif status == "off":
         status = "Disconnected"
-    message = message + "\n{}: {}".format(name, status)
+    message = message + f"\n{name}: {status}"
 message = message + "</code>"
 hass.services.call("notify", "telegram", {"message": message})
