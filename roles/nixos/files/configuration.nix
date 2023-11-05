@@ -9,6 +9,7 @@ let
   navidromePort = 4533;
   bonobPort = 4534;
   jellyfinPort = 8096;
+  audiobookshelfPort = 13378;
 in
 {
   imports =
@@ -134,6 +135,18 @@ in
           JELLYFIN_LOG_DIR = "/log";
         };
       };
+
+      audiobookshelf = {
+        autoStart = true;
+        image = "ghcr.io/advplyr/audiobookshelf:2.5.0";
+        volumes = [
+          "/etc/audiobookshelf/audiobooks:/audiobooks"
+          "/etc/audiobookshelf/podcasts:/podcasts"
+          "/etc/audiobookshelf/config:/config"
+          "/etc/audiobookshelf/metadata:/metadata"
+        ];
+        ports = [ "${toString audiobookshelfPort}:80" ];
+      };
     };
   };
 
@@ -170,6 +183,12 @@ in
         acmeRoot = null;
         forceSSL = true;
         locations."/" = { proxyPass = "http://127.0.0.1:${toString jellyfinPort}"; proxyWebsockets = true; };
+      };
+      "audiobookshelf.media.${secrets.domain}" = {
+        useACMEHost = "${secrets.domain}";
+        acmeRoot = null;
+        forceSSL = true;
+        locations."/" = { proxyPass = "http://127.0.0.1:${toString audiobookshelfPort}"; proxyWebsockets = true; };
       };
     };
   };
@@ -226,6 +245,7 @@ in
       navidromePort
       bonobPort
       jellyfinPort
+      audiobookshelfPort
     ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
