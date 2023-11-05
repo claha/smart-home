@@ -6,6 +6,8 @@ services:
     platform: linux/arm/v6
     environment:
       - TZ=Europe/Stockholm
+    security_opt:
+      - no-new-privileges:true
     network_mode: host
     volumes:
       - ./data:/app/data

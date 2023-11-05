@@ -7,6 +7,8 @@ services:
     networks:
       - {{ gatus_healthchecks_network }}
 {% endif %}
+    security_opt:
+      - no-new-privileges:true
     ports:
       - 8080:8080
     volumes:

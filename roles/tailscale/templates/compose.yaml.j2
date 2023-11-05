@@ -4,6 +4,8 @@ services:
     image: docker.io/tailscale/tailscale:v1.52.0
     container_name: tailscaled
     network_mode: host
+    security_opt:
+      - no-new-privileges:true
     volumes:
       - /var/lib:/var/lib
       - /dev/net/tun:/dev/net/tun

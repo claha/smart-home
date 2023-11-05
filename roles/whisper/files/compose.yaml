@@ -3,6 +3,8 @@ services:
   whisper:
     image: docker.io/rhasspy/wyoming-whisper:1.0.0
     container_name: whisper
+    security_opt:
+      - no-new-privileges:true
     ports:
       - 10300:10300
     volumes:

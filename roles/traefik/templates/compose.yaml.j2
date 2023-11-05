@@ -5,6 +5,8 @@ services:
     container_name: traefik
     networks:
       - proxy
+    security_opt:
+      - no-new-privileges:true
     extra_hosts:
       - host.docker.internal:172.21.0.1
     ports:

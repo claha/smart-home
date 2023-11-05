@@ -89,10 +89,11 @@ repos:
           - \\n
 
   - repo: https://github.com/claha/docker-compose-check
-    rev: v0.2.0
+    rev: v0.3.0
     hooks:
       - id: check-registry
       - id: check-socket
+      - id: check-no-new-privileges
 
   - repo: https://github.com/iamthefij/docker-pre-commit
     rev: v3.0.1

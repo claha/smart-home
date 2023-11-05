@@ -4,6 +4,8 @@ services:
     container_name: github-deploy
     build:
       context: .
+    security_opt:
+      - no-new-privileges:true
     environment:
       - "GITHUB_ACCESS_TOKEN={{ github_token }}"
     volumes:

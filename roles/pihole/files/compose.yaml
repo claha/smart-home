@@ -6,6 +6,8 @@ services:
     hostname: pihole
     environment:
       TZ: Europe/Stockholm
+    security_opt:
+      - no-new-privileges:true
     ports:
       - 53:53/tcp
       - 53:53/udp

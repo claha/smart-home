@@ -7,6 +7,8 @@ services:
     networks:
       - {{ healthchecks_network }}
 {% endif %}
+    security_opt:
+      - no-new-privileges:true
     ports:
       - 8000:8000
     environment:

@@ -3,6 +3,8 @@ services:
   autorestic:
     image: docker.io/cupcakearmy/autorestic:1.7.9
     container_name: autorestic
+    security_opt:
+      - no-new-privileges:true
     volumes:
       - {{ services_path }}:{{ services_path }}
       - ./autorestic.yaml:/root/.autorestic.yaml:ro

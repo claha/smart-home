@@ -4,6 +4,8 @@ services:
     image: docker.io/mauricenino/dashdot:5.2.3
     container_name: dashdot
     privileged: true
+    security_opt:
+      - no-new-privileges:true
     environment:
       DASHDOT_SHOW_HOST: "true"
       DASHDOT_CUSTOM_HOST: "{{ ansible_hostname }}"

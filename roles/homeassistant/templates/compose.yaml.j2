@@ -6,6 +6,8 @@ services:
     environment:
       TZ: Europe/Stockholm
     network_mode: host
+    security_opt:
+      - no-new-privileges:true
     volumes:
       - ./config:/config
     privileged: true

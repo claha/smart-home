@@ -3,6 +3,8 @@ services:
   monocker:
     image: docker.io/petersem/monocker:latest
     container_name: monocker
+    security_opt:
+      - no-new-privileges:true
     environment:
       SERVER_LABEL: "{{ ansible_hostname }}"
       MESSAGE_PLATFORM: "telegram@{{ telegram_token }}@{{ telegram_chatids }}"

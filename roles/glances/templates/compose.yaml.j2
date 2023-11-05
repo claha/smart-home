@@ -3,6 +3,8 @@ services:
   glances:
     image: docker.io/nicolargo/glances:3.4.0.3-full
     container_name: glances
+    security_opt:
+      - no-new-privileges:true
     pid: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro

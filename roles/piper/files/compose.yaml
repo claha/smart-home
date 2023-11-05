@@ -3,6 +3,8 @@ services:
   piper:
     image: docker.io/rhasspy/wyoming-piper:1.4.0
     container_name: piper
+    security_opt:
+      - no-new-privileges:true
     ports:
       - 10200:10200
     volumes:

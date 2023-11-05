@@ -3,6 +3,8 @@ services:
   doku:
     image: docker.io/amerkurev/doku:v0.0.16
     container_name: doku
+    security_opt:
+      - no-new-privileges:true
     ports:
       - 9090:9090
     volumes:
