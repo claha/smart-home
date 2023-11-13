@@ -49,46 +49,14 @@
         href: {{ dashdota1_href | default() }}
         icon: https://github.com/MauriceNino/dashdot/blob/main/apps/docs/static/img/logo512.png?raw=true
 
+{% if homepage_tailscale_devices.json is defined %}
 - Tailscale:
-    - RPi4:
+{% for device in homepage_tailscale_devices.json.devices %}
+    - {{ device.hostname }}:
         icon: tailscale
         widget:
           type: tailscale
-          deviceid: {{ tailscale_id_rpi4 | default()}}
+          deviceid: {{ device.nodeId }}
           key: {{ tailscale_key | default()}}
-    - RPi3:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ tailscale_id_rpi3 | default() }}
-          key: {{ tailscale_key | default() }}
-    - RPi2:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ tailscale_id_rpi2 | default() }}
-          key: {{ tailscale_key | default() }}
-    - RPi0:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ tailscale_id_rpi0 | default() }}
-          key: {{ tailscale_key | default() }}
-    - OCI 0:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ tailscale_id_oci0 | default() }}
-          key: {{ tailscale_key | default() }}
-    - OCI 1:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ tailscale_id_oci1 | default() }}
-          key: {{ tailscale_key | default() }}
-    - OCI A1:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ tailscale_id_ocia1 | default() }}
-          key: {{ tailscale_key | default() }}
+{% endfor %}
+{% endif %}
