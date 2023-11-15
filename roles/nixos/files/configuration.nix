@@ -10,6 +10,7 @@ let
   bonobPort = 4534;
   jellyfinPort = 8096;
   audiobookshelfPort = 13378;
+  glancesPort = 61208;
 in
 {
   imports =
@@ -65,6 +66,7 @@ in
     autorestic
     just
     fzf
+    glances
   ];
 
   # Add ~/.local/bin to PATH
@@ -220,6 +222,22 @@ in
     ];
   };
 
+  # Add glances service
+  systemd.services."glances" = {
+    script = "glances --webserver --disable-webui";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+      Restart = "on-abort";
+      RemainAfterExit = "yes";
+    };
+    path = [
+      pkgs.glances
+    ];
+  };
+
   # Enable tailscale
   services.tailscale.enable = true;
 
@@ -246,6 +264,7 @@ in
       bonobPort
       jellyfinPort
       audiobookshelfPort
+      glancesPort
     ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
