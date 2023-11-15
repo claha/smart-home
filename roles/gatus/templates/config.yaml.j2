@@ -16,6 +16,20 @@ alerting:
       description: "Sent from {{ ansible_hostname }}"
 
 endpoints:
+{% if gatus_tailscale_devices.json is defined %}
+{% for device in gatus_tailscale_devices.json.devices %}
+{% if device.hostname not in gatus_tailscale_devices_ignore %}
+  - name: {{ device.hostname }}
+    group: Servers
+    url: "icmp://{{ device.addresses[0] }}"
+    interval: 5m
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: telegram
+{% endif %}
+{% endfor %}
+{% endif %}
 {% for endpoint in gatus_icmp_endpoints %}
   - name: {{ endpoint.name }}
     group: Servers
