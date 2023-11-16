@@ -12,7 +12,10 @@
     state: "on"
 
   action:
-    service: script.lights_laundry_dim
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "dim"
 
 
 - alias: "Lights laundry on motion"
@@ -37,7 +40,10 @@
               after: input_datetime.lights_laundry_off_evening
 
   action:
-    service: script.lights_laundry_dim
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "dim"
 
 
 - alias: "Lights laundry off motion"
@@ -64,4 +70,7 @@
               after: input_datetime.lights_laundry_off_evening
 
   action:
-    service: script.lights_laundry_off
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "off"

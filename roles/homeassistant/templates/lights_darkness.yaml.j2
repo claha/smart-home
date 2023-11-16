@@ -9,7 +9,10 @@
     to: "off"
 
   action:
-    service: script.lights_{{ area }}_off
+    service: python_script.control_lights
+    data:
+      area: "{{ area }}"
+      action: "off"
 
 - alias: "Lights {{ area | replace('_', ' ') }} on"
 
@@ -24,6 +27,9 @@
     before: input_datetime.lights_{{ area }}_off_evening
 
   action:
-    service: script.lights_{{ area }}_on
+    service: python_script.control_lights
+    data:
+      area: "{{ area }}"
+      action: "on"
 
 {% endfor %}

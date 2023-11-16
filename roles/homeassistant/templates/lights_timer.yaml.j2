@@ -1,17 +1,23 @@
 ---
 {% for area in homeassistant_areas %}
 - alias: "Lights {{ area | replace('_', ' ') }} off time morning"
-  use_blueprint:
-    path: run_script_at.yaml
-    input:
-      datetime: input_datetime.lights_{{ area }}_off_morning
-      script: script.lights_{{ area }}_off
+  trigger:
+    platform: time
+    at: input_datetime.lights_{{ area }}_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "{{ area }}"
+      action: "off"
 
 - alias: "Lights {{ area | replace('_', ' ') }} off time evening"
-  use_blueprint:
-    path: run_script_at.yaml
-    input:
-      datetime: input_datetime.lights_{{ area }}_off_evening
-      script: script.lights_{{ area }}_off
+  trigger:
+    platform: time
+    at: input_datetime.lights_{{ area }}_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "{{ area }}"
+      action: "off"
 
 {% endfor %}

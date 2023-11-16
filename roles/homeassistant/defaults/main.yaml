@@ -2,13 +2,12 @@
 homeassistant_service_name: "{{ ansible_role_name }}"
 homeassistant_service_path: "{{ services_path }}/{{ homeassistant_service_name }}"  # yamllint disable rule:line-length
 homeassistant_areas:
-  - bedroom
   - guest_room
   - kitchen
   - living_room
   - laundry
   - master_bedroom
-  - office
+  - kids_bedroom
 
 homeassistant_stocks: []
 homeassistant_funds: []

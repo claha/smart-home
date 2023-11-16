@@ -12,4 +12,7 @@
     state: "on"
 
   action:
-    service: script.lights_master_bedroom_dim
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "dim"

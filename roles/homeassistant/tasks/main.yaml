@@ -47,6 +47,13 @@
     - manifest.json
     - sensor.py
 
+- name: Create input datetimes
+  ansible.builtin.template:
+    src: "templates/input_datetime.yaml.j2"
+    dest: "{{ homeassistant_service_path }}/config/helper/input_datetime.yaml"
+    mode: "0640"
+  notify: "Recreate {{ homeassistant_service_name }}"
+
 - name: Create lights timer automations
   ansible.builtin.template:
     src: "templates/lights_timer.yaml.j2"

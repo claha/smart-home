@@ -8,7 +8,10 @@
     to: "off"
 
   action:
-    service: script.lights_closet_off
+    service: python_script.control_lights
+    data:
+      area: "closet"
+      action: "off"
 
 
 - alias: "Lights closet on"
@@ -20,4 +23,7 @@
     to: "on"
 
   action:
-    service: script.lights_closet_on
+    service: python_script.control_lights
+    data:
+      area: "closet"
+      action: "on"
