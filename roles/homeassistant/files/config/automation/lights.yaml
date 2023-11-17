@@ -1,5 +1,22 @@
 ---
 # yamllint disable rule:line-length
+- alias: "Lights master bedroom dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int  + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_master_bedroom_off_evening.state }}'
+
+  condition:
+    condition: state
+    entity_id: light.tradfri_bulb_0
+    state: "on"
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "dim"
+
 - alias: "Lights laundry dim"
 
   trigger:
@@ -74,3 +91,50 @@
     data:
       area: "laundry"
       action: "off"
+
+- alias: "Lights closet off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiaomi_door_and_window_0_contact
+    from: "on"
+    to: "off"
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "closet"
+      action: "off"
+
+
+- alias: "Lights closet on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiaomi_door_and_window_0_contact
+    from: "off"
+    to: "on"
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "closet"
+      action: "on"
+
+
+- alias: "Lights kitchen on morning"
+
+  trigger:
+    platform: time
+    at: input_datetime.lights_kitchen_on_morning
+
+  condition:
+    condition: state
+    entity_id: binary_sensor.dark_outside
+    state: "on"
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kitchen"
+      action: "on"

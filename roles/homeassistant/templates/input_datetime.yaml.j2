@@ -19,6 +19,11 @@ notify_portfolio_dividend:
   has_time: true
   has_date: false
 
+lights_kitchen_on_morning:
+  name: Lights kitchen on morning
+  has_time: true
+  has_date: false
+
 {% for area in homeassistant_areas %}
 lights_{{ area }}_off_morning:
   name: Lights {{ area | replace('_', ' ') }} off morning
