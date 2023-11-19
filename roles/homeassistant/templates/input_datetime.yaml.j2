@@ -1,9 +1,4 @@
 ---
-notify_portfolio_daily:
-  name: Notify portfolio daily
-  has_time: true
-  has_date: false
-
 notify_portfolio_weekly:
   name: Notify portfolio weekly
   has_time: true
@@ -31,7 +26,7 @@ lights_{{ area }}_off_morning:
   has_date: false
 
 lights_{{ area }}_off_evening:
-  name: Lights {{ area | replace('_', ' ') }} off morning
+  name: Lights {{ area | replace('_', ' ') }} off evening
   has_time: true
   has_date: false
 
