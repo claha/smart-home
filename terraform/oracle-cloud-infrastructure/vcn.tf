@@ -1,6 +1,6 @@
 module "vcn" {
   source                  = "oracle-terraform-modules/vcn/oci"
-  version                 = "3.5.5"
+  version                 = "3.6.0"
   compartment_id          = oci_identity_compartment.compartment.id
   region                  = var.region
   create_internet_gateway = true
