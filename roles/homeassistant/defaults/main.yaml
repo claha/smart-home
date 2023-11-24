@@ -8,6 +8,7 @@ homeassistant_areas:
   - laundry
   - master_bedroom
   - kids_bedroom
+  - outdoor
 
 homeassistant_stocks: []
 homeassistant_funds: []

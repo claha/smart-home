@@ -138,3 +138,21 @@
     data:
       area: "kitchen"
       action: "on"
+
+
+- alias: "Lights outdoor on morning"
+
+  trigger:
+    platform: time
+    at: input_datetime.lights_outdoor_on_morning
+
+  condition:
+    condition: state
+    entity_id: binary_sensor.dark_outside
+    state: "on"
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "outdoor"
+      action: "on"

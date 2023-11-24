@@ -101,7 +101,7 @@ lights = {
         "light.tradfri_bulb_0",
     ],
     "guest_room": [
-        "switch.shelly_plug_s_0",
+        "light.tradfri_bulb_3",
     ],
     "kitchen": [
         "switch.tradfri_control_outlet_1",
@@ -121,6 +121,9 @@ lights = {
     "kids_bedroom": [
         "switch.tradfri_control_outlet_2",
         "switch.tradfri_control_outlet_3",
+    ],
+    "outdoor": [
+        "switch.shelly_plug_s_0",
     ],
 }
 
