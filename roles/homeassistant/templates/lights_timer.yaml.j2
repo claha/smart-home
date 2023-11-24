@@ -20,4 +20,16 @@
       area: "{{ area }}"
       action: "off"
 
+- alias: "Lights {{ area | replace('_', ' ') }} dim"
+
+  trigger:
+    platform: template
+    value_template: '{% raw %}{{{% endraw %} ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_{{ area }}_off_evening.state {% raw %}}}{% endraw %}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "{{ area }}"
+      action: "dim"
+
 {% endfor %}

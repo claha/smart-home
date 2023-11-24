@@ -25,6 +25,8 @@ def light_on(entity_id):
 
 def light_dim(entity_id):
     """Dim a light."""
+    if hass.states.get(entity_id).state == "off":
+        return
     hass.services.call(
         "light",
         "turn_on",
