@@ -1,5 +1,5 @@
 # Stage 1: Build stage
-FROM python:3.11-alpine AS builder
+FROM python:3.12-alpine AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN apk add --no-cache gcc==12.2.1_git20220924-r10 libc-dev==0.7.2-r5 libffi-dev
     pip install --user --no-cache-dir PyGithub==2.1.1 ansible==8.5.0 homeassistant-cli==0.9.6 jmespath==1.0.1
 
 # Stage 2: Final stage
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 
 WORKDIR /app
 
