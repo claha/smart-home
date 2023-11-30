@@ -93,6 +93,10 @@ in
       enable = true;
       setSocketVariable = true;
     };
+    autoPrune = {
+      enable = true;
+      flags = [ "--all" "--volumes" ];
+    };
   };
 
   # Navidrome and bonob
