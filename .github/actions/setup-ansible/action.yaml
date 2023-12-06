@@ -6,7 +6,7 @@ descriptions: Install ansible and required roles/collections
 runs:
   using: composite
   steps:
-    - uses: actions/setup-python@v4.7.1
+    - uses: actions/setup-python@v4.8.0
       with:
         python-version: 3.x
     - name: Install ansible and required roles/collections
