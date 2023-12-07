@@ -141,6 +141,7 @@ in
         ports = [ "${toString jellyfinPort}:${toString jellyfinPort}" ];
         environment = {
           JELLYFIN_LOG_DIR = "/log";
+          JELLYFIN_PublishedServerUrl = "jellyfin.media.${secrets.domain}";
         };
       };
 
