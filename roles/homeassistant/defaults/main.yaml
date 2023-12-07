@@ -14,9 +14,9 @@ homeassistant_stocks: []
 homeassistant_funds: []
 homeassistant_glances: []
 homeassistant_glances_used_sensors:
-  - etc_hosts_used_percent
-  - etc_hosts_used
-  - etc_hosts_free
+  - DISK_used_percent
+  - DISK_used
+  - DISK_free
   - ram_used_percent
   - ram_used
   - ram_free
@@ -37,6 +37,15 @@ homeassistant_glances_unused_sensors:
   - total
   - thread
   - sleeping
+  - nix_store_used
+  - nix_store_used_percent
+  - nix_store_free
+  - var_lib_docker_btrfs_used
+  - var_lib_docker_btrfs_used_percent
+  - var_lib_docker_btrfs_free
+  - acpitz_1_temperature
+  - core_0_temperature
+  - nouveau_1_temperature
 homeassistant_static_template_sensors:
   - name: Usage
     unit_of_measurement: "%"

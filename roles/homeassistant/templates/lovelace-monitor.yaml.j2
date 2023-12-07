@@ -76,14 +76,14 @@ views:
                 title: Used
                 entities:
 {% for instance in homeassistant_glances %}
-                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_used
+                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_{{ instance.disk }}used
                     name: {{ instance.name }}
 {% endfor %}
               - type: entities
                 title: Free
                 entities:
 {% for instance in homeassistant_glances %}
-                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_free
+                  - entity: sensor.{{ instance.hostname | replace('.', '_') }}_{{ instance.disk }}free
                     name: {{ instance.name }}
 {% endfor %}
 {% for instance in homeassistant_glances %}
@@ -94,7 +94,7 @@ views:
             period: hour
             hide_legend: true
             entities:
-              - sensor.{{ instance.hostname | replace('.', '_') }}_etc_hosts_used_percent
+              - sensor.{{ instance.hostname | replace('.', '_') }}_{{ instance.disk }}used_percent
               - sensor.usage_100
               - sensor.usage_0
             stat_types:

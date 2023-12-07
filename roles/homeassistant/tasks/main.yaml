@@ -119,7 +119,7 @@
   ansible.builtin.include_role:
     name: hass_cli_hide_entity
   vars:
-    hass_cli_hide_entity_id: "sensor.{{ item.0.hostname | replace('.', '_') }}_{{ item.1 }}"  # yamllint disable rule:line-length
+    hass_cli_hide_entity_id: "sensor.{{ item.0.hostname | replace('.', '_') }}_{{ item.1 | replace('DISK_', item.0.disk) }}"  # yamllint disable rule:line-length
   with_nested:
     - "{{ homeassistant_glances }}"
     - "{{ homeassistant_glances_used_sensors }}"
