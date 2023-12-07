@@ -108,7 +108,9 @@ in
         autoStart = true;
         image = "docker.io/deluan/navidrome:0.50.1";
         ports = [ "${toString navidromePort}:${toString navidromePort}" ];
-        # environment = {}
+        environment = {
+          ND_SCANSCHEDULE = "1h";
+        };
         volumes = [
           "/etc/navidrome/data:/data"
           "/media/music:/music:ro"
