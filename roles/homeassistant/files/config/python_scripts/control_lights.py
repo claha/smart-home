@@ -8,15 +8,15 @@ ACTION_DIM = "dim"
 ACTION_OFF = "off"
 
 
-def light_on(entity_id):
+def light_on(entity_id, brightness_pct, color_temp):
     """Turn on a light."""
     hass.services.call(
         "light",
         "turn_on",
         {
             "entity_id": entity_id,
-            "brightness_pct": 80,
-            "color_temp": 454,
+            "brightness_pct": brightness_pct,
+            "color_temp": color_temp,
             "transition": 10,
         },
         False,
@@ -53,7 +53,7 @@ def light_off(entity_id):
     )
 
 
-def switch_on(entity_id):
+def switch_on(entity_id, brightness_pct, color_temp):
     """Turn on a switch."""
     hass.services.call(
         "switch",
@@ -132,13 +132,15 @@ lights = {
 # Get script arguments
 area = data.get("area")
 action = data.get("action")
+brightness_pct = data.get("brightness_pct", 80)
+color_temp = data.get("color_temp", 454)
 
 # Perform action on each entity id
 entity_ids = lights[area]
 for entity_id in entity_ids:
     entity_type = entity_id.split(".")[0]
     if action == ACTION_ON:
-        on_control[entity_type](entity_id)
+        on_control[entity_type](entity_id, brightness_pct, color_temp)
     elif action == ACTION_DIM:
         dim_control[entity_type](entity_id)
     elif action == ACTION_OFF:

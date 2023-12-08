@@ -24,7 +24,8 @@
     service: python_script.control_lights
     data:
       area: "laundry"
-      action: "dim"
+      action: "on"
+      brightness_pct: 50
 
 
 - alias: "Lights laundry off motion"
