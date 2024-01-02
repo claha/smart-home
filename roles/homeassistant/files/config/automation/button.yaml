@@ -1,6 +1,7 @@
 ---
 - alias: "Xiaomi Wirless Switch 0: Action single"
-
+  mode: single
+  max_exceeded: silent
   trigger:
     - platform: device
       domain: mqtt
@@ -20,6 +21,7 @@
           voice: "sv_SE-nst-medium"
       target:
         entity_id: tts.piper
+    - delay: 60
 
 
 - alias: "Xiaomi Wirless Switch 0: Action double"
