@@ -50,6 +50,7 @@ endpoints:
   - name: {{ endpoint.name }}
     group: DNS
     url: "{{ endpoint.server }}"
+    interval: 5m
     dns:
       query-name: "{{ endpoint.query }}"
       query-type: "A"
