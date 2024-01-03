@@ -17,6 +17,7 @@ in
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Use the GRUB boot loader.
@@ -56,16 +57,20 @@ in
     extraGroups = [ "wheel" "docker" "transmission" ];
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.manager = import ./home.nix;
+  };
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    emacs-nox
     wget
     screen
     (python3.withPackages (ps: with ps; [ pipx ]))
     restic
     autorestic
     just
-    fzf
     glances
   ];
 

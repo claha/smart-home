@@ -6,6 +6,13 @@
     mode: "0640"
   notify: "Rebuild nixos"
 
+- name: Create home config
+  ansible.builtin.copy:
+    src: "files/home.nix"
+    dest: "/etc/nixos/home.nix"
+    mode: "0640"
+  notify: "Rebuild nixos"
+
 - name: Create secrets
   ansible.builtin.template:
     src: "templates/secrets.nix.j2"
