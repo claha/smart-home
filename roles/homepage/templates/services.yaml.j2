@@ -48,15 +48,3 @@
     - dash. (OCI A1):
         href: {{ dashdota1_href | default() }}
         icon: https://github.com/MauriceNino/dashdot/blob/main/apps/docs/static/img/logo512.png?raw=true
-
-{% if homepage_tailscale_devices.json is defined %}
-- Tailscale:
-{% for device in homepage_tailscale_devices.json.devices %}
-    - {{ device.hostname }}:
-        icon: tailscale
-        widget:
-          type: tailscale
-          deviceid: {{ device.nodeId }}
-          key: {{ tailscale_key | default()}}
-{% endfor %}
-{% endif %}

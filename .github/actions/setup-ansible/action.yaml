@@ -29,7 +29,6 @@ runs:
         healthchecks_backup_zigbee2mqtt_ping_url: ci
         healthchecks_secret_key: ci
         homeassistant_static_template_sensors: []
-        homepage_tailscale_devices: {}
         letsencrypt_email: ci
         letsencrypt_provider: ci
         mqtt_server: ci
