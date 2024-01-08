@@ -160,6 +160,22 @@
     - role: doku
       tags: doku
 
+- name: Setup micro
+  hosts: micro
+  vars_files:
+    - vars/vault.yaml
+
+  pre_tasks:
+    - name: Update cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      become: true
+
+  roles:
+    - role: bash
+      tags: never, init
+
 - name: Setup localhost
   hosts: localhost
   vars_files:
