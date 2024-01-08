@@ -111,7 +111,7 @@ in
 
       navidrome = {
         autoStart = true;
-        image = "docker.io/deluan/navidrome:0.50.1";
+        image = "docker.io/deluan/navidrome:0.50.2";
         ports = [ "${toString navidromePort}:${toString navidromePort}" ];
         environment = {
           ND_SCANSCHEDULE = "1h";
@@ -152,7 +152,7 @@ in
 
       audiobookshelf = {
         autoStart = true;
-        image = "ghcr.io/advplyr/audiobookshelf:2.6.0";
+        image = "ghcr.io/advplyr/audiobookshelf:2.7.1";
         volumes = [
           "/etc/audiobookshelf/audiobooks:/audiobooks"
           "/etc/audiobookshelf/podcasts:/podcasts"
