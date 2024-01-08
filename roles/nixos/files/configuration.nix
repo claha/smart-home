@@ -234,6 +234,29 @@ in
     ];
   };
 
+  systemd.timers."autorestic_backup_audiobookshelf" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "0/6:00:00";
+      RandomizedDelaySec = 600;
+      Unit = "autorestic_backup_audiobookshelf.service";
+    };
+  };
+
+  systemd.services."autorestic_backup_audiobookshelf" = {
+    script = "autorestic --config /etc/autorestic.yaml --verbose backup --location audiobookshelf";
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+    };
+    path = [
+      pkgs.autorestic
+      pkgs.restic
+      pkgs.bash
+      pkgs.curl
+    ];
+  };
+
   # Add glances service
   systemd.services."glances" = {
     script = "glances --webserver --disable-webui";

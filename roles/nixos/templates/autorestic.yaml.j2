@@ -9,6 +9,13 @@ backends:
     env:
       B2_ACCOUNT_ID: "{{ b2_account_id }}"
       B2_ACCOUNT_KEY: "{{ b2_account_key }}"
+  backblaze-audiobookshelf:
+    type: b2
+    path: smart-home-bucket:audiobookshelf
+    key: "{{ backblaze_audiobookshelf_key }}"
+    env:
+      B2_ACCOUNT_ID: "{{ b2_account_id }}"
+      B2_ACCOUNT_KEY: "{{ b2_account_key }}"
 
 locations:
   navidrome:
@@ -27,3 +34,19 @@ locations:
     hooks:
       success:
         - 'curl {{ healthchecks_backup_navidrome_ping_url }}'
+  audiobookshelf:
+    from: /etc/audiobookshelf
+    to:
+      - backblaze-audiobookshelf
+    forget: prune
+    options:
+      backup:
+        host: audiobookshelf
+        exclude:
+          - cache
+      forget:
+        keep-last: 2
+        keep-daily: 7
+    hooks:
+      success:
+        - 'curl {{ healthchecks_backup_audiobookshelf_ping_url }}'
