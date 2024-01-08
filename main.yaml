@@ -175,6 +175,8 @@
   roles:
     - role: bash
       tags: never, init
+    - role: tailscale
+      tags: tailscale
 
 - name: Setup localhost
   hosts: localhost
