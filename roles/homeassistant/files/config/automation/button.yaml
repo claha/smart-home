@@ -11,6 +11,21 @@
       discovery_id: !secret xiaomi_wireless_switch_0_discovery_id_action_single
 
   action:
+    - service: sonos.snapshot
+      data:
+        entity_id: media_player.sonos_beam
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.sonos_beam
+    - delay: 1
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.sonos_beam
+        volume_level: 40
+    - service: media_player.volume_mute
+      data:
+        entity_id: media_player.sonos_beam
+        is_volume_muted: false
     - service: tts.speak
       data:
         cache: true
@@ -22,6 +37,9 @@
       target:
         entity_id: tts.piper
     - delay: 60
+    - service: sonos.restore
+      data:
+        entity_id: media_player.sonos_beam
 
 
 - alias: "Xiaomi Wirless Switch 0: Action double"
