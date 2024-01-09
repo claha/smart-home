@@ -6,7 +6,7 @@ Type=simple
 User={{ ansible_ssh_user | default(ansible_user_id) }}
 WorkingDirectory={{ autorestic_service_path }}
 {% if autorestic_docker %}
-ExecStart=docker compose run autorestic bash -c "apk add curl && autorestic backup --verbose --location {{ autorestic_location }}"
+ExecStart=docker compose run --rm autorestic bash -c "apk add curl && autorestic backup --verbose --location {{ autorestic_location }}"
 {% else %}
 ExecStart=autorestic backup --verbose --location {{ autorestic_location }} --config {{ autorestic_service_path }}/autorestic.yaml
 {% endif %}
