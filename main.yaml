@@ -42,12 +42,8 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: speedtest
-      tags: speedtest
     - role: duckdns
       tags: duckdns
-    - role: dozzle
-      tags: dozzle
     - role: glances
       tags: glances
     - role: tailscale
