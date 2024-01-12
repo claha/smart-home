@@ -1,6 +1,31 @@
 ---
-- name: Setup pihole
-  hosts: pihole
+- name: Setup primary pihole
+  hosts: pihole1
+  vars_files:
+    - vars/vault.yaml
+
+  pre_tasks:
+    - name: Update cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      become: true
+
+  roles:
+    - role: geerlingguy.docker
+      become: true
+      tags: never, init
+    - role: bash
+      tags: never, init
+    - role: pihole
+      tags: pihole
+    - role: glances
+      tags: glances
+    - role: tailscale
+      tags: tailscale
+
+- name: Setup secondary pihole
+  hosts: pihole2
   vars_files:
     - vars/vault.yaml
 

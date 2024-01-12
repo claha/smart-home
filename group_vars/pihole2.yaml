@@ -1,0 +1,4 @@
+---
+docker_users:
+  - manager
+figurine_font: "Binary.flf"
