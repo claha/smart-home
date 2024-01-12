@@ -46,6 +46,9 @@ homeassistant_glances_unused_sensors:
   - acpitz_1_temperature
   - core_0_temperature
   - nouveau_1_temperature
+  - containers_active
+  - containers_cpu_used
+  - containers_ram_used
 homeassistant_static_template_sensors:
   - name: Usage
     unit_of_measurement: "%"
