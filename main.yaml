@@ -23,6 +23,8 @@
       tags: glances
     - role: tailscale
       tags: tailscale
+    - role: duckdns
+      tags: duckdns
 
 - name: Setup secondary pihole
   hosts: pihole2
@@ -67,8 +69,6 @@
       tags: never, init
     - role: bash
       tags: never, init
-    - role: duckdns
-      tags: duckdns
     - role: glances
       tags: glances
     - role: tailscale
