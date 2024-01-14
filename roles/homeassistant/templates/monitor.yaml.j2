@@ -1,0 +1,43 @@
+---
+- alias: "High ram usage"
+  trigger:
+    platform: numeric_state
+    entity_id:
+{% for instance in homeassistant_glances %}
+      - sensor.{{ instance.hostname | replace('.', '_') }}_ram_used_percent
+{% endfor %}
+    above: 90
+    for:
+      minutes: 5
+  action:
+    - service: notify.telegram
+      data_template:
+        message: "High ram usage for {{ '{{' }} trigger.from_state.attributes.friendly_name }}"
+
+- alias: "High disk usage"
+  trigger:
+    platform: numeric_state
+    entity_id:
+{% for instance in homeassistant_glances %}
+      - sensor.{{ instance.hostname | replace('.', '_') }}_{{ instance.disk }}used_percent
+{% endfor %}
+    above: 90
+  action:
+    - service: notify.telegram
+      data_template:
+        message: "High disk usage for {{ '{{' }} trigger.from_state.attributes.friendly_name }}"
+
+- alias: "High cpu usage"
+  trigger:
+    platform: numeric_state
+    entity_id:
+{% for instance in homeassistant_glances %}
+      - sensor.{{ instance.hostname | replace('.', '_') }}_cpu_used
+{% endfor %}
+    above: 90
+    for:
+      minutes: 5
+  action:
+    - service: notify.telegram
+      data_template:
+        message: "High cpu usage for {{ '{{' }} trigger.from_state.attributes.friendly_name }}"

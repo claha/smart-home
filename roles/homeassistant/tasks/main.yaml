@@ -68,6 +68,13 @@
     mode: "0640"
   notify: "Recreate {{ homeassistant_service_name }}"
 
+- name: Create glances automations
+  ansible.builtin.template:
+    src: "templates/monitor.yaml.j2"
+    dest: "{{ homeassistant_service_path }}/config/automation/monitor.yaml"  # yamllint disable rule:line-length
+    mode: "0640"
+  notify: "Recreate {{ homeassistant_service_name }}"
+
 - name: Create portfolio
   ansible.builtin.template:
     src: "templates/portfolio.yaml.j2"
