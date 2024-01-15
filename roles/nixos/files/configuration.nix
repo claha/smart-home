@@ -147,7 +147,6 @@ in
         autoStart = true;
         image = "ghcr.io/advplyr/audiobookshelf:2.7.1";
         volumes = [
-          "/media/audiobooks:/audiobooks"
           "/media/podcasts:/podcasts"
           "/etc/audiobookshelf/config:/config"
           "/etc/audiobookshelf/metadata:/metadata"
