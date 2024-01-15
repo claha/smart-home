@@ -94,3 +94,13 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: telegram
+  - name: Jellyfin
+    group: Services
+    url: "http://{{ nixos_ip_tailscale }}:8096/System/Info"
+    headers:
+      X-MediaBrowser-Token: {{ jellyfin_api_token }}
+    interval: 15m
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: telegram

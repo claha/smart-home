@@ -30,6 +30,7 @@ runs:
         healthchecks_backup_zigbee2mqtt_ping_url: ci
         healthchecks_secret_key: ci
         homeassistant_static_template_sensors: []
+        jellyfin_api_token: ci
         letsencrypt_email: ci
         letsencrypt_provider: ci
         mqtt_server: ci
