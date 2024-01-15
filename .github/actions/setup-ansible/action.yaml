@@ -16,6 +16,7 @@ runs:
         ansible-galaxy install --role-file requirements.yaml
 
         echo "---
+        audiobookshelf_api_token: ci
         b2_account_id: ci
         b2_account_key: ci
         backblaze_homeassistant_key: ci
@@ -32,6 +33,7 @@ runs:
         letsencrypt_email: ci
         letsencrypt_provider: ci
         mqtt_server: ci
+        nixos_ip_tailscale: ci
         telegram_chatids: 0
         telegram_token: ci
         traefik_password: ci

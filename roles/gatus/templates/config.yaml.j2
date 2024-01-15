@@ -84,3 +84,13 @@ endpoints:
         success-threshold: {{ endpoint.success_threshold }}
 {% endif %}
 {% endfor %}
+  - name: Audiobookshelf
+    group: Services
+    url: "http://{{ nixos_ip_tailscale }}:13378/healthcheck"
+    headers:
+      Authorization: Bearer {{ audiobookshelf_api_token }}
+    interval: 15m
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: telegram
