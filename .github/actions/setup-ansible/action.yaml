@@ -34,6 +34,7 @@ runs:
         letsencrypt_email: ci
         letsencrypt_provider: ci
         mqtt_server: ci
+        navidrome_api_token: ci
         nixos_ip_tailscale: ci
         telegram_chatids: 0
         telegram_token: ci

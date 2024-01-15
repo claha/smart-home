@@ -104,3 +104,11 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: telegram
+  - name: Navidrome
+    group: Services
+    url: "http://{{ nixos_ip_tailscale }}:4533/rest/ping?{{ navidrome_api_token }}"
+    interval: 15m
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: telegram
