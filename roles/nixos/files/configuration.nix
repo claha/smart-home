@@ -67,11 +67,12 @@ in
   environment.systemPackages = with pkgs; [
     wget
     screen
-    (python3.withPackages (ps: with ps; [ pipx ]))
     restic
     autorestic
     just
     glances
+    ffmpeg
+    python3
   ];
 
   # Add ~/.local/bin to PATH
