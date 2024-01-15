@@ -12,19 +12,21 @@
 
   action:
     - service: sonos.snapshot
-      data:
+      target:
         entity_id: media_player.sonos_beam
     - service: media_player.media_pause
-      data:
+      target:
         entity_id: media_player.sonos_beam
     - delay: 1
     - service: media_player.volume_set
-      data:
+      target:
         entity_id: media_player.sonos_beam
-        volume_level: 40
+      data:
+        volume_level: 0.30
     - service: media_player.volume_mute
-      data:
+      target:
         entity_id: media_player.sonos_beam
+      data:
         is_volume_muted: false
     - service: tts.speak
       data:
@@ -36,9 +38,9 @@
           voice: "sv_SE-nst-medium"
       target:
         entity_id: tts.piper
-    - delay: 60
+    - delay: 20
     - service: sonos.restore
-      data:
+      target:
         entity_id: media_player.sonos_beam
 
 
