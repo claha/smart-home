@@ -16,6 +16,9 @@
   programs.bash = {
     enable = true;
   };
+  programs.starship = {
+    enable = true;
+  };
   programs.exa = {
     enable = true;
     enableAliases = true;

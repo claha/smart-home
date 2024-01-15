@@ -78,14 +78,6 @@ in
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs = {
-    starship = {
-      enable = true;
-    };
-  };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
