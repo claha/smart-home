@@ -71,7 +71,7 @@ repos:
           - --ignore=E203,E501,W503
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.1.13
+    rev: v0.1.14
     hooks:
       - id: ruff
         args:
