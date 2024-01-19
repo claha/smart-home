@@ -29,3 +29,10 @@
       ansible.builtin.command: /tmp/install.sh
       changed_when: true
       when: tailscale_which_tailscale.rc == 1
+
+    - name: Try and update tailscale
+      become: true
+      ansible.builtin.package:
+        name: tailscale
+        state: latest
+      when: tailscale_which_tailscale.rc == 0
