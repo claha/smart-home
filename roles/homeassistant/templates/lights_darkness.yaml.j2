@@ -7,6 +7,8 @@
     entity_id: binary_sensor.dark_outside
     from: "on"
     to: "off"
+    for:
+      minutes: 1
 
   action:
     service: python_script.control_lights
@@ -21,6 +23,8 @@
     entity_id: binary_sensor.dark_outside
     from: "off"
     to: "on"
+    for:
+      minutes: 1
 
   condition:
     condition: time
