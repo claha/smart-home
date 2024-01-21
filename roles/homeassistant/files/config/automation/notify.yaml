@@ -69,6 +69,8 @@
   trigger:
     platform: state
     entity_id: group.ping
+    for:
+      minutes: 5
 
   action:
     service: python_script.notify_ping_state
