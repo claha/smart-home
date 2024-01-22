@@ -2,3 +2,25 @@
 docker_users:
   - manager
 figurine_font: "Binary.flf"
+gatus_icmp_endpoints:
+  - name: RPi4
+    url: "{{ rpi4_ip }}"
+  - name: RPi3
+    url: "{{ rpi3_ip }}"
+  - name: RPi2
+    url: "{{ rpi2_ip }}"
+  - name: RPi0
+    url: "{{ rpi0_ip }}"
+  - name: Nixos
+    url: "{{ nixos_ip }}"
+gatus_dns_endpoints:
+  - name: "{{ domain }} (secondary) "
+    server: "{{ rpi2_ip }}"
+    query: "{{ domain }}"
+    body: "{{ rpi4_ip }}"
+  - name: "media.{{ domain }} (secondary)"
+    server: "{{ rpi2_ip }}"
+    query: "media.{{ domain }}"
+    body: "{{ nixos_ip }}"
+gatus_healthcheck_endpoints: []
+gatus_tailscale_devices: []

@@ -27,6 +27,8 @@
       tags: tailscale
     - role: duckdns
       tags: duckdns
+    - role: gatus
+      tags: gatus
 
 - name: Setup secondary pihole
   hosts: pihole2

@@ -1,3 +1,32 @@
 ---
 docker_users:
   - ubuntu
+gatus_dns_endpoints:
+  - name: "{{ domain }} (primary)"
+    server: "{{ rpi3_ip_tailscale }}"
+    query: "{{ domain }}"
+    body: "{{ rpi4_ip }}"
+  - name: "{{ domain }} (secondary) "
+    server: "{{ rpi2_ip_tailscale }}"
+    query: "{{ domain }}"
+    body: "{{ rpi4_ip }}"
+  - name: "media.{{ domain }} (primary)"
+    server: "{{ rpi3_ip_tailscale }}"
+    query: "media.{{ domain }}"
+    body: "{{ nixos_ip }}"
+  - name: "media.{{ domain }} (secondary)"
+    server: "{{ rpi2_ip_tailscale }}"
+    query: "media.{{ domain }}"
+    body: "{{ nixos_ip }}"
+gatus_healthcheck_endpoints:
+  - name: Backup homeassistant
+    uuid: "{{ healthchecks_backup_homeassistant_uuid }}"
+  - name: Backup zigbee2mqtt
+    uuid: "{{ healthchecks_backup_zigbee2mqtt_uuid }}"
+  - name: Backup navidrome
+    uuid: "{{ healthchecks_backup_navidrome_uuid }}"
+  - name: Backup audiobookshelf
+    uuid: "{{ healthchecks_backup_audiobookshelf_uuid }}"
+gatus_tailscale_devices_ignore:
+  - "archlinux-msi"
+  - "samsung SM-S906B"

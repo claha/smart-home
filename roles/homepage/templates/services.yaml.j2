@@ -27,6 +27,9 @@
         icon: audiobookshelf
 
 - Monitor:
+    - Gatus (RPi 3):
+        href: http://{{ rpi3_ip  | default() }}:8080
+        icon: gatus
     - Gatus (OCI 0):
         href: {{ gatus0_href | default() }}
         icon: gatus

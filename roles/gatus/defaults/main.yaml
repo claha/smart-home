@@ -2,6 +2,4 @@
 gatus_icmp_endpoints: []
 gatus_dns_endpoints: []
 gatus_healthcheck_endpoints: []
-gatus_tailscale_devices_ignore:
-  - "archlinux-msi"
-  - "samsung SM-S906B"
+gatus_tailscale_devices_ignore: []
