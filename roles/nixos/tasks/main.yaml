@@ -1,4 +1,11 @@
 ---
+- name: Create flake
+  ansible.builtin.copy:
+    src: "files/flake.nix"
+    dest: "/etc/nixos/flake.nix"
+    mode: "0640"
+  notify: "Rebuild nixos"
+
 - name: Create config
   ansible.builtin.copy:
     src: "files/configuration.nix"
