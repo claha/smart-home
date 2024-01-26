@@ -1,4 +1,5 @@
 """Send a notification with garbage day information to telegram."""
+
 hass = hass  # noqa: F821
 data = data  # noqa: F821
 logger = logger  # noqa: F821

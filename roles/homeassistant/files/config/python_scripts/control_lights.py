@@ -1,4 +1,5 @@
 """Control lights."""
+
 hass = hass  # noqa: F821
 data = data  # noqa: F821
 logger = logger  # noqa: F821

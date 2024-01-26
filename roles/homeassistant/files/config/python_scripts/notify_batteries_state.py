@@ -1,4 +1,5 @@
 """Send a notification with batteries state to telegram."""
+
 hass = hass  # noqa: F821
 
 

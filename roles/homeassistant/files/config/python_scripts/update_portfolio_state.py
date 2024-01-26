@@ -1,4 +1,5 @@
 """Get latest data for all indices, stocks and funds."""
+
 hass = hass  # noqa: F821
 
 # Get entities
