@@ -210,8 +210,13 @@
   roles:
     - role: bash
       tags: never, init
+    - role: geerlingguy.docker
+      become: true
+      tags: never, init
     - role: tailscale
       tags: tailscale
+    - role: diun
+      tags: diun
 
 - name: Setup localhost
   hosts: localhost

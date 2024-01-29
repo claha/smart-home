@@ -1,0 +1,33 @@
+---
+- name: docker.io/deluan/navidrome
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^[\d+\.]+\d+$
+- name: ghcr.io/simojenki/bonob
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^v[\d+\.]+\d+$
+- name: docker.io/jellyfin/jellyfin
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^[\d+\.]+\d+$
+- name: ghcr.io/advplyr/audiobookshelf
+  watch_repo: true
+  max_tags: 50
+  sort_tags: semver
+  notify_on:
+    - new
+  include_tags:
+    - ^[\d+\.]+\d+$

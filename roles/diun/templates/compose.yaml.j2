@@ -1,0 +1,17 @@
+---
+services:
+  diun:
+    image: docker.io/crazymax/diun:4.26.0
+    container_name: diun
+    command: serve
+    volumes:
+      - ./data:/data
+      - ./diun.yaml:/diun.yaml:ro
+      - ./config.yaml:/config.yaml:ro
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - "TZ=Europe/Stockholm"
+      - "DIUN_NOTIF_TELEGRAM_TOKEN={{ telegram_token }}"
+      - "DIUN_NOTIF_TELEGRAM_CHATIDS={{ telegram_chatids }}"
+    restart: unless-stopped
