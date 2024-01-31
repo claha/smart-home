@@ -28,7 +28,7 @@
 
 - name: Download custom component avanza stock
   ansible.builtin.get_url:
-    url: "https://raw.githubusercontent.com/custom-components/sensor.avanza_stock/v1.5.0/custom_components/avanza_stock/{{ item }}"  # yamllint disable rule:line-length
+    url: "https://raw.githubusercontent.com/custom-components/sensor.avanza_stock/v1.5.2/custom_components/avanza_stock/{{ item }}"  # yamllint disable rule:line-length
     dest: "{{ homeassistant_service_path }}/config/custom_components/avanza_stock/{{ item }}"  # yamllint disable rule:line-length
     mode: "0644"
   loop:
