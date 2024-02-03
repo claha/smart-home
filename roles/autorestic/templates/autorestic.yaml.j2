@@ -28,7 +28,9 @@ locations:
         host: homeassistant
       forget:
         keep-last: 2
-        keep-daily: 7
+        keep-daily: 3
+        keep-weekly: 1
+        keep-monthly: 4
     hooks:
       success:
         - 'curl {{ healthchecks_backup_homeassistant_ping_url }}'
@@ -42,7 +44,9 @@ locations:
         host: zigbee2mqtt
       forget:
         keep-last: 2
-        keep-daily: 7
+        keep-daily: 3
+        keep-weekly: 1
+        keep-monthly: 4
     hooks:
       success:
         - 'curl {{ healthchecks_backup_zigbee2mqtt_ping_url }}'
