@@ -53,3 +53,7 @@
   friendly_name: Xiaomi Radiator Thermostat 0
 '0x943469fffe8c0b53':
   friendly_name: TRADFRI Bulb 3
+'0x5cc7c1fffe4a412e':
+  friendly_name: Tradfri Bulb 4
+'0x5cc7c1fffe77223e':
+  friendly_name: Tradfri Bulb 5
