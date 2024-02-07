@@ -1,6 +1,6 @@
 ---
 - name: Rebuild nixos
   ansible.builtin.command:
-    cmd: nixos-rebuild switch --flake /etc/nixos#nixos
+    cmd: nixos-rebuild switch --flake /etc/nixos#chewbacca
   become: true
   changed_when: true

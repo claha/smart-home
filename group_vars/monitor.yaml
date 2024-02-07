@@ -13,11 +13,11 @@ gatus_dns_endpoints:
   - name: "media.{{ domain }} (primary)"
     server: "{{ rpi3_ip_tailscale }}"
     query: "media.{{ domain }}"
-    body: "{{ nixos_ip }}"
+    body: "{{ chewbacca_ip }}"
   - name: "media.{{ domain }} (secondary)"
     server: "{{ rpi2_ip_tailscale }}"
     query: "media.{{ domain }}"
-    body: "{{ nixos_ip }}"
+    body: "{{ chewbacca_ip }}"
 gatus_healthcheck_endpoints:
   - name: Backup homeassistant
     uuid: "{{ healthchecks_backup_homeassistant_uuid }}"

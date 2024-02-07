@@ -13,30 +13,36 @@ in
       ./services/navidrome.nix
     ];
 
-  # Enable flakes
+  # Nix stuff
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Use the GRUB boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  # Configure networking
-  networking.hostName = "asus-nixos";
-  networking.networkmanager.enable = true;
-  networking.interfaces = {
-    enp4s0 = {
-      wakeOnLan = {
-        enable = true;
-      };
-    };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 
-  # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
+  # Bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  # Select internationalisation properties.
+  # Networking
+  networking.hostName = "chewbacca";
+  networking.networkmanager.enable = true;
+
+  # Time zone, keyboard, language
+  time.timeZone = "Europe/Stockholm";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "sv_SE.UTF-8";
+    LC_IDENTIFICATION = "sv_SE.UTF-8";
+    LC_MEASUREMENT = "sv_SE.UTF-8";
+    LC_MONETARY = "sv_SE.UTF-8";
+    LC_NAME = "sv_SE.UTF-8";
+    LC_NUMERIC = "sv_SE.UTF-8";
+    LC_PAPER = "sv_SE.UTF-8";
+    LC_TELEPHONE = "sv_SE.UTF-8";
+    LC_TIME = "sv_SE.UTF-8";
+  };
   console = {
     font = "Lat2-Terminus16";
     keyMap = "sv-latin1";
@@ -50,7 +56,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manager = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "transmission" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "transmission" ];
   };
 
   # List packages installed in system profile.
@@ -63,10 +69,8 @@ in
     ffmpeg
     python3
     git
+    vim
   ];
-
-  # Add ~/.local/bin to PATH
-  environment.localBinInPath = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -123,10 +127,6 @@ in
     openRPCPort = true;
   };
 
-  # Handle lid closing.
-  services.logind.lidSwitch = "ignore";
-  services.logind.lidSwitchDocked = "ignore";
-
   # Enable and configure the firewall.
   networking.firewall = {
     enable = true;
@@ -139,12 +139,6 @@ in
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
   };
 
-  # Configure automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-  system.stateVersion = "22.11"; # Did you read the comment?
+  # Did you read the comment?
+  system.stateVersion = "23.11";
 }

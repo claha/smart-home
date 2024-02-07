@@ -21,6 +21,7 @@ runs:
         b2_account_key: ci
         backblaze_homeassistant_key: ci
         backblaze_zigbee2mqtt_key: ci
+        chewbacca_ip_tailscale: ci
         domain: ci
         duckdns_domain: ci
         duckdns_token: ci
@@ -35,7 +36,6 @@ runs:
         letsencrypt_provider: ci
         mqtt_server: ci
         navidrome_api_token: ci
-        nixos_ip_tailscale: ci
         telegram_chatids: 0
         telegram_token: ci
         traefik_password: ci

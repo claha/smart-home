@@ -13,6 +13,13 @@
     mode: "0640"
   notify: "Rebuild nixos"
 
+- name: Create hardware config
+  ansible.builtin.copy:
+    src: "files/hardware-configuration.nix"
+    dest: "/etc/nixos/hardware-configuration.nix"
+    mode: "0640"
+  notify: "Rebuild nixos"
+
 - name: Create home config
   ansible.builtin.copy:
     src: "files/home.nix"

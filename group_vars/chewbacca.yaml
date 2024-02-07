@@ -1,6 +1,6 @@
 ---
 ansible_become: true
-ansible_become_password: "{{ nixos_become_password }}"
+ansible_become_password: "{{ chewbacca_become_password }}"
 podcasts:
   - title: Self-Hosted
     feedUrl: https://selfhosted.show/rss

@@ -3,7 +3,7 @@
 {
   home.username = "manager";
   home.homeDirectory = "/home/manager";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
     emacs-nox

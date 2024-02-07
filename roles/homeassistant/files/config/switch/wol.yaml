@@ -1,9 +1,5 @@
 ---
 - platform: wake_on_lan
-  name: NixOS Media Server
-  mac: !secret nixos_media_server_mac
-  host: !secret nixos_media_server_host
-- platform: wake_on_lan
   name: QNAP NAS
   mac: !secret qnap_nas_mac
   host: !secret qnap_nas_host

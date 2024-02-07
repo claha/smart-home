@@ -121,8 +121,8 @@
       vars:
         tailscale_docker: false
 
-- name: Setup nixos
-  hosts: nixos
+- name: Setup chewbacca
+  hosts: chewbacca
   vars_files:
     - vars/vault.yaml
 

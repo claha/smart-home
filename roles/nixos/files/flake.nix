@@ -17,7 +17,7 @@
     in
     {
       nixosConfigurations = {
-        "nixos" = nixpkgs.lib.nixosSystem {
+        "chewbacca" = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })

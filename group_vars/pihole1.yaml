@@ -11,8 +11,8 @@ gatus_icmp_endpoints:
     url: "{{ rpi2_ip }}"
   - name: RPi0
     url: "{{ rpi0_ip }}"
-  - name: Nixos
-    url: "{{ nixos_ip }}"
+  - name: Chewbacca
+    url: "{{ chewbacca_ip }}"
 gatus_dns_endpoints:
   - name: "{{ domain }} (secondary) "
     server: "{{ rpi2_ip }}"
@@ -21,6 +21,6 @@ gatus_dns_endpoints:
   - name: "media.{{ domain }} (secondary)"
     server: "{{ rpi2_ip }}"
     query: "media.{{ domain }}"
-    body: "{{ nixos_ip }}"
+    body: "{{ chewbacca_ip }}"
 gatus_healthcheck_endpoints: []
 gatus_tailscale_devices: []

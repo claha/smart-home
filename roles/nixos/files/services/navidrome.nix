@@ -25,10 +25,10 @@ in
       image = "ghcr.io/simojenki/bonob:v0.6.11";
       ports = [ "${toString bonobPort}:${toString bonobPort}" ];
       environment = {
-        BNB_URL = "http://192.168.1.106:${toString bonobPort}";
+        BNB_URL = "http://192.168.1.49:${toString bonobPort}";
         BNB_SONOS_AUTO_REGISTER = "true";
         BNB_SONOS_DEVICE_DISCOVERY = "true";
-        BNB_SUBSONIC_URL = "http://192.168.1.106:${toString navidromePort}";
+        BNB_SUBSONIC_URL = "http://192.168.1.49:${toString navidromePort}";
       };
       extraOptions = [ "--network=host" ];
     };
