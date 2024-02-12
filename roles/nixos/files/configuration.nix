@@ -1,21 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 let
   secrets = import ./secrets.nix { inherit config pkgs; };
-  navidromePort = 4533;
-  bonobPort = 4534;
-  jellyfinPort = 8096;
-  audiobookshelfPort = 13378;
-  glancesPort = 61208;
 in
 {
   imports =
     [
       ./hardware-configuration.nix
+      ./services/audiobookshelf.nix
+      ./services/glances.nix
+      ./services/jellyfin.nix
+      ./services/navidrome.nix
     ];
 
   # Enable flakes
@@ -65,7 +60,6 @@ in
     restic
     autorestic
     just
-    glances
     ffmpeg
     python3
     git
@@ -73,8 +67,6 @@ in
 
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -92,64 +84,8 @@ in
       flags = [ "--all" "--volumes" ];
     };
   };
-
-  # Navidrome and bonob
   virtualisation.oci-containers = {
     backend = "docker";
-    containers = {
-
-      navidrome = {
-        autoStart = true;
-        image = "docker.io/deluan/navidrome:0.50.2";
-        ports = [ "${toString navidromePort}:${toString navidromePort}" ];
-        environment = {
-          ND_SCANSCHEDULE = "1h";
-        };
-        volumes = [
-          "/etc/navidrome/data:/data"
-          "/media/music:/music:ro"
-        ];
-      };
-      bonob = {
-        autoStart = true;
-        image = "ghcr.io/simojenki/bonob:v0.6.11";
-        ports = [ "${toString bonobPort}:${toString bonobPort}" ];
-        environment = {
-          BNB_URL = "http://192.168.1.106:${toString bonobPort}";
-          BNB_SONOS_AUTO_REGISTER = "true";
-          BNB_SONOS_DEVICE_DISCOVERY = "true";
-          BNB_SUBSONIC_URL = "http://192.168.1.106:${toString navidromePort}";
-        };
-        extraOptions = [ "--network=host" ];
-      };
-
-      jellyfin = {
-        autoStart = true;
-        image = "docker.io/jellyfin/jellyfin:10.8.13";
-        volumes = [
-          "/etc/jellyfin/config:/config"
-          "/etc/jellyfin/cache:/cache"
-          "/etc/jellyfin/log:/log"
-          "/media:/media"
-        ];
-        ports = [ "${toString jellyfinPort}:${toString jellyfinPort}" ];
-        environment = {
-          JELLYFIN_LOG_DIR = "/log";
-          JELLYFIN_PublishedServerUrl = "jellyfin.media.${secrets.domain}";
-        };
-      };
-
-      audiobookshelf = {
-        autoStart = true;
-        image = "ghcr.io/advplyr/audiobookshelf:2.7.1";
-        volumes = [
-          "/media/podcasts:/podcasts"
-          "/etc/audiobookshelf/config:/config"
-          "/etc/audiobookshelf/metadata:/metadata"
-        ];
-        ports = [ "${toString audiobookshelfPort}:80" ];
-      };
-    };
   };
 
   # Configure acme
@@ -173,93 +109,10 @@ in
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
-    virtualHosts = {
-      "navidrome.media.${secrets.domain}" = {
-        useACMEHost = "${secrets.domain}";
-        acmeRoot = null;
-        forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:${toString navidromePort}"; proxyWebsockets = true; };
-      };
-      "jellyfin.media.${secrets.domain}" = {
-        useACMEHost = "${secrets.domain}";
-        acmeRoot = null;
-        forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:${toString jellyfinPort}"; proxyWebsockets = true; };
-      };
-      "audiobookshelf.media.${secrets.domain}" = {
-        useACMEHost = "${secrets.domain}";
-        acmeRoot = null;
-        forceSSL = true;
-        locations."/" = { proxyPass = "http://127.0.0.1:${toString audiobookshelfPort}"; proxyWebsockets = true; };
-      };
-    };
   };
 
   # The nginx user needs to be able to read certificates
   users.users.nginx.extraGroups = [ "acme" ];
-
-  # Add backup service
-  systemd.timers."autorestic_backup_navidrome" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "0/6:00:00";
-      RandomizedDelaySec = 600;
-      Unit = "autorestic_backup_navidrome.service";
-    };
-  };
-
-  systemd.services."autorestic_backup_navidrome" = {
-    script = "autorestic --config /etc/autorestic.yaml --verbose backup --location navidrome";
-    serviceConfig = {
-      Type = "simple";
-      User = "root";
-    };
-    path = [
-      pkgs.autorestic
-      pkgs.restic
-      pkgs.bash
-      pkgs.curl
-    ];
-  };
-
-  systemd.timers."autorestic_backup_audiobookshelf" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "0/6:00:00";
-      RandomizedDelaySec = 600;
-      Unit = "autorestic_backup_audiobookshelf.service";
-    };
-  };
-
-  systemd.services."autorestic_backup_audiobookshelf" = {
-    script = "autorestic --config /etc/autorestic.yaml --verbose backup --location audiobookshelf";
-    serviceConfig = {
-      Type = "simple";
-      User = "root";
-    };
-    path = [
-      pkgs.autorestic
-      pkgs.restic
-      pkgs.bash
-      pkgs.curl
-    ];
-  };
-
-  # Add glances service
-  systemd.services."glances" = {
-    script = "glances --webserver --disable-webui";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      Type = "simple";
-      User = "root";
-      Restart = "on-abort";
-      RemainAfterExit = "yes";
-    };
-    path = [
-      pkgs.glances
-    ];
-  };
 
   # Enable tailscale
   services.tailscale.enable = true;
@@ -278,16 +131,9 @@ in
   networking.firewall = {
     enable = true;
     # 80, 443: nginx proxy manager
-    # 1400: Sonos app control
     allowedTCPPorts = [
       80
       443
-      1400
-      navidromePort
-      bonobPort
-      jellyfinPort
-      audiobookshelfPort
-      glancesPort
     ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
@@ -301,5 +147,4 @@ in
   };
 
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
