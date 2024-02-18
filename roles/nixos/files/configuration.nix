@@ -97,8 +97,8 @@ in
     acceptTerms = true;
     defaults = {
       email = "${secrets.email}";
-      dnsProvider = "${secrets.dnsProvider}";
-      credentialsFile = "${secrets.credentialsFile}";
+      dnsProvider = "duckdns";
+      credentialsFile = config.age.secrets.duckdns-token.path;
     };
     certs."${secrets.domain}" = {
       domain = "${secrets.domain}";
