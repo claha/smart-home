@@ -10,7 +10,7 @@ in
   virtualisation.oci-containers.containers = {
     navidrome = {
       autoStart = true;
-      image = "docker.io/deluan/navidrome:0.50.2";
+      image = "docker.io/deluan/navidrome:0.51.1";
       ports = [ "${toString navidromePort}:${toString navidromePort}" ];
       environment = {
         ND_SCANSCHEDULE = "1h";
@@ -22,7 +22,7 @@ in
     };
     bonob = {
       autoStart = true;
-      image = "ghcr.io/simojenki/bonob:v0.6.11";
+      image = "ghcr.io/simojenki/bonob:v0.7.0";
       ports = [ "${toString bonobPort}:${toString bonobPort}" ];
       environment = {
         BNB_URL = "http://192.168.1.49:${toString bonobPort}";
