@@ -26,5 +26,12 @@
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+    defaultOptions = [
+      "--height 50%"
+      "--border sharp"
+      "--no-scrollbar"
+      "--layout reverse"
+      "--cycle"
+    ];
   };
 }
