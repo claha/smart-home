@@ -1,7 +1,7 @@
 ---
 services:
   whisper:
-    image: docker.io/rhasspy/wyoming-whisper:1.0.0
+    image: docker.io/rhasspy/wyoming-whisper:2.1.0
     container_name: whisper
     security_opt:
       - no-new-privileges:true
