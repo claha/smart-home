@@ -13,6 +13,8 @@
     yt-dlp
   ];
 
+  home.file.".hushlogin".text = "";
+
   programs.bash = {
     enable = true;
   };
