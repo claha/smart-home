@@ -70,7 +70,10 @@ in
     python3
     git
     vim
+    figurine
   ];
+
+  programs.bash.interactiveShellInit = "${pkgs.figurine}/bin/figurine -f 3d.flf chewbacca";
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
