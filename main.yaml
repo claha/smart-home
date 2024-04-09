@@ -157,8 +157,6 @@
       tags: gatus
     - role: glances
       tags: glances
-    - role: dashdot
-      tags: dashdot
 
 - name: Setup ampere
   hosts: ampere
@@ -188,8 +186,6 @@
       tags: piper
     - role: whisper
       tags: whisper
-    - role: dashdot
-      tags: dashdot
     - role: monocker
       tags: monocker
     - role: doku
