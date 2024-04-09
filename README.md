@@ -19,7 +19,6 @@
 ![mosquitto](https://github.com/claha/smart-home/actions/workflows/mosquitto.yaml/badge.svg)
 ![pihole](https://github.com/claha/smart-home/actions/workflows/pihole.yaml/badge.svg)
 ![piper](https://github.com/claha/smart-home/actions/workflows/piper.yaml/badge.svg)
-![speedtest](https://github.com/claha/smart-home/actions/workflows/speedtest.yaml/badge.svg)
 ![tailscale](https://github.com/claha/smart-home/actions/workflows/tailscale.yaml/badge.svg)
 ![traefik](https://github.com/claha/smart-home/actions/workflows/traefik.yaml/badge.svg)
 ![whisper](https://github.com/claha/smart-home/actions/workflows/whisper.yaml/badge.svg)
