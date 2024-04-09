@@ -8,7 +8,6 @@
 ![dashdot](https://github.com/claha/smart-home/actions/workflows/dashdot.yaml/badge.svg)
 ![diun](https://github.com/claha/smart-home/actions/workflows/diun.yaml/badge.svg)
 ![doku](https://github.com/claha/smart-home/actions/workflows/doku.yaml/badge.svg)
-![dozzle](https://github.com/claha/smart-home/actions/workflows/dozzle.yaml/badge.svg)
 ![duckdns](https://github.com/claha/smart-home/actions/workflows/duckdns.yaml/badge.svg)
 ![gatus](https://github.com/claha/smart-home/actions/workflows/gatus.yaml/badge.svg)
 ![glances](https://github.com/claha/smart-home/actions/workflows/glances.yaml/badge.svg)
