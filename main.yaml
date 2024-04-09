@@ -186,10 +186,6 @@
       tags: piper
     - role: whisper
       tags: whisper
-    - role: monocker
-      tags: monocker
-    - role: doku
-      tags: doku
 
 - name: Setup micro
   hosts: micro
