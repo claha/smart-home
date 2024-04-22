@@ -18,7 +18,7 @@ jobs:
   pihole:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.3
       - uses: ./.github/actions/setup-ansible
       - run: |
           # Pull the image before (hack that should be removed)
