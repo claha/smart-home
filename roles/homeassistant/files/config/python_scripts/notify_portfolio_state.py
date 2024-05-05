@@ -15,6 +15,7 @@ def convert_to_sek(amount, currency):
     """Convert CAD, EUR or USD to SEK."""
     convert = {
         "SEK": 1.0,
+        "EUR": 11.7,
     }
     if currency not in convert.keys():
         logger.error("Unknown currency: %s" % currency)
@@ -34,9 +35,11 @@ def get_change(entity, change_key, change_percent_key, as_string=False):
     """Get change of entity in correct currency."""
     change, change_percent = None, None
     if change_key:
-        change = convert_to_sek(
-            entity.attributes[change_key],
-            entity.attributes["unit_of_measurement"],
+        change = int(
+            convert_to_sek(
+                entity.attributes[change_key],
+                entity.attributes["unit_of_measurement"],
+            ),
         )
     if change_percent_key:
         change_percent = entity.attributes[change_percent_key]
@@ -119,10 +122,11 @@ for entity_id in entities:
             change_percent_key,
             True,
         )
-        message_data.append((name, change_percent, total_change))
+        total_value = to_string(int(get_value(entity, "totalValue") / 1000)) + "k"
+        message_data.append((name, change_percent, total_change, total_value))
     except Exception:
         logger.warning("Failed for %s", entity_id)
-        message_data.append((entity_id, "-100.00%", "?"))
+        message_data.append((entity_id, "-100.00%", "?", "?"))
 message_data.sort(key=lambda x: float(x[1][:-1]), reverse=True)
 
 summary_data = [0, 0, 0]
@@ -136,8 +140,8 @@ for entity_id in entities:
     except Exception:
         logger.warning("Failed for %s", entity_id)
 summary_data[2] = 100 * summary_data[1] / (summary_data[0] - summary_data[1])
-summary_data[0] = to_string(summary_data[0])
-summary_data[1] = to_string(summary_data[1])
+summary_data[0] = to_string(int(summary_data[0] / 1000)) + "k"
+summary_data[1] = to_string(int(summary_data[1] / 1000)) + "k"
 summary_data[2] = to_string(summary_data[2]) + "%"
 
 # Create message
@@ -149,17 +153,22 @@ for data in message_data:
 
 message = f"<b>{title_prefix}Portfolio{title_suffix}</b><code>\n"
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
-for name, change_percent, total_change in message_data:
+for name, change_percent, total_change, total_value in message_data:
     change_percent = change_percent.rjust(message_data_len[1] + 1)
     total_change = total_change.rjust(message_data_len[2] + 1)
+    total_value = total_value.rjust(message_data_len[3] + 1)
     name = adjust_lenght(
         name,
-        MESSAGE_MAX_WIDTH - len(change_percent) - len(total_change),
+        MESSAGE_MAX_WIDTH - len(change_percent) - len(total_change) - len(total_value),
     )
     space = " " * (
-        MESSAGE_MAX_WIDTH - len(name) - len(change_percent) - len(total_change)
+        MESSAGE_MAX_WIDTH
+        - len(name)
+        - len(change_percent)
+        - len(total_change)
+        - len(total_value)
     )
-    message = message + f"{name}{space}{change_percent}{total_change}\n"
+    message = message + f"{name}{space}{change_percent}{total_change}{total_value}\n"
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
 message = message + f"Total Value: {summary_data[0]}\n"
 message = message + f"Total Change: {summary_data[1]} ({summary_data[2]})\n"
