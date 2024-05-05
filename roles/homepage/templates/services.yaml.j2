@@ -3,6 +3,12 @@
     - Router:
         href: {{ router_href | default() }}
         icon: asus-router
+    - Ruckus Switch:
+        href: https://{{ ruckus_switch_ip }}
+        icon: https://avatars.githubusercontent.com/u/66272752?s=200&v=4
+    - Ruckus Access Point:
+        href: https://{{ ruckus_access_point_ip }}
+        icon: https://avatars.githubusercontent.com/u/66272752?s=200&v=4
     - Pi-hole (primary):
         href: {{ pihole_primary_href | default() }}
         icon: pi-hole
