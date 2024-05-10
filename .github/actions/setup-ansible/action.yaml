@@ -36,6 +36,7 @@ runs:
         letsencrypt_provider: ci
         mqtt_server: ci
         navidrome_api_token: ci
+        ruckus_switch_ip: ci
         telegram_chatids: 0
         telegram_token: ci
         traefik_password: ci
