@@ -17,7 +17,7 @@ jobs:
   homepage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.5
       - uses: ./.github/actions/setup-ansible
       - run: |
           docker network create --driver bridge proxy
