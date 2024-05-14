@@ -121,14 +121,6 @@
       vars:
         tailscale_docker: false
 
-- name: Setup chewbacca
-  hosts: chewbacca
-  vars_files:
-    - vars/vault.yaml
-
-  roles:
-    - role: nixos
-
 - name: Setup monitor
   hosts: monitor
   vars_files:
