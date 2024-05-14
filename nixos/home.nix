@@ -36,4 +36,25 @@
       "--cycle"
     ];
   };
+  programs.git = {
+    enable = true;
+    aliases = {
+      br = "branch";
+      cfg = "config";
+      ci = "commit";
+      co = "checkout";
+      cp = "cherry-pick";
+      df = "diff";
+      dfh = "diff HEAD^";
+      dfn = "diff --name-only";
+      dfnh = "diff HEAD^ --name-only";
+      dt = "difftool";
+      lg = "log --graph --abbrev-commit --date=relative --pretty=format:'%C(auto)%h%d%C(reset) %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+      pu = "push origin HEAD";
+      puf = "push --force origin HEAD";
+      puu = "push --set-upstream origin HEAD";
+      sm = "submodule";
+      st = "status";
+    };
+  };
 }
