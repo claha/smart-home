@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  secrets = import ../secrets.nix { inherit config pkgs; };
 in
 {
   services.jellyfin = {
@@ -12,8 +11,8 @@ in
     openFirewall = true;
   };
 
-  services.nginx.virtualHosts."jellyfin.media.${secrets.domain}" = {
-    useACMEHost = "${secrets.domain}";
+  services.nginx.virtualHosts."jellyfin.media.hallstrom.duckdns.org" = {
+    useACMEHost = "hallstrom.duckdns.org";
     acmeRoot = null;
     forceSSL = true;
     locations."/" = { proxyPass = "http://127.0.0.1:8096"; proxyWebsockets = true; };

@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  secrets = import ../secrets.nix { inherit config pkgs; };
   bonobPort = 4534;
   navidromePort = 4533;
   sonosAppCtrlPort = 1400;
@@ -34,8 +33,8 @@ in
     };
   };
 
-  services.nginx.virtualHosts."navidrome.media.${secrets.domain}" = {
-    useACMEHost = "${secrets.domain}";
+  services.nginx.virtualHosts."navidrome.media.hallstrom.duckdns.org" = {
+    useACMEHost = "hallstrom.duckdns.org";
     acmeRoot = null;
     forceSSL = true;
     locations."/" = { proxyPass = "http://127.0.0.1:${toString navidromePort}"; proxyWebsockets = true; };

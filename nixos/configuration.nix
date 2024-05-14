@@ -103,9 +103,9 @@ in
       dnsProvider = "duckdns";
       credentialsFile = config.age.secrets.duckdns-token.path;
     };
-    certs."${secrets.domain}" = {
-      domain = "${secrets.domain}";
-      extraDomainNames = [ "*.media.${secrets.domain}" ];
+    certs."hallstrom.duckdns.org" = {
+      domain = "hallstrom.duckdns.org";
+      extraDomainNames = [ "*.media.hallstrom.duckdns.org" ];
     };
   };
 

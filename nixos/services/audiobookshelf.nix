@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  secrets = import ../secrets.nix { inherit config pkgs; };
   audiobookshelfPort = 13378;
 in
 {
@@ -16,8 +15,8 @@ in
     ports = [ "${toString audiobookshelfPort}:80" ];
   };
 
-  services.nginx.virtualHosts."audiobookshelf.media.${secrets.domain}" = {
-    useACMEHost = "${secrets.domain}";
+  services.nginx.virtualHosts."audiobookshelf.media.hallstorm.duckdns.org" = {
+    useACMEHost = "hallstrom.duckdns.org";
     acmeRoot = null;
     forceSSL = true;
     locations."/" = { proxyPass = "http://127.0.0.1:${toString audiobookshelfPort}"; proxyWebsockets = true; };
