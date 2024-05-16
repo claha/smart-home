@@ -17,6 +17,6 @@ jobs:
   github_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.5
+      - uses: actions/checkout@v4.1.6
       - working-directory: roles/github_deploy/files
         run: docker build .
