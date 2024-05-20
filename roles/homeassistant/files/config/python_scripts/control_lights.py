@@ -119,7 +119,7 @@ lights = {
         "light.tradfri_bulb_2",
     ],
     "closet": [
-        "light.bulb_rgbw_8b5534",
+        "light.tradfri_bulb_1",
     ],
     "kids_bedroom": [
         "switch.tradfri_control_outlet_2",
