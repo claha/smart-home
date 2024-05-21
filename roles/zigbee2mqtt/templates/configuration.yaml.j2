@@ -7,7 +7,10 @@ mqtt:
 serial:
   port: /dev/ttyACM0
   disable_led: true
+  adapter: zstack
 frontend:
   port: 8080
 devices: devices.yaml
 groups: groups.yaml
+advanced:
+  log_level: info

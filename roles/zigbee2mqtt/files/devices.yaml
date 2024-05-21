@@ -18,21 +18,12 @@
   friendly_name: TuYa Temperature and Humidity 0
 '0x000d6ffffedcf0b3':
   friendly_name: TRADFRI Control Outlet 0
-'0xb4e3f9fffef86de0':
-  friendly_name: TRADFRI Control Outlet 1
 '0xb4e3f9fffe833999':
   friendly_name: TRADFRI Control Outlet 2
 '0xb4e3f9fffe8655bd':
   friendly_name: TRADFRI Control Outlet 3
 '0x8cf681fffe2870cd':
   friendly_name: TRADFRI Shortcut Button 0
-'0x000b57fffeda87e2':
-  friendly_name: TRADFRI Bulb 0
-'0x000b57fffeeeddf8':
-  friendly_name: TRADFRI Remote Control 0
-  legacy: false
-'0x90fd9ffffe04ce31':
-  friendly_name: TRADFRI Bulb 1
 '0x54ef4410000d6a03':
   friendly_name: Xiaomi Light Intensity 0
   illuminance_lux_precision: 0
@@ -48,12 +39,18 @@
 '0x00158d000232b00f':
   friendly_name: Xiaomi Door and Window 0
 '0x50325ffffee26417':
-  friendly_name: TRADFRI Bulb 2
+  friendly_name: Tradfri Bulb 2
 '0x54ef44100057c0dd':
   friendly_name: Xiaomi Radiator Thermostat 0
-'0x943469fffe8c0b53':
-  friendly_name: TRADFRI Bulb 3
 '0x5cc7c1fffe4a412e':
   friendly_name: Tradfri Bulb 4
 '0x5cc7c1fffe77223e':
   friendly_name: Tradfri Bulb 5
+'0x90fd9ffffe04ce31':
+  friendly_name: Tradfri Bulb 1
+'0x000b57fffeda87e2':
+  friendly_name: Tradfri Bulb 0
+'0x943469fffe8c0b53':
+  friendly_name: Tradfri Bulb 3
+'0xb4e3f9fffef86de0':
+  friendly_name: Tradfri Control Outlet 1
