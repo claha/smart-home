@@ -108,7 +108,7 @@ lights = {
     ],
     "kitchen": [
         "switch.tradfri_control_outlet_1",
-        # "switch.osram_smart_plug_1",  # Seems broken?
+        "switch.osram_smart_plug_1",
     ],
     "living_room": [
         "switch.osram_smart_plug_0",
