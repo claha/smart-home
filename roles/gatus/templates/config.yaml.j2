@@ -112,3 +112,13 @@ endpoints:
       - "[STATUS] == 200"
     alerts:
       - type: telegram
+
+
+external-endpoints:
+{% for endpoint in gatus_external_endpoints %}
+  - name: {{ endpoint.name }}
+    group: External
+    token: "gatus"
+    alerts:
+      - type: telegram
+{% endfor %}

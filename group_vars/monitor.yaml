@@ -27,6 +27,11 @@ gatus_healthcheck_endpoints:
     uuid: "{{ healthchecks_backup_navidrome_uuid }}"
   - name: Backup audiobookshelf
     uuid: "{{ healthchecks_backup_audiobookshelf_uuid }}"
+gatus_external_endpoints:
+  - name: Backup homeassistant
+  - name: Backup zigbee2mqtt
+  - name: Backup navidrome
+  - name: Backup audiobookshelf
 gatus_tailscale_devices_ignore:
   - "archlinux-msi"
   - "samsung SM-S906B"

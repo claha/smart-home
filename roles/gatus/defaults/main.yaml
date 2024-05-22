@@ -2,4 +2,5 @@
 gatus_icmp_endpoints: []
 gatus_dns_endpoints: []
 gatus_healthcheck_endpoints: []
+gatus_external_endpoints: []
 gatus_tailscale_devices_ignore: []
