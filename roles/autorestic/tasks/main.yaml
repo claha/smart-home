@@ -53,6 +53,12 @@
       changed_when: true
       when: autorestic_which_autorestic.rc == 1
 
+    - name: Upgrade autorestic
+      become: true
+      ansible.builtin.command: "autorestic --config {{ autorestic_service_path}}/autorestic.yaml upgrade"  # yamllint disable-line rule:line-length
+      changed_when: true
+      when: autorestic_which_autorestic.rc != 1
+
 - name: Create periodic backup service
   when: autorestic_location is defined
   block:
