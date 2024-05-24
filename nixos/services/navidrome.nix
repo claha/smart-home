@@ -9,7 +9,7 @@ in
   virtualisation.oci-containers.containers = {
     navidrome = {
       autoStart = true;
-      image = "docker.io/deluan/navidrome:0.51.1";
+      image = "docker.io/deluan/navidrome:0.52.5";
       ports = [ "${toString navidromePort}:${toString navidromePort}" ];
       environment = {
         ND_SCANSCHEDULE = "1h";
