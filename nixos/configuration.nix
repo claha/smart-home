@@ -11,6 +11,7 @@ in
       ./services/glances.nix
       ./services/jellyfin.nix
       ./services/navidrome.nix
+      ./services/wyoming.nix
     ];
 
   # Nix stuff

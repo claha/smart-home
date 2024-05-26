@@ -174,10 +174,6 @@
       tags: tailscale
     - role: glances
       tags: glances
-    - role: piper
-      tags: piper
-    - role: whisper
-      tags: whisper
 
 - name: Setup micro
   hosts: micro

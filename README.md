@@ -14,10 +14,8 @@
 ![homepage](https://github.com/claha/smart-home/actions/workflows/homepage.yaml/badge.svg)
 ![mosquitto](https://github.com/claha/smart-home/actions/workflows/mosquitto.yaml/badge.svg)
 ![pihole](https://github.com/claha/smart-home/actions/workflows/pihole.yaml/badge.svg)
-![piper](https://github.com/claha/smart-home/actions/workflows/piper.yaml/badge.svg)
 ![tailscale](https://github.com/claha/smart-home/actions/workflows/tailscale.yaml/badge.svg)
 ![traefik](https://github.com/claha/smart-home/actions/workflows/traefik.yaml/badge.svg)
-![whisper](https://github.com/claha/smart-home/actions/workflows/whisper.yaml/badge.svg)
 ![zigbee2mqtt](https://github.com/claha/smart-home/actions/workflows/zigbee2mqtt.yaml/badge.svg)
 
 Welcome to the documentation of my smart home setup, which leverages the power of
