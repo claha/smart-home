@@ -1,0 +1,8 @@
+default:
+    just --list
+
+switch:
+    sudo nixos-rebuild switch --flake .#chewbacca
+
+update:
+    nix flake update
