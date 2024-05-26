@@ -7,6 +7,8 @@
 
   home.packages = with pkgs; [
     emacs-nox
+    dua
+    duf
     flexget
     spotdl
     svtplay-dl
@@ -18,13 +20,21 @@
   programs.bash = {
     enable = true;
   };
+
   programs.starship = {
     enable = true;
   };
+
+  programs.zoxide = {
+    enable = true;
+    options = [ "--cmd" "cd" ];
+  };
+
   programs.eza = {
     enable = true;
     enableAliases = true;
   };
+
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
@@ -36,6 +46,15 @@
       "--cycle"
     ];
   };
+
+  programs.atuin = {
+    enable = true;
+    flags = [
+      "--disable-up-arrow"
+      "--disable-ctrl-r"
+    ];
+  };
+
   programs.git = {
     enable = true;
     aliases = {
@@ -56,5 +75,9 @@
       sm = "submodule";
       st = "status";
     };
+  };
+
+  programs.btop = {
+    enable = true;
   };
 }
