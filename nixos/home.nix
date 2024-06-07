@@ -3,7 +3,7 @@
 {
   home.username = "manager";
   home.homeDirectory = "/home/manager";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
     emacs-nox
@@ -32,7 +32,7 @@
 
   programs.eza = {
     enable = true;
-    enableAliases = true;
+    enableBashIntegration = true;
   };
 
   programs.fzf = {

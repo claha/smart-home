@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   secrets = import ./secrets.nix { inherit config pkgs; };
@@ -29,6 +29,7 @@ in
   # Networking
   networking.hostName = "chewbacca";
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # Time zone, keyboard, language
   time.timeZone = "Europe/Stockholm";
@@ -67,7 +68,7 @@ in
     restic
     autorestic
     just
-    ffmpeg
+    jellyfin-ffmpeg
     python3
     git
     vim
