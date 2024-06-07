@@ -10,6 +10,7 @@
     dua
     duf
     flexget
+    silver-searcher
     spotdl
     svtplay-dl
     yt-dlp
