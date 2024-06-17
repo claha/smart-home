@@ -17,7 +17,7 @@ jobs:
   autorestic:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.6
+      - uses: actions/checkout@v4.1.7
       - uses: ./.github/actions/setup-ansible
       - run: |
           ansible-playbook main.yaml --limit localhost --tags autorestic
