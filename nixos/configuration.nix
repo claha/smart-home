@@ -106,6 +106,7 @@ in
       email = "${secrets.email}";
       dnsProvider = "duckdns";
       credentialsFile = config.age.secrets.duckdns-token.path;
+      dnsPropagationCheck = false;
     };
     certs."hallstrom.duckdns.org" = {
       domain = "hallstrom.duckdns.org";
