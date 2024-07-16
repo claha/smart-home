@@ -62,7 +62,7 @@ def listen_for_events() -> None:
             write_processed_runs(processed_runs)
 
         except Exception as exception:
-            logging.error(str(exception))
+            logging.exception(str(exception))
 
         # Wait some time before checking next time
         time.sleep(60)
@@ -75,6 +75,7 @@ def run_command(command: str) -> None:
         cwd=f"/{REPO}",
         shell=True,
         capture_output=True,
+        check=False,
     )
     logging.info(result.stderr.decode("UTF-8").strip())
     logging.info(result.stdout.decode("UTF-8").strip())

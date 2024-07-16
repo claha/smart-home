@@ -68,7 +68,6 @@ def switch_on(entity_id, brightness_pct, color_temp):
 
 def switch_dim(entity_id):
     """Dim a switch."""
-    pass
 
 
 def switch_off(entity_id):

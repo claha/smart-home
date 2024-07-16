@@ -75,8 +75,10 @@ repos:
     hooks:
       - id: ruff
         args:
+          - --select
+          - ALL
           - --fix
-          - --ignore=E501
+          - --ignore=E501,PLW0127,INP001,PLW2901,BLE001,ANN001,ANN201,FBT003,FBT002,PERF203,G002,UP031,PERF401,ARG001,PLR2004,FA102,G004,PTH123,PTH110,S602,D404,TRY401
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.3.0

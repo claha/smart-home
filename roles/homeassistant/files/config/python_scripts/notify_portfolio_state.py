@@ -17,7 +17,7 @@ def convert_to_sek(amount, currency):
         "SEK": 1.0,
         "EUR": 11.7,
     }
-    if currency not in convert.keys():
+    if currency not in convert:
         logger.error("Unknown currency: %s" % currency)
         return 0
     return amount * convert[currency]

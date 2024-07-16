@@ -31,9 +31,7 @@ message = message + "</code>"
 
 # Send notification
 notify = False
-if garbage_day == today and hour < 12:
-    notify = True
-elif garbage_day == tomorrow and hour > 12:
+if garbage_day == today and hour < 12 or garbage_day == tomorrow and hour > 12:
     notify = True
 if notify:
     hass.services.call("notify", "telegram", {"message": message})
