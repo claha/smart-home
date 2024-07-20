@@ -9,6 +9,7 @@ in
     image = "ghcr.io/advplyr/audiobookshelf:2.11.0";
     volumes = [
       "/media/podcasts:/podcasts"
+      "/media/audiobooks:/audiobooks"
       "/etc/audiobookshelf/config:/config"
       "/etc/audiobookshelf/metadata:/metadata"
     ];
