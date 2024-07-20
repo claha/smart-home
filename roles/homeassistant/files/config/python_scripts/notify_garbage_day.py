@@ -1,12 +1,14 @@
 """Send a notification with garbage day information to telegram."""
 
+NOON = 12
+
 hass = hass  # noqa: F821
 data = data  # noqa: F821
 logger = logger  # noqa: F821
 datetime = datetime  # noqa: F821
 
 
-def get_entity(entity_id):
+def get_entity(entity_id: str):
     """Get entity."""
     return hass.states.get(entity_id)
 
@@ -31,7 +33,7 @@ message = message + "</code>"
 
 # Send notification
 notify = False
-if garbage_day == today and hour < 12 or garbage_day == tomorrow and hour > 12:
+if garbage_day == today and hour < NOON or garbage_day == tomorrow and hour > NOON:
     notify = True
 if notify:
     hass.services.call("notify", "telegram", {"message": message})

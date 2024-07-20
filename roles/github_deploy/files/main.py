@@ -1,9 +1,12 @@
-"""This script listens for events from a GitHub repository and processes workflow runs."""
+"""Script that listens for and processese events from a GitHub repository."""
+
+from __future__ import annotations
 
 import logging
 import os
 import subprocess
 import time
+from pathlib import Path
 
 from github import Github, Repository, WorkflowRun
 
@@ -13,6 +16,7 @@ REPO: str = "smart-home"
 
 # Define the file path for storing processed run IDs
 PROCESSED_RUNS_FILE: str = "processed_runs.txt"
+RUNS_TO_CHECK = 100
 
 # Configure logging
 logging.basicConfig(
@@ -26,9 +30,6 @@ def listen_for_events() -> None:
     # Set up authentication
     token: str = os.getenv("GITHUB_ACCESS_TOKEN", "")
     github: Github = Github(token)
-
-    # Check rate limit
-    logging.info(f"{github.get_rate_limit()}")
 
     # Get the repository
     repository: Repository.Repository = github.get_repo(f"{OWNER}/{REPO}")
@@ -49,7 +50,7 @@ def listen_for_events() -> None:
             )
 
             for run in non_processed_runs:
-                logging.info(f"Check run: {run.name}")
+                logging.info("Check run: %s", run.name)
                 # Perform actions based on the workflow run
                 if run.name.startswith("Deploy"):
                     deployment_name: str = run.name.split("Deploy")[1].strip()
@@ -61,8 +62,8 @@ def listen_for_events() -> None:
             # Save the processed run IDs
             write_processed_runs(processed_runs)
 
-        except Exception as exception:
-            logging.exception(str(exception))
+        except Exception:
+            logging.exception("Failed to process")
 
         # Wait some time before checking next time
         time.sleep(60)
@@ -83,7 +84,7 @@ def run_command(command: str) -> None:
 
 def deploy(name: str) -> None:
     """Perform deployment based on the name."""
-    logging.info(f"Deploy: {name}")
+    logging.info("Deploy: %s", name)
     for command in [
         "git fetch && git reset --hard origin/main",
         "ansible-galaxy install -r requirements.yaml",
@@ -108,7 +109,7 @@ def get_non_processed_runs(
     # Filter and return non-processed runs
     non_processed_runs = []
     for i, run in enumerate(runs):
-        if i > 100:  # Only check the latest runs
+        if i > RUNS_TO_CHECK:
             break
         if run.id not in processed_runs:
             non_processed_runs.append(run)
@@ -119,15 +120,15 @@ def get_non_processed_runs(
 def read_processed_runs() -> set[int]:
     """Read and return the set of processed run IDs from the file."""
     processed_runs: set[int] = set()
-    if os.path.exists(PROCESSED_RUNS_FILE):
-        with open(PROCESSED_RUNS_FILE, encoding="UTF-8") as file:
+    if Path.exists(PROCESSED_RUNS_FILE):
+        with Path.open(PROCESSED_RUNS_FILE, encoding="UTF-8") as file:
             processed_runs = {int(line.strip()) for line in file}
     return processed_runs
 
 
 def write_processed_runs(processed_runs: set[int]) -> None:
     """Write the set of processed run IDs to the file."""
-    with open(PROCESSED_RUNS_FILE, "w", encoding="UTF-8") as file:
+    with Path.open(PROCESSED_RUNS_FILE, "w", encoding="UTF-8") as file:
         file.writelines(f"{run_id}\n" for run_id in processed_runs)
 
 

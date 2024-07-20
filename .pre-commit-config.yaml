@@ -57,7 +57,7 @@ repos:
           - --select
           - ALL
           - --fix
-          - --ignore=E501,PLW0127,INP001,PLW2901,BLE001,ANN001,ANN201,FBT003,FBT002,PERF203,G002,UP031,PERF401,ARG001,PLR2004,FA102,G004,PTH123,PTH110,S602,D404,TRY401
+          - --ignore=INP001,S602,BLE001,ANN001,ARG001,PERF203,ANN201,PLW0127,PLW2901
       - id: ruff-format
 
   - repo: https://github.com/codespell-project/codespell

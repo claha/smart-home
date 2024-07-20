@@ -6,24 +6,24 @@ logger = logger  # noqa: F821
 MESSAGE_MAX_WIDTH = 41
 
 
-def get_entity(entity_id):
+def get_entity(entity_id: str):
     """Get entity."""
     return hass.states.get(entity_id)
 
 
-def convert_to_sek(amount, currency):
+def convert_to_sek(amount: float, currency: str) -> float:
     """Convert CAD, EUR or USD to SEK."""
     convert = {
         "SEK": 1.0,
         "EUR": 11.7,
     }
     if currency not in convert:
-        logger.error("Unknown currency: %s" % currency)
+        logger.error("Unknown currency: %s", currency)
         return 0
     return amount * convert[currency]
 
 
-def get_value(entity, value_key):
+def get_value(entity, value_key: str) -> float:
     """Get value of entity in correct currency."""
     return convert_to_sek(
         entity.attributes[value_key],
@@ -31,7 +31,13 @@ def get_value(entity, value_key):
     )
 
 
-def get_change(entity, change_key, change_percent_key, as_string=False):
+def get_change(
+    entity,
+    change_key: str,
+    change_percent_key: str,
+    *,
+    as_string: bool = False,
+):
     """Get change of entity in correct currency."""
     change, change_percent = None, None
     if change_key:
@@ -51,7 +57,7 @@ def get_change(entity, change_key, change_percent_key, as_string=False):
     return (change, change_percent)
 
 
-def to_string(data):
+def to_string(data) -> str:
     """Convert óbject to string, potentially format."""
     if isinstance(data, float):
         return f"{data:.2f}"
@@ -60,7 +66,7 @@ def to_string(data):
     return data
 
 
-def adjust_lenght(string, max_length):
+def adjust_lenght(string: str, max_length: int) -> str:
     """Adjust the length of string."""
     while len(string) > max_length:
         string = string[:-1]
@@ -120,7 +126,7 @@ for entity_id in entities:
             entity,
             change_key,
             change_percent_key,
-            True,
+            as_string=True,
         )
         total_value = to_string(int(get_value(entity, "totalValue") / 1000)) + "k"
         message_data.append((name, change_percent, total_change, total_value))

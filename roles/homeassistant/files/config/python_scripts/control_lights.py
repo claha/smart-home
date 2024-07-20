@@ -9,7 +9,7 @@ ACTION_DIM = "dim"
 ACTION_OFF = "off"
 
 
-def light_on(entity_id, brightness_pct, color_temp):
+def light_on(entity_id: str, brightness_pct: int, color_temp: int) -> None:
     """Turn on a light."""
     hass.services.call(
         "light",
@@ -20,11 +20,11 @@ def light_on(entity_id, brightness_pct, color_temp):
             "color_temp": color_temp,
             "transition": 10,
         },
-        False,
+        blocking=False,
     )
 
 
-def light_dim(entity_id):
+def light_dim(entity_id: str) -> None:
     """Dim a light."""
     if hass.states.get(entity_id).state == "off":
         return
@@ -37,11 +37,11 @@ def light_dim(entity_id):
             "color_temp": 454,
             "transition": 10,
         },
-        False,
+        blocking=False,
     )
 
 
-def light_off(entity_id):
+def light_off(entity_id: str) -> None:
     """Turn off a light."""
     hass.services.call(
         "light",
@@ -50,11 +50,11 @@ def light_off(entity_id):
             "entity_id": entity_id,
             "transition": 10,
         },
-        False,
+        blocking=False,
     )
 
 
-def switch_on(entity_id, brightness_pct, color_temp):
+def switch_on(entity_id: str, brightness_pct: int, color_temp: int) -> None:
     """Turn on a switch."""
     hass.services.call(
         "switch",
@@ -62,15 +62,15 @@ def switch_on(entity_id, brightness_pct, color_temp):
         {
             "entity_id": entity_id,
         },
-        False,
+        blocking=False,
     )
 
 
-def switch_dim(entity_id):
+def switch_dim(entity_id: str) -> None:
     """Dim a switch."""
 
 
-def switch_off(entity_id):
+def switch_off(entity_id: str) -> None:
     """Turn off a switch."""
     hass.services.call(
         "switch",
@@ -78,7 +78,7 @@ def switch_off(entity_id):
         {
             "entity_id": entity_id,
         },
-        False,
+        blocking=False,
     )
 
 

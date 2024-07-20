@@ -3,12 +3,12 @@
 hass = hass  # noqa: F821
 
 
-def get_entity_state(entity_id):
+def get_entity_state(entity_id: str) -> str:
     """Get entity state as an int."""
     return hass.states.get(entity_id).state
 
 
-def get_entity_friendly_name(entity_id):
+def get_entity_friendly_name(entity_id: str) -> str:
     """Get entity friendly name."""
     return hass.states.get(entity_id).attributes["friendly_name"]
 
