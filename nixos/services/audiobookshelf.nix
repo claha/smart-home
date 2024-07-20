@@ -6,7 +6,7 @@ in
 {
   virtualisation.oci-containers.containers.auidobookshelf = {
     autoStart = true;
-    image = "ghcr.io/advplyr/audiobookshelf:2.10.1";
+    image = "ghcr.io/advplyr/audiobookshelf:2.11.0";
     volumes = [
       "/media/podcasts:/podcasts"
       "/etc/audiobookshelf/config:/config"
