@@ -62,6 +62,8 @@
 
   programs.git = {
     enable = true;
+    userName = "Claes Hallström";
+    userEmail = "hallstrom.claes@gmail.com";
     aliases = {
       br = "branch";
       cfg = "config";
@@ -79,6 +81,12 @@
       puu = "push --set-upstream origin HEAD";
       sm = "submodule";
       st = "status";
+    };
+    signing.key = "957A412F3C40DFCA";
+    extraConfig = {
+      github = {
+        user = "claha";
+      };
     };
   };
 

@@ -71,6 +71,8 @@ in
     autorestic
     just
     jellyfin-ffmpeg
+    gnupg
+    pinentry-curses
     python3
     git
     vim
@@ -78,6 +80,12 @@ in
   ];
 
   programs.bash.interactiveShellInit = "${pkgs.figurine}/bin/figurine -f 3d.flf chewbacca";
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
