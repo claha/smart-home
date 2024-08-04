@@ -1,19 +1,19 @@
 { config, lib, pkgs, ... }:
 
 let
-  secrets = import ./secrets.nix { inherit config pkgs; };
+  secrets = import ./../../secrets.nix { inherit config pkgs; };
 in
 {
   imports =
     [
       ./hardware-configuration.nix
-      ./services/audiobookshelf.nix
-      ./services/glances.nix
-      ./services/homepage.nix
-      ./services/jellyfin.nix
-      ./services/music-assistant.nix
-      ./services/navidrome.nix
-      ./services/wyoming.nix
+      ./../../services/audiobookshelf.nix
+      ./../../services/glances.nix
+      ./../../services/homepage.nix
+      ./../../services/jellyfin.nix
+      ./../../services/music-assistant.nix
+      ./../../services/navidrome.nix
+      ./../../services/wyoming.nix
     ];
 
   # Nix stuff
