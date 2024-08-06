@@ -1,8 +1,10 @@
 default:
     just --list
 
-switch:
-    sudo nixos-rebuild switch --flake .#chewbacca
+hostname := `hostname | cut -d "." -f 1`
+
+switch flake=hostname:
+    sudo nixos-rebuild switch --flake .#{{ flake }}
 
 update:
     nix flake update
