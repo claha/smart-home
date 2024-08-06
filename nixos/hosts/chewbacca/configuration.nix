@@ -1,8 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  secrets = import ./../../secrets.nix { inherit config pkgs; };
-in
 {
   imports =
     [
@@ -111,7 +108,7 @@ in
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "${secrets.email}";
+      email = "hallstrom.claes@gmail.com";
       dnsProvider = "duckdns";
       credentialsFile = config.age.secrets.duckdns-token.path;
       dnsPropagationCheck = false;
