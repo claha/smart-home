@@ -39,6 +39,19 @@
             }
           ];
         };
+        "luffy" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+            ./hosts/luffy
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.manager = import ./home.nix;
+            }
+          ];
+        };
       };
     };
 }
