@@ -25,7 +25,7 @@
           inherit system;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./hosts/chewbacca/configuration.nix
+            ./hosts/chewbacca
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
