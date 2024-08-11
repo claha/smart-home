@@ -50,6 +50,16 @@
               home-manager.useUserPackages = true;
               home-manager.users.manager = import ./home.nix;
             }
+            agenix.nixosModules.default
+            {
+              environment.systemPackages = [ agenix.packages.${system}.default ];
+              age.secrets.duckdns-token = {
+                file = ./secrets/duckdns-token.age;
+                mode = "640";
+                owner = "traefik";
+                group = "traefik";
+              };
+            }
           ];
         };
       };

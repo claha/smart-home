@@ -1,0 +1,47 @@
+---
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+log:
+  level: INFO
+  filepath: /var/lib/traefik/traefik.log
+accessLog:
+  filePath: /var/lib/traefik/access.log
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+    http:
+      middlewares:
+        - sslheader@file
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: "hallstrom.duckdns.org"
+            sans:
+              - "*.hallstrom.duckdns.org"
+
+api:
+  insecure: false
+  dashboard: true
+
+providers:
+  file:
+    watch: true
+    filename: /etc/traefik/dynamic.yaml
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: hallstrom.claes@gmail.com
+      storage: /var/lib/traefik/acme.json
+      dnsChallenge:
+        provider: duckdns

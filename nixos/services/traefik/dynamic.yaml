@@ -1,0 +1,12 @@
+---
+http:
+  routers:
+    traefik:
+      rule: "Host(`traefik.hallstrom.duckdns.org`)"
+      service: api@internal
+
+  middlewares:
+    sslheader:
+      headers:
+        customrequestheaders:
+          X-Forwarded-Proto: https
