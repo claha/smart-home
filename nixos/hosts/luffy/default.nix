@@ -78,9 +78,25 @@
   # Enable tailscale
   services.tailscale.enable = true;
 
+  # Traefik
+  environment.etc.traefik = {
+    source = ./../../services/traefik;
+    user = "traefik";
+    group = "traefik";
+  };
+  services.traefik = {
+    enable = true;
+    staticConfigFile = "/etc/traefik/static.yaml";
+    # environmentFiles = [ config.age.secrets.duckdns-token.path ];  # Bug? Can not be used with staticConfigFile
+  };
+  systemd.services.traefik.serviceConfig = {
+    EnvironmentFile = config.age.secrets.duckdns-token.path;
+  };
+
   # Enable and configure the firewall.
   networking.firewall = {
     enable = true;
+    allowedTCPPorts = [ 80 443 ];
   };
 
   # Did you read the comment?
