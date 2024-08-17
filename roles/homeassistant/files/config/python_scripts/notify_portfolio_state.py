@@ -154,8 +154,7 @@ summary_data[2] = to_string(summary_data[2]) + "%"
 message_data_len = [0] * len(message_data[0])
 for data in message_data:
     for i in range(len(data)):
-        if len(data[i]) > message_data_len[i]:
-            message_data_len[i] = len(data[i])
+        message_data_len[i] = max(len(data[i]), message_data_len[i])
 
 message = f"<b>{title_prefix}Portfolio{title_suffix}</b><code>\n"
 message = message + "-" * MESSAGE_MAX_WIDTH + "\n"
