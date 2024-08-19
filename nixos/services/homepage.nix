@@ -72,7 +72,7 @@
           }
           {
             Audiobookshelf = {
-              href = "https://navidrome.media.hallstrom.duckdns.org";
+              href = "https://audiobookshelf.media.hallstrom.duckdns.org";
               icon = "audiobookshelf";
             };
           }
@@ -80,6 +80,28 @@
             "Music-Assistant" = {
               href = "https://music.media.hallstrom.duckdns.org";
               icon = "https://avatars.githubusercontent.com/u/71128003?s=200&v=4";
+            };
+          }
+        ];
+      }
+      {
+        Monitor = [
+          {
+            "Gatus (RPi 3)" = {
+              href = "http://192.168.1.24:8080";
+              icon = "gatus";
+            };
+          }
+          {
+            "Gatus (OCI 0)" = {
+              href = "http://100.117.82.95:8080";
+              icon = "gatus";
+            };
+          }
+          {
+            "Gatus (OCI 1)" = {
+              href = "http://100.99.164.134:8080";
+              icon = "gatus";
             };
           }
         ];
@@ -108,12 +130,5 @@
         ];
       }
     ];
-  };
-
-  services.nginx.virtualHosts."homepage.media.hallstrom.duckdns.org" = {
-    useACMEHost = "hallstrom.duckdns.org";
-    acmeRoot = null;
-    forceSSL = true;
-    locations."/" = { proxyPass = "http://127.0.0.1:8082"; proxyWebsockets = true; };
   };
 }

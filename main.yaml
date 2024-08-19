@@ -85,8 +85,6 @@
       tags: mosquitto
     - role: traefik
       tags: traefik
-    - role: homepage
-      tags: homepage
     - role: homeassistant
       tags: homeassistant, autorestic
     - role: github_deploy

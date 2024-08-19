@@ -15,7 +15,3 @@ services:
       - ./data:/mosquitto/data
       - ./log:/mosquitto/log
     restart: unless-stopped
-    labels:
-      - homepage.group=Smart Home
-      - homepage.name=Mosquitto
-      - homepage.icon=mqtt

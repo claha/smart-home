@@ -1,8 +1,0 @@
----
-- resources:
-    cpu: false
-    memory: false
-    disk: false
-    cputemp: false
-    uptime: false
-    units: metric

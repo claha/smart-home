@@ -5,8 +5,18 @@ http:
       rule: "Host(`traefik.hallstrom.duckdns.org`)"
       service: api@internal
 
+    homepage:
+      rule: "Host(`homepage.hallstrom.duckdns.org`)"
+      service: homepage
+
   middlewares:
     sslheader:
       headers:
         customrequestheaders:
           X-Forwarded-Proto: https
+
+  services:
+    homepage:
+      loadbalancer:
+        servers:
+          - url: "http://0.0.0.0:8082"

@@ -9,8 +9,3 @@ services:
       - SUBDOMAINS={{ duckdns_domain }}
       - TOKEN={{ duckdns_token }}
     restart: unless-stopped
-    labels:
-      - homepage.group=Network
-      - homepage.name=Duck DNS
-      - homepage.icon=duckdns
-      - homepage.href=https://www.duckdns.org/

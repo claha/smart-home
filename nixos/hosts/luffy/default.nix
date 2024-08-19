@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./../../services/homepage.nix
     ];
 
   # Nix stuff

@@ -14,10 +14,3 @@ services:
       - NET_RAW
     restart: unless-stopped
     command: tailscaled
-{% if tailscale_homepage_labels %}
-    labels:
-      - homepage.group=Network
-      - homepage.name=Tailscale
-      - homepage.icon=tailscale
-      - homepage.href=https://login.tailscale.com
-{% endif %}

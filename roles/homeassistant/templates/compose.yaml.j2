@@ -18,7 +18,3 @@ services:
       - traefik.http.routers.homeassistant.tls=true
       - traefik.http.routers.homeassistant.service=homeassistant
       - traefik.http.services.homeassistant.loadbalancer.server.port=8123
-      - homepage.group=Smart Home
-      - homepage.name=Home Assistant
-      - homepage.icon=home-assistant
-      - homepage.href=https://homeassistant.{{ domain }}
