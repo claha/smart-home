@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./../../services/audiobookshelf.nix
       ./../../services/homepage.nix
     ];
 

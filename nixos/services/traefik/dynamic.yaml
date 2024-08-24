@@ -9,14 +9,55 @@ http:
       rule: "Host(`homepage.hallstrom.duckdns.org`)"
       service: homepage
 
+    audiobookshelf:
+      rule: "Host(`audiobookshelf.hallstrom.duckdns.org`)"
+      service: audiobookshelf
+
+    homeassistant:
+      rule: "Host(`homeassistant.hallstrom.duckdns.org`)"
+      service: homeassistant
+
+    pihole:
+      rule: "Host(`pihole.hallstrom.duckdns.org`)"
+      middlewares:
+        - sslheader
+        - adminprefix
+      service: pihole
+
+    jellyfin:
+      rule: "Host(`jellyfin.hallstrom.duckdns.org`)"
+      service: jellyfin
+
   middlewares:
     sslheader:
       headers:
         customrequestheaders:
           X-Forwarded-Proto: https
 
+    adminprefix:
+      addPrefix:
+        prefix: "/admin"
+
   services:
     homepage:
       loadbalancer:
         servers:
           - url: "http://0.0.0.0:8082"
+
+    audiobookshelf:
+      loadbalancer:
+        servers:
+          - url: "http://0.0.0.0:13378"
+
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.173:8123"
+    pihole:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.24"
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.49:8096"
