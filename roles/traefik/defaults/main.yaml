@@ -1,3 +1,0 @@
----
-traefik_service_name: traefik
-traefik_service_path: "{{ services_path }}/{{ traefik_service_name }}"

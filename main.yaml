@@ -83,8 +83,6 @@
       tags: tailscale
     - role: mosquitto
       tags: mosquitto
-    - role: traefik
-      tags: traefik
     - role: homeassistant
       tags: homeassistant, autorestic
     - role: github_deploy

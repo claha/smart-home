@@ -7,6 +7,9 @@ figurine_font: "3d.flf"
 chewbacca_ip: 192.168.1.49
 chewbacca_ip_tailscale: 100.110.122.14
 
+luffy_ip: 192.168.1.217
+luffy_ip_tailscale: 100.118.93.10
+
 qnap_mac: 00:08:9B:EB:91:6C
 qnap_ip: 192.168.1.131
 
@@ -40,9 +43,9 @@ dns_overrides:
     dns: "media.{{ domain }}"
   - ip: "{{ chewbacca_ip_tailscale }}"
     dns: "media.{{ domain }}"
-  - ip: "{{ rpi4_ip }}"
+  - ip: "{{ luffy_ip }}"
     dns: "{{ domain }}"
-  - ip: "{{ rpi4_ip_tailscale }}"
+  - ip: "{{ luffy_ip_tailscale }}"
     dns: "{{ domain }}"
 
 mqtt_server: "mqtt://{{ rpi4_ip }}"
@@ -53,7 +56,7 @@ pihole_secondary_href: "http://{{ rpi2_ip }}/admin"
 zigbee2mqtt_href: "http://{{ rpi0_ip }}:8080"
 navidrome_href: "https://navidrome.media.{{ domain }}"
 jellyfin_href: "https://jellyfin.media.{{ domain }}"
-audiobookshelf_href: "https://audiobookshelf.media.{{ domain }}"
+audiobookshelf_href: "https://audiobookshelf.{{ domain }}"
 gatus0_href: "http://{{ oci0_ip_tailscale }}:8080"
 gatus1_href: "http://{{ oci1_ip_tailscale }}:8080"
 healthchecks0_href: "http://{{ oci0_ip_tailscale }}:8000"
@@ -102,6 +105,9 @@ smart_home_hosts:
   - name: chewbacca
     ip: "{{ chewbacca_ip }}"
     user: manager
+  - name: luffy
+    ip: "{{ luffy_ip }}"
+    user: manager
   - name: oci0
     ip: "{{ oci0_ip }}"
     user: ubuntu
@@ -128,6 +134,9 @@ smart_home_hosts:
     user: serveradmin
   - name: chewbacca-tailscale
     ip: "{{ chewbacca_ip_tailscale }}"
+    user: manager
+  - name: luffy-tailscale
+    ip: "{{ luffy_ip_tailscale }}"
     user: manager
   - name: oci0-tailscale
     ip: "{{ oci0_ip_tailscale }}"
