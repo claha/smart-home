@@ -23,6 +23,7 @@
   # Networking
   networking.hostName = "luffy";
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # Time zone, keyboard, language
   time.timeZone = "Europe/Stockholm";
