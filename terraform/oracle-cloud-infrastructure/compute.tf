@@ -9,7 +9,7 @@ resource "oci_core_instance" "instance" {
   compartment_id      = oci_identity_compartment.compartment.id
   shape               = "VM.Standard.E2.1.Micro"
   source_details {
-    source_id   = "ocid1.image.oc1.eu-stockholm-1.aaaaaaaaueqwi7bpc5teyemjxum2eqsy566w4cam3jjsdcgakbwi6zanzwia"
+    source_id   = "ocid1.image.oc1.eu-stockholm-1.aaaaaaaauqrdu5lmnl4jinnrrw2etwmqmqez4ey2q72dcaqad4ayiehthira"
     source_type = "image"
   }
   display_name = "oci-${count.index}"
@@ -28,8 +28,9 @@ resource "oci_core_instance" "instance_a1" {
   compartment_id      = oci_identity_compartment.compartment.id
   shape               = "VM.Standard.A1.Flex"
   source_details {
-    source_id   = "ocid1.image.oc1.eu-stockholm-1.aaaaaaaayywgmepj3lhhshewobqlcrtc5yc274cxyojlpgan5liklas7746a"
-    source_type = "image"
+    boot_volume_size_in_gbs = 94
+    source_id               = "ocid1.image.oc1.eu-stockholm-1.aaaaaaaauqrdu5lmnl4jinnrrw2etwmqmqez4ey2q72dcaqad4ayiehthira"
+    source_type             = "image"
   }
   shape_config {
     memory_in_gbs = 24
