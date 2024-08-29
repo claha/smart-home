@@ -102,33 +102,6 @@
     backend = "docker";
   };
 
-  # Configure acme
-  security.acme = {
-    acceptTerms = true;
-    defaults = {
-      email = "hallstrom.claes@gmail.com";
-      dnsProvider = "duckdns";
-      credentialsFile = config.age.secrets.duckdns-token.path;
-      dnsPropagationCheck = false;
-    };
-    certs."hallstrom.duckdns.org" = {
-      domain = "hallstrom.duckdns.org";
-      extraDomainNames = [ "*.media.hallstrom.duckdns.org" ];
-    };
-  };
-
-  # Set up nginx
-  services.nginx = {
-    enable = true;
-    recommendedGzipSettings = true;
-    recommendedOptimisation = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-  };
-
-  # The nginx user needs to be able to read certificates
-  users.users.nginx.extraGroups = [ "acme" ];
-
   # Enable tailscale
   services.tailscale.enable = true;
 
@@ -141,11 +114,6 @@
   # Enable and configure the firewall.
   networking.firewall = {
     enable = true;
-    # 80, 443: nginx proxy manager
-    allowedTCPPorts = [
-      80
-      443
-    ];
     # Ephemeral ports (perhaps limit this using sysctl?)
     allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
   };

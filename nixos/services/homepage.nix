@@ -60,25 +60,25 @@
         Media = [
           {
             Navidrome = {
-              href = "https://navidrome.media.hallstrom.duckdns.org";
+              href = "https://navidrome.hallstrom.duckdns.org";
               icon = "navidrome";
             };
           }
           {
             Jellyfin = {
-              href = "https://jellyfin.media.hallstrom.duckdns.org";
+              href = "https://jellyfin.hallstrom.duckdns.org";
               icon = "jellyfin";
             };
           }
           {
             Audiobookshelf = {
-              href = "https://audiobookshelf.media.hallstrom.duckdns.org";
+              href = "https://audiobookshelf.hallstrom.duckdns.org";
               icon = "audiobookshelf";
             };
           }
           {
             "Music-Assistant" = {
-              href = "https://music.media.hallstrom.duckdns.org";
+              href = "https://musicassistant.hallstrom.duckdns.org";
               icon = "https://avatars.githubusercontent.com/u/71128003?s=200&v=4";
             };
           }

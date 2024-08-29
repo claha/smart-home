@@ -13,6 +13,18 @@ http:
       rule: "Host(`audiobookshelf.hallstrom.duckdns.org`)"
       service: audiobookshelf
 
+    navidrome:
+      rule: "Host(`navidrome.hallstrom.duckdns.org`)"
+      service: navidrome
+
+    jellyfin:
+      rule: "Host(`jellyfin.hallstrom.duckdns.org`)"
+      service: jellyfin
+
+    musicassistant:
+      rule: "Host(`musicassistant.hallstrom.duckdns.org`)"
+      service: musicassistant
+
     homeassistant:
       rule: "Host(`homeassistant.hallstrom.duckdns.org`)"
       service: homeassistant
@@ -23,10 +35,6 @@ http:
         - sslheader
         - adminprefix
       service: pihole
-
-    jellyfin:
-      rule: "Host(`jellyfin.hallstrom.duckdns.org`)"
-      service: jellyfin
 
   middlewares:
     sslheader:
@@ -49,15 +57,27 @@ http:
         servers:
           - url: "http://0.0.0.0:13378"
 
-    homeassistant:
+    navidrome:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.173:8123"
-    pihole:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.1.24"
+          - url: "http://192.168.1.49:4533"
+
     jellyfin:
       loadBalancer:
         servers:
           - url: "http://192.168.1.49:8096"
+
+    musicassistant:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.49:8095"
+
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.173:8123"
+
+    pihole:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.24"

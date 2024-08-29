@@ -18,12 +18,5 @@ in
     };
   };
 
-  services.nginx.virtualHosts."music.media.hallstrom.duckdns.org" = {
-    useACMEHost = "hallstrom.duckdns.org";
-    acmeRoot = null;
-    forceSSL = true;
-    locations."/" = { proxyPass = "http://127.0.0.1:${toString musicAssistantPort}"; proxyWebsockets = true; };
-  };
-
   networking.firewall.allowedTCPPorts = [ musicAssistantPort musicAssistantStreamPort sonosAppCtrlPort ];
 }

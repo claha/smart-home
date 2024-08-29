@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
-let
-in
 {
   services.jellyfin = {
     enable = true;
@@ -9,13 +7,6 @@ in
     user = "jellyfin";
     group = "jellyfin";
     openFirewall = true;
-  };
-
-  services.nginx.virtualHosts."jellyfin.media.hallstrom.duckdns.org" = {
-    useACMEHost = "hallstrom.duckdns.org";
-    acmeRoot = null;
-    forceSSL = true;
-    locations."/" = { proxyPass = "http://127.0.0.1:8096"; proxyWebsockets = true; };
   };
 
   hardware.opengl = {
