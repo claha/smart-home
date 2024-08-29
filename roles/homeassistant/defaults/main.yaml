@@ -49,6 +49,53 @@ homeassistant_glances_unused_sensors:
   - containers_active
   - containers_cpu_used
   - containers_ram_used
+  - eth0_rx
+  - eth0_tx
+  - lo_rx
+  - lo_tx
+  - docker0_rx
+  - docker0_tx
+  - enp1s0_rx
+  - enp1s0_tx
+  - enp2s0_rx
+  - enp2s0_tx
+  - tailscale0_rx
+  - tailscale0_tx
+  - mmcblk0_disk_read
+  - mmcblk0_disk_write
+  - mmcblk0p1_disk_read
+  - mmcblk0p1_disk_write
+  - mmcblk0p2_disk_read
+  - mmcblk0p2_disk_write
+  - sda_disk_read
+  - sda_disk_write
+  - sda1_disk_read
+  - sda1_disk_write
+  - sda2_disk_read
+  - sda2_disk_write
+  - sda3_disk_read
+  - sda3_disk_write
+  - sda14_disk_read
+  - sda14_disk_write
+  - sda15_disk_read
+  - sda15_disk_write
+  - loop0_disk_read
+  - loop0_disk_write
+  - loop1_disk_read
+  - loop1_disk_write
+  - loop2_disk_read
+  - loop2_disk_write
+  - loop3_disk_read
+  - loop3_disk_write
+  - loop4_disk_read
+  - loop4_disk_write
+  - loop5_disk_read
+  - loop5_disk_write
+  - loop6_disk_read
+  - loop6_disk_write
+  - loop7_disk_read
+  - loop7_disk_write
+
 homeassistant_static_template_sensors:
   - name: Usage
     unit_of_measurement: "%"
