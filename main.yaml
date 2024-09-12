@@ -146,29 +146,6 @@
     - role: glances
       tags: glances
 
-- name: Setup micro
-  hosts: micro
-  vars_files:
-    - vars/vault.yaml
-
-  pre_tasks:
-    - name: Update cache
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
-      become: true
-
-  roles:
-    - role: bash
-      tags: never, init
-    - role: geerlingguy.docker
-      become: true
-      tags: never, init
-    - role: tailscale
-      tags: tailscale
-    - role: diun
-      tags: diun
-
 - name: Setup localhost
   hosts: localhost
   vars_files:
