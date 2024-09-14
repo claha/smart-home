@@ -3,7 +3,10 @@
 let
   bar = lib.mkMerge [
     config.lib.stylix.sway.bar
-    { position = "top"; }
+    {
+      position = "top";
+      statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
+    }
   ];
 in
 {
@@ -12,6 +15,7 @@ in
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
+    alsa-utils
     dua
     duf
     silver-searcher
@@ -206,6 +210,52 @@ in
     settings = {
       daemonize = true;
       ignore-empty-password = true;
+    };
+  };
+
+  programs.i3status-rust = {
+    enable = true;
+    bars.default = {
+      theme = "semi-native";
+      icons = "material-nf";
+      blocks = [
+        {
+          block = "cpu";
+          format = " $icon  $utilization ";
+        }
+        {
+          block = "memory";
+          format = " $icon  $mem_total_used_percents ";
+        }
+        {
+          block = "disk_space";
+          path = "/";
+          info_type = "available";
+          alert_unit = "GB";
+          format = " $icon  $available ";
+        }
+        {
+          block = "battery";
+          format = " $icon  $percentage ";
+        }
+        {
+          block = "sound";
+          driver = "alsa";
+          show_volume_when_muted = true;
+          format = " $icon  $volume ";
+          click = [
+            {
+              button = "left";
+              cmd = "wezterm -e alsamixer";
+            }
+          ];
+        }
+        {
+          block = "time";
+          interval = 5;
+          format = " $icon  $timestamp.datetime(f:'%Y-%m-%d %R') ";
+        }
+      ];
     };
   };
 
