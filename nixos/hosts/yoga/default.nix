@@ -75,7 +75,6 @@
       '';
     };
   };
-  environment.etc."brac.jpg".source = ./brac.jpg;
 
   security.pam.services.swaylock = { };
 
@@ -103,12 +102,14 @@
   stylix = {
     enable = true;
     image = ./brac.jpg;
-    # polarity = "dark";
     opacity = {
       terminal = 0.7;
       desktop = 0.7;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/pinky.yaml";
+    override = {
+      base0D = "ff8c00";
+    };
   };
 
   # Did you read the comment?
