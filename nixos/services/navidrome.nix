@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  bonobPort = 4534;
   navidromePort = 4533;
-  sonosAppCtrlPort = 1400;
 in
 {
   virtualisation.oci-containers.containers = {
@@ -18,18 +16,6 @@ in
         "/etc/navidrome/data:/data"
         "/media/music:/music:ro"
       ];
-    };
-    bonob = {
-      autoStart = true;
-      image = "ghcr.io/simojenki/bonob:v0.7.0";
-      ports = [ "${toString bonobPort}:${toString bonobPort}" ];
-      environment = {
-        BNB_URL = "http://192.168.1.49:${toString bonobPort}";
-        BNB_SONOS_AUTO_REGISTER = "true";
-        BNB_SONOS_DEVICE_DISCOVERY = "true";
-        BNB_SUBSONIC_URL = "http://192.168.1.49:${toString navidromePort}";
-      };
-      extraOptions = [ "--network=host" ];
     };
   };
 
@@ -56,5 +42,5 @@ in
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [ bonobPort navidromePort sonosAppCtrlPort ];
+  networking.firewall.allowedTCPPorts = [ navidromePort ];
 }
