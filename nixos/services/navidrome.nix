@@ -1,22 +1,15 @@
 { config, pkgs, ... }:
 
-let
-  navidromePort = 4533;
-in
 {
-  virtualisation.oci-containers.containers = {
-    navidrome = {
-      autoStart = true;
-      image = "docker.io/deluan/navidrome:0.52.5";
-      ports = [ "${toString navidromePort}:${toString navidromePort}" ];
-      environment = {
-        ND_SCANSCHEDULE = "1h";
-      };
-      volumes = [
-        "/etc/navidrome/data:/data"
-        "/media/music:/music:ro"
-      ];
+  services.navidrome = {
+    enable = true;
+    package = pkgs.unstable.navidrome;
+    settings = {
+      Address = "0.0.0.0";
+      MusicFolder = "/media/music";
+      ScanSchedule = "@every 1h";
     };
+    openFirewall = true;
   };
 
   systemd.timers."autorestic_backup_navidrome" = {
@@ -41,6 +34,4 @@ in
       pkgs.curl
     ];
   };
-
-  networking.firewall.allowedTCPPorts = [ navidromePort ];
 }
