@@ -1,3 +1,0 @@
----
-healthchecks_service_name: "{{ ansible_role_name }}"
-healthchecks_service_path: "{{ services_path }}/{{ healthchecks_service_name }}"

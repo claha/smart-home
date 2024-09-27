@@ -1,4 +1,0 @@
----
-healthchecks_network: monitor
-gatus_healthchecks_network: monitor
-gatus_healthchecks_url: "http://healthchecks"

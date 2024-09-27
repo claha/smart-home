@@ -66,24 +66,6 @@ endpoints:
         success-threshold: {{ endpoint.success_threshold }}
 {% endif %}
 {% endfor %}
-{% for endpoint in gatus_healthcheck_endpoints %}
-  - name: {{ endpoint.name }}
-    group: Healthchecks
-    url: "{{ gatus_healthchecks_url }}:8000/api/v3/checks/{{ endpoint.uuid }}"
-    headers:
-      X-Api-Key: {{ healthchecks_api_key }}
-    interval: 15m
-    conditions:
-      - "[BODY].status == any(grace, up)"
-    alerts:
-      - type: telegram
-{% if endpoint.failure_threshold is defined %}
-        failure-threshold: {{ endpoint.failure_threshold }}
-{% endif %}
-{% if endpoint.success_threshold is defined %}
-        success-threshold: {{ endpoint.success_threshold }}
-{% endif %}
-{% endfor %}
   - name: Audiobookshelf
     group: Services
     url: "http://{{ chewbacca_ip_tailscale }}:13378/healthcheck"

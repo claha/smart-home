@@ -139,8 +139,6 @@
       tags: never, init, docker_prune
     - role: tailscale
       tags: tailscale
-    - role: healthchecks
-      tags: healthchecks
     - role: gatus
       tags: gatus
     - role: glances

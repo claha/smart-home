@@ -57,8 +57,6 @@ jellyfin_href: "https://jellyfin.media.{{ domain }}"
 audiobookshelf_href: "https://audiobookshelf.{{ domain }}"
 gatus0_href: "http://{{ oci0_ip_tailscale }}:8080"
 gatus1_href: "http://{{ oci1_ip_tailscale }}:8080"
-healthchecks0_href: "http://{{ oci0_ip_tailscale }}:8000"
-healthchecks1_href: "http://{{ oci1_ip_tailscale }}:8000"
 
 homeassistant_glances:
   - name: RPi4

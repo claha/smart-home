@@ -22,5 +22,4 @@ gatus_dns_endpoints:
     server: "{{ rpi2_ip }}"
     query: "media.{{ domain }}"
     body: "{{ chewbacca_ip }}"
-gatus_healthcheck_endpoints: []
 gatus_tailscale_devices: []

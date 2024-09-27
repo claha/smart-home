@@ -35,7 +35,6 @@ locations:
       success:
         - 'curl -X POST {{ oci0_ip_tailscale }}:8080/api/v1/endpoints/external_backup-homeassistant/external?success=true -H "Authorization: Bearer gatus"'
         - 'curl -X POST {{ oci1_ip_tailscale }}:8080/api/v1/endpoints/external_backup-homeassistant/external?success=true -H "Authorization: Bearer gatus"'
-        - 'curl {{ healthchecks_backup_homeassistant_ping_url }}'
       failure:
         - 'curl -X POST {{ oci0_ip_tailscale }}:8080/api/v1/endpoints/external_backup-homeassistant/external?success=false -H "Authorization: Bearer gatus"'
         - 'curl -X POST {{ oci1_ip_tailscale }}:8080/api/v1/endpoints/external_backup-homeassistant/external?success=false -H "Authorization: Bearer gatus"'
@@ -56,7 +55,6 @@ locations:
       success:
         - 'curl -X POST {{ oci0_ip_tailscale }}:8080/api/v1/endpoints/external_backup-zigbee2mqtt/external?success=true -H "Authorization: Bearer gatus"'
         - 'curl -X POST {{ oci1_ip_tailscale }}:8080/api/v1/endpoints/external_backup-zigbee2mqtt/external?success=true -H "Authorization: Bearer gatus"'
-        - 'curl {{ healthchecks_backup_zigbee2mqtt_ping_url }}'
       failure:
         - 'curl -X POST {{ oci0_ip_tailscale }}:8080/api/v1/endpoints/external_backup-zigbee2mqtt/external?success=false -H "Authorization: Bearer gatus"'
         - 'curl -X POST {{ oci1_ip_tailscale }}:8080/api/v1/endpoints/external_backup-zigbee2mqtt/external?success=false -H "Authorization: Bearer gatus"'

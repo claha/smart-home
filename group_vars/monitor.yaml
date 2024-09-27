@@ -18,15 +18,6 @@ gatus_dns_endpoints:
     server: "{{ rpi2_ip_tailscale }}"
     query: "media.{{ domain }}"
     body: "{{ chewbacca_ip }}"
-gatus_healthcheck_endpoints:
-  - name: Backup homeassistant
-    uuid: "{{ healthchecks_backup_homeassistant_uuid }}"
-  - name: Backup zigbee2mqtt
-    uuid: "{{ healthchecks_backup_zigbee2mqtt_uuid }}"
-  - name: Backup navidrome
-    uuid: "{{ healthchecks_backup_navidrome_uuid }}"
-  - name: Backup audiobookshelf
-    uuid: "{{ healthchecks_backup_audiobookshelf_uuid }}"
 gatus_external_endpoints:
   - name: Backup homeassistant
   - name: Backup zigbee2mqtt
