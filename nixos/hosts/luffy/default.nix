@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./../../services/audiobookshelf.nix
       ./../../services/homepage.nix
+      ./../../services/nextcloud.nix
     ];
 
   # Nix stuff

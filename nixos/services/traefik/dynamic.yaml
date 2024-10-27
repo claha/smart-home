@@ -40,6 +40,10 @@ http:
       rule: "Host(`gatus.hallstrom.duckdns.org`)"
       service: gatus
 
+    nextcloud:
+      rule: "Host(`nextcloud.hallstrom.duckdns.org`)"
+      service: nextcloud
+
   middlewares:
     sslheader:
       headers:
@@ -90,3 +94,8 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.49:8080"
+
+    nextcloud:
+      loadbalancer:
+        servers:
+          - url: "http://0.0.0.0:8086"
