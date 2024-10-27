@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./../../services/gatus.nix
       ./../../services/glances.nix
       ./../../services/jellyfin.nix
       ./../../services/music-assistant.nix

@@ -36,6 +36,10 @@ http:
         - adminprefix
       service: pihole
 
+    gatus:
+      rule: "Host(`gatus.hallstrom.duckdns.org`)"
+      service: gatus
+
   middlewares:
     sslheader:
       headers:
@@ -81,3 +85,8 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.24"
+
+    gatus:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.49:8080"
