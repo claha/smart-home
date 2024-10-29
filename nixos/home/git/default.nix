@@ -27,6 +27,12 @@
       github = {
         user = "claha";
       };
+      fetch = {
+        prune = true;
+      };
+      rebase = {
+        autosquash = true;
+      };
     };
   };
 }
