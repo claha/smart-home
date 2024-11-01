@@ -66,7 +66,6 @@
     restic
     autorestic
     just
-    jellyfin-ffmpeg
     gnupg
     pinentry-curses
     python3

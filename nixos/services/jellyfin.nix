@@ -9,11 +9,16 @@
     openFirewall = true;
   };
 
+  environment.systemPackages = [
+    pkgs.unstable.jellyfin-ffmpeg
+  ];
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
       intel-compute-runtime
+      onevpl-intel-gpu
     ];
   };
 }
