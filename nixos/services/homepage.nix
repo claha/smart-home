@@ -85,6 +85,32 @@
         ];
       }
       {
+        "Home-Automation" = [
+          {
+            "Home-Assistant" = {
+              href = "https://homeassistant.hallstrom.duckdns.org";
+              icon = "home-assistant";
+            };
+          }
+          {
+            Zigbee2Mqtt = {
+              href = "http://192.168.1.180:8080";
+              icon = "zigbee2mqtt";
+            };
+          }
+        ];
+      }
+      {
+        Productivity = [
+          {
+            Nextcloud = {
+              href = "https://nextcloud.hallstrom.duckdns.org";
+              icon = "nextcloud";
+            };
+          }
+        ];
+      }
+      {
         Monitor = [
           {
             "Gatus (RPi 3)" = {
@@ -93,14 +119,8 @@
             };
           }
           {
-            "Gatus (OCI 0)" = {
-              href = "http://100.117.82.95:8080";
-              icon = "gatus";
-            };
-          }
-          {
-            "Gatus (OCI 1)" = {
-              href = "http://100.99.164.134:8080";
+            "Gatus (Internal)" = {
+              href = "https://gatus.hallstrom.duckdns.org";
               icon = "gatus";
             };
           }
