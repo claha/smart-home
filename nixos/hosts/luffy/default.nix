@@ -7,6 +7,7 @@
       ./../../services/audiobookshelf.nix
       ./../../services/homepage.nix
       ./../../services/nextcloud.nix
+      ./../../services/tailscale.nix
     ];
 
   # Nix stuff
@@ -78,9 +79,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Enable tailscale
-  services.tailscale.enable = true;
 
   # Traefik
   environment.etc.traefik = {

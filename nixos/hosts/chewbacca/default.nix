@@ -9,6 +9,7 @@
       ./../../services/jellyfin.nix
       ./../../services/music-assistant.nix
       ./../../services/navidrome.nix
+      ./../../services/tailscale.nix
       ./../../services/wyoming.nix
     ];
 
@@ -101,9 +102,6 @@
   virtualisation.oci-containers = {
     backend = "docker";
   };
-
-  # Enable tailscale
-  services.tailscale.enable = true;
 
   # Enable transmission
   services.transmission = {
