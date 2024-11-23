@@ -112,7 +112,8 @@ lights = {
     "living_room": [
         "switch.osram_smart_plug_0",
         "switch.tradfri_control_outlet_0",
-        "switch.shelly_plug_s_1",
+        "switch.shelly_plug_s_0",
+        "light.tradfri_bulb_6",
     ],
     "laundry": [
         "light.tradfri_bulb_2",
@@ -125,7 +126,7 @@ lights = {
         "switch.tradfri_control_outlet_3",
     ],
     "outdoor": [
-        "switch.shelly_plug_s_0",
+        "switch.shelly_plug_s_1",
     ],
 }
 
