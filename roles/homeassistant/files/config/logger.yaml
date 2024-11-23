@@ -6,3 +6,5 @@ logs:
   homeassistant.components: warning
   gql: warning
   httpx: warning
+  aioesphomeapi: warning
+  roborock: warning
