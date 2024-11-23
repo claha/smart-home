@@ -32,9 +32,6 @@ sensor: !include_dir_merge_list sensor
 template: !include_dir_merge_list template
 binary_sensor: !include_dir_merge_list binary_sensor
 
-# Include switches
-switch: !include_dir_merge_list switch
-
 # Load automations and scripts
 automation: !include_dir_merge_list automation
 script: !include_dir_merge_named script

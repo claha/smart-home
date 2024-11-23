@@ -1,5 +1,0 @@
----
-- platform: wake_on_lan
-  name: QNAP NAS
-  mac: !secret qnap_nas_mac
-  host: !secret qnap_nas_host

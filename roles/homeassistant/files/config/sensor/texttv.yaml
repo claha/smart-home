@@ -1,6 +1,0 @@
----
-- platform: rest
-  resource: https://texttv.nu/api/get/100?includePlainTextContent=1
-  name: TextTV
-  value_template: "{{ value_json[0].content_plain[0][0:255] }}"
-  scan_interval: 3600
