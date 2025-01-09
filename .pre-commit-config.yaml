@@ -82,11 +82,6 @@ repos:
     hooks:
       - id: docker-compose-check
 
-  - repo: https://github.com/AleksaC/hadolint-py
-    rev: v2.12.0.3
-    hooks:
-      - id: hadolint
-
   - repo: https://github.com/nix-community/nixpkgs-fmt
     rev: v1.3.0
     hooks:
@@ -106,9 +101,3 @@ repos:
     rev: 1.4.0
     hooks:
       - id: dansabel
-
-  - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.96.2
-    hooks:
-      - id: terraform_fmt
-      - id: terraform_validate
