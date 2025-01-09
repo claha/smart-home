@@ -4,6 +4,8 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./../../config/nix.nix
+      ./../../config/swedish.nix
       ./../../services/gatus.nix
       ./../../services/glances.nix
       ./../../services/jellyfin.nix
@@ -13,14 +15,6 @@
       ./../../services/wyoming.nix
     ];
 
-  # Nix stuff
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,25 +23,6 @@
   networking.hostName = "chewbacca";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-
-  # Time zone, keyboard, language
-  time.timeZone = "Europe/Stockholm";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "sv_SE.UTF-8";
-    LC_IDENTIFICATION = "sv_SE.UTF-8";
-    LC_MEASUREMENT = "sv_SE.UTF-8";
-    LC_MONETARY = "sv_SE.UTF-8";
-    LC_NAME = "sv_SE.UTF-8";
-    LC_NUMERIC = "sv_SE.UTF-8";
-    LC_PAPER = "sv_SE.UTF-8";
-    LC_TELEPHONE = "sv_SE.UTF-8";
-    LC_TIME = "sv_SE.UTF-8";
-  };
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "sv-latin1";
-  };
 
   # Install terminess nerdfont
   fonts.packages = with pkgs; [
