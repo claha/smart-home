@@ -69,11 +69,11 @@
             }
           ];
         };
-        "yoga" = nixpkgs.lib.nixosSystem {
+        "yoda" = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./hosts/yoga
+            ./hosts/yoda
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

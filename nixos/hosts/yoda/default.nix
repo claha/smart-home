@@ -7,11 +7,16 @@
     ];
 
   # Nix stuff
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   # Bootloader
@@ -19,8 +24,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
-  networking.hostName = "yoga";
+  networking.hostName = "yoda";
   networking.networkmanager.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # Time zone, keyboard, language
   time.timeZone = "Europe/Stockholm";
@@ -87,6 +93,12 @@
     jack.enable = true;
   };
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
+  # GPG
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
