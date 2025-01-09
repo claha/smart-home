@@ -14,11 +14,9 @@ qnap_mac: 00:08:9B:EB:91:6C
 qnap_ip: 192.168.1.131
 
 rpi0_ip: 192.168.1.180
-rpi2_ip: 192.168.1.57
 rpi3_ip: 192.168.1.24
 rpi4_ip: 192.168.1.173
 rpi0_ip_tailscale: 100.107.148.90
-rpi2_ip_tailscale: 100.88.184.43
 rpi3_ip_tailscale: 100.95.2.1
 rpi4_ip_tailscale: 100.74.114.39
 
@@ -27,14 +25,6 @@ sonoff_cam1_ip: 192.168.1.226
 
 ruckus_switch_ip: 192.168.1.50
 ruckus_access_point_ip: 192.168.1.19
-
-oci0_ip: 129.151.208.127
-oci1_ip: 129.151.220.234
-oci0_ip_tailscale: 100.117.82.95
-oci1_ip_tailscale: 100.99.164.134
-
-gci0_ip: 34.67.225.162
-gci0_ip_tailscale: 100.64.134.100
 
 dns_overrides:
   - ip: "{{ chewbacca_ip }}"
@@ -49,14 +39,10 @@ dns_overrides:
 mqtt_server: "mqtt://{{ rpi4_ip }}"
 
 router_href: http://192.168.1.1
-pihole_primary_href: "http://{{ rpi3_ip }}/admin"
-pihole_secondary_href: "http://{{ rpi2_ip }}/admin"
 zigbee2mqtt_href: "http://{{ rpi0_ip }}:8080"
 navidrome_href: "https://navidrome.media.{{ domain }}"
 jellyfin_href: "https://jellyfin.media.{{ domain }}"
 audiobookshelf_href: "https://audiobookshelf.{{ domain }}"
-gatus0_href: "http://{{ oci0_ip_tailscale }}:8080"
-gatus1_href: "http://{{ oci1_ip_tailscale }}:8080"
 
 homeassistant_glances:
   - name: RPi4
@@ -65,21 +51,16 @@ homeassistant_glances:
   - name: RPi3
     hostname: "{{ rpi3_ip }}"
     disk: "etc_hosts_"
-  - name: RPi2
-    hostname: "{{ rpi2_ip }}"
-    disk: "etc_hosts_"
   - name: RPi0
     hostname: "{{ rpi0_ip }}"
     disk: "etc_hosts_"
   - name: Chewbacca
     hostname: "{{ chewbacca_ip }}"
     disk: ""
-  - name: OCI0
-    hostname: "{{ oci0_ip_tailscale }}"
-    disk: "etc_hosts_"
-  - name: OCI1
-    hostname: "{{ oci1_ip_tailscale }}"
-    disk: "etc_hosts_"
+  - name: Luffy
+    hostname: "{{ luffy_ip }}"
+    disk: ""
+
 homeassistant_cli_server: "http://{{ rpi4_ip }}:8123"
 
 smart_home_hosts:
@@ -88,9 +69,6 @@ smart_home_hosts:
     user: ubuntu
   - name: rpi3
     ip: "{{ rpi3_ip }}"
-    user: manager
-  - name: rpi2
-    ip: "{{ rpi2_ip }}"
     user: manager
   - name: rpi0
     ip: "{{ rpi0_ip }}"
@@ -101,23 +79,11 @@ smart_home_hosts:
   - name: luffy
     ip: "{{ luffy_ip }}"
     user: manager
-  - name: oci0
-    ip: "{{ oci0_ip }}"
-    user: ubuntu
-  - name: oci1
-    ip: "{{ oci1_ip }}"
-    user: ubuntu
-  - name: gci0
-    ip: "{{ gci0_ip }}"
-    user: hallstrom_claes
   - name: rpi4-tailscale
     ip: "{{ rpi4_ip_tailscale }}"
     user: ubuntu
   - name: rpi3-tailscale
     ip: "{{ rpi3_ip_tailscale }}"
-    user: manager
-  - name: rpi2-tailscale
-    ip: "{{ rpi2_ip_tailscale }}"
     user: manager
   - name: rpi0-tailscale
     ip: "{{ rpi0_ip_tailscale }}"
@@ -128,12 +94,3 @@ smart_home_hosts:
   - name: luffy-tailscale
     ip: "{{ luffy_ip_tailscale }}"
     user: manager
-  - name: oci0-tailscale
-    ip: "{{ oci0_ip_tailscale }}"
-    user: ubuntu
-  - name: oci1-tailscale
-    ip: "{{ oci1_ip_tailscale }}"
-    user: ubuntu
-  - name: gci0-tailscale
-    ip: "{{ gci0_ip_tailscale }}"
-    user: hallstrom_claes

@@ -1,6 +1,6 @@
 ---
-- name: Setup primary pihole
-  hosts: pihole1
+- name: Setup pihole
+  hosts: pihole
   vars_files:
     - vars/vault.yaml
 
@@ -30,33 +30,6 @@
     - role: gatus
       tags: gatus
 
-- name: Setup secondary pihole
-  hosts: pihole2
-  vars_files:
-    - vars/vault.yaml
-
-  pre_tasks:
-    - name: Update cache
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
-      become: true
-
-  roles:
-    - role: geerlingguy.docker
-      become: true
-      tags: never, init
-    - role: bash
-      tags: never, init
-    - role: docker_prune
-      tags: never, init, docker_prune
-    - role: pihole
-      tags: pihole
-    - role: glances
-      tags: glances
-    - role: tailscale
-      tags: tailscale
-
 - name: Setup smarthome
   hosts: smarthome
   vars_files:
@@ -85,8 +58,6 @@
       tags: mosquitto
     - role: homeassistant
       tags: homeassistant, autorestic
-    - role: github_deploy
-      tags: deploy
 
 - name: Setup zigbee
   hosts: zigbee
@@ -116,33 +87,6 @@
       tags: tailscale
       vars:
         tailscale_docker: false
-
-- name: Setup monitor
-  hosts: monitor
-  vars_files:
-    - vars/vault.yaml
-
-  pre_tasks:
-    - name: Update cache
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
-      become: true
-
-  roles:
-    - role: geerlingguy.docker
-      become: true
-      tags: never, init
-    - role: bash
-      tags: never, init
-    - role: docker_prune
-      tags: never, init, docker_prune
-    - role: tailscale
-      tags: tailscale
-    - role: gatus
-      tags: gatus
-    - role: glances
-      tags: glances
 
 - name: Setup localhost
   hosts: localhost
