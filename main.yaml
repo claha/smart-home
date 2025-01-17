@@ -12,9 +12,6 @@
       become: true
 
   roles:
-    - role: geerlingguy.docker
-      become: true
-      tags: never, init
     - role: bash
       tags: never, init
     - role: docker_prune
@@ -39,9 +36,6 @@
       become: true
 
   roles:
-    - role: geerlingguy.docker
-      become: true
-      tags: never, init
     - role: bash
       tags: never, init
     - role: docker_prune
@@ -66,9 +60,6 @@
       become: true
 
   roles:
-    - role: geerlingguy.docker
-      become: true
-      tags: never, init
     - role: bash
       tags: never, init
     - role: docker_prune

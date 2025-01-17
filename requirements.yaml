@@ -1,6 +1,5 @@
 ---
 roles:
-  - src: geerlingguy.docker
   - src: ironicbadger.figurine
 
 collections:
