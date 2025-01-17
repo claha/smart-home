@@ -4,7 +4,6 @@ repos:
     rev: 0.31.0
     hooks:
       - id: check-github-workflows
-      - id: check-dependabot
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
