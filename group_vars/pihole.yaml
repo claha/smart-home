@@ -2,14 +2,3 @@
 docker_users:
   - manager
 figurine_font: "Binary.flf"
-gatus_icmp_endpoints:
-  - name: RPi4
-    url: "{{ rpi4_ip }}"
-  - name: RPi3
-    url: "{{ rpi3_ip }}"
-  - name: RPi0
-    url: "{{ rpi0_ip }}"
-  - name: Chewbacca
-    url: "{{ chewbacca_ip }}"
-gatus_dns_endpoints: []
-gatus_tailscale_devices: []
