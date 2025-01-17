@@ -21,8 +21,6 @@
       tags: never, init, docker_prune
     - role: pihole
       tags: pihole
-    - role: glances
-      tags: glances
     - role: tailscale
       tags: tailscale
     - role: duckdns
@@ -50,8 +48,6 @@
       tags: never, init
     - role: docker_prune
       tags: never, init, docker_prune
-    - role: glances
-      tags: glances
     - role: tailscale
       tags: tailscale
     - role: mosquitto

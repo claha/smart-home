@@ -1,7 +1,0 @@
----
-- name: Create docker compose service
-  ansible.builtin.include_role:
-    name: docker_compose_service
-  vars:
-    docker_compose_service_name: glances
-    docker_compose_service_template: true

@@ -25,7 +25,6 @@ runs:
         duckdns_domain: ci
         duckdns_token: ci
         gatus_tailscale_devices: []
-        homeassistant_glances: []
         homeassistant_static_template_sensors: []
         jellyfin_api_token: ci
         letsencrypt_email: ci

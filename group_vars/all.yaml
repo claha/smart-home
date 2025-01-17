@@ -44,23 +44,6 @@ navidrome_href: "https://navidrome.media.{{ domain }}"
 jellyfin_href: "https://jellyfin.media.{{ domain }}"
 audiobookshelf_href: "https://audiobookshelf.{{ domain }}"
 
-homeassistant_glances:
-  - name: RPi4
-    hostname: "{{ rpi4_ip }}"
-    disk: "etc_hosts_"
-  - name: RPi3
-    hostname: "{{ rpi3_ip }}"
-    disk: "etc_hosts_"
-  - name: RPi0
-    hostname: "{{ rpi0_ip }}"
-    disk: "etc_hosts_"
-  - name: Chewbacca
-    hostname: "{{ chewbacca_ip }}"
-    disk: ""
-  - name: Luffy
-    hostname: "{{ luffy_ip }}"
-    disk: ""
-
 homeassistant_cli_server: "http://{{ rpi4_ip }}:8123"
 
 smart_home_hosts:
