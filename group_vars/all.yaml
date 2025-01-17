@@ -1,7 +1,5 @@
 ---
 services_path: "/home/{{ ansible_ssh_user | default(ansible_user_id) }}"
-docker_install_compose_plugin: true
-docker_install_compose: false
 figurine_font: "3d.flf"
 
 chewbacca_ip: 192.168.1.49
@@ -27,24 +25,12 @@ ruckus_switch_ip: 192.168.1.50
 ruckus_access_point_ip: 192.168.1.19
 
 dns_overrides:
-  - ip: "{{ chewbacca_ip }}"
-    dns: "media.{{ domain }}"
-  - ip: "{{ chewbacca_ip_tailscale }}"
-    dns: "media.{{ domain }}"
   - ip: "{{ luffy_ip }}"
     dns: "{{ domain }}"
   - ip: "{{ luffy_ip_tailscale }}"
     dns: "{{ domain }}"
 
 mqtt_server: "mqtt://{{ rpi4_ip }}"
-
-router_href: http://192.168.1.1
-zigbee2mqtt_href: "http://{{ rpi0_ip }}:8080"
-navidrome_href: "https://navidrome.media.{{ domain }}"
-jellyfin_href: "https://jellyfin.media.{{ domain }}"
-audiobookshelf_href: "https://audiobookshelf.{{ domain }}"
-
-homeassistant_cli_server: "http://{{ rpi4_ip }}:8123"
 
 smart_home_hosts:
   - name: rpi4

@@ -94,24 +94,3 @@
     dest: "{{ homeassistant_service_path }}/config/secrets.yaml"
     mode: "0600"
   notify: "Recreate {{ homeassistant_service_name }}"
-
-- name: Hide stock entities
-  ansible.builtin.include_role:
-    name: hass_cli_hide_entity
-  vars:
-    hass_cli_hide_entity_id: "sensor.stock_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
-  loop: "{{ homeassistant_stocks }}"
-
-- name: Hide fund entities
-  ansible.builtin.include_role:
-    name: hass_cli_hide_entity
-  vars:
-    hass_cli_hide_entity_id: "sensor.fund_{{ item.name | lower | replace(' ', '_') }}"  # yamllint disable rule:line-length
-  loop: "{{ homeassistant_funds }}"
-
-- name: Hide static template entities
-  ansible.builtin.include_role:
-    name: hass_cli_hide_entity
-  vars:
-    hass_cli_hide_entity_id: "sensor.{{ item.name | lower }}_{{ item.state }}"
-  loop: "{{ homeassistant_static_template_sensors }}"

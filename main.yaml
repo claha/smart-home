@@ -18,8 +18,6 @@
       tags: never, init, docker_prune
     - role: pihole
       tags: pihole
-    - role: tailscale
-      tags: tailscale
     - role: duckdns
       tags: duckdns
 
@@ -40,8 +38,6 @@
       tags: never, init
     - role: docker_prune
       tags: never, init, docker_prune
-    - role: tailscale
-      tags: tailscale
     - role: mosquitto
       tags: mosquitto
     - role: homeassistant
@@ -66,10 +62,6 @@
       tags: never, init, docker_prune
     - role: zigbee2mqtt
       tags: zigbee2mqtt
-    - role: tailscale
-      tags: tailscale
-      vars:
-        tailscale_docker: false
 
 - name: Setup localhost
   hosts: localhost
