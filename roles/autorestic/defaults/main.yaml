@@ -1,4 +1,0 @@
----
-autorestic_service_name: "{{ ansible_role_name }}"
-autorestic_service_path: "{{ services_path }}/{{ autorestic_service_name }}"
-autorestic_docker: true

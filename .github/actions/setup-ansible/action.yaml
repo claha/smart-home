@@ -34,7 +34,6 @@ runs:
         navidrome_api_token: ci
         telegram_chatids: 0
         telegram_token: ci
-        zigbee2mqtt_autorestic_docker: false
         " > vars/vault.yaml
         sed -i '/vault_password_file/d' ansible.cfg
 

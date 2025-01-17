@@ -57,7 +57,7 @@
     - role: mosquitto
       tags: mosquitto
     - role: homeassistant
-      tags: homeassistant, autorestic
+      tags: homeassistant
 
 - name: Setup zigbee
   hosts: zigbee
@@ -80,9 +80,7 @@
     - role: docker_prune
       tags: never, init, docker_prune
     - role: zigbee2mqtt
-      tags: zigbee2mqtt, autorestic
-      vars:
-        zigbee2mqtt_autorestic_docker: false
+      tags: zigbee2mqtt
     - role: tailscale
       tags: tailscale
       vars:

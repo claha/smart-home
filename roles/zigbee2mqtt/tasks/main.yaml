@@ -12,10 +12,3 @@
       - data/groups.yaml
     docker_compose_service_extra_templates:
       - data/configuration.yaml
-
-- name: Create backups with autorestic
-  ansible.builtin.include_role:
-    name: autorestic
-  vars:
-    autorestic_location: "zigbee2mqtt"
-    autorestic_docker: "{{ zigbee2mqtt_autorestic_docker }}"

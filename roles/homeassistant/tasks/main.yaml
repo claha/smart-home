@@ -102,12 +102,6 @@
     mode: "0600"
   notify: "Recreate {{ homeassistant_service_name }}"
 
-- name: Create backups with autorestic
-  ansible.builtin.include_role:
-    name: autorestic
-  vars:
-    autorestic_location: "homeassistant"
-
 - name: Hide stock entities
   ansible.builtin.include_role:
     name: hass_cli_hide_entity
