@@ -7,7 +7,6 @@
       ./../../config/nix.nix
       ./../../config/swedish.nix
       ./../../services/gatus.nix
-      ./../../services/jellyfin.nix
       ./../../services/music-assistant.nix
       ./../../services/navidrome.nix
       ./../../services/tailscale.nix

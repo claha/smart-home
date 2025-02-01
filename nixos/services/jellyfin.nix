@@ -11,14 +11,17 @@
 
   environment.systemPackages = [
     pkgs.unstable.jellyfin-ffmpeg
+    pkgs.unstable.jellyfin-web
   ];
 
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
+      intel-vaapi-driver
       intel-compute-runtime
       vpl-gpu-rt
+      vaapiVdpau
     ];
   };
 }

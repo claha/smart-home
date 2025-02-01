@@ -8,6 +8,7 @@
       ./../../config/swedish.nix
       ./../../services/audiobookshelf.nix
       ./../../services/homepage.nix
+      ./../../services/jellyfin.nix
       ./../../services/nextcloud.nix
       ./../../services/ollama.nix
       ./../../services/tailscale.nix
