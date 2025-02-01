@@ -21,6 +21,10 @@ http:
       rule: "Host(`jellyfin.hallstrom.duckdns.org`)"
       service: jellyfin
 
+    pinchflat:
+      rule: "Host(`pinchflat.hallstrom.duckdns.org`)"
+      service: pinchflat
+
     musicassistant:
       rule: "Host(`musicassistant.hallstrom.duckdns.org`)"
       service: musicassistant
@@ -74,6 +78,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://0.0.0.0:8096"
+
+    pinchflat:
+      loadBalancer:
+        servers:
+          - url: "http://0.0.0.0:8945"
 
     musicassistant:
       loadBalancer:

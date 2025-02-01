@@ -71,6 +71,12 @@
             };
           }
           {
+            Pinchflat = {
+              href = "https://pinchflat.hallstrom.duckdns.org";
+              icon = "pinchflat";
+            };
+          }
+          {
             Audiobookshelf = {
               href = "https://audiobookshelf.hallstrom.duckdns.org";
               icon = "audiobookshelf";

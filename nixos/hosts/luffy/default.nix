@@ -11,6 +11,7 @@
       ./../../services/jellyfin.nix
       ./../../services/nextcloud.nix
       ./../../services/ollama.nix
+      ./../../services/pinchflat.nix
       ./../../services/tailscale.nix
     ];
 
