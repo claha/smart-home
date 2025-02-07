@@ -1,4 +1,5 @@
 *tfstate*
+.ansible
 .terraform*
 .vault-password
 ansible.log
