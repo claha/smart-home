@@ -43,14 +43,8 @@
             };
           }
           {
-            "Pi-hole (primary)" = {
-              href = "https://192.168.1.24/admin";
-              icon = "pi-hole";
-            };
-          }
-          {
-            "Pi-hole (secondary)" = {
-              href = "https://192.168.1.73/admin";
+            "Pi-hole" = {
+              href = "https://pihole.hallstrom.duckdns.org";
               icon = "pi-hole";
             };
           }
@@ -85,7 +79,7 @@
           {
             "Music-Assistant" = {
               href = "https://musicassistant.hallstrom.duckdns.org";
-              icon = "https://avatars.githubusercontent.com/u/71128003?s=200&v=4";
+              icon = "music-assistant";
             };
           }
         ];
