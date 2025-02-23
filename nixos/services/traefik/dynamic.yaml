@@ -37,7 +37,6 @@ http:
       rule: "Host(`pihole.hallstrom.duckdns.org`)"
       middlewares:
         - sslheader
-        - adminprefix
       service: pihole
 
     gatus:
@@ -53,10 +52,6 @@ http:
       headers:
         customrequestheaders:
           X-Forwarded-Proto: https
-
-    adminprefix:
-      addPrefix:
-        prefix: "/admin"
 
   services:
     homepage:
