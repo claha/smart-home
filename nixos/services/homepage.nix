@@ -48,6 +48,12 @@
               icon = "pi-hole";
             };
           }
+          {
+            "NetAlertX" = {
+              href = "https://netalertx.hallstrom.duckdns.org";
+              icon = "netalertx";
+            };
+          }
         ];
       }
       {
