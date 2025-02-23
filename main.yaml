@@ -18,6 +18,8 @@
       tags: never, init, docker_prune
     - role: pihole
       tags: pihole
+    - role: netalertx
+      tags: netalertx
     - role: duckdns
       tags: duckdns
 

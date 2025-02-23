@@ -1,0 +1,19 @@
+---
+services:
+  netalertx:
+    container_name: netalertx
+    image: docker.io/jokobsk/netalertx:25.2.8
+    network_mode: host
+    environment:
+      - TZ=Europe/Stockholm
+      - PORT=20211
+      - LISTEN_ADDR=0.0.0.0
+    volumes:
+      - ./config:/app/config
+      - ./db:/app/d
+      - ./log:/app/log
+      - type: tmpfs
+        target: /app/api
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
