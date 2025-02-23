@@ -47,6 +47,10 @@ http:
       rule: "Host(`nextcloud.hallstrom.duckdns.org`)"
       service: nextcloud
 
+    netalertx:
+      rule: "Host(`netalertx.hallstrom.duckdns.org`)"
+      service: netalertx
+
   middlewares:
     sslheader:
       headers:
@@ -103,3 +107,8 @@ http:
       loadbalancer:
         servers:
           - url: "http://0.0.0.0:8086"
+
+    netalertx:
+      loadbalancer:
+        servers:
+          - url: "http://192.168.1.24:20211"
