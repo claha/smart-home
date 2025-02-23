@@ -1,5 +1,0 @@
-{% if dns_overrides is defined %}
-{% for override in dns_overrides %}
-address=/{{ override.dns }}/{{ override.ip }}
-{% endfor %}
-{% endif %}
