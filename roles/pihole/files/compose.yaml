@@ -2,13 +2,13 @@
 services:
   pihole:
     container_name: pihole
-    image: docker.io/pihole/pihole:2025.02.4
+    image: docker.io/pihole/pihole:2025.02.6
     environment:
       TZ: Europe/Stockholm
       FTLCONF_webserver_api_password: pihole
       FTLCONF_webserver_domain: pihole.hallstrom.duckdns.org
       FTLCONF_dns_listeningMode: ALL
-      FTLCONF_misc_dnsmasq_lines: address=/hallstrom.duckdns.org/192.168.1.217;address=/hallstrom.duckdns.org/100.118.93.10  # yamllint disable rule:line-length
+      FTLCONF_misc_dnsmasq_lines: address=/hallstrom.duckdns.org/100.118.93.10;address=/hallstrom.duckdns.org/192.168.1.217  # yamllint disable rule:line-length
     security_opt:
       - no-new-privileges:true
     ports:
