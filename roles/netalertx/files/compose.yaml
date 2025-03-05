@@ -10,7 +10,7 @@ services:
       - LISTEN_ADDR=0.0.0.0
     volumes:
       - ./config:/app/config
-      - ./db:/app/d
+      - ./db:/app/db
       - ./log:/app/log
       - type: tmpfs
         target: /app/api
