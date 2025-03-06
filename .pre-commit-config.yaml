@@ -87,7 +87,7 @@ repos:
       - id: nixpkgs-fmt
 
   - repo: https://github.com/iamthefij/ansible-pre-commit
-    rev: v1.0.0
+    rev: v1.0.1
     hooks:
       - id: encryption-check
 
