@@ -1,0 +1,4 @@
+---
+- name: Configure top level configuration
+  community.network.icx_config:
+    lines: "enable"

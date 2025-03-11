@@ -1,0 +1,27 @@
+no ip access-list extended "VLAN30 out"
+
+ip access-list extended "VLAN30 out"
+
+remark Block all access to the switch's ve interface
+deny tcp any host 10.1.30.1 eq ssh
+deny tcp any host 10.1.30.1 eq telnet
+deny tcp any host 10.1.30.1 eq http
+deny tcp any host 10.1.30.1 eq 443
+
+remark allow hosts on the subnet to reach dhcp server
+permit udp any any eq bootps
+permit udp 10.1.30.0 0.0.0.255 host 10.1.30.1 eq bootpc
+
+remark allow hosts on the subnet to do dns lookups
+permit udp any 192.168.1.1 0.0.0.0 eq dns
+permit tcp any 192.168.1.1 0.0.0.0 eq dns
+
+remark block outbound access to all local VLANs
+deny ip any 10.1.0.0 0.0.255.255
+deny ip any 192.168.0.0 0.0.255.255
+
+remark allow internet
+permit ip any any
+
+vlan 30
+ip access-group "VLAN30 out" in

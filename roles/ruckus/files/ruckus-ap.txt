@@ -1,0 +1,11 @@
+fw set host <IP of the device running TFTP Server>
+
+fw set proto tftp
+
+fw set port <can vary, default is 69>
+
+fw set control <firmware image file name>
+
+fw update
+
+reboot
