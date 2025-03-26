@@ -114,6 +114,12 @@
               icon = "nextcloud";
             };
           }
+          {
+            Vikunja = {
+              href = "https://vikunja.hallstrom.duckdns.org";
+              icon = "vikunja";
+            };
+          }
         ];
       }
       {

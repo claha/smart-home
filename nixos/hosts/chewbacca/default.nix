@@ -10,6 +10,7 @@
       ./../../services/music-assistant.nix
       ./../../services/navidrome.nix
       ./../../services/tailscale.nix
+      ./../../services/vikunja.nix
       ./../../services/wyoming.nix
     ];
 
