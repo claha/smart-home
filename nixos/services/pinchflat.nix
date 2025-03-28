@@ -33,7 +33,7 @@ in
   virtualisation.oci-containers = {
     backend = "docker";
     containers.pinchflat = {
-      image = "ghcr.io/kieraneglin/pinchflat:v2025.1.27";
+      image = "ghcr.io/kieraneglin/pinchflat:v2025.3.17";
       environment = {
         TZ = config.time.timeZone;
       };
