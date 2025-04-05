@@ -83,6 +83,9 @@
     openRPCPort = true;
   };
 
+  # Enable mullvad
+  services.mullvad-vpn.enable = true;
+
   # Enable and configure the firewall.
   networking.firewall = {
     enable = true;
