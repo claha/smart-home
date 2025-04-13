@@ -9,7 +9,7 @@ in
   virtualisation.oci-containers.containers = {
     music-assistant = {
       autoStart = true;
-      image = "ghcr.io/music-assistant/server:2.2.3";
+      image = "ghcr.io/music-assistant/server:2.5.1";
       volumes = [
         "/etc/music-assistant/data:/data"
         "/media/music:/media:ro"
