@@ -2,7 +2,7 @@
 services:
   netalertx:
     container_name: netalertx
-    image: docker.io/jokobsk/netalertx:25.3.1
+    image: docker.io/jokobsk/netalertx:25.4.14
     network_mode: host
     environment:
       - TZ=Europe/Stockholm
