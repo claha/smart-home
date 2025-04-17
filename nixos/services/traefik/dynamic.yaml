@@ -51,6 +51,10 @@ http:
       rule: "Host(`vikunja.hallstrom.duckdns.org`)"
       service: vikunja
 
+    mealie:
+      rule: "Host(`mealie.hallstrom.duckdns.org`)"
+      service: mealie
+
   middlewares:
     sslheader:
       headers:
@@ -112,3 +116,8 @@ http:
       loadbalancer:
         servers:
           - url: "http://192.168.1.49:3456"
+
+    mealie:
+      loadbalancer:
+        servers:
+          - url: "http://192.168.1.49:9000"

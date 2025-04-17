@@ -85,7 +85,7 @@
         ];
       }
       {
-        "Home-Automation" = [
+        "Home" = [
           {
             "Home-Assistant" = {
               href = "https://homeassistant.hallstrom.duckdns.org";
@@ -96,6 +96,12 @@
             Zigbee2Mqtt = {
               href = "http://192.168.1.180:8080";
               icon = "zigbee2mqtt";
+            };
+          }
+          {
+            Mealie = {
+              href = "https://mealie.hallstrom.duckdns.org";
+              icon = "mealie";
             };
           }
         ];
