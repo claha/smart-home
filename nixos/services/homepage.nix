@@ -59,12 +59,6 @@
       {
         Media = [
           {
-            Navidrome = {
-              href = "https://navidrome.hallstrom.duckdns.org";
-              icon = "navidrome";
-            };
-          }
-          {
             Jellyfin = {
               href = "https://jellyfin.hallstrom.duckdns.org";
               icon = "jellyfin";

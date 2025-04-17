@@ -9,7 +9,6 @@
       ./../../services/gatus.nix
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix
-      ./../../services/navidrome.nix
       ./../../services/tailscale.nix
       ./../../services/vikunja.nix
       ./../../services/wyoming.nix
