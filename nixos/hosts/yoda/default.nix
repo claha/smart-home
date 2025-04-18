@@ -11,10 +11,14 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.requestEncryptionCredentials = true;
+  services.zfs.autoScrub.enable = true;
 
   # Networking
   networking.hostName = "yoda";
   networking.networkmanager.enable = true;
+  networking.hostId = "11d742f9";
   services.mullvad-vpn.enable = true;
 
   # Install terminess nerdfont
