@@ -18,7 +18,7 @@ jobs:
           curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
           sh install-opentofu.sh --install-method deb
       - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-python@v5.5.0
+      - uses: actions/setup-python@v5.6.0
         with:
           python-version: 3.x
       - run: |
