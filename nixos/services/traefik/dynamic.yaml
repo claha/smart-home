@@ -55,6 +55,10 @@ http:
       rule: "Host(`mealie.hallstrom.duckdns.org`)"
       service: mealie
 
+    karakeep:
+      rule: "Host(`karakeep.hallstrom.duckdns.org`)"
+      service: karakeep
+
   middlewares:
     sslheader:
       headers:
@@ -121,3 +125,8 @@ http:
       loadbalancer:
         servers:
           - url: "http://192.168.1.49:9000"
+
+    karakeep:
+      loadbalancer:
+        servers:
+          - url: "http://192.168.1.49:3000"

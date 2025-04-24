@@ -7,6 +7,7 @@
       ./../../config/nix.nix
       ./../../config/swedish.nix
       ./../../services/gatus.nix
+      ./../../services/karakeep.nix
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix
       ./../../services/tailscale.nix

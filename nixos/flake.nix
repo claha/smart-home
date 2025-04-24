@@ -33,6 +33,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./hosts/chewbacca
+            (import "${nixpkgs-unstable}/nixos/modules/services/web-apps/karakeep.nix")
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

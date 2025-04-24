@@ -120,6 +120,12 @@
               icon = "vikunja";
             };
           }
+          {
+            Karakeep = {
+              href = "https://karakeep.hallstrom.duckdns.org";
+              icon = "karakeep";
+            };
+          }
         ];
       }
       {
