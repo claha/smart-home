@@ -2,7 +2,7 @@
 services:
   mosquitto:
     container_name: mosquitto
-    image: docker.io/eclipse-mosquitto:2.0.20
+    image: docker.io/eclipse-mosquitto:2.0.21
     security_opt:
       - no-new-privileges:true
     environment:
