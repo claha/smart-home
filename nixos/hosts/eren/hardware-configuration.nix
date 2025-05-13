@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
@@ -14,38 +15,45 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D429-4BB4";
+    {
+      device = "/dev/disk/by-uuid/D429-4BB4";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/" =
-    { device = "zroot/root";
+    {
+      device = "zroot/root";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "zroot/home";
+    {
+      device = "zroot/home";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "zroot/nix";
+    {
+      device = "zroot/nix";
       fsType = "zfs";
     };
 
   fileSystems."/backup" =
-    { device = "tank/backup";
+    {
+      device = "tank/backup";
       fsType = "zfs";
     };
 
   fileSystems."/media" =
-    { device = "tank/media";
+    {
+      device = "tank/media";
       fsType = "zfs";
     };
 
   fileSystems."/share" =
-    { device = "tank/share";
+    {
+      device = "tank/share";
       fsType = "zfs";
     };
 

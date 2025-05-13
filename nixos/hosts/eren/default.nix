@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../config/nix.nix
       ./../../config/swedish.nix
@@ -64,4 +65,3 @@
   # Did you read the comment?
   system.stateVersion = "24.11";
 }
-
