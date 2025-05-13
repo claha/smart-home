@@ -4,12 +4,14 @@
     dua
     duf
     silver-searcher
+    figurine
   ];
 
   home.file.".hushlogin".text = "";
 
   programs.bash = {
     enable = true;
+    initExtra = "${pkgs.figurine}/bin/figurine -f 3d.flf $(hostname)";
     historyControl = [ "ignoredups" ];
   };
 

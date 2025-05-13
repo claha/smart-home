@@ -44,10 +44,7 @@
     python3
     git
     vim
-    figurine
   ];
-
-  programs.bash.interactiveShellInit = "${pkgs.figurine}/bin/figurine -f 3d.flf luffy";
 
   programs.gnupg.agent = {
     enable = true;
