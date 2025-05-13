@@ -2,8 +2,11 @@
 
 let
   tailscaleDevices = [
-    { hostname = "chewbacca"; address = "100.110.122.14"; }
-    { hostname = "luffy"; address = "100.118.93.10"; }
+    { hostname = "chewbacca"; tailscaleIp = "100.110.122.14"; }
+    { hostname = "luffy"; tailscaleIp = "100.118.93.10"; }
+    { hostname = "eren"; tailscaleIp = "100.77.170.28"; }
+    { hostname = "rpi4"; tailscaleIp = "100.74.114.39"; }
+    { hostname = "rpi3"; tailscaleIp = "100.95.2.1"; }
   ];
 in
 {
@@ -15,7 +18,8 @@ in
         (device:
           {
             name = device.hostname;
-            url = "icmp://${device.address}";
+            group = "Tailscale";
+            url = "icmp://${device.tailscaleIp}";
             interval = "5m";
             conditions = [
               "[CONNECTED] == true"

@@ -131,13 +131,7 @@
       {
         Monitor = [
           {
-            "Gatus (RPi 3)" = {
-              href = "http://192.168.1.24:8080";
-              icon = "gatus";
-            };
-          }
-          {
-            "Gatus (Internal)" = {
+            "Gatus" = {
               href = "https://gatus.hallstrom.duckdns.org";
               icon = "gatus";
             };
