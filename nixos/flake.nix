@@ -52,6 +52,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./hosts/luffy
+            (import "${nixpkgs-unstable}/nixos/modules/services/misc/pinchflat.nix")
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
