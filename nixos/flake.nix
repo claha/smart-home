@@ -48,7 +48,9 @@
       mkSystem = { hostname, homeUser, extraModules ? [ ], agenixSecrets ? { } }:
         nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit hostname; };
           modules = commonModules ++ [
+            ./hosts/common.nix
             ./hosts/${hostname}
             (homeManagerConfig homeUser)
           ] ++ extraModules ++ (if agenixSecrets != { } then agenixConfig agenixSecrets else [ ]);

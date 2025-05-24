@@ -20,7 +20,6 @@
   services.zfs.autoScrub.enable = true;
 
   # Networking
-  networking.hostName = "eren"; # Define your hostname.
   networking.hostId = "d00babfa";
 
   # Install terminess nerdfont
