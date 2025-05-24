@@ -25,76 +25,70 @@
       overlay-unstable = final: prev: {
         unstable = nixpkgs-unstable.legacyPackages.${prev.system};
       };
+
+      commonModules = [
+        ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+        home-manager.nixosModules.home-manager
+      ];
+
+      homeManagerConfig = user: {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.${user} = import ./home/${user}.nix;
+      };
+
+      agenixConfig = secrets: [
+        agenix.nixosModules.default
+        {
+          environment.systemPackages = [ agenix.packages.${system}.default ];
+          age.secrets = secrets;
+        }
+      ];
+
+      mkSystem = { hostname, homeUser, extraModules ? [ ], agenixSecrets ? { } }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = commonModules ++ [
+            ./hosts/${hostname}
+            (homeManagerConfig homeUser)
+          ] ++ extraModules ++ (if agenixSecrets != { } then agenixConfig agenixSecrets else [ ]);
+        };
     in
     {
       nixosConfigurations = {
-        "chewbacca" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./hosts/chewbacca
+        "chewbacca" = mkSystem {
+          hostname = "chewbacca";
+          homeUser = "manager";
+          extraModules = [
             (import "${nixpkgs-unstable}/nixos/modules/services/web-apps/karakeep.nix")
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.manager = import ./home/manager.nix;
-            }
-            agenix.nixosModules.default
-            {
-              environment.systemPackages = [ agenix.packages.${system}.default ];
-              age.secrets.duckdns-token.file = ./secrets/duckdns-token.age;
-            }
           ];
         };
-        "luffy" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./hosts/luffy
+
+        "luffy" = mkSystem {
+          hostname = "luffy";
+          homeUser = "manager";
+          extraModules = [
             (import "${nixpkgs-unstable}/nixos/modules/services/misc/pinchflat.nix")
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.manager = import ./home/manager.nix;
-            }
-            agenix.nixosModules.default
-            {
-              environment.systemPackages = [ agenix.packages.${system}.default ];
-              age.secrets.duckdns-token = {
-                file = ./secrets/duckdns-token.age;
-                mode = "640";
-                owner = "traefik";
-                group = "traefik";
-              };
-            }
           ];
+          agenixSecrets = {
+            duckdns-token = {
+              file = ./secrets/duckdns-token.age;
+              mode = "640";
+              owner = "traefik";
+              group = "traefik";
+            };
+          };
         };
-        "eren" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./hosts/eren
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.manager = import ./home/manager.nix;
-            }
-          ];
+
+        "eren" = mkSystem {
+          hostname = "eren";
+          homeUser = "manager";
         };
-        "yoda" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./hosts/yoda
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.claes = import ./home/claes.nix;
-            }
+
+        "yoda" = mkSystem {
+          hostname = "yoda";
+          homeUser = "claes";
+          extraModules = [
             stylix.nixosModules.stylix
           ];
         };
