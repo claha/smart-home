@@ -24,7 +24,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manager = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "transmission" ];
+    extraGroups = [ "wheel" "networkmanager" "transmission" ];
   };
 
   # List packages installed in system profile.
@@ -49,23 +49,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Enable docker
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "btrfs";
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-    autoPrune = {
-      enable = true;
-      flags = [ "--all" "--volumes" ];
-    };
-  };
-  virtualisation.oci-containers = {
-    backend = "docker";
-  };
 
   # Enable transmission
   services.transmission = {

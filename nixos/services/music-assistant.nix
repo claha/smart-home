@@ -6,16 +6,14 @@ let
   sonosAppCtrlPort = 1400;
 in
 {
-  virtualisation.oci-containers.containers = {
-    music-assistant = {
-      autoStart = true;
-      image = "ghcr.io/music-assistant/server:2.5.1";
-      volumes = [
-        "/etc/music-assistant/data:/data"
-        "/media/music:/media:ro"
-      ];
-      extraOptions = [ "--network=host" "--privileged" ];
-    };
+  services.music-assistant = {
+    enable = true;
+    package = pkgs.unstable.music-assistant;
+    providers = [
+      "builtin"
+      "filesystem_local"
+      "sonos"
+    ];
   };
 
   networking.firewall.allowedTCPPorts = [ musicAssistantPort musicAssistantStreamPort sonosAppCtrlPort ];
