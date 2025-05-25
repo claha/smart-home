@@ -4,8 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./../../config/nix.nix
-      ./../../config/swedish.nix
     ];
 
   # Bootloader

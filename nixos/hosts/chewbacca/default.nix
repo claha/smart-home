@@ -4,8 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./../../config/nix.nix
-      ./../../config/swedish.nix
       ./../../services/gatus.nix
       ./../../services/karakeep.nix
       ./../../services/music-assistant.nix

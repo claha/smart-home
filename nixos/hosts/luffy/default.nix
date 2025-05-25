@@ -4,8 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./../../config/nix.nix
-      ./../../config/swedish.nix
       ./../../services/audiobookshelf.nix
       ./../../services/homepage.nix
       ./../../services/jellyfin.nix

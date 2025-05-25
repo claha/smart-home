@@ -5,8 +5,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../config/nix.nix
-      ./../../config/swedish.nix
       ./../../services/tailscale.nix
     ];
 
