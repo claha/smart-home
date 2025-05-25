@@ -23,11 +23,6 @@
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
-  # Install terminess nerdfont
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Terminus" ]; })
-  ];
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manager = {
     isNormalUser = true;

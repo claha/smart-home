@@ -20,11 +20,6 @@
   networking.hostId = "11d742f9";
   services.mullvad-vpn.enable = true;
 
-  # Install terminess nerdfont
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Terminus" ]; })
-  ];
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.claes = {
     isNormalUser = true;

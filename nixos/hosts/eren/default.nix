@@ -22,11 +22,6 @@
   # Networking
   networking.hostId = "d00babfa";
 
-  # Install terminess nerdfont
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Terminus" ]; })
-  ];
-
   # Define users
   users.users.manager = {
     isNormalUser = true;
