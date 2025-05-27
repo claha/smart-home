@@ -8,6 +8,7 @@
       ./../../services/karakeep.nix
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix
+      ./../../services/ntfy.nix
       ./../../services/tailscale.nix
       ./../../services/vikunja.nix
       ./../../services/wyoming.nix
