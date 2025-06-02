@@ -3,6 +3,7 @@
   services.homepage-dashboard = {
     enable = true;
     openFirewall = true;
+    allowedHosts = "homepage.hallstrom.duckdns.org";
 
     settings = {
       language = "en";
