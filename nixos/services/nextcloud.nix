@@ -12,7 +12,7 @@
     nextcloud = {
       enable = true;
       hostName = "nextcloud.hallstrom.duckdns.org";
-      package = pkgs.nextcloud30;
+      package = pkgs.nextcloud31;
       database.createLocally = true;
       configureRedis = true;
       maxUploadSize = "16G";
