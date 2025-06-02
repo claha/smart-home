@@ -61,6 +61,8 @@ http:
 
     ntfy:
       rule: "Host(`ntfy.hallstrom.duckdns.org`)"
+      middlewares:
+        - websocketheader
       service: ntfy
 
   middlewares:
@@ -68,6 +70,11 @@ http:
       headers:
         customrequestheaders:
           X-Forwarded-Proto: https
+    websocketheader:
+      headers:
+        customRequestHeaders:
+          Connection: upgrade
+          Upgrade: websocket
 
   services:
     homepage:
