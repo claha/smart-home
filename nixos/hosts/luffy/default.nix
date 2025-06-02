@@ -11,6 +11,7 @@
       ./../../services/ollama.nix
       ./../../services/pinchflat.nix
       ./../../services/tailscale.nix
+      ./../../services/traefik.nix
     ];
 
   # Bootloader
@@ -46,21 +47,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Traefik
-  environment.etc.traefik = {
-    source = ./../../services/traefik;
-    user = "traefik";
-    group = "traefik";
-  };
-  services.traefik = {
-    enable = true;
-    staticConfigFile = "/etc/traefik/static.yaml";
-    # environmentFiles = [ config.age.secrets.duckdns-token.path ];  # Bug? Can not be used with staticConfigFile
-  };
-  systemd.services.traefik.serviceConfig = {
-    EnvironmentFile = config.age.secrets.duckdns-token.path;
-  };
 
   # Enable and configure the firewall.
   networking.firewall = {
