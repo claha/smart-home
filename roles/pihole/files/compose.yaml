@@ -8,6 +8,7 @@ services:
       FTLCONF_webserver_api_password: pihole
       FTLCONF_webserver_domain: pihole.hallstrom.duckdns.org
       FTLCONF_dns_listeningMode: ALL
+      FTLCONF_dns_upstreams: 1.1.1.1;1.0.0.1
       FTLCONF_misc_dnsmasq_lines: address=/hallstrom.duckdns.org/100.118.93.10;address=/hallstrom.duckdns.org/192.168.1.217  # yamllint disable rule:line-length
     security_opt:
       - no-new-privileges:true
