@@ -8,25 +8,60 @@ let
     { hostname = "rpi4"; tailscaleIp = "100.74.114.39"; }
     { hostname = "rpi3"; tailscaleIp = "100.95.2.1"; }
   ];
+
+  tailscaleEndpoints = map
+    (device: {
+      name = device.hostname;
+      group = "Tailscale";
+      url = "icmp://${device.tailscaleIp}";
+      interval = "5m";
+      conditions = [
+        "[CONNECTED] == true"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    })
+    tailscaleDevices;
+
+  domainEndpoints = [
+    {
+      name = "hallstrom.duckdns.org";
+      group = "Domain";
+      url = "https://hallstrom.duckdns.org";
+      interval = "1h";
+      conditions = [
+        "[CERTIFICATE_EXPIRATION] > 240h"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+  ];
 in
 {
   services.gatus = {
     enable = true;
     openFirewall = true;
     settings = {
-      endpoints = map
-        (device:
-          {
-            name = device.hostname;
-            group = "Tailscale";
-            url = "icmp://${device.tailscaleIp}";
-            interval = "5m";
-            conditions = [
-              "[CONNECTED] == true"
-            ];
-          }
-        )
-        tailscaleDevices;
+      alerting = {
+        ntfy = {
+          url = "https://ntfy.hallstrom.duckdns.org";
+          topic = "gatus";
+          priority = 3;
+          default-alert = {
+            enabled = true;
+            failure-threshold = 3;
+            success-threshold = 3;
+            send-on-resolved = true;
+          };
+        };
+      };
+      endpoints = tailscaleEndpoints ++ domainEndpoints;
     };
   };
 
