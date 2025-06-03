@@ -42,6 +42,39 @@ let
       ];
     }
   ];
+
+  serviceEndpoints = [
+    {
+      name = "Audiobookshelf";
+      group = "Service";
+      url = "https://audiobookshelf.hallstrom.duckdns.org/healthcheck";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY] == OK"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Jellyfin";
+      group = "Service";
+      url = "https://jellyfin.hallstrom.duckdns.org/health";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY] == Healthy"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+  ];
 in
 {
   services.gatus = {
@@ -61,7 +94,7 @@ in
           };
         };
       };
-      endpoints = tailscaleEndpoints ++ domainEndpoints;
+      endpoints = tailscaleEndpoints ++ domainEndpoints ++ serviceEndpoints;
     };
   };
 
