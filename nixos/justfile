@@ -3,8 +3,8 @@ default:
 
 hostname := `hostname | cut -d "." -f 1`
 
-switch flake=hostname:
-    sudo nixos-rebuild switch --flake .#{{ flake }}
+switch flags="" flake=hostname:
+    sudo nixos-rebuild switch --flake .#{{ flake }} {{ flags }}
 
 update:
     nix flake update
