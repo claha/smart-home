@@ -45,6 +45,7 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" ];
     packages = with pkgs; [
+      zoom-us
     ];
   };
 
@@ -60,6 +61,8 @@
     git
     vim
     firefox
+    google-chrome
+    microsoft-edge
   ];
 
   # Enable the OpenSSH daemon.
