@@ -127,6 +127,12 @@
               icon = "karakeep";
             };
           }
+          {
+            Open-Webui = {
+              href = "https://openwebui.hallstrom.duckdns.org";
+              icon = "open-webui";
+            };
+          }
         ];
       }
       {
