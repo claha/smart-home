@@ -137,6 +137,12 @@
               icon = "gatus";
             };
           }
+          {
+            "Beszel" = {
+              href = "https://beszel.hallstrom.duckdns.org";
+              icon = "beszel";
+            };
+          }
         ];
       }
     ];

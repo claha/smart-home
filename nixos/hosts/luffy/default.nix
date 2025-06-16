@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ./../../services/audiobookshelf.nix
+      ./../../services/beszel-agent.nix
       ./../../services/homepage.nix
       ./../../services/jellyfin.nix
       ./../../services/nextcloud.nix

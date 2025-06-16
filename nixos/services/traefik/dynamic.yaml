@@ -65,6 +65,10 @@ http:
         - websocketheader
       service: ntfy
 
+    beszel:
+      rule: "Host(`beszel.hallstrom.duckdns.org`)"
+      service: beszel
+
   middlewares:
     sslheader:
       headers:
@@ -146,3 +150,8 @@ http:
       loadbalancer:
         servers:
           - url: "http://192.168.1.49:2586"
+
+    beszel:
+      loadbalancer:
+        servers:
+          - url: "http://192.168.1.49:8090"
