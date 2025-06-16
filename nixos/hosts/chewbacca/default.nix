@@ -7,6 +7,7 @@
       ./../../services/beszel-hub.nix
       ./../../services/beszel-agent.nix
       ./../../services/gatus.nix
+      ./../../services/it-tools.nix
       ./../../services/karakeep.nix
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix

@@ -73,6 +73,10 @@ http:
       rule: "Host(`openwebui.hallstrom.duckdns.org`)"
       service: openwebui
 
+    ittools:
+      rule: "Host(`ittools.hallstrom.duckdns.org`)"
+      service: ittools
+
   middlewares:
     sslheader:
       headers:
@@ -164,3 +168,8 @@ http:
       loadbalancer:
         servers:
           - url: "http://0.0.0.0:8080"
+
+    ittools:
+      loadbalancer:
+        servers:
+          - url: "http://192.168.1.49:8023"

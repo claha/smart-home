@@ -133,6 +133,12 @@
               icon = "open-webui";
             };
           }
+          {
+            It-Tools = {
+              href = "https://ittools.hallstrom.duckdns.org";
+              icon = "it-tools";
+            };
+          }
         ];
       }
       {
