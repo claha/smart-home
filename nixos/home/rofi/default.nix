@@ -3,15 +3,17 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    location = "center";
+    location = "top";
+    yoffset = 60;
+    terminal = "${pkgs.wezterm}/bin/wezterm";
+    modes = [ "drun" "run" "ssh" "window" "combi" ];
+    font = "TerminessNerdFontMono 18";
+
     extraConfig = {
-      modes = "drun,run,ssh,window,combi";
       combi-modes = "run,drun";
       combi-hide-mode-prefix = true;
       display-combi = "run";
-      # font = "TerminessNerdFontMono 18";
       fixed-num-lines = true;
-      terminal = "${pkgs.wezterm}/bin/wezterm";
       disable-history = false;
       matching = "fuzzy";
     };

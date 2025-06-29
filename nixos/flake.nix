@@ -91,6 +91,11 @@
             stylix.nixosModules.stylix
           ];
         };
+
+        "ichigo" = mkSystem {
+          hostname = "ichigo";
+          homeUser = "claes";
+        };
       };
     };
 }

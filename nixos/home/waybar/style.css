@@ -1,0 +1,29 @@
+* {
+    font-family: "Terminess Nerd Font", "monospace";
+    font-size: 16px;
+    min-height: 0;
+    padding: 0 8px;
+}
+
+#waybar {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    margin: 4px;
+    color: white;
+}
+
+#workspaces button {
+    color: rgba(255, 255, 255, 0.5);
+}
+#workspaces button.active {
+    color: white;
+}
+
+#clock,
+#network,
+#battery,
+#tray {
+    background: transparent;
+    color: white;
+    padding: 8px 8px;
+}

@@ -7,8 +7,8 @@
     ./git
     ./mpv
     ./qutebrowser
-    # ./rofi
-    # ./sway
+    ./rofi
+    ./hyprland
     ./wezterm
   ];
 
