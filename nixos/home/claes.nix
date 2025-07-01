@@ -7,7 +7,6 @@
     ./git
     ./mpv
     ./qutebrowser
-    ./rofi
     ./hyprland
     ./wezterm
   ];

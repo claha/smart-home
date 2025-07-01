@@ -6,6 +6,7 @@
     ../hyprpaper
     ../hypridle
     ../hyprlock
+    ../fuzzel
   ];
 
   wayland.windowManager.hyprland = {
@@ -13,7 +14,7 @@
     settings = {
       "$mod" = "SUPER";
       "$terminal" = "wezterm";
-      "$menu" = "rofi -show drun";
+      "$menu" = "fuzzel";
       exec-once = "waybar && hyprpaper && hypridle";
       monitor = ",preferred,auto,1.0";
       bind =
