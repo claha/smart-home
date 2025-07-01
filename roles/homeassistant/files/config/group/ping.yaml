@@ -1,9 +1,0 @@
----
-ping:
-  name: Ping
-  all: true
-  entities:
-    - binary_sensor.ping_rpi0_host
-    - binary_sensor.ping_rpi3_host
-    - binary_sensor.ping_rpi4_host
-  icon: mdi:server-network

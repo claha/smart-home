@@ -11,10 +11,8 @@ luffy_ip_tailscale: 100.118.93.10
 qnap_mac: 00:08:9B:EB:91:6C
 qnap_ip: 192.168.1.131
 
-rpi0_ip: 192.168.1.180
 rpi3_ip: 192.168.1.24
 rpi4_ip: 192.168.1.173
-rpi0_ip_tailscale: 100.107.148.90
 rpi3_ip_tailscale: 100.95.2.1
 rpi4_ip_tailscale: 100.74.114.39
 
@@ -39,9 +37,6 @@ smart_home_hosts:
   - name: rpi3
     ip: "{{ rpi3_ip }}"
     user: manager
-  - name: rpi0
-    ip: "{{ rpi0_ip }}"
-    user: serveradmin
   - name: chewbacca
     ip: "{{ chewbacca_ip }}"
     user: manager
@@ -54,9 +49,6 @@ smart_home_hosts:
   - name: rpi3-tailscale
     ip: "{{ rpi3_ip_tailscale }}"
     user: manager
-  - name: rpi0-tailscale
-    ip: "{{ rpi0_ip_tailscale }}"
-    user: serveradmin
   - name: chewbacca-tailscale
     ip: "{{ chewbacca_ip_tailscale }}"
     user: manager
