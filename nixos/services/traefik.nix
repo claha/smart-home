@@ -56,6 +56,10 @@ let
     services;
 in
 {
+  imports = [
+    ../modules/duckdns.nix
+  ];
+
   services.traefik = {
     enable = true;
     environmentFiles = [ config.age.secrets.duckdns-token.path ];
@@ -127,5 +131,11 @@ in
         services = traefikServices;
       };
     };
+  };
+
+  services.duckdns = {
+    enable = true;
+    domains = [ "hallstrom" ];
+    environmentFiles = [ config.age.secrets.duckdns-token.path ];
   };
 }

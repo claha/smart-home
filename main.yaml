@@ -20,8 +20,6 @@
       tags: pihole
     - role: netalertx
       tags: netalertx
-    - role: duckdns
-      tags: duckdns
 
 - name: Setup smarthome
   hosts: smarthome

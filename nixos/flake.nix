@@ -77,6 +77,11 @@
               group = "traefik";
             };
           };
+          extraModules = [
+            {
+              disabledModules = [ "services/misc/duckdns.nix" ];
+            }
+          ];
         };
 
         "eren" = mkSystem {
