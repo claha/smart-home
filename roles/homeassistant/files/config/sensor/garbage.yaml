@@ -1,4 +1,0 @@
----
-- platform: tekniska_verken_garbage
-  city: !secret home_city
-  street: !secret home_street

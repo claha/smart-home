@@ -9,7 +9,6 @@
     - "{{ homeassistant_service_path }}/config"
     - "{{ homeassistant_service_path }}/config/custom_components"
     - "{{ homeassistant_service_path }}/config/custom_components/avanza_stock"
-    - "{{ homeassistant_service_path }}/config/custom_components/tekniska_verken_garbage"  # yamllint disable rule:line-length
 
 - name: Create compose file
   ansible.builtin.template:
@@ -34,16 +33,6 @@
   loop:
     - __init__.py
     - const.py
-    - manifest.json
-    - sensor.py
-
-- name: Download custom component tekniska verken garbage
-  ansible.builtin.get_url:
-    url: "https://raw.githubusercontent.com/custom-components/sensor.tekniska_verken_garbage/v1.0.0/custom_components/tekniska_verken_garbage/{{ item }}"  # yamllint disable rule:line-length
-    dest: "{{ homeassistant_service_path }}/config/custom_components/tekniska_verken_garbage/{{ item }}"  # yamllint disable rule:line-length
-    mode: "0644"
-  loop:
-    - __init__.py
     - manifest.json
     - sensor.py
 
@@ -73,24 +62,4 @@
     src: "templates/portfolio.yaml.j2"
     dest: "{{ homeassistant_service_path }}/config/sensor/portfolio.yaml"
     mode: "0640"
-  notify: "Recreate {{ homeassistant_service_name }}"
-
-- name: Create static template sensors
-  ansible.builtin.template:
-    src: "templates/static.yaml.j2"
-    dest: "{{ homeassistant_service_path }}/config/template/static.yaml"
-    mode: "0640"
-  notify: "Recreate {{ homeassistant_service_name }}"
-
-- name: Create monitor dashboard
-  ansible.builtin.template:
-    src: "templates/lovelace-monitor.yaml.j2"
-    dest: "{{ homeassistant_service_path }}/config/lovelace-monitor.yaml"
-    mode: "0640"
-
-- name: Create secrets
-  ansible.builtin.template:
-    src: "templates/secrets.yaml.j2"
-    dest: "{{ homeassistant_service_path }}/config/secrets.yaml"
-    mode: "0600"
   notify: "Recreate {{ homeassistant_service_name }}"

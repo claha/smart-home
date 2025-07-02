@@ -2,7 +2,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2025.6.1
+    image: ghcr.io/home-assistant/home-assistant:2025.7.0
     environment:
       TZ: Europe/Stockholm
     network_mode: host
@@ -10,5 +10,7 @@ services:
       - no-new-privileges:true
     volumes:
       - ./config:/config
+    devices:
+      - /dev/ttyUSB0
     privileged: true
     restart: unless-stopped

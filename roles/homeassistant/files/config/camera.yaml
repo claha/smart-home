@@ -1,8 +1,0 @@
----
-- platform: ffmpeg
-  name: SONOFF 0
-  input: !secret sonoff_0_rtsp
-
-- platform: ffmpeg
-  name: SONOFF 1
-  input: !secret sonoff_1_rtsp

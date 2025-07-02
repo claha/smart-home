@@ -1,4 +1,4 @@
-"""Send a notification with portfolio state to telegram."""
+"""Send a notification with portfolio state."""
 
 hass = hass  # noqa: F821
 data = data  # noqa: F821
@@ -180,4 +180,8 @@ message = message + f"Total Change: {summary_data[1]} ({summary_data[2]})\n"
 message = message + "</code>"
 
 # Send notification
-hass.services.call("notify", "telegram", {"message": message})
+hass.services.call(
+    "notify",
+    "send_message",
+    {"message": message, "entity_id": "notify.portfolio"},
+)

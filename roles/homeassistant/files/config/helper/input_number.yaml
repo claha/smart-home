@@ -1,22 +1,4 @@
 ---
-lights_sun_elevation_up:
-  min: -10
-  max: 10
-  name: Lights sun elevation up
-  step: 0.1
-  mode: box
-  unit_of_measurement: °
-  icon: mdi:weather-sunset-up
-
-lights_sun_elevation_down:
-  min: -10
-  max: 10
-  name: Lights sun elevation down
-  step: 0.1
-  mode: box
-  unit_of_measurement: °
-  icon: mdi:weather-sunset-down
-
 lights_illuminance_on:
   min: 0
   max: 100
@@ -43,12 +25,3 @@ lights_laundry_timeout:
   mode: box
   unit_of_measurement: "min"
   icon: mdi:timer-settings
-
-garage_door_angle_threshold:
-  min: -90
-  max: 90
-  name: Garage door angle threshold
-  step: 1
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:garage

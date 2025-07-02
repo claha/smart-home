@@ -1,4 +1,4 @@
-"""Send a notification with batteries state to telegram."""
+"""Send a notification with batteries state."""
 
 hass = hass  # noqa: F821
 
@@ -26,4 +26,8 @@ for battery in batteries:
     level = get_entity_state_int(battery)
     message = message + f"\n{name}: {level}%"
 message = message + "</code>"
-hass.services.call("notify", "telegram", {"message": message})
+hass.services.call(
+    "notify",
+    "send_message",
+    {"message": message, "entity_id": "notify.portfolio"},
+)
