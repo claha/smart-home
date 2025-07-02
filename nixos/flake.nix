@@ -6,20 +6,13 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:danth/stylix/release-25.05";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, agenix, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, ... }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
@@ -92,9 +85,6 @@
         "yoda" = mkSystem {
           hostname = "yoda";
           homeUser = "claes";
-          extraModules = [
-            stylix.nixosModules.stylix
-          ];
         };
 
         "ichigo" = mkSystem {
