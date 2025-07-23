@@ -3,6 +3,7 @@
 {
   imports = [
     ./bash
+    ./development
     ./emacs
     ./git
     ./mpv
