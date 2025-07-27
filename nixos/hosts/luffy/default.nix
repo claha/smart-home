@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./../../services/audiobookshelf.nix
+      ./../../services
       ./../../services/beszel-agent.nix
       ./../../services/homepage.nix
       ./../../services/jellyfin.nix
@@ -53,6 +53,10 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 ];
+  };
+
+  myServices = {
+    audiobookshelf.enable = true;
   };
 
   # Did you read the comment?
