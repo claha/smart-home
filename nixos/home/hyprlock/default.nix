@@ -15,8 +15,7 @@
         }
       ];
       input-field = {
-        hide_input = true;
-        hide_input_base_color = "rgb(230, 97, 0)";
+        outer_color = "rgb(230, 97, 0)";
       };
     };
   };
