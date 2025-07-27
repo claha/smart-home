@@ -66,6 +66,11 @@
         layout = "dwindle";
       };
 
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
       decoration = {
         rounding = 4;
         rounding_power = 4;
