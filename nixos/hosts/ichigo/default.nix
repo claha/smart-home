@@ -1,5 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  background-package = pkgs.stdenvNoCC.mkDerivation {
+    name = "background-image";
+    src = ../../home/hyprpaper/brac.jpg;
+    dontUnpack = true;
+    installPhase = ''
+      cp $src $out
+    '';
+  };
+in
 {
   imports =
     [
@@ -18,6 +28,7 @@
   # Enable the KDE Plasma Desktop Environment
   services.displayManager.sddm = {
     enable = true;
+    theme = "breeze";
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
@@ -55,6 +66,10 @@
     firefox
     google-chrome
     microsoft-edge
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
+      background = "${background-package}"
+    '')
   ];
 
   services.mullvad-vpn.enable = true;
