@@ -13,7 +13,7 @@
         reload_style_on_change = true;
         modules-left = [ "clock" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "network" "battery" "tray" ];
+        modules-right = [ "pulseaudio" "network" "battery" "tray" ];
         "hyprland/workspaces" = {
           persistent-workspaces = {
             "*" = [ 1 2 3 4 5 ];
@@ -21,6 +21,12 @@
         };
         clock = {
           format = "{:%H:%M}";
+        };
+        pulseaudio = {
+          format = " {volume}%";
+          format-bluetooth = " {volume}%  {format_source}";
+          format-bluetooth-muted = "󰸈 {voume}%  {format_source}";
+          format-muted = "󰸈 {volume}%";
         };
         network = {
           format-wifi = "";
