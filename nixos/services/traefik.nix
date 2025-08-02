@@ -20,7 +20,7 @@ let
     karakeep = "http://192.168.1.49:3000";
     ntfy = "http://192.168.1.49:2586";
     beszel = "http://192.168.1.49:8090";
-    openwebui = "http://0.0.0.0:8080";
+    openwebui = "http://192.168.1.160:8080";
     ittools = "http://192.168.1.49:8023";
   };
 

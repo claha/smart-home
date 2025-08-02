@@ -14,7 +14,6 @@
       ./../../services/ntfy.nix
       ./../../services/tailscale.nix
       ./../../services/vikunja.nix
-      ./../../services/wyoming.nix
     ];
 
   # Bootloader
