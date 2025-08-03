@@ -73,4 +73,9 @@
   programs.vim = {
     enable = true;
   };
+
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 }
