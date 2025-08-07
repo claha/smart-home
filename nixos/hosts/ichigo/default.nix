@@ -14,8 +14,8 @@ in
   imports =
     [
       ./hardware-configuration.nix
+      ./../../services
       ./../../services/beszel-agent.nix
-      ./../../services/tailscale.nix
     ];
 
   # Bootloader

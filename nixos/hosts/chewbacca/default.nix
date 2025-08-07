@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./../../services
       ./../../services/beszel-hub.nix
       ./../../services/beszel-agent.nix
       ./../../services/gatus.nix
@@ -12,7 +13,6 @@
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix
       ./../../services/ntfy.nix
-      ./../../services/tailscale.nix
       ./../../services/vikunja.nix
     ];
 

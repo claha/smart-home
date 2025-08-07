@@ -10,7 +10,6 @@
       ./../../services/jellyfin.nix
       ./../../services/nextcloud.nix
       ./../../services/pinchflat.nix
-      ./../../services/tailscale.nix
       ./../../services/traefik.nix
     ];
 

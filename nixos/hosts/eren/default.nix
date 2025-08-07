@@ -5,9 +5,9 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../services
       ./../../services/beszel-agent.nix
       ./../../services/ollama.nix
-      ./../../services/tailscale.nix
       ./../../services/wyoming.nix
     ];
 

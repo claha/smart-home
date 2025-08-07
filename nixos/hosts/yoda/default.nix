@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./../../services/tailscale.nix
+      ./../../services
     ];
 
   # Bootloader
