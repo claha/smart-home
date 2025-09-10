@@ -97,8 +97,3 @@ repos:
       - id: ansible-lint
         additional_dependencies:
           - ansible
-
-  - repo: https://github.com/semaphor-dk/dansabel
-    rev: 1.8.1
-    hooks:
-      - id: dansabel
