@@ -51,10 +51,11 @@
       fsType = "zfs";
     };
 
-  fileSystems."/share" =
+  fileSystems."/storage" =
     {
-      device = "tank/share";
-      fsType = "zfs";
+      device = "/dev/disk/by-uuid/1b19247e-29e5-43ae-85ac-29eda639cff4";
+      fsType = "ext4";
+      options = [ "nofail" "noatime" ];
     };
 
   swapDevices = [ ];
