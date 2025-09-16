@@ -2,7 +2,7 @@
 
 let
   tailscaleDevices = [
-    { hostname = "chewbacca"; tailscaleIp = "100.110.122.14"; }
+    { hostname = "naruto"; tailscaleIp = "100.110.122.14"; }
     { hostname = "luffy"; tailscaleIp = "100.118.93.10"; }
     { hostname = "eren"; tailscaleIp = "100.77.170.28"; }
     { hostname = "rpi4"; tailscaleIp = "100.74.114.39"; }
@@ -81,6 +81,10 @@ in
     enable = true;
     openFirewall = true;
     settings = {
+      #      storage = {
+      #       type = "sqlite";
+      #      path = "/var/lib/gatus/data/data.db";
+      #   };
       alerting = {
         ntfy = {
           url = "https://ntfy.hallstrom.duckdns.org";

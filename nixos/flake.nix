@@ -54,8 +54,8 @@
     in
     {
       nixosConfigurations = {
-        "chewbacca" = mkSystem {
-          hostname = "chewbacca";
+        "naruto" = mkSystem {
+          hostname = "naruto";
           homeUser = "manager";
         };
 

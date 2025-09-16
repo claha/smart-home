@@ -1,5 +1,5 @@
 let
-  chewbacca = [
+  naruto = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBwSq5lZGTwwD48EwSs+/go931lbRpi5yVuRJQR6rD3d"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrVgUdJlyiqFnzWQdp1wqdfInM2f2zObzQR/NY6apoo"
   ];
@@ -12,5 +12,5 @@ let
   ];
 in
 {
-  "duckdns-token.age".publicKeys = chewbacca ++ claes ++ luffy;
+  "duckdns-token.age".publicKeys = naruto ++ claes ++ luffy;
 }
