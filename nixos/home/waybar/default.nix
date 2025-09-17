@@ -7,6 +7,7 @@
       mainBar = {
         layer = "top";
         position = "top";
+        output = [ "eDP-1" ];
         margin-top = 10;
         margin-left = 10;
         margin-right = 10;
@@ -59,6 +60,23 @@
         tray = {
           icon-size = 14;
           spacing = 10;
+        };
+      };
+      externalBar = {
+        layer = "top";
+        position = "top";
+        output = [ "DP-1" ];
+        margin-top = 10;
+        margin-left = 10;
+        margin-right = 10;
+        reload_style_on_change = true;
+        modules-left = [ ];
+        modules-center = [ "hyprland/workspaces" ];
+        modules-right = [ ];
+        "hyprland/workspaces" = {
+          persistent-workspaces = {
+            "*" = [ 6 7 8 9 ];
+          };
         };
       };
     };
