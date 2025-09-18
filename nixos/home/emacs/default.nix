@@ -13,6 +13,19 @@
       ]))
     ];
     extraConfig = ''
+      (setq ring-bell-function 'ignore)
+
+      (setq inhibit-splash-screen t)
+      (setq inhibit-startup-screen t)
+      (setq inhibit-startup-buffer-menu t)
+      (setq initial-scratch-message nil)
+      (setq initial-buffer-choice nil)
+
+      (menu-bar-mode -1)
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)
+      (tooltip-mode -1)
+
       (use-package ef-themes
         :init
         (load-theme 'ef-maris-dark t))
