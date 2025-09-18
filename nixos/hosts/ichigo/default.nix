@@ -53,6 +53,17 @@ in
     ];
   };
 
+  myServices.udev = {
+    enable = true;
+    devices = [
+      {
+        serial = "E0C9125B0D9B";
+        mountPoint = "/mnt/rp2040";
+        user = "claes";
+      }
+    ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
