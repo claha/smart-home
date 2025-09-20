@@ -6,6 +6,7 @@
     enable = true;
     package = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
+      epkgs.no-littering
       epkgs.ef-themes
       epkgs.prescient
       epkgs.vertico
@@ -31,6 +32,11 @@
 
       (setq indent-tabs-mode nil)
       (setq tab-width 4)
+
+      (use-package no-littering
+        :config
+        (no-littering-theme-backups)
+        (setq custom-file (make-temp-file "custom.el")))
 
       (use-package ef-themes
         :init
