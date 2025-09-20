@@ -29,6 +29,9 @@
       (scroll-bar-mode -1)
       (tooltip-mode -1)
 
+      (setq indent-tabs-mode nil)
+      (setq tab-width 4)
+
       (use-package ef-themes
         :init
         (load-theme 'ef-maris-dark t))
