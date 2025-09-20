@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     dua
     duf
+    fd
     silver-searcher
     figurine
   ];
