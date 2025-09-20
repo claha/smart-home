@@ -11,6 +11,8 @@
 
   home.packages = with pkgs; [
     brightnessctl
+    wl-clipboard
+    cliphist
   ];
 
   wayland.windowManager.hyprland = {
@@ -19,7 +21,12 @@
       "$mod" = "SUPER";
       "$terminal" = "wezterm";
       "$menu" = "fuzzel";
-      exec-once = "waybar && hyprpaper && hypridle";
+      exec-once = [
+        "waybar"
+        "hyprpaper"
+        "hypridle"
+        "wl-paste --watch cliphist store"
+      ];
       monitor = ",preferred,auto,1.0";
       workspace = [
         "1,monitor:eDP-1"
@@ -46,6 +53,7 @@
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
           "$mod, L, exec, hyprlock"
+          "$mod, V, exec, cliphist list | fuzzel --dmenu --width 100 | cliphist decode | wl-copy"
         ]
         ++ (
           # workspaces
