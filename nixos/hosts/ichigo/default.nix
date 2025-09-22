@@ -23,7 +23,9 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.wireless.iwd = {
+    enable = true;
+  };
 
   # Enable the KDE Plasma Desktop Environment
   services.displayManager.sddm = {
@@ -47,7 +49,7 @@ in
   # Users
   users.users.claes = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
     hashedPassword = "$y$j9T$oLZK90Am5DVB.Cq1qlrlv1$jtVML8FNT8c9pRZjBvJ/xP895AkD8CqDgivA0FDt6Q9";
     packages = with pkgs; [
     ];
