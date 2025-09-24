@@ -22,6 +22,7 @@
       sm = "submodule";
       st = "status";
     };
+    diff-highlight.enable = true;
     signing.key = "957A412F3C40DFCA";
     extraConfig = {
       github = {
