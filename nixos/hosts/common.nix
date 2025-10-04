@@ -13,6 +13,8 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = hostname;
 
   time.timeZone = "Europe/Stockholm";
