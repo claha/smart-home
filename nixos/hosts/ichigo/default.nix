@@ -76,6 +76,7 @@ in
     firefox
     google-chrome
     microsoft-edge
+    bitwarden-desktop
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]
       background = "${background-package}"
