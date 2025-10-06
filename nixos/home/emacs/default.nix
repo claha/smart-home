@@ -12,9 +12,8 @@
       epkgs.vertico
       epkgs.vertico-prescient
       epkgs.nix-ts-mode
-      (epkgs.treesit-grammars.with-grammars (ts: [
-        ts.tree-sitter-nix
-      ]))
+      epkgs.treesit-grammars.with-all-grammars
+      epkgs.treesit-auto
     ];
     extraConfig = ''
       (setq ring-bell-function 'ignore)
@@ -59,8 +58,11 @@
         :init
         (vertico-prescient-mode))
 
-      (use-package nix-ts-mode
-        :mode "\\.nix\\'")
+      (use-package treesit-auto
+        :config
+        (treesit-auto-add-to-auto-mode-alist 'all)
+        (global-treesit-auto-mode)
+        (setq treesit-font-lock-level 4))
     '';
   };
 }
