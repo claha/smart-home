@@ -1,0 +1,19 @@
+---
+name: Run nix checks
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  nix-flake-check:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - uses: DeterminateSystems/determinate-nix-action@main
+      - run: cd nixos && nix flake check
