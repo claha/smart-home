@@ -1,18 +1,30 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.homelab.beszel-hub;
+in
 {
-  imports =
-    [
-      ../modules/beszel-hub.nix
-    ];
+  imports = [ ../modules/beszel-hub.nix ];
 
-  services.beszel.hub = {
-    enable = true;
-    host = "0.0.0.0";
-    environment = {
-      SHARE_ALL_SYSTEMS = "true";
+  options.homelab.beszel-hub = {
+    enable = lib.mkEnableOption "Beszel Hub";
+    port = lib.mkOption {
+      type = lib.types.port;
+      default = 3001;
+      description = "Port for Beszel Hub";
     };
   };
-  networking.firewall.allowedTCPPorts = [ config.services.beszel.hub.port ];
 
+  config = lib.mkIf cfg.enable {
+    services.beszel.hub = {
+      enable = true;
+      host = "0.0.0.0";
+      port = cfg.port;
+      environment = {
+        SHARE_ALL_SYSTEMS = "true";
+      };
+    };
+
+    networking.firewall.allowedTCPPorts = [ cfg.port ];
+  };
 }

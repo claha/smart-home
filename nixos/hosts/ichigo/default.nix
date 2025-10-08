@@ -15,7 +15,6 @@ in
     [
       ./hardware-configuration.nix
       ./../../services
-      ./../../services/beszel-agent.nix
     ];
 
   # Bootloader

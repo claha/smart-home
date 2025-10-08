@@ -5,7 +5,6 @@
     [
       ./hardware-configuration.nix
       ./../../services
-      ./../../services/beszel-agent.nix
       ./../../services/homepage.nix
       ./../../services/nextcloud.nix
       ./../../services/pinchflat.nix

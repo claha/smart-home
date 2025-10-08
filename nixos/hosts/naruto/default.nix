@@ -5,8 +5,6 @@
     [
       ./hardware-configuration.nix
       ./../../services
-      ./../../services/beszel-hub.nix
-      ./../../services/beszel-agent.nix
       ./../../services/gatus.nix
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix
@@ -63,6 +61,7 @@
   homelab = {
     it-tools.enable = true;
     karakeep.enable = true;
+    beszel-hub.enable = true;
   };
 
   # Enable and configure the firewall.
