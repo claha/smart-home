@@ -8,6 +8,7 @@
       br = "branch";
       cfg = "config";
       ci = "commit";
+      cia = "commit --amend --no-edit";
       co = "checkout";
       cp = "cherry-pick";
       df = "diff";
