@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myServices.audiobookshelf;
+  cfg = config.homelab.audiobookshelf;
 in
 {
-  options.myServices.audiobookshelf = {
+  options.homelab.audiobookshelf = {
     enable = lib.mkEnableOption "Audiobookshelf";
   };
 

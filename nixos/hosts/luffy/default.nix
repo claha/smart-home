@@ -53,7 +53,7 @@
     allowedTCPPorts = [ 80 443 ];
   };
 
-  myServices = {
+  homelab = {
     audiobookshelf.enable = true;
   };
 
