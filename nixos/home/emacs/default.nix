@@ -12,6 +12,7 @@
       epkgs.vertico
       epkgs.vertico-prescient
       epkgs.nix-ts-mode
+      epkgs.just-ts-mode
       epkgs.treesit-grammars.with-all-grammars
       epkgs.treesit-auto
     ];
