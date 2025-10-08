@@ -8,3 +8,7 @@ switch flags="" flake=hostname:
 
 update:
     nix flake update
+
+gc:
+    nix-collect-garbage -d
+    nix-store --optimise
