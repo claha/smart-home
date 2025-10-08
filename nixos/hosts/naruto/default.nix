@@ -8,7 +8,6 @@
       ./../../services/beszel-hub.nix
       ./../../services/beszel-agent.nix
       ./../../services/gatus.nix
-      ./../../services/it-tools.nix
       ./../../services/karakeep.nix
       ./../../services/music-assistant.nix
       ./../../services/mealie.nix
@@ -61,6 +60,10 @@
 
   # Enable mullvad
   services.mullvad-vpn.enable = true;
+
+  homelab = {
+    it-tools.enable = true;
+  };
 
   # Enable and configure the firewall.
   networking.firewall = {

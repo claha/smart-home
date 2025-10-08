@@ -1,21 +1,31 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.homelab.it-tools;
+  port = 8023;
+in
 {
-  environment.systemPackages = with pkgs; [
-    static-web-server
-    it-tools
-  ];
-
-  systemd.services.it-tools = {
-    description = "Serve it-tools static site";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.static-web-server}/bin/static-web-server --root ${pkgs.it-tools}/lib --port 8023";
-      DynamicUser = true;
-      Restart = "always";
-    };
+  options.homelab.it-tools = {
+    enable = lib.mkEnableOption "IT-Tools";
   };
 
-  networking.firewall.allowedTCPPorts = [ 8023 ];
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      static-web-server
+      it-tools
+    ];
+
+    systemd.services.it-tools = {
+      description = "Serve it-tools static site";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.static-web-server}/bin/static-web-server --root ${pkgs.it-tools}/lib --port ${toString port}";
+        DynamicUser = true;
+        Restart = "always";
+      };
+    };
+
+    networking.firewall.allowedTCPPorts = [ port ];
+  };
 }
