@@ -7,7 +7,6 @@
       ./../../services
       ./../../services/beszel-agent.nix
       ./../../services/homepage.nix
-      ./../../services/jellyfin.nix
       ./../../services/nextcloud.nix
       ./../../services/pinchflat.nix
       ./../../services/traefik.nix
@@ -55,6 +54,10 @@
 
   homelab = {
     audiobookshelf.enable = true;
+    jellyfin = {
+      enable = true;
+      hardwareAcceleration = true;
+    };
   };
 
   # Did you read the comment?
