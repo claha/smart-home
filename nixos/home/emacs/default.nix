@@ -41,6 +41,7 @@
       (use-package ef-themes
         :init
         (load-theme 'ef-maris-dark t))
+      (add-to-list 'default-frame-alist '(alpha-background . 70))
 
       (use-package savehist
         :init
