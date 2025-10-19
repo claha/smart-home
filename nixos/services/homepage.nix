@@ -104,12 +104,6 @@
       {
         Productivity = [
           {
-            Nextcloud = {
-              href = "https://nextcloud.hallstrom.duckdns.org";
-              icon = "nextcloud";
-            };
-          }
-          {
             Vikunja = {
               href = "https://vikunja.hallstrom.duckdns.org";
               icon = "vikunja";

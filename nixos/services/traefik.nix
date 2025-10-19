@@ -13,7 +13,6 @@ let
     homeassistant = "http://192.168.1.173:8123";
     pihole = "http://192.168.1.24";
     gatus = "http://192.168.1.49:8080";
-    nextcloud = "http://0.0.0.0:8086";
     netalertx = "http://192.168.1.24:20211";
     vikunja = "http://192.168.1.49:3456";
     mealie = "http://192.168.1.49:9000";

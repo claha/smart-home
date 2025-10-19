@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       ./../../services
       ./../../services/homepage.nix
-      ./../../services/nextcloud.nix
       ./../../services/pinchflat.nix
       ./../../services/traefik.nix
     ];
