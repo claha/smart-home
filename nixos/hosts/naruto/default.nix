@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       ./../../services
       ./../../services/gatus.nix
-      ./../../services/music-assistant.nix
       ./../../services/mealie.nix
       ./../../services/ntfy.nix
       ./../../services/vikunja.nix

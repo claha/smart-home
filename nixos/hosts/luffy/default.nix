@@ -52,6 +52,7 @@
 
   homelab = {
     audiobookshelf.enable = true;
+    music-assistant.enable = true;
     jellyfin = {
       enable = true;
       hardwareAcceleration = true;

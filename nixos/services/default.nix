@@ -8,6 +8,7 @@
     ./it-tools.nix
     ./jellyfin.nix
     ./karakeep.nix
+    ./music-assistant.nix
     ./tailscale.nix
     ./udev.nix
   ];
