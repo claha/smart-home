@@ -45,8 +45,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # Enable ssh
-  services.openssh.enable = true;
 
   # Firewall
   networking.firewall = {

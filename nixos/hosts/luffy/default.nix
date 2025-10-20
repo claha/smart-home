@@ -41,8 +41,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Enable and configure the firewall.
   networking.firewall = {

@@ -62,8 +62,6 @@
     microsoft-edge
   ];
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # GPG
   programs.gnupg.agent = {

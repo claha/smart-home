@@ -45,8 +45,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Enable transmission
   services.transmission = {

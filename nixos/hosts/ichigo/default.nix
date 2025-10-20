@@ -84,8 +84,6 @@ in
 
   services.mullvad-vpn.enable = true;
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # GPG
   programs.gnupg.agent = {

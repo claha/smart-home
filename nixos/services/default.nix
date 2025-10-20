@@ -10,6 +10,7 @@
     ./karakeep.nix
     ./music-assistant.nix
     ./tailscale.nix
+    ./ssh.nix
     ./udev.nix
   ];
 }
