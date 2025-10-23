@@ -79,4 +79,8 @@
     enable = true;
     enableBashIntegration = true;
   };
+
+  programs.bat = {
+    enable = true;
+  };
 }
