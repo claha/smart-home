@@ -5,8 +5,10 @@
     enable = true;
     settings = {
       main = {
+        font = "Terminess Nerd Font Monot:size 12";
         terminal = "${pkgs.wezterm}/bin/wezterm";
         layer = "overlay";
+        fuzzy = true;
       };
       colors = {
         background = "000000b2";
