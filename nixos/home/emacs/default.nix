@@ -17,21 +17,23 @@
       epkgs.treesit-auto
     ];
     extraConfig = ''
-      (setq ring-bell-function 'ignore)
-
-      (setq inhibit-splash-screen t)
-      (setq inhibit-startup-screen t)
-      (setq inhibit-startup-buffer-menu t)
-      (setq initial-scratch-message nil)
-      (setq initial-buffer-choice nil)
-
       (menu-bar-mode -1)
       (tool-bar-mode -1)
       (scroll-bar-mode -1)
       (tooltip-mode -1)
 
-      (setq indent-tabs-mode nil)
-      (setq tab-width 4)
+      (custom-set-variables
+        '(inhibit-startup-screen t))
+      (setq initial-scratch-message "")
+      (setq ring-bell-function 'ignore)
+
+      (customize-set-variable 'indent-tabs-mode nil)
+      (customize-set-variable 'tab-width 4)
+      (show-paren-mode 1)
+
+      (setq-default cursor-type 'bar)
+
+      (fset 'yes-or-no-p 'y-or-n-p)
 
       (use-package no-littering
         :config
