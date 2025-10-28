@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./../../services
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./../../services
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;

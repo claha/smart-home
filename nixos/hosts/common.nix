@@ -1,9 +1,18 @@
-{ config, pkgs, lib, hostname, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  hostname,
+  ...
+}:
 
 {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
     gc = {

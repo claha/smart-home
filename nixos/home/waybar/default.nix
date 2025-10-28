@@ -14,10 +14,21 @@
         reload_style_on_change = true;
         modules-left = [ "clock" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "pulseaudio" "network" "battery" "tray" ];
+        modules-right = [
+          "pulseaudio"
+          "network"
+          "battery"
+          "tray"
+        ];
         "hyprland/workspaces" = {
           persistent-workspaces = {
-            "*" = [ 1 2 3 4 5 ];
+            "*" = [
+              1
+              2
+              3
+              4
+              5
+            ];
           };
         };
         clock = {
@@ -75,7 +86,12 @@
         modules-right = [ ];
         "hyprland/workspaces" = {
           persistent-workspaces = {
-            "*" = [ 6 7 8 9 ];
+            "*" = [
+              6
+              7
+              8
+              9
+            ];
           };
         };
       };

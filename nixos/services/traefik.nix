@@ -1,6 +1,12 @@
 { config, lib, ... }:
 let
-  inherit (lib) mkMerge mkIf mkOption types mapAttrs';
+  inherit (lib)
+    mkMerge
+    mkIf
+    mkOption
+    types
+    mapAttrs'
+    ;
 
   domain = "hallstrom.duckdns.org";
 
@@ -28,31 +34,30 @@ let
     ntfy = [ "websocketheader" ];
   };
 
-  routers = mapAttrs'
-    (name: url: {
+  routers =
+    mapAttrs' (name: url: {
       name = name;
       value = {
         rule = "Host(`${name}.${domain}`)";
         service = name;
-      } // lib.optionalAttrs (servicesWithMiddleware ? ${name}) {
+      }
+      // lib.optionalAttrs (servicesWithMiddleware ? ${name}) {
         middlewares = servicesWithMiddleware.${name};
       };
-    })
-    services // {
-    # Add the internal Traefik dashboard router manually
-    traefik = {
-      rule = "Host(`traefik.${domain}`)";
-      service = "api@internal";
+    }) services
+    // {
+      # Add the internal Traefik dashboard router manually
+      traefik = {
+        rule = "Host(`traefik.${domain}`)";
+        service = "api@internal";
+      };
     };
-  };
 
   # Define services for each backend
-  traefikServices = mapAttrs'
-    (name: url: {
-      name = name;
-      value.loadBalancer.servers = [{ url = url; }];
-    })
-    services;
+  traefikServices = mapAttrs' (name: url: {
+    name = name;
+    value.loadBalancer.servers = [ { url = url; } ];
+  }) services;
 in
 {
   imports = [
@@ -90,10 +95,12 @@ in
             middlewares = [ "sslheader@file" ];
             tls = {
               certResolver = "letsencrypt";
-              domains = [{
-                main = "${domain}";
-                sans = [ "*.${domain}" ];
-              }];
+              domains = [
+                {
+                  main = "${domain}";
+                  sans = [ "*.${domain}" ];
+                }
+              ];
             };
           };
         };

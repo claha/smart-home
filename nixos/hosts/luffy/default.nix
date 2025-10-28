@@ -1,14 +1,18 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./../../services
-      ./../../services/homepage.nix
-      ./../../services/pinchflat.nix
-      ./../../services/traefik.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./../../services
+    ./../../services/homepage.nix
+    ./../../services/pinchflat.nix
+    ./../../services/traefik.nix
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -21,7 +25,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manager = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -41,11 +48,13 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-
   # Enable and configure the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [
+      80
+      443
+    ];
   };
 
   homelab = {

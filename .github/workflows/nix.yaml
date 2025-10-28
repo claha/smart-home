@@ -17,3 +17,13 @@ jobs:
       - uses: actions/checkout@v5.0.0
       - uses: DeterminateSystems/determinate-nix-action@main
       - run: cd nixos && nix flake check
+
+  nix-fmt-check:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - uses: DeterminateSystems/determinate-nix-action@main
+      - run: nix-shell -p nixfmt-tree --run "treefmt --ci"

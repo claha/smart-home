@@ -1,15 +1,19 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./../../services
-      ./../../services/gatus.nix
-      ./../../services/mealie.nix
-      ./../../services/ntfy.nix
-      ./../../services/vikunja.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./../../services
+    ./../../services/gatus.nix
+    ./../../services/mealie.nix
+    ./../../services/ntfy.nix
+    ./../../services/vikunja.nix
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -22,7 +26,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manager = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "transmission" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "transmission"
+    ];
   };
 
   # List packages installed in system profile.
@@ -45,7 +53,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-
   # Enable transmission
   services.transmission = {
     enable = true;
@@ -65,7 +72,12 @@
   networking.firewall = {
     enable = true;
     # Ephemeral ports (perhaps limit this using sysctl?)
-    allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
+    allowedUDPPortRanges = [
+      {
+        from = 32768;
+        to = 60999;
+      }
+    ];
   };
 
   # Did you read the comment?

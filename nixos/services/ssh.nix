@@ -13,7 +13,10 @@
       MaxAuthTries = 3;
       ClientAliveInterval = 300;
       ClientAliveCountMax = 0;
-      AllowUsers = [ "claes" "manager" ];
+      AllowUsers = [
+        "claes"
+        "manager"
+      ];
     };
   };
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     dua
@@ -26,7 +31,10 @@
 
   programs.zoxide = {
     enable = true;
-    options = [ "--cmd" "cd" ];
+    options = [
+      "--cmd"
+      "cd"
+    ];
   };
 
   programs.eza = {

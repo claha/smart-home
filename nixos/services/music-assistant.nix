@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.homelab.jellyfin;
@@ -22,6 +27,10 @@ in
       ];
     };
 
-    networking.firewall.allowedTCPPorts = [ musicAssistantPort musicAssistantStreamPort sonosAppCtrlPort ];
+    networking.firewall.allowedTCPPorts = [
+      musicAssistantPort
+      musicAssistantStreamPort
+      sonosAppCtrlPort
+    ];
   };
 }

@@ -12,7 +12,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      agenix,
+      ...
+    }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
@@ -23,7 +31,12 @@
       };
 
       commonModules = [
-        ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+        (
+          { config, pkgs, ... }:
+          {
+            nixpkgs.overlays = [ overlay-unstable ];
+          }
+        )
         home-manager.nixosModules.home-manager
       ];
 
@@ -41,15 +54,25 @@
         }
       ];
 
-      mkSystem = { hostname, homeUser, extraModules ? [ ], agenixSecrets ? { } }:
+      mkSystem =
+        {
+          hostname,
+          homeUser,
+          extraModules ? [ ],
+          agenixSecrets ? { },
+        }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit hostname; };
-          modules = commonModules ++ [
-            ./hosts/common.nix
-            ./hosts/${hostname}
-            (homeManagerConfig homeUser)
-          ] ++ extraModules ++ (if agenixSecrets != { } then agenixConfig agenixSecrets else [ ]);
+          modules =
+            commonModules
+            ++ [
+              ./hosts/common.nix
+              ./hosts/${hostname}
+              (homeManagerConfig homeUser)
+            ]
+            ++ extraModules
+            ++ (if agenixSecrets != { } then agenixConfig agenixSecrets else [ ]);
         };
     in
     {

@@ -1,14 +1,18 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./../../services
-      ./../../services/ollama.nix
-      ./../../services/wyoming.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../../services
+    ./../../services/ollama.nix
+    ./../../services/wyoming.nix
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -44,7 +48,6 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
-
 
   # Firewall
   networking.firewall = {

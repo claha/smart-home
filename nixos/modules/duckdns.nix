@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.services.duckdns;
   duckdns = pkgs.writeShellScriptBin "duckdns" ''
@@ -95,7 +100,9 @@ in
       ];
       serviceConfig = {
         Type = "simple";
-        LoadCredential = lib.optionals (cfg.domainsFile != null) [ "DUCKDNS_DOMAINS_FILE:${cfg.domainsFile}" ];
+        LoadCredential = lib.optionals (cfg.domainsFile != null) [
+          "DUCKDNS_DOMAINS_FILE:${cfg.domainsFile}"
+        ];
         EnvironmentFile = cfg.environmentFiles;
         DynamicUser = true;
       };

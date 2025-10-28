@@ -1,10 +1,9 @@
 { ... }:
 
 {
-  imports =
-    [
-      ../modules/beszel-agent.nix
-    ];
+  imports = [
+    ../modules/beszel-agent.nix
+  ];
 
   services.beszel.agent = {
     enable = true;
