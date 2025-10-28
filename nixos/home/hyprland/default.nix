@@ -1,19 +1,21 @@
-{ pkgs, ... }:
-
+{ config, pkgs, ... }:
+let
+  wallpaper = "${config.home.homeDirectory}/.local/share/brac.jpg";
+in
 {
   imports = [
     ../waybar
-    ../hyprpaper
-    ../hypridle
-    ../hyprlock
     ../fuzzel
   ];
 
-  home.packages = with pkgs; [
-    brightnessctl
-    wl-clipboard
-    cliphist
-  ];
+  home = {
+    packages = with pkgs; [
+      brightnessctl
+      wl-clipboard
+      cliphist
+    ];
+    file.".local/share/brac.jpg".source = ./brac.jpg;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -26,6 +28,7 @@
         "hyprpaper"
         "hypridle"
         "wl-paste --watch cliphist store"
+        "hyprlock"
       ];
       monitor = ",preferred,auto,1.0";
       workspace = [
@@ -116,6 +119,57 @@
       cursor = {
         inactive_timeout = 1;
       };
+    };
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      splash = false;
+      preload = [ wallpaper ];
+      wallpaper = [ ",${wallpaper}" ];
+    };
+  };
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_cursor = true;
+      };
+      background = [
+        {
+          path = "${wallpaper}";
+          blur_passes = 3;
+          blur_size = 8;
+        }
+      ];
+      input-field = {
+        outer_color = "rgb(230, 97, 0)";
+      };
+    };
+  };
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = [
+        {
+          timeout = 900;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 1200;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
     };
   };
 }

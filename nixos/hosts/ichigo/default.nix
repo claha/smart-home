@@ -1,15 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  background-package = pkgs.stdenvNoCC.mkDerivation {
-    name = "background-image";
-    src = ../../home/hyprpaper/brac.jpg;
-    dontUnpack = true;
-    installPhase = ''
-      cp $src $out
-    '';
-  };
-in
 {
   imports =
     [
@@ -26,13 +16,16 @@ in
     enable = true;
   };
 
-  # Enable the KDE Plasma Desktop Environment
-  services.displayManager.sddm = {
+  # Enable autlogin and hyprland
+  services.greetd = {
     enable = true;
-    theme = "breeze";
-    wayland.enable = true;
+    settings = {
+      default_session = {
+        command = "Hyprland";
+        user = "claes";
+      };
+    };
   };
-  services.desktopManager.plasma6.enable = true;
   programs.hyprland.enable = true;
 
   # Sound
@@ -76,14 +69,9 @@ in
     google-chrome
     microsoft-edge
     bitwarden-desktop
-    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-      [General]
-      background = "${background-package}"
-    '')
   ];
 
   services.mullvad-vpn.enable = true;
-
 
   # GPG
   programs.gnupg.agent = {
