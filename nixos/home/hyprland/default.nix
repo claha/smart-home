@@ -23,6 +23,7 @@ in
       "$mod" = "SUPER";
       "$terminal" = "wezterm";
       "$menu" = "fuzzel";
+      "$browser" = "firefox";
       exec-once = [
         "waybar"
         "hyprpaper"
@@ -47,6 +48,7 @@ in
         "$mod, RETURN, exec, $terminal"
         "$mod SHIFT, Q, killactive"
         "$mod, D, exec, $menu"
+        "$mod, B, exec, $browser"
         "$mod, M, exit"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
