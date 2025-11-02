@@ -47,4 +47,9 @@
   fonts.packages = with pkgs; [
     nerd-fonts.terminess-ttf
   ];
+
+  environment.systemPackages = with pkgs; [
+    wget
+    screen
+  ];
 }

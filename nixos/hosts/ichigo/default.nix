@@ -59,7 +59,6 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    wget
     just
     gnupg
     pinentry-curses

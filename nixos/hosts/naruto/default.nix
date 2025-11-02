@@ -32,16 +32,9 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    wget
-    screen
-    restic
-    autorestic
     just
     gnupg
     pinentry-curses
-    python3
-    git
-    vim
   ];
 
   programs.gnupg.agent = {

@@ -33,14 +33,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wget
-    screen
     just
     gnupg
     pinentry-curses
-    python3
-    git
-    vim
   ];
 
   programs.gnupg.agent = {

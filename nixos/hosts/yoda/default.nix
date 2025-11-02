@@ -53,12 +53,8 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    wget
-    just
     gnupg
     pinentry-curses
-    git
-    vim
     firefox
     google-chrome
     microsoft-edge
