@@ -12,7 +12,6 @@
     ./../../services/gatus.nix
     ./../../services/mealie.nix
     ./../../services/ntfy.nix
-    ./../../services/vikunja.nix
   ];
 
   # Bootloader
@@ -63,6 +62,7 @@
     it-tools.enable = true;
     karakeep.enable = true;
     beszel-hub.enable = true;
+    vikunja.enable = true;
   };
 
   # Enable and configure the firewall.

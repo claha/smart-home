@@ -11,6 +11,7 @@
     ./music-assistant.nix
     ./ssh.nix
     ./udev.nix
+    ./vikunja.nix
     ./vpn.nix
   ];
 }
