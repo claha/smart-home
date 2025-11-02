@@ -43,15 +43,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # Enable and configure the firewall.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      80
-      443
-    ];
-  };
-
   homelab = {
     audiobookshelf.enable = true;
     music-assistant.enable = true;

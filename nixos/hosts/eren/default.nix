@@ -44,11 +44,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # Firewall
-  networking.firewall = {
-    enable = false;
-  };
-
   # Did you read the comment?
   system.stateVersion = "24.11";
 }

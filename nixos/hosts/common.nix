@@ -52,4 +52,8 @@
     wget
     screen
   ];
+
+  networking.firewall = {
+    enable = true;
+  };
 }

@@ -144,4 +144,11 @@ in
     domains = [ "hallstrom" ];
     environmentFiles = [ config.age.secrets.duckdns-token.path ];
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      80
+      443
+    ];
+  };
 }

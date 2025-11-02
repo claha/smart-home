@@ -58,18 +58,6 @@
     ntfy.enable = true;
   };
 
-  # Enable and configure the firewall.
-  networking.firewall = {
-    enable = true;
-    # Ephemeral ports (perhaps limit this using sysctl?)
-    allowedUDPPortRanges = [
-      {
-        from = 32768;
-        to = 60999;
-      }
-    ];
-  };
-
   # Did you read the comment?
   system.stateVersion = "23.11";
 }
