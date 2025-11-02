@@ -8,6 +8,7 @@
     ./it-tools.nix
     ./jellyfin.nix
     ./karakeep.nix
+    ./mealie.nix
     ./music-assistant.nix
     ./ssh.nix
     ./udev.nix

@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ./../../services
     ./../../services/gatus.nix
-    ./../../services/mealie.nix
     ./../../services/ntfy.nix
   ];
 
@@ -63,6 +62,7 @@
     karakeep.enable = true;
     beszel-hub.enable = true;
     vikunja.enable = true;
+    mealie.enable = true;
   };
 
   # Enable and configure the firewall.
