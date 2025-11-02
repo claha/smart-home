@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ./../../services
     ./../../services/gatus.nix
-    ./../../services/ntfy.nix
   ];
 
   # Bootloader
@@ -63,6 +62,7 @@
     beszel-hub.enable = true;
     vikunja.enable = true;
     mealie.enable = true;
+    ntfy.enable = true;
   };
 
   # Enable and configure the firewall.

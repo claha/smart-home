@@ -10,6 +10,7 @@
     ./karakeep.nix
     ./mealie.nix
     ./music-assistant.nix
+    ./ntfy.nix
     ./ssh.nix
     ./udev.nix
     ./vikunja.nix
