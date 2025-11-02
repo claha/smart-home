@@ -42,12 +42,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  # Enable transmission
-  services.transmission = {
-    enable = true;
-    openRPCPort = true;
-  };
-
   homelab = {
     it-tools.enable = true;
     karakeep.enable = true;
@@ -56,6 +50,7 @@
     mealie.enable = true;
     ntfy.enable = true;
     gatus.enable = true;
+    transmission.enable = true;
   };
 
   # Did you read the comment?

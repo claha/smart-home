@@ -14,6 +14,7 @@
     ./ntfy.nix
     ./pinchflat.nix
     ./ssh.nix
+    ./transmission.nix
     ./udev.nix
     ./vikunja.nix
     ./vpn.nix
