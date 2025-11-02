@@ -70,8 +70,6 @@
     bitwarden-desktop
   ];
 
-  services.mullvad-vpn.enable = true;
-
   # GPG
   programs.gnupg.agent = {
     enable = true;

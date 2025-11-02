@@ -59,9 +59,6 @@
     openRPCPort = true;
   };
 
-  # Enable mullvad
-  services.mullvad-vpn.enable = true;
-
   homelab = {
     it-tools.enable = true;
     karakeep.enable = true;
