@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ./../../services
     ./../../services/homepage.nix
-    ./../../services/pinchflat.nix
     ./../../services/traefik.nix
   ];
 
@@ -50,6 +49,7 @@
       enable = true;
       hardwareAcceleration = true;
     };
+    pinchflat.enable = true;
   };
 
   # Did you read the comment?

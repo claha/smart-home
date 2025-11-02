@@ -11,6 +11,7 @@
     ./mealie.nix
     ./music-assistant.nix
     ./ntfy.nix
+    ./pinchflat.nix
     ./ssh.nix
     ./udev.nix
     ./vikunja.nix
