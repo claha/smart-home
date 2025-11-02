@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
+  cfg = config.homelab.gatus;
+
   tailscaleDevices = [
     {
       hostname = "naruto";
@@ -90,30 +97,36 @@ let
   ];
 in
 {
-  services.gatus = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      #      storage = {
-      #       type = "sqlite";
-      #      path = "/var/lib/gatus/data/data.db";
-      #   };
-      alerting = {
-        ntfy = {
-          url = "https://ntfy.hallstrom.duckdns.org";
-          topic = "gatus";
-          priority = 3;
-          default-alert = {
-            enabled = true;
-            failure-threshold = 3;
-            success-threshold = 3;
-            send-on-resolved = true;
-          };
-        };
-      };
-      endpoints = tailscaleEndpoints ++ domainEndpoints ++ serviceEndpoints;
-    };
+  options.homelab.gatus = {
+    enable = lib.mkEnableOption "Gatus status page";
   };
 
-  systemd.services.gatus.serviceConfig.AmbientCapabilities = "CAP_NET_RAW";
+  config = lib.mkIf cfg.enable {
+    services.gatus = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        #      storage = {
+        #       type = "sqlite";
+        #      path = "/var/lib/gatus/data/data.db";
+        #   };
+        alerting = {
+          ntfy = {
+            url = "https://ntfy.hallstrom.duckdns.org";
+            topic = "gatus";
+            priority = 3;
+            default-alert = {
+              enabled = true;
+              failure-threshold = 3;
+              success-threshold = 3;
+              send-on-resolved = true;
+            };
+          };
+        };
+        endpoints = tailscaleEndpoints ++ domainEndpoints ++ serviceEndpoints;
+      };
+    };
+
+    systemd.services.gatus.serviceConfig.AmbientCapabilities = "CAP_NET_RAW";
+  };
 }

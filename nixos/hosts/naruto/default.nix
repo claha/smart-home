@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
-    ./../../services/gatus.nix
   ];
 
   # Bootloader
@@ -56,6 +55,7 @@
     vikunja.enable = true;
     mealie.enable = true;
     ntfy.enable = true;
+    gatus.enable = true;
   };
 
   # Did you read the comment?
