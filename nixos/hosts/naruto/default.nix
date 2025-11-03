@@ -32,15 +32,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     just
-    gnupg
-    pinentry-curses
   ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
 
   homelab = {
     it-tools.enable = true;

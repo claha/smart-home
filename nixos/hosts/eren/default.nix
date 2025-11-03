@@ -34,15 +34,7 @@
 
   environment.systemPackages = with pkgs; [
     just
-    gnupg
-    pinentry-curses
   ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
 
   # Did you read the comment?
   system.stateVersion = "24.11";

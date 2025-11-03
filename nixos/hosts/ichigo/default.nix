@@ -60,21 +60,12 @@
   # Packages
   environment.systemPackages = with pkgs; [
     just
-    gnupg
-    pinentry-curses
     neovim
     firefox
     google-chrome
     microsoft-edge
     bitwarden-desktop
   ];
-
-  # GPG
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
 
   # Did you read the comment?
   system.stateVersion = "25.05";

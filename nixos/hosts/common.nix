@@ -51,7 +51,15 @@
   environment.systemPackages = with pkgs; [
     wget
     screen
+    gnupg
+    pinentry-curses
   ];
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 
   networking.firewall = {
     enable = true;

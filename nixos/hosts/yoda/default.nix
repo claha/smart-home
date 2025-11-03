@@ -53,19 +53,10 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    gnupg
-    pinentry-curses
     firefox
     google-chrome
     microsoft-edge
   ];
-
-  # GPG
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
 
   # Did you read the comment?
   system.stateVersion = "24.11";

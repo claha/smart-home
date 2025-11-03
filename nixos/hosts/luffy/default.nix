@@ -32,15 +32,7 @@
 
   environment.systemPackages = with pkgs; [
     just
-    gnupg
-    pinentry-curses
   ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
 
   homelab = {
     audiobookshelf.enable = true;
