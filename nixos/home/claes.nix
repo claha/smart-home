@@ -15,6 +15,7 @@
     ./qutebrowser
     ./hyprland
     ./wezterm
+    ./web-apps
   ];
 
   home.username = "claes";
