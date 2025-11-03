@@ -1,0 +1,27 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "nixos": {
+      "type": "stdio",
+      "command": "nix",
+      "args": ["run", "github:utensils/mcp-nixos", "--"]
+    }
+  },
+  "permissions": {
+    "allowed_tools": [
+      "mcp_nixos_home_manager_info",
+      "mcp_nixos_home_manager_list_options",
+      "mcp_nixos_home_manager_options_by_prefix",
+      "mcp_nixos_home_manager_search",
+      "mcp_nixos_home_manager_stats",
+      "mcp_nixos_nixhub_find_version",
+      "mcp_nixos_nixhub_package_versions",
+      "mcp_nixos_nixos_channels",
+      "mcp_nixos_nixos_flakes_search",
+      "mcp_nixos_nixos_flakes_stats",
+      "mcp_nixos_nixos_info",
+      "mcp_nixos_nixos_search",
+      "mcp_nixos_nixos_stats"
+    ]
+  }
+}
