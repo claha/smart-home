@@ -11,6 +11,7 @@
     ./../../services
     ./../../services/homepage.nix
     ./../../services/traefik.nix
+    ./../../users/manager.nix
   ];
 
   # Bootloader
@@ -20,15 +21,6 @@
   # Networking
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.manager = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-  };
 
   environment.systemPackages = with pkgs; [
     just

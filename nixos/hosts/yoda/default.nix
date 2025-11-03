@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
+    ./../../users/claes.nix
   ];
 
   # Bootloader
@@ -32,17 +33,6 @@
   };
 
   # Users
-  users.users.claes = {
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    hashedPassword = "$y$j9T$oLZK90Am5DVB.Cq1qlrlv1$jtVML8FNT8c9pRZjBvJ/xP895AkD8CqDgivA0FDt6Q9";
-    packages = with pkgs; [
-    ];
-  };
-
   users.users.malin = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" ];

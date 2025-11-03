@@ -7,11 +7,11 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../services
     ./../../services/ollama.nix
     ./../../services/wyoming.nix
+    ./../../users/manager.nix
   ];
 
   # Bootloader
@@ -25,12 +25,6 @@
 
   # Networking
   networking.hostId = "d00babfa";
-
-  # Define users
-  users.users.manager = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
 
   environment.systemPackages = with pkgs; [
     just
