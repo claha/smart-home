@@ -64,4 +64,8 @@
   networking.firewall = {
     enable = true;
   };
+
+  users.users.root = {
+    hashedPassword = "$y$j9T$34LfiN5xR4g6xgi1ISI.Z.$bgkESj4NELMNycLWNDykVm.XkxHbNaOMxET4/pJtZOD";
+  };
 }

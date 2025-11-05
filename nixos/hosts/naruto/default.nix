@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disko-config.nix
     ./../../services
     ./../../users/manager.nix
   ];
@@ -36,5 +37,5 @@
   };
 
   # Did you read the comment?
-  system.stateVersion = "23.11";
+  system.stateVersion = "25.05";
 }
