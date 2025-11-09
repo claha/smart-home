@@ -12,6 +12,7 @@
     ./mealie.nix
     ./music-assistant.nix
     ./ntfy.nix
+    ./ollama.nix
     ./pinchflat.nix
     ./ssh.nix
     ./transmission.nix
