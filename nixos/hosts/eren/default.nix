@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
-    ./../../services/wyoming.nix
     ./../../users/manager.nix
   ];
 
@@ -23,7 +22,10 @@
   services.zfs.autoScrub.enable = true;
 
   # Homelab services
-  homelab.ollama.enable = true;
+  homelab = {
+    ollama.enable = true;
+    wyoming.enable = true;
+  };
 
   # Networking
   networking.hostId = "d00babfa";

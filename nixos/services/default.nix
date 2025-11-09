@@ -19,5 +19,6 @@
     ./udev.nix
     ./vikunja.nix
     ./vpn.nix
+    ./wyoming.nix
   ];
 }
