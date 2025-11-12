@@ -18,7 +18,6 @@ def light_on(entity_id: str, brightness_pct: int, color_temp: int) -> None:
             "entity_id": entity_id,
             "brightness_pct": brightness_pct,
             "color_temp": color_temp,
-            "transition": 10,
         },
         blocking=False,
     )
@@ -35,7 +34,6 @@ def light_dim(entity_id: str) -> None:
             "entity_id": entity_id,
             "brightness_pct": 10,
             "color_temp": 454,
-            "transition": 10,
         },
         blocking=False,
     )
@@ -48,7 +46,6 @@ def light_off(entity_id: str) -> None:
         "turn_off",
         {
             "entity_id": entity_id,
-            "transition": 10,
         },
         blocking=False,
     )

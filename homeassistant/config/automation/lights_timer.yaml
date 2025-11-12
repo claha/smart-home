@@ -1,0 +1,225 @@
+---
+- alias: "Lights guest room off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_guest_room_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "guest_room"
+      action: "off"
+
+- alias: "Lights guest room off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_guest_room_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "guest_room"
+      action: "off"
+
+- alias: "Lights guest room dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_guest_room_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "guest_room"
+      action: "dim"
+
+- alias: "Lights kitchen off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_kitchen_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kitchen"
+      action: "off"
+
+- alias: "Lights kitchen off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_kitchen_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kitchen"
+      action: "off"
+
+- alias: "Lights kitchen dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_kitchen_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kitchen"
+      action: "dim"
+
+- alias: "Lights living room off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_living_room_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "living_room"
+      action: "off"
+
+- alias: "Lights living room off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_living_room_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "living_room"
+      action: "off"
+
+- alias: "Lights living room dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_living_room_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "living_room"
+      action: "dim"
+
+- alias: "Lights laundry off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_laundry_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "off"
+
+- alias: "Lights laundry off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_laundry_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "off"
+
+- alias: "Lights laundry dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_laundry_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "dim"
+
+- alias: "Lights master bedroom off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_master_bedroom_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "off"
+
+- alias: "Lights master bedroom off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_master_bedroom_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "off"
+
+- alias: "Lights master bedroom dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_master_bedroom_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "dim"
+
+- alias: "Lights kids bedroom off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_kids_bedroom_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kids_bedroom"
+      action: "off"
+
+- alias: "Lights kids bedroom off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_kids_bedroom_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kids_bedroom"
+      action: "off"
+
+- alias: "Lights kids bedroom dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_kids_bedroom_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kids_bedroom"
+      action: "dim"
+
+- alias: "Lights outdoor off time morning"
+  trigger:
+    platform: time
+    at: input_datetime.lights_outdoor_off_morning
+  action:
+    service: python_script.control_lights
+    data:
+      area: "outdoor"
+      action: "off"
+
+- alias: "Lights outdoor off time evening"
+  trigger:
+    platform: time
+    at: input_datetime.lights_outdoor_off_evening
+  action:
+    service: python_script.control_lights
+    data:
+      area: "outdoor"
+      action: "off"
+
+- alias: "Lights outdoor dim"
+
+  trigger:
+    platform: template
+    value_template: '{{ ((utcnow().strftime("%s") | int + 3600) | timestamp_custom("%H:%M:%S")) == states.input_datetime.lights_outdoor_off_evening.state }}'
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "outdoor"
+      action: "dim"
+

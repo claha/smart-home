@@ -1,0 +1,253 @@
+---
+- alias: "Lights guest room off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "guest_room"
+      action: "off"
+
+- alias: "Lights guest room on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_guest_room_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "guest_room"
+      action: "on"
+
+- alias: "Lights kitchen off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kitchen"
+      action: "off"
+
+- alias: "Lights kitchen on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_kitchen_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kitchen"
+      action: "on"
+
+- alias: "Lights living room off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "living_room"
+      action: "off"
+
+- alias: "Lights living room on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_living_room_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "living_room"
+      action: "on"
+
+- alias: "Lights laundry off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "off"
+
+- alias: "Lights laundry on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_laundry_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "laundry"
+      action: "on"
+
+- alias: "Lights master bedroom off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "off"
+
+- alias: "Lights master bedroom on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_master_bedroom_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "master_bedroom"
+      action: "on"
+
+- alias: "Lights kids bedroom off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kids_bedroom"
+      action: "off"
+
+- alias: "Lights kids bedroom on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_kids_bedroom_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "kids_bedroom"
+      action: "on"
+
+- alias: "Lights outdoor off"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "outdoor"
+      action: "off"
+
+- alias: "Lights outdoor on"
+
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dark_outside
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+
+  condition:
+    condition: time
+    before: input_datetime.lights_outdoor_off_evening
+
+  action:
+    service: python_script.control_lights
+    data:
+      area: "outdoor"
+      action: "on"
+

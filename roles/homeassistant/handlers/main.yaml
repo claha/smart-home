@@ -1,6 +1,0 @@
----
-- name: Recreate {{ homeassistant_service_name }}
-  ansible.builtin.command:
-    chdir: "{{ homeassistant_service_path }}"
-    cmd: docker compose up -d --force-recreate
-  changed_when: true

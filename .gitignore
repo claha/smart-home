@@ -3,3 +3,4 @@
 .terraform*
 .vault-password
 ansible.log
+__pycache__

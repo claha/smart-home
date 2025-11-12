@@ -1,0 +1,16 @@
+---
+# yamllint disable rule:line-length
+- binary_sensor:
+    - name: Dark outside
+      state: >
+        {% set rising = states("binary_sensor.sun_solar_rising") %}
+        {% set elevation = states("sensor.sun_solar_elevation")|float %}
+        {% set illuminance = states("sensor.illuminance_sma30") %}
+        {% set illuminance_on = states("input_number.lights_illuminance_on")|float %}
+        {% set illuminance_off = states("input_number.lights_illuminance_off")|float %}
+          {% set illuminance = illuminance|float %}
+          {% if rising %}
+            {{ illuminance < illuminance_off }}
+          {% else %}
+            {{ illuminance < illuminance_on }}
+          {% endif %}

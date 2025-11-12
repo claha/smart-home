@@ -1,0 +1,91 @@
+---
+notify_portfolio_weekly:
+  name: Notify portfolio weekly
+  has_time: true
+  has_date: false
+
+notify_portfolio_monthly:
+  name: Notify portfolio monthly
+  has_time: true
+  has_date: false
+
+lights_kitchen_on_morning:
+  name: Lights kitchen on morning
+  has_time: true
+  has_date: false
+
+lights_outdoor_on_morning:
+  name: Lights outdoor on morning
+  has_time: true
+  has_date: false
+
+lights_guest_room_off_morning:
+  name: Lights guest room off morning
+  has_time: true
+  has_date: false
+
+lights_guest_room_off_evening:
+  name: Lights guest room off evening
+  has_time: true
+  has_date: false
+
+lights_kitchen_off_morning:
+  name: Lights kitchen off morning
+  has_time: true
+  has_date: false
+
+lights_kitchen_off_evening:
+  name: Lights kitchen off evening
+  has_time: true
+  has_date: false
+
+lights_living_room_off_morning:
+  name: Lights living room off morning
+  has_time: true
+  has_date: false
+
+lights_living_room_off_evening:
+  name: Lights living room off evening
+  has_time: true
+  has_date: false
+
+lights_laundry_off_morning:
+  name: Lights laundry off morning
+  has_time: true
+  has_date: false
+
+lights_laundry_off_evening:
+  name: Lights laundry off evening
+  has_time: true
+  has_date: false
+
+lights_master_bedroom_off_morning:
+  name: Lights master bedroom off morning
+  has_time: true
+  has_date: false
+
+lights_master_bedroom_off_evening:
+  name: Lights master bedroom off evening
+  has_time: true
+  has_date: false
+
+lights_kids_bedroom_off_morning:
+  name: Lights kids bedroom off morning
+  has_time: true
+  has_date: false
+
+lights_kids_bedroom_off_evening:
+  name: Lights kids bedroom off evening
+  has_time: true
+  has_date: false
+
+lights_outdoor_off_morning:
+  name: Lights outdoor off morning
+  has_time: true
+  has_date: false
+
+lights_outdoor_off_evening:
+  name: Lights outdoor off evening
+  has_time: true
+  has_date: false
+
