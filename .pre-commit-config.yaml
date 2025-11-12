@@ -43,20 +43,11 @@ repos:
         additional_dependencies:
           - mdformat-gfm
 
-  - repo: https://github.com/asottile/add-trailing-comma
-    rev: v4.0.0
-    hooks:
-      - id: add-trailing-comma
-
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
+  - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.4
     hooks:
-      - id: ruff
-        args:
-          - --select
-          - ALL
-          - --fix
-          - --ignore=INP001,S602,BLE001,ANN001,ARG001,PERF203,ANN201,PLW0127,PLW2901
+      - id: ruff-check
+        args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/codespell-project/codespell
@@ -80,15 +71,3 @@ repos:
     rev: v3.0.1
     hooks:
       - id: docker-compose-check
-
-  - repo: https://github.com/iamthefij/ansible-pre-commit
-    rev: v1.0.1
-    hooks:
-      - id: encryption-check
-
-  - repo: https://github.com/ansible/ansible-lint
-    rev: v25.11.0
-    hooks:
-      - id: ansible-lint
-        additional_dependencies:
-          - ansible

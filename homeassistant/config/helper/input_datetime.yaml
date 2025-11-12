@@ -88,4 +88,3 @@ lights_outdoor_off_evening:
   name: Lights outdoor off evening
   has_time: true
   has_date: false
-

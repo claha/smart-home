@@ -180,4 +180,6 @@ message = message + f"Total Change: {summary_data[1]} ({summary_data[2]})\n"
 message = message + "</code>"
 
 # Send notification
-hass.services.call("notify", "send_message", {"message": message, "entity_id": "notify.portfolio"})
+hass.services.call(
+    "notify", "send_message", {"message": message, "entity_id": "notify.portfolio"}
+)

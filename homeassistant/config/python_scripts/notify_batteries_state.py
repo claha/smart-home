@@ -26,4 +26,6 @@ for battery in batteries:
     level = get_entity_state_int(battery)
     message = message + f"\n{name}: {level}%"
 message = message + "</code>"
-hass.services.call("notify", "send_message", {"message": message, "entity_id": "notify.portfolio"})
+hass.services.call(
+    "notify", "send_message", {"message": message, "entity_id": "notify.portfolio"}
+)

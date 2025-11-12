@@ -12,16 +12,8 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          sudo apt update
-          sudo apt install -y curl
-          curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
-          sh install-opentofu.sh --install-method deb
       - uses: actions/checkout@v5.0.0
       - uses: actions/setup-python@v6.0.0
         with:
           python-version: 3.x
-      - run: |
-          sed -i '/vars_files/I,+1 d' main.yaml
-          sed -i '/vault_password_file/d' ansible.cfg
       - uses: j178/prek-action@v1

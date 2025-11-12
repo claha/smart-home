@@ -1,4 +1,5 @@
 ---
+# yamllint disable rule:line-length
 - alias: "Lights guest room off time morning"
   trigger:
     platform: time
@@ -222,4 +223,3 @@
     data:
       area: "outdoor"
       action: "dim"
-

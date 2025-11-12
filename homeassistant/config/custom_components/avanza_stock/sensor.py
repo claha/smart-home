@@ -4,6 +4,7 @@ Support for getting stock data from avanza.se.
 For more details about this platform, please refer to the documentation at
 https://github.com/custom-components/sensor.avanza_stock/blob/master/README.md
 """
+
 import logging
 from datetime import timedelta
 
@@ -64,13 +65,14 @@ STOCK_SCHEMA = vol.Schema(
         vol.Optional(CONF_CONVERSION_CURRENCY): cv.positive_int,
         vol.Optional(CONF_INVERT_CONVERSION_CURRENCY, default=False): cv.boolean,
         vol.Optional(CONF_CURRENCY): cv.string,
-    }
+    },
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Required(CONF_STOCK): vol.Any(
-            cv.positive_int, vol.All(cv.ensure_list, [STOCK_SCHEMA])
+            cv.positive_int,
+            vol.All(cv.ensure_list, [STOCK_SCHEMA]),
         ),
         vol.Optional(CONF_NAME): cv.string,
         vol.Optional(CONF_SHARES): vol.Coerce(float),
@@ -80,12 +82,14 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_INVERT_CONVERSION_CURRENCY, default=False): cv.boolean,
         vol.Optional(CONF_CURRENCY): cv.string,
         vol.Optional(
-            CONF_SHOW_TRENDING_ICON, default=DEFAULT_SHOW_TRENDING_ICON
+            CONF_SHOW_TRENDING_ICON,
+            default=DEFAULT_SHOW_TRENDING_ICON,
         ): cv.boolean,
         vol.Optional(
-            CONF_MONITORED_CONDITIONS, default=MONITORED_CONDITIONS_DEFAULT
+            CONF_MONITORED_CONDITIONS,
+            default=MONITORED_CONDITIONS_DEFAULT,
         ): vol.All(cv.ensure_list, [vol.In(MONITORED_CONDITIONS)]),
-    }
+    },
 )
 
 
@@ -120,7 +124,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                 monitored_conditions,
                 session,
                 show_trending_icon,
-            )
+            ),
         )
         _LOGGER.debug("Tracking %s [%d] using Avanza" % (name, stock))
     else:
@@ -149,7 +153,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                     monitored_conditions,
                     session,
                     show_trending_icon,
-                )
+                ),
             )
             _LOGGER.debug("Tracking %s [%d] using Avanza" % (name, id))
     async_add_entities(entities, True)
@@ -264,7 +268,8 @@ class AvanzaStockSensor(SensorEntity):
                 data = await pyavanza.get_etf_async(self._session, self._stock)
             if self._conversion_currency:
                 data_conversion_currency = await pyavanza.get_stock_async(
-                    self._session, self._conversion_currency
+                    self._session,
+                    self._conversion_currency,
                 )
         if data:
             # Store previous close price for trending calculation
@@ -368,10 +373,12 @@ class AvanzaStockSensor(SensorEntity):
         if self._shares is not None:
             self._state_attributes["shares"] = self._shares
             self._state_attributes["totalValue"] = round(
-                self._shares * data["quote"]["last"], 5
+                self._shares * data["quote"]["last"],
+                5,
             )
             self._state_attributes["totalChange"] = round(
-                self._shares * data["quote"]["change"], 5
+                self._shares * data["quote"]["change"],
+                5,
             )
 
         self._update_profit_loss(data["quote"]["last"])
@@ -407,15 +414,18 @@ class AvanzaStockSensor(SensorEntity):
         if self._purchase_price is not None:
             self._state_attributes["purchasePrice"] = self._purchase_price
             self._state_attributes["profitLoss"] = round(
-                price - self._purchase_price, 5
+                price - self._purchase_price,
+                5,
             )
             self._state_attributes["profitLossPercentage"] = round(
-                100 * (price - self._purchase_price) / self._purchase_price, 3
+                100 * (price - self._purchase_price) / self._purchase_price,
+                3,
             )
 
             if self._shares is not None:
                 self._state_attributes["totalProfitLoss"] = round(
-                    self._shares * (price - self._purchase_price), 5
+                    self._shares * (price - self._purchase_price),
+                    5,
                 )
 
     def _update_conversion_rate(self, data):
@@ -434,7 +444,8 @@ class AvanzaStockSensor(SensorEntity):
                 and self._state_attributes[attribute] != "unknown"
             ):
                 self._state_attributes[attribute] = round(
-                    self._state_attributes[attribute] * rate, 5
+                    self._state_attributes[attribute] * rate,
+                    5,
                 )
         self._update_profit_loss(self._state)
 
