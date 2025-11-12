@@ -38,6 +38,10 @@
     pulse.enable = true;
   };
 
+  homelab = {
+    docker.enable = true;
+  };
+
   myServices.udev = {
     enable = true;
     devices = [

@@ -5,6 +5,7 @@
     ./audiobookshelf.nix
     ./beszel-agent.nix
     ./beszel-hub.nix
+    ./docker.nix
     ./gatus.nix
     ./it-tools.nix
     ./jellyfin.nix
