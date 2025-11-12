@@ -1,5 +1,0 @@
----
-- name: Update resolvconf
-  ansible.builtin.command: resolvconf -u
-  changed_when: true
-  become: true

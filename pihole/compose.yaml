@@ -17,5 +17,5 @@ services:
       - 53:53/udp
       - 80:80/tcp
     volumes:
-      - ./pihole:/etc/pihole
+      - ./etc-pihole:/etc/pihole
     restart: unless-stopped

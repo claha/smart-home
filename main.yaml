@@ -1,26 +1,4 @@
 ---
-- name: Setup pihole
-  hosts: pihole
-  vars_files:
-    - vars/vault.yaml
-
-  pre_tasks:
-    - name: Update cache
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
-      become: true
-
-  roles:
-    - role: bash
-      tags: never, init
-    - role: docker_prune
-      tags: never, init, docker_prune
-    - role: pihole
-      tags: pihole
-    - role: netalertx
-      tags: netalertx
-
 - name: Setup smarthome
   hosts: smarthome
   vars_files:
