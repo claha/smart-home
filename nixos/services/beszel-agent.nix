@@ -1,10 +1,6 @@
 { ... }:
 
 {
-  imports = [
-    ../modules/beszel-agent.nix
-  ];
-
   services.beszel.agent = {
     enable = true;
     openFirewall = true;

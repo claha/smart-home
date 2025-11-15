@@ -9,8 +9,6 @@ let
   cfg = config.homelab.beszel-hub;
 in
 {
-  imports = [ ../modules/beszel-hub.nix ];
-
   options.homelab.beszel-hub = {
     enable = lib.mkEnableOption "Beszel Hub";
     port = lib.mkOption {

@@ -43,6 +43,7 @@
           }
         )
         home-manager.nixosModules.home-manager
+        (import "${nixpkgs-unstable}/nixos/modules/services/monitoring/beszel-agent.nix")
       ];
 
       homeManagerConfig = user: {
@@ -87,6 +88,7 @@
           homeUser = "manager";
           extraModules = [
             disko.nixosModules.disko
+            (import "${nixpkgs-unstable}/nixos/modules/services/monitoring/beszel-hub.nix")
           ];
         };
 
