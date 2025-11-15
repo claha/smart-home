@@ -30,7 +30,7 @@
     karakeep.enable = true;
     beszel-hub.enable = true;
     vikunja.enable = true;
-    mealie.enable = true;
+    mealie.enable = false;
     ntfy.enable = true;
     gatus.enable = true;
     transmission.enable = true;
