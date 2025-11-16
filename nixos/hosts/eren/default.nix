@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
-    ./../../users/manager.nix
   ];
 
   # Bootloader

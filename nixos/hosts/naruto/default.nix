@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./../../services
-    ./../../users/manager.nix
   ];
 
   # Bootloader

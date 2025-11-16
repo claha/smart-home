@@ -76,6 +76,7 @@
             ++ [
               ./hosts/common.nix
               ./hosts/${hostname}
+              ./users/${homeUser}.nix
               (homeManagerConfig homeUser)
             ]
             ++ extraModules

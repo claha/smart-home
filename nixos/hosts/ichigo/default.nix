@@ -4,7 +4,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
-    ./../../users/claes.nix
   ];
 
   # Bootloader

@@ -11,7 +11,6 @@
     ./../../services
     ./../../services/homepage.nix
     ./../../services/traefik.nix
-    ./../../users/manager.nix
   ];
 
   # Bootloader
