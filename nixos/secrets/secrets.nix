@@ -5,6 +5,7 @@ let
   ];
   claes = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGO2k5rXeGp/j8osRdxDfsv6GJ3ngmMic2yalepytUzb"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICXxs27iBNhUjfPK55mGV+SXfdfco7auHTcBNZPUrbvf"
   ];
   luffy = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMlhYm7+ZyPcFTCjqpgz3QPgedfSEq1M6dkNKY0way69"
@@ -13,4 +14,6 @@ let
 in
 {
   "duckdns-token.age".publicKeys = naruto ++ claes ++ luffy;
+  "user-claes-password.age".publicKeys = claes;
+  "user-manager-password.age".publicKeys = claes ++ naruto ++ luffy;
 }

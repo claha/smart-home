@@ -44,6 +44,7 @@
         )
         home-manager.nixosModules.home-manager
         (import "${nixpkgs-unstable}/nixos/modules/services/monitoring/beszel-agent.nix")
+        (import "${nixpkgs-unstable}/nixos/modules/services/monitoring/beszel-hub.nix")
       ];
 
       homeManagerConfig = user: {
@@ -86,9 +87,13 @@
         "naruto" = mkSystem {
           hostname = "naruto";
           homeUser = "manager";
+          agenixSecrets = {
+            user-manager-password = {
+              file = ./secrets/user-manager-password.age;
+            };
+          };
           extraModules = [
             disko.nixosModules.disko
-            (import "${nixpkgs-unstable}/nixos/modules/services/monitoring/beszel-hub.nix")
           ];
         };
 
@@ -102,6 +107,9 @@
               owner = "traefik";
               group = "traefik";
             };
+            user-manager-password = {
+              file = ./secrets/user-manager-password.age;
+            };
           };
           extraModules = [
             {
@@ -113,6 +121,11 @@
         "eren" = mkSystem {
           hostname = "eren";
           homeUser = "manager";
+          agenixSecrets = {
+            user-manager-password = {
+              file = ./secrets/user-manager-password.age;
+            };
+          };
         };
 
         "yoda" = mkSystem {
@@ -123,6 +136,11 @@
         "ichigo" = mkSystem {
           hostname = "ichigo";
           homeUser = "claes";
+          agenixSecrets = {
+            user-claes-password = {
+              file = ./secrets/user-claes-password.age;
+            };
+          };
         };
       };
     };
