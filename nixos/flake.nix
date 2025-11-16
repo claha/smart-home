@@ -70,7 +70,7 @@
         }:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit hostname; };
+          specialArgs = { inherit hostname homeUser; };
           modules =
             commonModules
             ++ [

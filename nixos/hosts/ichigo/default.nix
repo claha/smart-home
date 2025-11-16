@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, homeUser, ... }:
 
 {
   imports = [
@@ -21,7 +21,7 @@
     settings = {
       default_session = {
         command = "Hyprland";
-        user = "claes";
+        user = homeUser;
       };
     };
   };
@@ -47,7 +47,7 @@
       {
         serial = "E0C9125B0D9B";
         mountPoint = "/mnt/rp2040";
-        user = "claes";
+        user = homeUser;
       }
     ];
   };
