@@ -132,6 +132,11 @@
         "yoda" = mkSystem {
           hostname = "yoda";
           homeUser = "claes";
+          agenixSecrets = {
+            user-claes-password = {
+              file = ./secrets/user-claes-password.age;
+            };
+          };
         };
 
         "ichigo" = mkSystem {
