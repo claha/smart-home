@@ -1,7 +1,7 @@
 let
   naruto = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBwSq5lZGTwwD48EwSs+/go931lbRpi5yVuRJQR6rD3d"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKrVgUdJlyiqFnzWQdp1wqdfInM2f2zObzQR/NY6apoo"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDrRe8L+iqVPs43Ax+B7z97H4I0W+0MwrfXz6OpVcb34"
   ];
   claes = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGO2k5rXeGp/j8osRdxDfsv6GJ3ngmMic2yalepytUzb"
