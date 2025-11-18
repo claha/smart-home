@@ -68,4 +68,14 @@
   users.users.root = {
     hashedPassword = "$y$j9T$34LfiN5xR4g6xgi1ISI.Z.$bgkESj4NELMNycLWNDykVm.XkxHbNaOMxET4/pJtZOD";
   };
+
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+
+  services.btrfs.autoScrub = lib.mkIf (config.fileSystems."/".fsType == "btrfs") {
+    enable = true;
+    interval = "weekly";
+  };
 }
