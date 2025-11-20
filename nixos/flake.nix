@@ -127,6 +127,9 @@
               file = ./secrets/user-manager-password.age;
             };
           };
+          extraModules = [
+            disko.nixosModules.disko
+          ];
         };
 
         "yoda" = mkSystem {

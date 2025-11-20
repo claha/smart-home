@@ -1,21 +1,18 @@
 {
   disko.devices = {
     disk = {
-      ssd = {
+      main = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/ata-Corsair_Force_GT_12487908000014820131";
         content = {
           type = "gpt";
           partitions = {
-            boot = {
-              size = "1M";
-              type = "EF02"; # for grub MBR
-              priority = 0;
-            };
             ESP = {
-              size = "1G";
-              type = "EF00";
               priority = 1;
+              name = "ESP";
+              start = "1M";
+              end = "2G";
+              type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -23,127 +20,148 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            zfs = {
+            root = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "zroot";
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "@root" = {
+                    mountpoint = "/";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "@home" = {
+                    mountpoint = "/home";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "@nix" = {
+                    mountpoint = "/nix";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "@log" = {
+                    mountpoint = "/var/log";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "@cache" = {
+                    mountpoint = "/var/cache";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                  "@tmp" = {
+                    mountpoint = "/var/tmp";
+                    mountOptions = [ "noatime" ];
+                  };
+                  "@snapshots" = {
+                    mountpoint = "/home/.snapshots";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                };
               };
             };
           };
         };
       };
-      nvme0 = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "tank";
-              };
-            };
-          };
-        };
-      };
+
       nvme1 = {
         type = "disk";
-        device = "/dev/nvme1n1";
+        device = "/dev/disk/by-id/nvme-KINGSTON_SNV3S1000G_50026B73839BD772";
         content = {
           type = "gpt";
           partitions = {
-            zfs = {
+            raid = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "tank";
+                type = "mdraid";
+                name = "data";
+              };
+            };
+          };
+        };
+      };
+
+      nvme2 = {
+        type = "disk";
+        device = "/dev/disk/by-id/nvme-KINGSTON_SNV3S1000G_50026B73839BDFD3";
+        content = {
+          type = "gpt";
+          partitions = {
+            raid = {
+              size = "100%";
+              content = {
+                type = "mdraid";
+                name = "data";
+              };
+            };
+          };
+        };
+      };
+
+      storage = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-WDC_WD20EARX-00PASB0_WD-WMAZA5468980";
+        content = {
+          type = "gpt";
+          partitions = {
+            storage = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "@storage" = {
+                    mountpoint = "/storage";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                };
               };
             };
           };
         };
       };
     };
-    zpool = {
-      zroot = {
-        type = "zpool";
-        rootFsOptions = {
-          # https://wiki.archlinux.org/title/Install_Arch_Linux_on_ZFS
-          acltype = "posixacl";
-          atime = "off";
-          compression = "lz4";
-          mountpoint = "none";
-          xattr = "sa";
-        };
-        options.ashift = "12";
 
-        datasets = {
-          home = {
-            type = "zfs_fs";
-            mountpoint = "/home";
-            # Used by services.zfs.autoSnapshot options.
-            options = {
-              "com.sun:auto-snapshot" = "true";
-              mountpoint = "legacy";
-            };
-          };
-          nix = {
-            type = "zfs_fs";
-            mountpoint = "/nix";
-            options = {
-              "com.sun:auto-snapshot" = "false";
-              mountpoint = "legacy";
-            };
-          };
-          root = {
-            type = "zfs_fs";
-            mountpoint = "/";
-            options = {
-              "com.sun:auto-snapshot" = "false";
-              mountpoint = "legacy";
-            };
-          };
-        };
-      };
-      tank = {
-        type = "zpool";
-        mode = "mirror";
-        rootFsOptions = {
-          # https://wiki.archlinux.org/title/Install_Arch_Linux_on_ZFS
-          acltype = "posixacl";
-          atime = "off";
-          compression = "lz4";
-          mountpoint = "none";
-          xattr = "sa";
-        };
-        options.ashift = "12";
-
-        datasets = {
-          share = {
-            type = "zfs_fs";
-            mountpoint = "/share";
-            # Used by services.zfs.autoSnapshot options.
-            options = {
-              "com.sun:auto-snapshot" = "true";
-              mountpoint = "legacy";
-            };
-          };
-          media = {
-            type = "zfs_fs";
-            mountpoint = "/media";
-            options = {
-              "com.sun:auto-snapshot" = "true";
-              mountpoint = "legacy";
-            };
-          };
-          backup = {
-            type = "zfs_fs";
-            mountpoint = "/backup";
-            options = {
-              "com.sun:auto-snapshot" = "true";
-              mountpoint = "legacy";
+    mdadm = {
+      data = {
+        type = "mdadm";
+        level = 1;
+        content = {
+          type = "gpt";
+          partitions = {
+            primary = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "@data" = {
+                    mountpoint = "/data";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
+                };
+              };
             };
           };
         };
