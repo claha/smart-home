@@ -33,6 +33,7 @@
                       "noatime"
                     ];
                   };
+
                   "@home" = {
                     mountpoint = "/home";
                     mountOptions = [
@@ -40,6 +41,7 @@
                       "noatime"
                     ];
                   };
+
                   "@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
@@ -47,6 +49,7 @@
                       "noatime"
                     ];
                   };
+
                   "@log" = {
                     mountpoint = "/var/log";
                     mountOptions = [
@@ -54,6 +57,7 @@
                       "noatime"
                     ];
                   };
+
                   "@cache" = {
                     mountpoint = "/var/cache";
                     mountOptions = [
@@ -61,11 +65,13 @@
                       "noatime"
                     ];
                   };
+
                   "@tmp" = {
                     mountpoint = "/var/tmp";
                     mountOptions = [ "noatime" ];
                   };
-                  "@snapshots" = {
+
+                  "@home-snapshots" = {
                     mountpoint = "/home/.snapshots";
                     mountOptions = [
                       "compress=zstd"
