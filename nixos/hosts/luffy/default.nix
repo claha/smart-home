@@ -18,8 +18,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
-  networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  networking = {
+    networkmanager.enable = true;
+    interfaces = {
+      enp1s0 = {
+        wakeOnLan.enable = true;
+      };
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     just
