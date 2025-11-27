@@ -58,4 +58,18 @@
     ];
     settings.StartupWMClass = "Claude";
   };
+
+  xdg.desktopEntries.grok = {
+    name = "Grok";
+    genericName = "Grok";
+    comment = "Grok";
+    exec = "${pkgs.brave}/bin/brave --app=https://grok.com --class=Grok";
+    icon = "brave-browser";
+    type = "Application";
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    settings.StartupWMClass = "Grok";
+  };
 }
