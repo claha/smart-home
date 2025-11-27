@@ -17,10 +17,6 @@
           };
         };
       };
-      #      fonts = {
-      #        default_family = "TerminessNerdFontMono";
-      #        default_size = "20px";
-      #      };
       hints.uppercase = true;
       scrolling = {
         bar = "never";

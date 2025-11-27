@@ -45,7 +45,7 @@
   };
 
   fonts.packages = with pkgs; [
-    nerd-fonts.terminess-ttf
+    nerd-fonts.jetbrains-mono
   ];
 
   environment.systemPackages = with pkgs; [

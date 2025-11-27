@@ -9,7 +9,7 @@
     enable = true;
     extraConfig = ''
       local config = {}
-      config.font = wezterm.font("Terminess Nerd Font Mono")
+      config.font = wezterm.font("JetBrains Mono")
       config.font_size = 16.0
       config.warn_about_missing_glyphs = false
 
