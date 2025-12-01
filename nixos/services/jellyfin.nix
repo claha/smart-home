@@ -35,7 +35,7 @@ in
         intel-vaapi-driver
         intel-compute-runtime
         vpl-gpu-rt
-        vaapiVdpau
+        libva-vdpau-driver
       ];
     };
   };

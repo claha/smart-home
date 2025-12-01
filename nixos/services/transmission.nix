@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.homelab.transmission;
 in
@@ -11,6 +16,7 @@ in
     services.transmission = {
       enable = true;
       openRPCPort = true;
+      package = pkgs.transmission_4;
     };
   };
 }

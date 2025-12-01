@@ -42,10 +42,6 @@ in
       enable = true;
       package = pkgs.unstable.wyoming-openwakeword;
       uri = "tcp://0.0.0.0:10400";
-      preloadModels = [
-        "ok_nabu"
-        "hey_jarvis"
-      ];
     };
 
     networking.firewall.allowedTCPPorts = [

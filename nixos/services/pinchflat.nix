@@ -27,7 +27,7 @@ in
 
     systemd.services.pinchflat = {
       serviceConfig = {
-        User = "jellyfin";
+        User = lib.mkForce "jellyfin";
         DynamicUser = lib.mkForce false;
       };
     };
