@@ -90,6 +90,7 @@ in
       ];
       input = {
         kb_layout = "se";
+        kb_options = "caps:none";
         follow_mouse = 0;
         sensitivity = 0;
         touchpad = {
