@@ -57,6 +57,13 @@
     ];
   };
 
+  # Extra caches
+  nix.settings = {
+    extra-substituters = [ "https://numtide.cachix.org" ];
+    extra-trusted-public-keys = [ "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE=" ];
+    trusted-users = [ "@wheel" ];
+  };
+
   # Packages
   environment.systemPackages = with pkgs; [
     just
