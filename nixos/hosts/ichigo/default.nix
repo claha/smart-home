@@ -20,6 +20,12 @@
     enable = true;
   };
 
+  # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   # Enable autlogin and hyprland
   services.greetd = {
     enable = true;
