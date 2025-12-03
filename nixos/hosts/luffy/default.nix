@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
-    ./../../services/homepage.nix
     ./../../services/traefik.nix
   ];
 
@@ -34,6 +33,7 @@
 
   homelab = {
     audiobookshelf.enable = true;
+    homepage.enable = true;
     music-assistant.enable = true;
     jellyfin = {
       enable = true;

@@ -7,6 +7,7 @@
     ./beszel-hub.nix
     ./docker.nix
     ./gatus.nix
+    ./homepage.nix
     ./it-tools.nix
     ./jellyfin.nix
     ./karakeep.nix
