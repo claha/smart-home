@@ -13,8 +13,14 @@ in
       brightnessctl
       wl-clipboard
       cliphist
+      bibata-cursors
     ];
     file.".local/share/brac.jpg".source = ./brac.jpg;
+    pointerCursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
   };
 
   wayland.windowManager.hyprland = {
