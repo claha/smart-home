@@ -2,7 +2,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2025.11.1
+    image: ghcr.io/home-assistant/home-assistant:2025.12.1
     environment:
       TZ: Europe/Stockholm
     network_mode: host
