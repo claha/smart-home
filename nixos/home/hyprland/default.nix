@@ -49,6 +49,7 @@ in
         "8,monitor:DP-1"
         "9,monitor:DP-1"
       ];
+      windowrulev2 = "noborder, onworkspace:w[t1]";
       bind = [
         "$mod, F, fullscreen"
         "$mod, RETURN, exec, $terminal"
