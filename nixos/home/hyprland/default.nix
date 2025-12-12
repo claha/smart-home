@@ -87,6 +87,13 @@ in
         "$mod, ALT_L, resizewindow"
       ];
 
+      binde = [
+        "$mod ALT, right, resizeactive, 5 0"
+        "$mod ALT, left, resizeactive, -5 0"
+        "$mod ALT, up, resizeactive, 0 -5"
+        "$mod ALT, down, resizeactive, 0 5"
+      ];
+
       bindel = [
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
