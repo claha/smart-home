@@ -63,12 +63,6 @@ in
                 icon = "pi-hole";
               };
             }
-            {
-              "NetAlertX" = {
-                href = "https://netalertx.hallstrom.duckdns.org";
-                icon = "netalertx";
-              };
-            }
           ];
         }
         {
@@ -165,18 +159,10 @@ in
         {
           Bookmarks = [
             {
-              "Smart-Home" = [
+              "GitHub" = [
                 {
-                  href = "https://github.com/claha/smart-home";
-                  icon = "mdi-home";
-                }
-              ];
-            }
-            {
-              dotfiles = [
-                {
-                  href = "https://github.com/claha/dotfiles";
-                  icon = "mdi-file";
+                  href = "https://github.com/claha";
+                  icon = "github";
                 }
               ];
             }
