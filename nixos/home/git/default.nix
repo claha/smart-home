@@ -41,6 +41,9 @@
       rebase = {
         autosquash = true;
       };
+      init = {
+        defaultBranch = "main";
+      };
     };
   };
 
