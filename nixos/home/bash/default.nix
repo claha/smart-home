@@ -19,6 +19,10 @@
     enable = true;
     initExtra = "${pkgs.figurine}/bin/figurine -f 3d.flf $(hostname)";
     historyControl = [ "ignoredups" ];
+    shellAliases = {
+      crush = "nix run github:numtide/llm-agents.nix#crush";
+      opencode = "nix run github:numtide/llm-agents.nix#opencode";
+    };
   };
 
   programs.starship = {
