@@ -17,7 +17,11 @@
 
   programs.bash = {
     enable = true;
-    initExtra = "${pkgs.figurine}/bin/figurine -f 3d.flf $(hostname)";
+    initExtra = ''
+      if [[ -n "$SSH_TTY" ]]; then
+        ${pkgs.figurine}/bin/figurine -f 3d.flf $(hostname)
+      fi
+    '';
     historyControl = [ "ignoredups" ];
     shellAliases = {
       crush = "nix run github:numtide/llm-agents.nix#crush";
