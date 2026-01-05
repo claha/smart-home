@@ -67,6 +67,7 @@
     ntfy.enable = true;
     gatus.enable = true;
     transmission.enable = true;
+    pocket-id.enable = true;
   };
 
   # Did you read the comment?

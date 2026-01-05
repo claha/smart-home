@@ -16,6 +16,7 @@
     ./ntfy.nix
     ./ollama.nix
     ./pinchflat.nix
+    ./pocket-id.nix
     ./ssh.nix
     ./transmission.nix
     ./udev.nix

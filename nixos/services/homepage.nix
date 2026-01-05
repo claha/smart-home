@@ -153,6 +153,16 @@ in
             }
           ];
         }
+        {
+          Tools = [
+            {
+              "Pocket ID" = {
+                href = "https://id.hallstrom.duckdns.org";
+                icon = "pocket-id";
+              };
+            }
+          ];
+        }
       ];
 
       bookmarks = [
