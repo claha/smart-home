@@ -48,13 +48,13 @@ in
             {
               Switch = {
                 href = "https://192.168.1.50";
-                icon = "https://avatars.githubusercontent.com/u/66272752?s=200&v=4";
+                icon = "ruckus-unleashed";
               };
             }
             {
               "Access Point" = {
-                href = "https://10.0.10.101";
-                icon = "https://avatars.githubusercontent.com/u/66272752?s=200&v=4";
+                href = "https://192.168.1.67";
+                icon = "ruckus-unleashed";
               };
             }
             {
