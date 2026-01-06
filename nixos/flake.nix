@@ -49,6 +49,9 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import ./home/${user}.nix;
+        home-manager.sharedModules = [
+          agenix.homeManagerModules.default
+        ];
       };
 
       agenixConfig = secrets: [

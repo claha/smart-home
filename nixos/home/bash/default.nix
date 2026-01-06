@@ -5,6 +5,10 @@
   ...
 }:
 {
+  age.secrets.bashrc = {
+    file = ../../secrets/bashrc.age;
+  };
+
   home.packages = with pkgs; [
     dua
     duf
@@ -20,6 +24,11 @@
     initExtra = ''
       if [[ -n "$SSH_TTY" ]]; then
         ${pkgs.figurine}/bin/figurine -f 3d.flf $(hostname)
+      fi
+    '';
+    bashrcExtra = ''
+      if [ -f ${config.age.secrets.bashrc.path} ]; then
+        source ${config.age.secrets.bashrc.path}
       fi
     '';
     historyControl = [ "ignoredups" ];
