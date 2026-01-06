@@ -53,6 +53,12 @@
     screen
     gnupg
     pinentry-curses
+    iputils
+    bind
+    traceroute
+    nmap
+    inetutils
+    tcpdump
   ];
 
   programs.gnupg.agent = {
