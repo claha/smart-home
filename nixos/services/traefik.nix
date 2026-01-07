@@ -28,6 +28,7 @@ let
     openwebui = "http://192.168.1.228:8080";
     ittools = "http://192.168.1.49:8023";
     id = "http://192.168.1.49:1411";
+    immich = "http://192.168.1.228:2283";
   };
 
   servicesWithMiddleware = {

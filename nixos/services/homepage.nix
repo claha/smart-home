@@ -91,6 +91,12 @@ in
                 icon = "music-assistant";
               };
             }
+            {
+              Immich = {
+                href = "https://immich.hallstrom.duckdns.org";
+                icon = "immich";
+              };
+            }
           ];
         }
         {

@@ -8,6 +8,7 @@
     ./docker.nix
     ./gatus.nix
     ./homepage.nix
+    ./immich.nix
     ./it-tools.nix
     ./jellyfin.nix
     ./karakeep.nix

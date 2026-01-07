@@ -59,6 +59,7 @@
   homelab = {
     ollama.enable = true;
     wyoming.enable = true;
+    immich.enable = true;
   };
 
   # Did you read the comment?
