@@ -88,4 +88,22 @@
     ];
     settings.StartupWMClass = "Grok";
   };
+
+  xdg.desktopEntries.homepage = {
+    name = "Homepage";
+    genericName = "Homepage";
+    comment = "Homepage";
+    exec = "${pkgs.brave}/bin/brave --app=https://homepage.hallstrom.duckdns.org --class=Homepage";
+    icon =
+      (pkgs.fetchurl {
+        url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homepage.png";
+        sha256 = "sha256-iXO7laQGKs9NgUT6dEfxWpfBY/BRS1OmnIPUfynmMCc=";
+      }).outPath;
+    type = "Application";
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    settings.StartupWMClass = "Homepage";
+  };
 }
