@@ -24,8 +24,8 @@
     exec = "${pkgs.brave}/bin/brave --app=https://chatgpt.com --class=ChatGPT";
     icon =
       (pkgs.fetchurl {
-        url = "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/chatgpt-icon.png";
-        sha256 = "sha256-1zPcj1WU3ZGNnesllYgyc2cvy55Mliho4bsjH3yeCtY=";
+        url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/chatgpt.png";
+        sha256 = "sha256-TogafwFxgWgUOHSNJAkkChBOF2SGCEe0nolK+sAy9a0=";
       }).outPath;
     type = "Application";
     categories = [
@@ -42,8 +42,8 @@
     exec = "${pkgs.brave}/bin/brave --app=https://gemini.google.com --class=Gemini";
     icon =
       (pkgs.fetchurl {
-        url = "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png";
-        sha256 = "sha256-aRiw7eFUpaooEPa4TTVA97A8ftyaiVFa7e1r4gR2PnA=";
+        url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-gemini.png";
+        sha256 = "sha256-5sV/u5bwvqZULMiGLjbyXZ8D7y7K6fJ0sPgJAYFwV+8=";
       }).outPath;
     type = "Application";
     categories = [
@@ -60,8 +60,8 @@
     exec = "${pkgs.brave}/bin/brave --app=https://claude.ai --class=Claude";
     icon =
       (pkgs.fetchurl {
-        url = "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/claude-ai-icon.png";
-        sha256 = "sha256-OZU3i6GPgtPgz8qfTG2tCcndcTqac00ZWEclww+jdTY=";
+        url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png";
+        sha256 = "sha256-76HQVfcmqUniwXKBC/E5DiaIdUMR0K3oVWA26HwSdfA=";
       }).outPath;
     type = "Application";
     categories = [
@@ -78,8 +78,8 @@
     exec = "${pkgs.brave}/bin/brave --app=https://grok.com --class=Grok";
     icon =
       (pkgs.fetchurl {
-        url = "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/grok-icon.png";
-        sha256 = "sha256-y7/ntZ8mQc0cXw8nj4GTvKn/KeXln3wy8o4rJ7ryNiQ=";
+        url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grok.png";
+        sha256 = "sha256-c8qACA47PbWONCVlVSRFzdceWHGwi9KvJSLoTkOTNpE=";
       }).outPath;
     type = "Application";
     categories = [
