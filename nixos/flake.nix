@@ -93,6 +93,9 @@
             user-manager-password = {
               file = ./secrets/user-manager-password.age;
             };
+            pocket-id = {
+              file = ./secrets/pocket-id.age;
+            };
           };
           extraModules = [
             disko.nixosModules.disko
