@@ -24,7 +24,7 @@ repos:
       - id: requirements-txt-fixer
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         exclude: vars/vault.yaml
