@@ -19,6 +19,8 @@ in
       host = "0.0.0.0";
       environment = {
         SHARE_ALL_SYSTEMS = "true";
+        USER_CREATION = "true";
+        DISABLE_PASSWORD_AUTH = "true";
       };
     };
 

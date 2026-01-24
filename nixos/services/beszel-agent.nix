@@ -5,7 +5,7 @@
     enable = true;
     openFirewall = true;
     environment = {
-      KEY = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1TvfFNIIKvB89ZLxUx1X8Psam7Q/e0XqcwIymSnTOi";
+      KEY = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG2+g6mI8KiRIcCCOxAJU8OMPSvEy0ks33cayUAKPP8";
     };
   };
 }
