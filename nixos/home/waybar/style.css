@@ -1,29 +1,54 @@
 * {
+    border: none;
+    border-radius: 0;
     font-family: "JetBrains", "monospace";
     font-size: 16px;
     min-height: 0;
-    padding: 0 8px;
 }
 
-#waybar {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 4px;
-    margin: 4px;
-    color: white;
+window#waybar {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    border-radius: 12px;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-left, .modules-center, .modules-right {
+    padding: 0 10px;
 }
 
 #workspaces button {
-    color: rgba(255, 255, 255, 0.5);
-}
-#workspaces button.active {
-    color: white;
+    padding: 0 8px;
+    color: #777777;
+    background: transparent;
 }
 
-#clock,
-#network,
-#battery,
+#workspaces button.active {
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    color: #eb4d4b;
+}
+
+#pulseaudio, #network, #battery, #tray {
+    padding: 0 8px;
+}
+
 #tray {
-    background: transparent;
-    color: white;
-    padding: 8px 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray > widget {
+  margin: 0;
 }
