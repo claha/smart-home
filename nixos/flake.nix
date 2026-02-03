@@ -83,8 +83,31 @@
             ++ extraModules
             ++ (if agenixSecrets != { } then agenixConfig agenixSecrets else [ ]);
         };
+
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
     in
     {
+      devShells = forAllSystems (
+        sys:
+        let
+          pkgs = import nixpkgs {
+            system = sys;
+            config.allowUnfree = true;
+          };
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.nixd
+              pkgs.nixfmt-tree
+            ];
+          };
+        }
+      );
+
       nixosConfigurations = {
         "naruto" = mkSystem {
           hostname = "naruto";
