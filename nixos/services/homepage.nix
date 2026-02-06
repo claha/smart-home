@@ -57,12 +57,6 @@ in
                 icon = "ruckus-unleashed";
               };
             }
-            {
-              "Pi-hole" = {
-                href = "https://pihole.hallstrom.duckdns.org";
-                icon = "pi-hole";
-              };
-            }
           ];
         }
         {
