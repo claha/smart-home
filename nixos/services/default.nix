@@ -5,6 +5,7 @@
     ./audiobookshelf.nix
     ./beszel-agent.nix
     ./beszel-hub.nix
+    ./blocky.nix
     ./docker.nix
     ./gatus.nix
     ./homepage.nix

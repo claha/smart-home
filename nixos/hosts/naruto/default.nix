@@ -68,6 +68,7 @@
     gatus.enable = true;
     transmission.enable = true;
     pocket-id.enable = true;
+    blocky.enable = true;
   };
 
   # Did you read the comment?
