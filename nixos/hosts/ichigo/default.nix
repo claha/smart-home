@@ -70,7 +70,6 @@
     neovim
     firefox
     google-chrome
-    microsoft-edge
     bitwarden-desktop
   ];
 
