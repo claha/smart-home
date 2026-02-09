@@ -8,6 +8,7 @@
       {
         layer = "top";
         position = "top";
+        output = [ "eDP-1" ];
         height = 36;
         margin-top = 8;
         margin-left = 10;
@@ -71,6 +72,32 @@
         "tray" = {
           icon-size = 16;
           spacing = 10;
+        };
+      }
+      {
+        layer = "top";
+        position = "top";
+        output = [
+          "DP-1"
+        ];
+        height = 36;
+        margin-top = 8;
+        margin-left = 10;
+        margin-right = 10;
+        spacing = 0;
+
+        modules-left = [ ];
+        modules-center = [ "hyprland/workspaces" ];
+        modules-right = [ ];
+
+        "hyprland/workspaces" = {
+          format = "{id}";
+          persistent-workspaces = {
+            "6" = [ ];
+            "7" = [ ];
+            "8" = [ ];
+            "9" = [ ];
+          };
         };
       }
     ];
