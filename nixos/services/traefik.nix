@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  hostConfig,
   ...
 }:
 
@@ -18,25 +19,32 @@ let
 
   domain = "hallstrom.duckdns.org";
 
+  naruto = hostConfig.hosts.naruto.ip.lan;
+  luffy = hostConfig.hosts.luffy.ip.lan;
+  eren = hostConfig.hosts.eren.ip.lan;
+  rpi4 = hostConfig.hosts.rpi4.ip.lan;
+
   services = {
-    homepage = "http://0.0.0.0:8082";
-    audiobookshelf = "http://0.0.0.0:13378";
-    jellyfin = "http://0.0.0.0:8096";
-    pinchflat = "http://0.0.0.0:8945";
-    musicassistant = "http://0.0.0.0:8095";
-    homeassistant = "http://192.168.1.173:8123";
-    gatus = "http://192.168.1.49:8080";
-    netalertx = "http://192.168.1.24:20211";
-    vikunja = "http://192.168.1.49:3456";
-    mealie = "http://192.168.1.49:9000";
-    karakeep = "http://192.168.1.49:3000";
-    memos = "http://192.168.1.228:5230";
-    ntfy = "http://192.168.1.49:2586";
-    beszel = "http://192.168.1.49:8090";
-    openwebui = "http://192.168.1.228:8080";
-    ittools = "http://192.168.1.49:8023";
-    id = "http://192.168.1.49:1411";
-    immich = "http://192.168.1.228:2283";
+    beszel = "http://${naruto}:8090";
+    gatus = "http://${naruto}:8080";
+    id = "http://${naruto}:1411";
+    ittools = "http://${naruto}:8023";
+    karakeep = "http://${naruto}:3000";
+    mealie = "http://${naruto}:9000";
+    ntfy = "http://${naruto}:2586";
+    vikunja = "http://${naruto}:3456";
+
+    audiobookshelf = "http://${luffy}:13378";
+    homepage = "http://${luffy}:8082";
+    jellyfin = "http://${luffy}:8096";
+    musicassistant = "http://${luffy}:8095";
+    pinchflat = "http://${luffy}:8945";
+
+    immich = "http://${eren}:2283";
+    memos = "http://${eren}:5230";
+    openwebui = "http://${eren}:8080";
+
+    homeassistant = "http://${rpi4}:8123";
   };
 
   servicesWithMiddleware = {

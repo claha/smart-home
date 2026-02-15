@@ -2,11 +2,13 @@
   config,
   lib,
   pkgs,
+  hostConfig,
   ...
 }:
 
 let
   cfg = config.homelab.blocky;
+  luffy = hostConfig.hosts.luffy;
 in
 {
   options.homelab.blocky = {
@@ -41,7 +43,7 @@ in
 
         customDNS = {
           mapping = {
-            "hallstrom.duckdns.org" = "100.118.93.10,192.168.1.217";
+            "hallstrom.duckdns.org" = "${luffy.ip.tailscale},${luffy.ip.lan}";
           };
         };
 

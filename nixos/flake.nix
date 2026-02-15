@@ -62,6 +62,8 @@
         }
       ];
 
+      hostConfig = import ./lib/hosts.nix;
+
       mkSystem =
         {
           hostname,
@@ -71,7 +73,7 @@
         }:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit hostname homeUser; };
+          specialArgs = { inherit hostname homeUser hostConfig; };
           modules =
             commonModules
             ++ [
