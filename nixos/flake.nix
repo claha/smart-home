@@ -124,6 +124,11 @@
             pocket-id = {
               file = ./secrets/pocket-id.age;
             };
+            karakeep = {
+              file = ./secrets/karakeep.age;
+              owner = "karakeep";
+              group = "karakeep";
+            };
           };
           extraModules = [
             disko.nixosModules.disko

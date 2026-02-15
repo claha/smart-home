@@ -27,9 +27,15 @@ in
         INFERENCE_TEXT_MODEL = "llama3.2:1b";
         INFERENCE_IMAGE_MODEL = "llava-phi3";
         INFERENCE_CONTEXT_LENGTH = "4096";
+        OAUTH_WELLKNOWN_URL = "https://id.hallstrom.duckdns.org/.well-known/openid-configuration";
+        OAUTH_PROVIDER_NAME = "Pocket-ID";
+        NEXTAUTH_URL = "https://karakeep.hallstrom.duckdns.org";
+        OAUTH_ALLOW_DANGEROUS_EMAIL_ACCOUNT_LINKING = "true";
+        DISABLE_PASSWORD_AUTH = "true";
+        DISABLE_SIGNUPS = "true";
       };
+      environmentFile = config.age.secrets.karakeep.path;
     };
-
     networking.firewall.allowedTCPPorts = [ port ];
   };
 }

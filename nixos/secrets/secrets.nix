@@ -19,6 +19,7 @@ in
 {
   "bashrc.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "pocket-id.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
+  "karakeep.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "duckdns-token.age".publicKeys = claes ++ luffy;
   "user-claes-password.age".publicKeys = claes;
   "user-manager-password.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
