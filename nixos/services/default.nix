@@ -14,6 +14,7 @@
     ./jellyfin.nix
     ./karakeep.nix
     ./mealie.nix
+    ./memos.nix
     ./music-assistant.nix
     ./ntfy.nix
     ./ollama.nix

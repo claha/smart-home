@@ -57,6 +57,7 @@
   };
 
   homelab = {
+    memos.enable = true;
     ollama.enable = true;
     wyoming.enable = true;
     immich.enable = true;

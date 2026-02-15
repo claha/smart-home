@@ -124,6 +124,12 @@ in
               };
             }
             {
+              Memos = {
+                href = "https://memos.hallstrom.duckdns.org";
+                icon = "memos";
+              };
+            }
+            {
               Open-Webui = {
                 href = "https://openwebui.hallstrom.duckdns.org";
                 icon = "open-webui";
