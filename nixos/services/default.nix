@@ -21,6 +21,7 @@
     ./pinchflat.nix
     ./pocket-id.nix
     ./ssh.nix
+    ./traefik.nix
     ./transmission.nix
     ./udev.nix
     ./vikunja.nix

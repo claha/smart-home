@@ -1,5 +1,13 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
 let
+  cfg = config.homelab.traefik;
+
   inherit (lib)
     mkMerge
     mkIf
@@ -65,91 +73,97 @@ in
     ../modules/duckdns.nix
   ];
 
-  services.traefik = {
-    enable = true;
-    environmentFiles = [ config.age.secrets.duckdns-token.path ];
-    staticConfigOptions = {
-      global = {
-        checkNewVersion = true;
-        sendAnonymousUsage = false;
-      };
+  options.homelab.traefik = {
+    enable = lib.mkEnableOption "Traefik reverse proxy";
+  };
 
-      log = {
-        level = "INFO";
-        filepath = "/var/lib/traefik/traefik.log";
-      };
-
-      accessLog.filePath = "/var/lib/traefik/access.log";
-
-      entryPoints = {
-        web = {
-          address = ":80";
-          http.redirections.entryPoint = {
-            to = "websecure";
-            scheme = "https";
-          };
+  config = lib.mkIf cfg.enable {
+    services.traefik = {
+      enable = true;
+      environmentFiles = [ config.age.secrets.duckdns-token.path ];
+      staticConfigOptions = {
+        global = {
+          checkNewVersion = true;
+          sendAnonymousUsage = false;
         };
 
-        websecure = {
-          address = ":443";
-          http = {
-            middlewares = [ "sslheader@file" ];
-            tls = {
-              certResolver = "letsencrypt";
-              domains = [
-                {
-                  main = "${domain}";
-                  sans = [ "*.${domain}" ];
-                }
-              ];
+        log = {
+          level = "INFO";
+          filepath = "/var/lib/traefik/traefik.log";
+        };
+
+        accessLog.filePath = "/var/lib/traefik/access.log";
+
+        entryPoints = {
+          web = {
+            address = ":80";
+            http.redirections.entryPoint = {
+              to = "websecure";
+              scheme = "https";
             };
           };
-        };
-      };
 
-      api = {
-        insecure = false;
-        dashboard = true;
-      };
-
-      certificatesResolvers.letsencrypt.acme = {
-        email = "hallstrom.claes@gmail.com";
-        storage = "/var/lib/traefik/acme.json";
-        dnsChallenge.provider = "duckdns";
-      };
-    };
-
-    dynamicConfigOptions = {
-      http = {
-        routers = routers;
-
-        middlewares = {
-          sslheader = {
-            headers.customRequestHeaders."X-Forwarded-Proto" = "https";
-          };
-          websocketheader = {
-            headers.customRequestHeaders = {
-              Connection = "upgrade";
-              Upgrade = "websocket";
+          websecure = {
+            address = ":443";
+            http = {
+              middlewares = [ "sslheader@file" ];
+              tls = {
+                certResolver = "letsencrypt";
+                domains = [
+                  {
+                    main = "${domain}";
+                    sans = [ "*.${domain}" ];
+                  }
+                ];
+              };
             };
           };
         };
 
-        services = traefikServices;
+        api = {
+          insecure = false;
+          dashboard = true;
+        };
+
+        certificatesResolvers.letsencrypt.acme = {
+          email = "hallstrom.claes@gmail.com";
+          storage = "/var/lib/traefik/acme.json";
+          dnsChallenge.provider = "duckdns";
+        };
+      };
+
+      dynamicConfigOptions = {
+        http = {
+          routers = routers;
+
+          middlewares = {
+            sslheader = {
+              headers.customRequestHeaders."X-Forwarded-Proto" = "https";
+            };
+            websocketheader = {
+              headers.customRequestHeaders = {
+                Connection = "upgrade";
+                Upgrade = "websocket";
+              };
+            };
+          };
+
+          services = traefikServices;
+        };
       };
     };
-  };
 
-  services.duckdns = {
-    enable = true;
-    domains = [ "hallstrom" ];
-    environmentFiles = [ config.age.secrets.duckdns-token.path ];
-  };
+    services.duckdns = {
+      enable = true;
+      domains = [ "hallstrom" ];
+      environmentFiles = [ config.age.secrets.duckdns-token.path ];
+    };
 
-  networking.firewall = {
-    allowedTCPPorts = [
-      80
-      443
-    ];
+    networking.firewall = {
+      allowedTCPPorts = [
+        80
+        443
+      ];
+    };
   };
 }

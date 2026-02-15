@@ -79,6 +79,9 @@
               ./hosts/${hostname}
               ./users/${homeUser}.nix
               (homeManagerConfig homeUser)
+              {
+                disabledModules = [ "services/misc/duckdns.nix" ];
+              }
             ]
             ++ extraModules
             ++ (if agenixSecrets != { } then agenixConfig agenixSecrets else [ ]);
@@ -139,11 +142,6 @@
               file = ./secrets/user-manager-password.age;
             };
           };
-          extraModules = [
-            {
-              disabledModules = [ "services/misc/duckdns.nix" ];
-            }
-          ];
         };
 
         "eren" = mkSystem {

@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../services
-    ./../../services/traefik.nix
   ];
 
   # Bootloader
@@ -40,6 +39,7 @@
       hardwareAcceleration = true;
     };
     pinchflat.enable = true;
+    traefik.enable = true;
   };
 
   # Did you read the comment?
