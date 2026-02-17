@@ -1,5 +1,10 @@
 {
   "$schema": "https://charm.land/crush.json",
+  "options": {
+     "skills_paths": [
+       "./.agents/skills"
+     ]
+  },
   "mcp": {
     "nixos": {
       "type": "stdio",
