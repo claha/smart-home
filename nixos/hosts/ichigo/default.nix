@@ -66,7 +66,6 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    just
     neovim
     firefox
     google-chrome

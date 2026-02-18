@@ -62,6 +62,7 @@
     nmap
     inetutils
     tcpdump
+    just
   ];
 
   programs.gnupg.agent = {

@@ -30,10 +30,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    just
-  ];
-
   services.snapper = {
     cleanupInterval = "1d";
     persistentTimer = false;

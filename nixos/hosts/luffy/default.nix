@@ -26,10 +26,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    just
-  ];
-
   homelab = {
     audiobookshelf.enable = true;
     homepage.enable = true;
