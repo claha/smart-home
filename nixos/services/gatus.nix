@@ -2,39 +2,18 @@
   config,
   lib,
   pkgs,
+  hostConfig,
   ...
 }:
 
 let
   cfg = config.homelab.gatus;
+  hosts = hostConfig.hosts;
 
-  tailscaleDevices = [
-    {
-      hostname = "naruto";
-      tailscaleIp = "100.110.122.14";
-    }
-    {
-      hostname = "luffy";
-      tailscaleIp = "100.118.93.10";
-    }
-    {
-      hostname = "eren";
-      tailscaleIp = "100.77.170.28";
-    }
-    {
-      hostname = "rpi4";
-      tailscaleIp = "100.74.114.39";
-    }
-    {
-      hostname = "rpi3";
-      tailscaleIp = "100.95.2.1";
-    }
-  ];
-
-  tailscaleEndpoints = map (device: {
-    name = device.hostname;
+  tailscaleEndpoints = lib.mapAttrsToList (name: host: {
+    name = name;
     group = "Tailscale";
-    url = "icmp://${device.tailscaleIp}";
+    url = "icmp://${host.ip.tailscale}";
     interval = "5m";
     conditions = [
       "[CONNECTED] == true"
@@ -44,7 +23,22 @@ let
         type = "ntfy";
       }
     ];
-  }) tailscaleDevices;
+  }) hosts;
+
+  lanEndpoints = lib.mapAttrsToList (name: host: {
+    name = name;
+    group = "LAN";
+    url = "icmp://${host.ip.lan}";
+    interval = "5m";
+    conditions = [
+      "[CONNECTED] == true"
+    ];
+    alerts = [
+      {
+        type = "ntfy";
+      }
+    ];
+  }) hosts;
 
   domainEndpoints = [
     {
@@ -123,7 +117,7 @@ in
             };
           };
         };
-        endpoints = tailscaleEndpoints ++ domainEndpoints ++ serviceEndpoints;
+        endpoints = tailscaleEndpoints ++ lanEndpoints ++ domainEndpoints ++ serviceEndpoints;
       };
     };
 
