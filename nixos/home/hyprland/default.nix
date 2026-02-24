@@ -57,6 +57,7 @@ in
         windowrulev2 = "noborder, onworkspace:w[t1]";
         bind = [
           "$mod, F, fullscreen"
+          "$mod, T, togglefloating"
           "$mod, RETURN, exec, $terminal"
           "$mod SHIFT, Q, killactive"
           "$mod, D, exec, $menu"
@@ -68,6 +69,11 @@ in
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
+          "$mod, TAB, workspace, e+1"
+          "$mod SHIFT, TAB, workspace, e-1"
+          "$mod CTRL, TAB, workspace, previous"
+          "$mod, S, togglespecialworkspace, scratchpad"
+          "$mod ALT, S, movetoworkspacesilent, special:scratchpad"
           "$mod, L, exec, hyprlock"
           "$mod, V, exec, cliphist list | fuzzel --dmenu --width 100 | cliphist decode | wl-copy"
           "$mod SHIFT, P, exec, $power_menu"
@@ -108,6 +114,11 @@ in
           ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 1%+"
           ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 1%-"
         ];
+
+        binds = {
+          hide_special_on_workspace_change = true;
+        };
+
         input = {
           kb_layout = "se";
           kb_options = "caps:none";
