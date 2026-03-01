@@ -35,6 +35,7 @@
     shellAliases = {
       crush = "nix run github:numtide/llm-agents.nix#crush";
       opencode = "nix run github:numtide/llm-agents.nix#opencode";
+      nix-shell-unstable = "nix-shell -I nixpkgs=channel:nixpkgs-unstable";
     };
   };
 
