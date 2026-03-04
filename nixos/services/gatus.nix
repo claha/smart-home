@@ -8,7 +8,7 @@
 
 let
   cfg = config.homelab.gatus;
-  hosts = hostConfig.hosts;
+  hosts = lib.filterAttrs (name: host: host.user != "claes") hostConfig.hosts;
 
   tailscaleEndpoints = lib.mapAttrsToList (name: host: {
     name = name;
