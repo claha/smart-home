@@ -44,6 +44,7 @@
     settings = {
       add_newline = false;
       line_break.disabled = false;
+      gcloud.disabled = true;
     };
   };
 
