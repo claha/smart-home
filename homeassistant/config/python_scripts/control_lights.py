@@ -9,7 +9,7 @@ ACTION_DIM = "dim"
 ACTION_OFF = "off"
 
 
-def light_on(entity_id: str, brightness_pct: int, color_temp: int) -> None:
+def light_on(entity_id: str, brightness_pct: int, color_temp_kelvin: int) -> None:
     """Turn on a light."""
     hass.services.call(
         "light",
@@ -17,7 +17,8 @@ def light_on(entity_id: str, brightness_pct: int, color_temp: int) -> None:
         {
             "entity_id": entity_id,
             "brightness_pct": brightness_pct,
-            "color_temp": color_temp,
+            "transition": 10,
+            "color_temp_kelvin": color_temp_kelvin,
         },
         blocking=False,
     )
@@ -33,7 +34,7 @@ def light_dim(entity_id: str) -> None:
         {
             "entity_id": entity_id,
             "brightness_pct": 10,
-            "color_temp": 454,
+            "transition": 10,
         },
         blocking=False,
     )
@@ -46,12 +47,13 @@ def light_off(entity_id: str) -> None:
         "turn_off",
         {
             "entity_id": entity_id,
+            "transition": 10,
         },
         blocking=False,
     )
 
 
-def switch_on(entity_id: str, brightness_pct: int, color_temp: int) -> None:
+def switch_on(entity_id: str, brightness_pct: int, color_temp_kelvin: int) -> None:
     """Turn on a switch."""
     hass.services.call(
         "switch",
@@ -131,14 +133,14 @@ lights = {
 area = data.get("area")
 action = data.get("action")
 brightness_pct = data.get("brightness_pct", 80)
-color_temp = data.get("color_temp", 454)
+color_temp_kelvin = data.get("color_temp_kelvin", 2700)
 
 # Perform action on each entity id
 entity_ids = lights[area]
 for entity_id in entity_ids:
     entity_type = entity_id.split(".")[0]
     if action == ACTION_ON:
-        on_control[entity_type](entity_id, brightness_pct, color_temp)
+        on_control[entity_type](entity_id, brightness_pct, color_temp_kelvin)
     elif action == ACTION_DIM:
         dim_control[entity_type](entity_id)
     elif action == ACTION_OFF:
