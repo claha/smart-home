@@ -66,7 +66,6 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    neovim
     firefox
     google-chrome
     bitwarden-desktop
