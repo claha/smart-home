@@ -53,6 +53,11 @@
 
   environment.systemPackages = with pkgs; [
     wget
+    unzip
+    zip
+    jq
+    tree
+    ripgrep
     screen
     gnupg
     pinentry-curses
