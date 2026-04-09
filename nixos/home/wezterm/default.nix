@@ -38,6 +38,14 @@
 
       config.window_close_confirmation = "NeverPrompt"
 
+      config.keys = {
+        {
+          key = "Enter",
+          mods = "ALT",
+          action = wezterm.action.DisableDefaultAssignment,
+        },
+      }
+
       return config
     '';
   };
