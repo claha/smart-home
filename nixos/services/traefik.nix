@@ -42,7 +42,7 @@ let
 
     immich = "http://${eren}:2283";
     memos = "http://${eren}:5230";
-    openwebui = "http://${eren}:8080";
+    open-webui = "http://${eren}:8080";
 
     homeassistant = "http://${rpi4}:8123";
   };

@@ -55,6 +55,7 @@
   homelab = {
     memos.enable = true;
     ollama.enable = true;
+    open-webui.enable = true;
     wyoming.enable = true;
     immich.enable = true;
   };

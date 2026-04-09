@@ -18,6 +18,7 @@
     ./music-assistant.nix
     ./ntfy.nix
     ./ollama.nix
+    ./open-webui.nix
     ./pinchflat.nix
     ./pocket-id.nix
     ./ssh.nix

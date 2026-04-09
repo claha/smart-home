@@ -130,8 +130,8 @@ in
               };
             }
             {
-              Open-Webui = {
-                href = "https://openwebui.hallstrom.duckdns.org";
+              "Open-WebUI" = {
+                href = "https://open-webui.hallstrom.duckdns.org";
                 icon = "open-webui";
               };
             }
