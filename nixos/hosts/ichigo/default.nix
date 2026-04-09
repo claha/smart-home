@@ -51,6 +51,7 @@
 
   homelab = {
     docker.enable = true;
+    ollama.enable = true;
   };
 
   myServices.udev = {
