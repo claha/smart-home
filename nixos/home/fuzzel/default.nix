@@ -5,14 +5,14 @@
     enable = true;
     settings = {
       main = {
+        dpi-aware = "no";
         font = "JetBrains Mono:size 12";
-        terminal = "${pkgs.wezterm}/bin/wezterm";
         layer = "overlay";
-        fuzzy = true;
+        match-mode = "fuzzy";
+        terminal = "${pkgs.wezterm}/bin/wezterm";
       };
       colors = {
         background = "000000b2";
-        text = "fffffff";
         match = "ee5396ff";
         selection-match = "ee5396ff";
         selection = "262626ff";
