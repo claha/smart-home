@@ -15,6 +15,7 @@
     ./karakeep.nix
     ./mealie.nix
     ./memos.nix
+    ./minetest-server.nix
     ./music-assistant.nix
     ./ntfy.nix
     ./ollama.nix

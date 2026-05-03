@@ -58,6 +58,7 @@
     open-webui.enable = true;
     wyoming.enable = true;
     immich.enable = true;
+    minetest-server.enable = true;
   };
 
   # Did you read the comment?
