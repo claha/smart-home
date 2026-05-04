@@ -35,6 +35,7 @@
       hardwareAcceleration = true;
     };
     pinchflat.enable = true;
+    transmission.enable = true;
     traefik.enable = true;
   };
 
