@@ -15,7 +15,6 @@ in
 
   config = lib.mkIf cfg.enable {
     services.wyoming.piper = {
-      package = pkgs.unstable.wyoming-piper;
       servers = {
         "en" = {
           enable = true;
@@ -26,7 +25,6 @@ in
     };
 
     services.wyoming.faster-whisper = {
-      package = pkgs.unstable.wyoming-faster-whisper;
       servers = {
         "en" = {
           enable = true;
@@ -40,7 +38,6 @@ in
 
     services.wyoming.openwakeword = {
       enable = true;
-      package = pkgs.unstable.wyoming-openwakeword;
       uri = "tcp://0.0.0.0:10400";
     };
 
