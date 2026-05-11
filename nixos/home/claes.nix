@@ -11,7 +11,6 @@
     ./development
     ./emacs
     ./git
-    ./mpv
     ./neovim
     ./qutebrowser
     ./hyprland

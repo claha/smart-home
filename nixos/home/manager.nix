@@ -12,9 +12,5 @@
 
   home.packages = with pkgs; [
     emacs-nox
-    flexget
-    spotdl
-    svtplay-dl
-    yt-dlp
   ];
 }
