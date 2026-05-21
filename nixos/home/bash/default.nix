@@ -68,6 +68,9 @@
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+    defaultCommand = "fd --type f --hidden --strip-cwd-prefix --exclude .git";
+    fileWidgetCommand = "fd --type f --hidden --strip-cwd-prefix --exclude .git";
+    changeDirWidgetCommand = "fd --type d --hidden --strip-cwd-prefix --exclude .git";
     defaultOptions = [
       "--height 50%"
       "--border sharp"
