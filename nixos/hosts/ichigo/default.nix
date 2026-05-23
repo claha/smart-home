@@ -32,12 +32,15 @@
     enable = true;
     settings = {
       default_session = {
-        command = "Hyprland";
+        command = "start-hyprland";
         user = homeUser;
       };
     };
   };
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.unstable.hyprland;
+  };
 
   # Sound
   services.pulseaudio.enable = false;

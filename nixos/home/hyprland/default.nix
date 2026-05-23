@@ -25,6 +25,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = pkgs.unstable.hyprland;
     settings =
       let
         powerMenuCommand = "printf 'Lock\\nLogout\\nReboot\\nShutdown' | fuzzel --dmenu --width 50 --minimal-lines | xargs -I {} sh -c 'case \"$1\" in Lock) hyprlock ;; Logout) hyprctl dispatch exit ;; Reboot) systemctl reboot ;; Shutdown) systemctl poweroff ;; esac' sh {}";
@@ -54,7 +55,7 @@ in
           "8,monitor:DP-1"
           "9,monitor:DP-1"
         ];
-        windowrulev2 = "noborder, onworkspace:w[t1]";
+        windowrule = "border_size 0, match:workspace w[t1]";
         bind = [
           "$mod, F, fullscreen"
           "$mod, T, togglefloating"
@@ -63,8 +64,6 @@ in
           "$mod, D, exec, $menu"
           "$mod, B, exec, $browser"
           "$mod, M, exit"
-          "$mod, P, pseudo"
-          "$mod, J, togglesplit"
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
@@ -137,12 +136,13 @@ in
           "col.inactive_border" = "rgba(e6610044)";
           resize_on_border = false;
           allow_tearing = false;
-          layout = "dwindle";
+          layout = "scrolling";
         };
 
-        dwindle = {
-          pseudotile = true;
-          preserve_split = true;
+        scrolling = {
+          fullscreen_on_one_column = true;
+          column_width = 0.5;
+          direction = "right";
         };
 
         decoration = {
