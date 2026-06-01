@@ -8,12 +8,25 @@ in
     ../fuzzel
   ];
 
+  services.mako = {
+    enable = true;
+    settings = {
+      background-color = "#00000080";
+      border-color = "#e66100ff";
+      border-radius = 4;
+      border-size = 2;
+      default-timeout = 5000;
+      font = "JetBrains Mono 12";
+    };
+  };
+
   home = {
     packages = with pkgs; [
       brightnessctl
       wl-clipboard
       cliphist
       bibata-cursors
+      libnotify
     ];
     file.".local/share/brac.jpg".source = ./brac.jpg;
     pointerCursor = {
@@ -40,6 +53,7 @@ in
           "waybar"
           "hyprpaper"
           "hypridle"
+          "mako"
           "wl-paste --watch cliphist store"
           "hyprlock"
         ];
