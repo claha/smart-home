@@ -33,8 +33,9 @@
     '';
     historyControl = [ "ignoredups" ];
     shellAliases = {
-      crush = "nix run github:numtide/llm-agents.nix#crush";
-      opencode = "nix run github:numtide/llm-agents.nix#opencode";
+      crush = "nix run github:numtide/llm-agents.nix#crush --";
+      opencode = "nix run github:numtide/llm-agents.nix#opencode --";
+      pi = "nix run github:numtide/llm-agents.nix#pi --";
       nix-shell-unstable = "nix-shell -I nixpkgs=channel:nixpkgs-unstable";
     };
   };
