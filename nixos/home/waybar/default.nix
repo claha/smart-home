@@ -1,5 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  micScript = pkgs.writeShellScript "waybar-mic" ''
+    mic_mute=$(${pkgs.pipewire}/bin/pw-dump | ${pkgs.jq}/bin/jq -r '[.[] | select(.info.props."media.class" == "Audio/Source") | .info.params.Props[0].mute] | if any then "muted" else "on" end')
+    if [ "$mic_mute" = "muted" ]; then
+      echo '{"text": "󰍭", "tooltip": "Microphone muted", "class": "muted"}'
+    else
+      echo '{"text": "󰍬", "tooltip": "Microphone on", "class": "on"}'
+    fi
+  '';
+in
 {
   programs.waybar = {
     enable = true;
@@ -19,10 +29,17 @@
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "pulseaudio"
+          "custom/microphone"
           "network"
           "battery"
           "tray"
         ];
+
+        "custom/microphone" = {
+          exec = micScript;
+          interval = 2;
+          return-type = "json";
+        };
 
         "clock" = {
           format = "{:%H:%M %A, %d %b %Y}";

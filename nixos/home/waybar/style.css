@@ -32,8 +32,16 @@ window#waybar {
     color: #eb4d4b;
 }
 
-#pulseaudio, #network, #battery, #tray {
+#pulseaudio, #network, #battery, #tray, #custom-microphone {
     padding: 0 8px;
+}
+
+#custom-microphone.muted {
+    color: #eb4d4b;
+}
+
+#custom-microphone.on {
+    color: #ffffff;
 }
 
 #tray {

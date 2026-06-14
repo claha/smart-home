@@ -73,7 +73,7 @@
     firefox
     google-chrome
     bitwarden-desktop
-    bambu-studio
+    # bambu-studio
   ];
 
   # Did you read the comment?
