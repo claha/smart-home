@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./agents
     ./bash
     ./git
   ];

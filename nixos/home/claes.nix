@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./agents
     ./bash
     ./development
     ./emacs

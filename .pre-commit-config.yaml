@@ -35,6 +35,9 @@ repos:
     rev: v0.48.0
     hooks:
       - id: markdownlint
+        args:
+          - --ignore
+          - ./nixos/home/agents/skills
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.16
