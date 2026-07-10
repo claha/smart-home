@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.homelab.memos;
+  domain = config.homelab.domain;
   port = 5230;
 in
 {
@@ -20,7 +21,7 @@ in
       settings = {
         MEMOS_PORT = toString port;
         MEMOS_ADDR = "0.0.0.0";
-        MEMOS_INSTANCE_URL = "https://memos.hallstrom.duckdns.org";
+        MEMOS_INSTANCE_URL = "https://memos.${domain}";
       };
     };
 

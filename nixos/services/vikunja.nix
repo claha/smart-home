@@ -1,6 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.homelab.vikunja;
+  domain = config.homelab.domain;
 in
 {
   options.homelab.vikunja = {
@@ -12,7 +13,7 @@ in
       vikunja = {
         enable = true;
         frontendScheme = "https";
-        frontendHostname = "vikunja.hallstrom.duckdns.org";
+        frontendHostname = "vikunja.${domain}";
       };
     };
 

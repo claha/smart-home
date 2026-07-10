@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  domain = "hallstrom.duckdns.org";
+in
 {
   home.packages = [ pkgs.brave ];
 
@@ -93,7 +96,7 @@
     name = "Homepage";
     genericName = "Homepage";
     comment = "Homepage";
-    exec = "${pkgs.brave}/bin/brave --app=https://homepage.hallstrom.duckdns.org --class=Homepage";
+    exec = "${pkgs.brave}/bin/brave --app=https://homepage.${domain} --class=Homepage";
     icon =
       (pkgs.fetchurl {
         url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homepage.png";

@@ -17,7 +17,7 @@ let
     mapAttrs'
     ;
 
-  domain = "hallstrom.duckdns.org";
+  domain = config.homelab.domain;
 
   naruto = hostConfig.hosts.naruto.ip.lan;
   luffy = hostConfig.hosts.luffy.ip.lan;

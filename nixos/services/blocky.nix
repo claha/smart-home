@@ -8,6 +8,7 @@
 
 let
   cfg = config.homelab.blocky;
+  domain = config.homelab.domain;
   luffy = hostConfig.hosts.luffy;
 in
 {
@@ -43,7 +44,7 @@ in
 
         customDNS = {
           mapping = {
-            "hallstrom.duckdns.org" = "${luffy.ip.tailscale},${luffy.ip.lan}";
+            "${domain}" = "${luffy.ip.tailscale},${luffy.ip.lan}";
           };
         };
 

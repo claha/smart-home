@@ -7,6 +7,7 @@
 
 let
   cfg = config.homelab.pocket-id;
+  domain = config.homelab.domain;
 in
 {
   options.homelab.pocket-id = {
@@ -19,7 +20,7 @@ in
       package = pkgs.unstable.pocket-id;
       settings = {
         TRUST_PROXY = true;
-        APP_URL = "https://id.hallstrom.duckdns.org";
+        APP_URL = "https://id.${domain}";
         ANALYTICS_DISABLED = true;
       };
       environmentFile = config.age.secrets.pocket-id.path;

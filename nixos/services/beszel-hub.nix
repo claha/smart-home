@@ -7,6 +7,7 @@
 
 let
   cfg = config.homelab.beszel-hub;
+  domain = config.homelab.domain;
 in
 {
   options.homelab.beszel-hub = {

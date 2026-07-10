@@ -7,6 +7,7 @@
 
 let
   cfg = config.homelab.homepage;
+  domain = config.homelab.domain;
 in
 {
   options.homelab.homepage = {
@@ -17,7 +18,7 @@ in
     services.homepage-dashboard = {
       enable = true;
       openFirewall = true;
-      allowedHosts = "homepage.hallstrom.duckdns.org";
+      allowedHosts = "homepage.${domain}";
 
       settings = {
         language = "en";
@@ -63,31 +64,31 @@ in
           Media = [
             {
               Jellyfin = {
-                href = "https://jellyfin.hallstrom.duckdns.org";
+                href = "https://jellyfin.${domain}";
                 icon = "jellyfin";
               };
             }
             {
               Pinchflat = {
-                href = "https://pinchflat.hallstrom.duckdns.org";
+                href = "https://pinchflat.${domain}";
                 icon = "pinchflat";
               };
             }
             {
               Audiobookshelf = {
-                href = "https://audiobookshelf.hallstrom.duckdns.org";
+                href = "https://audiobookshelf.${domain}";
                 icon = "audiobookshelf";
               };
             }
             {
               "Music-Assistant" = {
-                href = "https://musicassistant.hallstrom.duckdns.org";
+                href = "https://musicassistant.${domain}";
                 icon = "music-assistant";
               };
             }
             {
               Immich = {
-                href = "https://immich.hallstrom.duckdns.org";
+                href = "https://immich.${domain}";
                 icon = "immich";
               };
             }
@@ -97,13 +98,13 @@ in
           "Home" = [
             {
               "Home-Assistant" = {
-                href = "https://homeassistant.hallstrom.duckdns.org";
+                href = "https://homeassistant.${domain}";
                 icon = "home-assistant";
               };
             }
             {
               Mealie = {
-                href = "https://mealie.hallstrom.duckdns.org";
+                href = "https://mealie.${domain}";
                 icon = "mealie";
               };
             }
@@ -113,31 +114,31 @@ in
           Productivity = [
             {
               Vikunja = {
-                href = "https://vikunja.hallstrom.duckdns.org";
+                href = "https://vikunja.${domain}";
                 icon = "vikunja";
               };
             }
             {
               Karakeep = {
-                href = "https://karakeep.hallstrom.duckdns.org";
+                href = "https://karakeep.${domain}";
                 icon = "karakeep";
               };
             }
             {
               Memos = {
-                href = "https://memos.hallstrom.duckdns.org";
+                href = "https://memos.${domain}";
                 icon = "memos";
               };
             }
             {
               "Open-WebUI" = {
-                href = "https://open-webui.hallstrom.duckdns.org";
+                href = "https://open-webui.${domain}";
                 icon = "open-webui";
               };
             }
             {
               It-Tools = {
-                href = "https://ittools.hallstrom.duckdns.org";
+                href = "https://ittools.${domain}";
                 icon = "it-tools";
               };
             }
@@ -147,13 +148,13 @@ in
           Monitor = [
             {
               "Gatus" = {
-                href = "https://gatus.hallstrom.duckdns.org";
+                href = "https://gatus.${domain}";
                 icon = "gatus";
               };
             }
             {
               "Beszel" = {
-                href = "https://beszel.hallstrom.duckdns.org";
+                href = "https://beszel.${domain}";
                 icon = "beszel";
               };
             }
@@ -163,7 +164,7 @@ in
           Tools = [
             {
               "Pocket ID" = {
-                href = "https://id.hallstrom.duckdns.org";
+                href = "https://id.${domain}";
                 icon = "pocket-id";
               };
             }

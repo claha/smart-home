@@ -8,6 +8,7 @@
 
 let
   cfg = config.homelab.gatus;
+  domain = config.homelab.domain;
   hosts = lib.filterAttrs (name: host: host.user != "claes") hostConfig.hosts;
 
   tailscaleEndpoints = lib.mapAttrsToList (name: host: {
@@ -42,9 +43,9 @@ let
 
   domainEndpoints = [
     {
-      name = "hallstrom.duckdns.org";
+      name = domain;
       group = "Domain";
-      url = "https://hallstrom.duckdns.org";
+      url = "https://${domain}";
       interval = "1h";
       conditions = [
         "[CERTIFICATE_EXPIRATION] > 240h"
@@ -61,7 +62,7 @@ let
     {
       name = "Audiobookshelf";
       group = "Service";
-      url = "https://audiobookshelf.hallstrom.duckdns.org/healthcheck";
+      url = "https://audiobookshelf.${domain}/healthcheck";
       interval = "15m";
       conditions = [
         "[STATUS] == 200"
@@ -76,7 +77,7 @@ let
     {
       name = "Jellyfin";
       group = "Service";
-      url = "https://jellyfin.hallstrom.duckdns.org/health";
+      url = "https://jellyfin.${domain}/health";
       interval = "15m";
       conditions = [
         "[STATUS] == 200"
@@ -106,7 +107,7 @@ in
         #   };
         alerting = {
           ntfy = {
-            url = "https://ntfy.hallstrom.duckdns.org";
+            url = "https://ntfy.${domain}";
             topic = "gatus";
             priority = 3;
             default-alert = {
