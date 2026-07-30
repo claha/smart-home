@@ -108,6 +108,7 @@
             packages = [
               pkgs.nixd
               pkgs.nixfmt-tree
+              pkgs.mcp-nixos
             ];
           };
         }
