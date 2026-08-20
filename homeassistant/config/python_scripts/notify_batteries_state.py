@@ -1,6 +1,6 @@
 """Send a notification with batteries state."""
 
-hass = hass  # noqa: F821
+hass = hass  # noqa: F821, PLW0127
 
 
 def get_entity_state_int(entity_id: str) -> int:

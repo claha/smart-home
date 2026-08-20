@@ -1,8 +1,8 @@
 """Control lights."""
 
-hass = hass  # noqa: F821
-data = data  # noqa: F821
-logger = logger  # noqa: F821
+hass = hass  # noqa: F821, PLW0127
+data = data  # noqa: F821, PLW0127
+logger = logger  # noqa: F821, PLW0127
 
 ACTION_ON = "on"
 ACTION_DIM = "dim"

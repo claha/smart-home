@@ -1,6 +1,6 @@
 """Get latest data for all indices, stocks and funds."""
 
-hass = hass  # noqa: F821
+hass = hass  # noqa: F821, PLW0127
 
 # Get entities
 indices = []

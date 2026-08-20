@@ -1,8 +1,8 @@
 """Send a notification with portfolio state."""
 
-hass = hass  # noqa: F821
-data = data  # noqa: F821
-logger = logger  # noqa: F821
+hass = hass  # noqa: F821, PLW0127
+data = data  # noqa: F821, PLW0127
+logger = logger  # noqa: F821, PLW0127
 MESSAGE_MAX_WIDTH = 41
 
 
@@ -130,7 +130,7 @@ for entity_id in entities:
         )
         total_value = to_string(int(get_value(entity, "totalValue") / 1000)) + "k"
         message_data.append((name, change_percent, total_change, total_value))
-    except Exception:
+    except Exception:  # noqa: BLE001
         logger.warning("Failed for %s", entity_id)
         message_data.append((entity_id, "-100.00%", "?", "?"))
 message_data.sort(key=lambda x: float(x[1][:-1]), reverse=True)
@@ -143,7 +143,7 @@ for entity_id in entities:
         total_change, _ = get_change(entity, change_key, change_percent_key)
         summary_data[0] = summary_data[0] + total_value
         summary_data[1] = summary_data[1] + total_change
-    except Exception:
+    except Exception:  # noqa: BLE001
         logger.warning("Failed for %s", entity_id)
 summary_data[2] = 100 * summary_data[1] / (summary_data[0] - summary_data[1])
 summary_data[0] = to_string(int(summary_data[0] / 1000)) + "k"

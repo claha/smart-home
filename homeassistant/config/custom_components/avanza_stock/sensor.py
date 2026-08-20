@@ -11,20 +11,6 @@ from datetime import timedelta
 import homeassistant.helpers.config_validation as cv
 import pyavanza
 import voluptuous as vol
-from homeassistant.components.sensor import (
-    PLATFORM_SCHEMA,
-    SensorDeviceClass,
-    SensorEntity,
-    SensorStateClass,
-)
-from homeassistant.const import (
-    CONF_CURRENCY,
-    CONF_ID,
-    CONF_MONITORED_CONDITIONS,
-    CONF_NAME,
-)
-from homeassistant.helpers.aiohttp_client import async_create_clientsession
-
 from custom_components.avanza_stock.const import (
     ATTR_TRENDING,
     CHANGE_PERCENT_PRICE_MAPPING,
@@ -50,6 +36,19 @@ from custom_components.avanza_stock.const import (
     PRICE_MAPPING,
     TOTAL_CHANGE_PRICE_MAPPING,
 )
+from homeassistant.components.sensor import (
+    PLATFORM_SCHEMA,
+    SensorDeviceClass,
+    SensorEntity,
+    SensorStateClass,
+)
+from homeassistant.const import (
+    CONF_CURRENCY,
+    CONF_ID,
+    CONF_MONITORED_CONDITIONS,
+    CONF_NAME,
+)
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -126,7 +125,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                 show_trending_icon,
             ),
         )
-        _LOGGER.debug("Tracking %s [%d] using Avanza" % (name, stock))
+        _LOGGER.debug("Tracking %s [%d] using Avanza", name, stock)
     else:
         for s in stock:
             id = s.get(CONF_ID)
@@ -155,7 +154,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                     show_trending_icon,
                 ),
             )
-            _LOGGER.debug("Tracking %s [%d] using Avanza" % (name, id))
+            _LOGGER.debug("Tracking %s [%d] using Avanza", name, id)
     async_add_entities(entities, True)
 
 
@@ -275,10 +274,7 @@ class AvanzaStockSensor(SensorEntity):
             # Store previous close price for trending calculation
             if "quote" in data and "last" in data["quote"] and self._stock != 0:
                 # Try to get previous close from historical data or use the change to calculate it
-                if (
-                    "historicalClosingPrices" in data
-                    and data["historicalClosingPrices"]
-                ):
+                if data.get("historicalClosingPrices"):
                     # Use any available historical closing price as reference
                     historical_prices = data["historicalClosingPrices"]
                     for period in ["oneWeek", "oneMonth", "threeMonths", "startOfYear"]:
@@ -459,7 +455,7 @@ class AvanzaStockSensor(SensorEntity):
         for dividend_condition in MONITORED_CONDITIONS_DIVIDENDS:
             if dividend_condition not in dividend:
                 continue
-            attribute = "dividend_{}".format(dividend_condition)
+            attribute = f"dividend_{dividend_condition}"
             self._state_attributes[attribute] = dividend[dividend_condition]
 
     def _calc_trending_state(self) -> str | None:
