@@ -32,7 +32,7 @@ window#waybar {
     color: #eb4d4b;
 }
 
-#pulseaudio, #network, #battery, #tray, #custom-microphone {
+#pulseaudio, #network, #battery, #tray, #custom-microphone, #custom-voxtype {
     padding: 0 8px;
 }
 
@@ -42,6 +42,37 @@ window#waybar {
 
 #custom-microphone.on {
     color: #ffffff;
+}
+
+#custom-voxtype {
+    padding: 0 8px;
+    font-size: 16px;
+    min-height: 0;
+    color: #ffffff;
+}
+
+#custom-voxtype.recording {
+    color: #ff5555;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+#custom-voxtype.transcribing {
+    color: #f1fa8c;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+#custom-voxtype.idle {
+    color: #ffffff;
+}
+
+#custom-voxtype.stopped {
+    color: #6c7086;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 #tray {

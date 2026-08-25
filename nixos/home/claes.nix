@@ -12,9 +12,10 @@
     ./development
     ./emacs
     ./git
+    ./hyprland
     ./neovim
     ./qutebrowser
-    ./hyprland
+    ./voxtype
     ./wezterm
     ./web-apps
   ];

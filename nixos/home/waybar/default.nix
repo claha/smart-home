@@ -30,6 +30,7 @@ in
         modules-right = [
           "pulseaudio"
           "custom/microphone"
+          "custom/voxtype"
           "network"
           "battery"
           "tray"
@@ -39,6 +40,14 @@ in
           exec = micScript;
           interval = 2;
           return-type = "json";
+        };
+
+        "custom/voxtype" = {
+          exec = "voxtype status --follow --format json";
+          return-type = "json";
+          format = "{}";
+          tooltip = true;
+          on-click = "systemctl --user restart voxtype";
         };
 
         "clock" = {

@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +27,7 @@
       nixpkgs-unstable,
       disko,
       home-manager,
+      home-manager-unstable,
       agenix,
       ...
     }:
@@ -51,6 +56,7 @@
         home-manager.users.${user} = import ./home/${user}.nix;
         home-manager.sharedModules = [
           agenix.homeManagerModules.default
+          "${home-manager-unstable}/modules/services/voxtype.nix"
         ];
       };
 
