@@ -58,10 +58,10 @@ in
         blocking = {
           denylists = {
             ads = [
-              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt"
+              "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro.txt"
             ];
             malware = [
-              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.txt"
+              "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/tif.txt"
             ];
           };
           clientGroupsBlock = {
