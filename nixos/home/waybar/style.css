@@ -19,17 +19,49 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 8px;
-    color: #777777;
     background: transparent;
+    color: #555555;
+    padding: 0 8px;
+    margin: 2px 3px;
+    border-radius: 6px;
+    border: 1px solid transparent;
 }
 
-#workspaces button.active {
+#workspaces button.visible {
+    background: transparent;
+    color: #cccccc;
+    border-color: transparent;
+}
+
+#workspaces button.visible.hosting-monitor {
+    background: transparent;
     color: #ffffff;
+    border-color: transparent;
+    box-shadow: inset 0 -3px #000000;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background: transparent;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+#workspaces button.active.hosting-monitor,
+#workspaces button.focused.hosting-monitor {
+    border-bottom: 3px solid #ffffff;
+    font-weight: bold;
+}
+
+#workspaces button.active:not(.hosting-monitor),
+#workspaces button.focused:not(.hosting-monitor) {
+    color: #aaaaaa;
 }
 
 #workspaces button.urgent {
     color: #eb4d4b;
+    background: rgba(235, 77, 75, 0.15);
+    border-color: rgba(235, 77, 75, 0.4);
 }
 
 #pulseaudio, #network, #battery, #tray, #custom-microphone, #custom-voxtype {
