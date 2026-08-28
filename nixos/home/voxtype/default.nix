@@ -6,19 +6,19 @@
 {
   services.voxtype = {
     enable = true;
-    package = pkgs.unstable.voxtype;
+    package = pkgs.unstable.voxtype-onnx;
 
     wayland.display = "wayland-1";
 
     loadModels = [
-      "base.en"
+      "parakeet-tdt-0.6b-v3-int8"
     ];
 
     settings = {
       state_file = "auto";
-      whisper = {
-        model = "base.en";
-        language = "en";
+      engine = "parakeet";
+      parakeet = {
+        model = "parakeet-tdt-0.6b-v3-int8";
       };
       hotkey = {
         key = "F9";
