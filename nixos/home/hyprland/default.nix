@@ -244,7 +244,7 @@ in
       splash = false;
       wallpaper = [
         {
-          monitor = "eDP-1";
+          monitor = "";
           path = wallpaper;
         }
       ];
