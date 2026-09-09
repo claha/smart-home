@@ -4,6 +4,7 @@
   imports = [
     ./agents
     ./bash
+    ./development
     ./git
   ];
 
