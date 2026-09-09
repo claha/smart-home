@@ -20,7 +20,7 @@ in
     environment.systemPackages = [ pkgs.blocky ];
     services.blocky = {
       enable = true;
-      package = pkgs.blocky;
+      package = pkgs.unstable.blocky;
       # enableConfigCheck = true;
       settings = {
         ports = {
@@ -71,6 +71,10 @@ in
             ];
           };
           blockType = "zeroIP";
+        };
+
+        statistics = {
+          enable = true;
         };
       };
     };

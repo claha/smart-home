@@ -75,6 +75,22 @@ let
       ];
     }
     {
+      name = "Blocky Blocklists";
+      group = "Service";
+      url = "http://localhost:4000/api/stats";
+      interval = "30m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].lists.denylist.ads > 0"
+        "[BODY].lists.denylist.malware > 0"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
       name = "Jellyfin";
       group = "Service";
       url = "https://jellyfin.${domain}/health";
