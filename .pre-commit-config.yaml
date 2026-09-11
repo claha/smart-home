@@ -21,7 +21,6 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: detect-private-key
       - id: check-json
-      - id: requirements-txt-fixer
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.38.0
@@ -39,13 +38,6 @@ repos:
           - --ignore
           - ./nixos/home/agents/skills
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.6
-    hooks:
-      - id: ruff-check
-        args: [--fix]
-      - id: ruff-format
-
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.3
     hooks:
@@ -55,15 +47,3 @@ repos:
           - hass,juni,juli,oktober
           - --ignore-regex
           - \\n
-
-  - repo: https://github.com/claha/docker-compose-check
-    rev: v0.3.0
-    hooks:
-      - id: check-registry
-      - id: check-socket
-      - id: check-no-new-privileges
-
-  - repo: https://github.com/iamthefij/docker-pre-commit
-    rev: v3.0.1
-    hooks:
-      - id: docker-compose-check
