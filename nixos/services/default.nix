@@ -8,6 +8,7 @@
     ./blocky.nix
     ./docker.nix
     ./gatus.nix
+    ./home-assistant.nix
     ./homepage.nix
     ./immich.nix
     ./it-tools.nix

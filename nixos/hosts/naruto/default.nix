@@ -30,6 +30,12 @@
     };
   };
 
+  # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   services.snapper = {
     cleanupInterval = "1d";
     persistentTimer = false;
@@ -64,6 +70,7 @@
     gatus.enable = true;
     pocket-id.enable = true;
     blocky.enable = true;
+    home-assistant.enable = true;
   };
 
   # Did you read the comment?

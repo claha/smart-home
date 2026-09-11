@@ -136,6 +136,12 @@
               owner = "karakeep";
               group = "karakeep";
             };
+            home-assistant = {
+              file = ./secrets/home-assistant.age;
+              owner = "hass";
+              group = "hass";
+              path = "/var/lib/hass/secrets.yaml";
+            };
           };
           extraModules = [
             disko.nixosModules.disko

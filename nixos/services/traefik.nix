@@ -44,7 +44,7 @@ let
     memos = "http://${eren}:5230";
     open-webui = "http://${eren}:8080";
 
-    homeassistant = "http://${rpi4}:8123";
+    home-assistant = "http://${naruto}:8123";
   };
 
   servicesWithMiddleware = {

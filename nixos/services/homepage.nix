@@ -98,7 +98,7 @@ in
           "Home" = [
             {
               "Home-Assistant" = {
-                href = "https://homeassistant.${domain}";
+                href = "https://home-assistant.${domain}";
                 icon = "home-assistant";
               };
             }
