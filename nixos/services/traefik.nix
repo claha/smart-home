@@ -127,6 +127,14 @@ in
               };
             };
           };
+
+          ping = {
+            address = ":8083";
+          };
+        };
+
+        ping = {
+          entryPoint = "ping";
         };
 
         api = {
@@ -172,6 +180,7 @@ in
       allowedTCPPorts = [
         80
         443
+        8083
       ];
     };
   };

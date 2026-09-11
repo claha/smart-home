@@ -24,6 +24,9 @@ in
       secretKeyFile = config.age.secrets.rustfs-secret-key.path;
     };
 
-    networking.firewall.allowedTCPPorts = [ port 9001 ];
+    networking.firewall.allowedTCPPorts = [
+      port
+      9001
+    ];
   };
 }

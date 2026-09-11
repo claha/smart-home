@@ -105,6 +105,239 @@ let
         }
       ];
     }
+    {
+      name = "Immich";
+      group = "Service";
+      url = "https://immich.${domain}/api/server/ping";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].res == pong"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "RustFS";
+      group = "Service";
+      url = "https://rustfs.${domain}/health/ready";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].ready == true"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Pocket ID";
+      group = "Service";
+      url = "https://id.${domain}/healthz";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 204"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Beszel";
+      group = "Service";
+      url = "https://beszel.${domain}/api/health";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].code == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Ntfy";
+      group = "Service";
+      url = "https://ntfy.${domain}/v1/health";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].healthy == true"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Open-WebUI";
+      group = "Service";
+      url = "https://open-webui.${domain}/health";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].status == true"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Memos";
+      group = "Service";
+      url = "https://memos.${domain}/healthz";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Karakeep";
+      group = "Service";
+      url = "https://karakeep.${domain}/api/health";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].status == ok"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Vikunja";
+      group = "Service";
+      url = "https://vikunja.${domain}/api/v1/info";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Gatus";
+      group = "Service";
+      url = "https://gatus.${domain}/health";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY].status == UP"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      # /api/ requires a token, so 401 means the API stack is up and enforcing auth
+      name = "Home-Assistant";
+      group = "Service";
+      url = "https://home-assistant.${domain}/api/";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 401"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Homepage";
+      group = "Service";
+      url = "https://homepage.${domain}/";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "IT-Tools";
+      group = "Service";
+      url = "https://ittools.${domain}/";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Music-Assistant";
+      group = "Service";
+      url = "https://musicassistant.${domain}/";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Pinchflat";
+      group = "Service";
+      url = "https://pinchflat.${domain}/";
+      interval = "15m";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
+    {
+      name = "Traefik";
+      group = "Service";
+      url = "http://${hostConfig.hosts.luffy.ip.lan}:8083/ping";
+      interval = "5m";
+      conditions = [
+        "[STATUS] == 200"
+        "[BODY] == OK"
+      ];
+      alerts = [
+        {
+          type = "ntfy";
+        }
+      ];
+    }
   ];
 in
 {
