@@ -18,6 +18,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rustfs = {
+      url = "github:rustfs/rustfs-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
       home-manager,
       home-manager-unstable,
       agenix,
+      rustfs,
       ...
     }:
     let
@@ -45,9 +50,11 @@
           { config, pkgs, ... }:
           {
             nixpkgs.overlays = [ overlay-unstable ];
+            services.rustfs.package = rustfs.packages.${system}.default;
           }
         )
         home-manager.nixosModules.home-manager
+        rustfs.nixosModules.rustfs
       ];
 
       homeManagerConfig = user: {
@@ -170,6 +177,16 @@
           agenixSecrets = {
             user-manager-password = {
               file = ./secrets/user-manager-password.age;
+            };
+            rustfs-access-key = {
+              file = ./secrets/rustfs-access-key.age;
+              owner = "rustfs";
+              group = "rustfs";
+            };
+            rustfs-secret-key = {
+              file = ./secrets/rustfs-secret-key.age;
+              owner = "rustfs";
+              group = "rustfs";
             };
           };
           extraModules = [

@@ -59,6 +59,7 @@
     wyoming.enable = true;
     immich.enable = true;
     minetest-server.enable = true;
+    rustfs.enable = true;
   };
 
   # Did you read the comment?

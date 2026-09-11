@@ -43,6 +43,7 @@ let
     immich = "http://${eren}:2283";
     memos = "http://${eren}:5230";
     open-webui = "http://${eren}:8080";
+    rustfs = "http://${eren}:9000";
 
     home-assistant = "http://${naruto}:8123";
   };

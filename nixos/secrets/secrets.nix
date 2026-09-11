@@ -21,6 +21,8 @@ in
   "pocket-id.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "karakeep.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "home-assistant.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
+  "rustfs-access-key.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
+  "rustfs-secret-key.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "duckdns-token.age".publicKeys = claes ++ luffy;
   "user-claes-password.age".publicKeys = claes;
   "user-manager-password.age".publicKeys = claes ++ naruto ++ luffy ++ eren;

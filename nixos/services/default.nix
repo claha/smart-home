@@ -23,6 +23,7 @@
     ./open-webui.nix
     ./pinchflat.nix
     ./pocket-id.nix
+    ./rustfs.nix
     ./ssh.nix
     ./traefik.nix
     ./transmission.nix

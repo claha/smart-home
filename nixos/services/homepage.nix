@@ -168,6 +168,12 @@ in
                 icon = "pocket-id";
               };
             }
+            {
+              RustFS = {
+                href = "https://rustfs.${domain}";
+                icon = "rustfs";
+              };
+            }
           ];
         }
       ];

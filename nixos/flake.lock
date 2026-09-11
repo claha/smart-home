@@ -166,7 +166,28 @@
         "home-manager": "home-manager_2",
         "home-manager-unstable": "home-manager-unstable",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "rustfs": "rustfs"
+      }
+    },
+    "rustfs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785926649,
+        "narHash": "sha256-lHkFMwuD8uRu6FRT87DpOx/J5inqXncKyDo/+SuCkjM=",
+        "owner": "rustfs",
+        "repo": "rustfs-flake",
+        "rev": "e71e6becd51bbf537c6a2574245e4c56df800b5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustfs",
+        "repo": "rustfs-flake",
+        "type": "github"
       }
     },
     "systems": {
