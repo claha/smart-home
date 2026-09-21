@@ -41,6 +41,11 @@ in
 
       config = {
         default_config = { };
+        automation = "!include automations.yaml";
+
+        logger = {
+          default = "warning";
+        };
 
         homeassistant = {
           name = "Home";
