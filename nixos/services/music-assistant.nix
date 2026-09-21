@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.homelab.jellyfin;
+  cfg = config.homelab.music-assistant;
   musicAssistantPort = 8095;
   musicAssistantStreamPort = 8097;
   sonosAppCtrlPort = 1400;
@@ -23,7 +23,9 @@ in
       providers = [
         "builtin"
         "filesystem_local"
+        "local_audio"
         "sonos"
+        "sendspin"
       ];
     };
 
