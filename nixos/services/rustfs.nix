@@ -16,7 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     services.rustfs = {
       enable = true;
-      volumes = "/data/rustfs";
+      pools = [ { volumes = [ "/data/rustfs" ]; } ];
       address = ":${toString port}";
       consoleEnable = true;
       consoleAddress = ":9001";
