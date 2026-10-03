@@ -60,6 +60,7 @@
     immich.enable = true;
     minetest-server.enable = true;
     rustfs.enable = true;
+    opencode.enable = true;
   };
 
   # Did you read the comment?

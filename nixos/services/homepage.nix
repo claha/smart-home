@@ -174,6 +174,24 @@ in
                 icon = "rustfs";
               };
             }
+            {
+              "OpenCode (Luffy)" = {
+                href = "https://opencode-luffy.${domain}";
+                icon = "opencode";
+              };
+            }
+            {
+              "OpenCode (Eren)" = {
+                href = "https://opencode-eren.${domain}";
+                icon = "opencode";
+              };
+            }
+            {
+              "OpenCode (Naruto)" = {
+                href = "https://opencode-naruto.${domain}";
+                icon = "opencode";
+              };
+            }
           ];
         }
       ];

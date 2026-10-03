@@ -20,6 +20,7 @@
     ./music-assistant.nix
     ./ntfy.nix
     ./ollama.nix
+    ./opencode.nix
     ./open-webui.nix
     ./pinchflat.nix
     ./pocket-id.nix

@@ -6,6 +6,7 @@
     ./bash
     ./development
     ./git
+    ./opencode
   ];
 
   home.username = "manager";

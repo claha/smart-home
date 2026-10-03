@@ -37,6 +37,7 @@
     pinchflat.enable = true;
     transmission.enable = true;
     traefik.enable = true;
+    opencode.enable = true;
   };
 
   # Did you read the comment?

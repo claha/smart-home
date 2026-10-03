@@ -46,6 +46,10 @@ let
     rustfs = "http://${eren}:9000";
 
     home-assistant = "http://${naruto}:8123";
+
+    opencode-luffy = "http://${luffy}:8199";
+    opencode-eren = "http://${eren}:8199";
+    opencode-naruto = "http://${naruto}:8199";
   };
 
   servicesWithMiddleware = {

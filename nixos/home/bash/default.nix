@@ -5,8 +5,9 @@
   ...
 }:
 {
-  age.secrets.bashrc = {
-    file = ../../secrets/bashrc.age;
+  age.secrets = {
+    openrouter-api-key.file = ../../secrets/openrouter-api-key.age;
+    hyper-api-key.file = ../../secrets/hyper-api-key.age;
   };
 
   home.packages = with pkgs; [
@@ -27,9 +28,15 @@
       fi
     '';
     bashrcExtra = ''
-      if [ -f ${config.age.secrets.bashrc.path} ]; then
-        source ${config.age.secrets.bashrc.path}
+      # Secrets are KEY=VALUE without export, so auto-export while sourcing.
+      set -a
+      if [ -f ${config.age.secrets.openrouter-api-key.path} ]; then
+        source ${config.age.secrets.openrouter-api-key.path}
       fi
+      if [ -f ${config.age.secrets.hyper-api-key.path} ]; then
+        source ${config.age.secrets.hyper-api-key.path}
+      fi
+      set +a
     '';
     historyControl = [ "ignoredups" ];
     shellAliases = {

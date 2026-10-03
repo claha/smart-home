@@ -71,6 +71,7 @@
     pocket-id.enable = true;
     blocky.enable = true;
     home-assistant.enable = true;
+    opencode.enable = true;
   };
 
   # Did you read the comment?

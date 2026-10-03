@@ -14,6 +14,10 @@
   };
 
   config = {
+    home-manager.extraSpecialArgs = {
+      domain = config.homelab.domain;
+    };
+
     nix = {
       settings = {
         experimental-features = [

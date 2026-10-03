@@ -17,7 +17,8 @@ let
   ];
 in
 {
-  "bashrc.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
+  "openrouter-api-key.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
+  "hyper-api-key.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "pocket-id.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "karakeep.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "home-assistant.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
