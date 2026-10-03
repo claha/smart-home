@@ -40,7 +40,7 @@
     nixpkgs.config = {
       allowUnfree = true;
       permittedInsecurePackages = [
-        "electron-39.8.10"
+        "immich-2.7.5"
       ];
     };
 
