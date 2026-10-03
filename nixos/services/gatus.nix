@@ -350,10 +350,13 @@ in
       enable = true;
       openFirewall = true;
       settings = {
-        #      storage = {
-        #       type = "sqlite";
-        #      path = "/var/lib/gatus/data/data.db";
-        #   };
+        storage = {
+          type = "sqlite";
+          path = "/var/lib/gatus/data.db";
+          caching = true;
+          maximum-number-of-results = 1000;
+          maximum-number-of-events = 200;
+        };
         alerting = {
           ntfy = {
             url = "https://ntfy.${domain}";
