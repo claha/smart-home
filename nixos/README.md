@@ -10,12 +10,23 @@ setup.
 
 ## Agenix
 
-How to create a the hashedPasswordFile using agenix for a user.
+How to create the hashedPasswordFile using agenix for a user.
+
+Run from the `secrets/` directory, where `agenix-rules.nix` lives
+(`agenix` discovers `./agenix-rules.nix`, or uses `$AGENIX_RULES`):
 
 ```bash
 mkpasswd -m sha-512
 
-nix run github:ryantm/agenix -- -e user-USERNAME-password.age
+cd secrets
+agenix -e user-USERNAME-password.age
+```
+
+Rekey all secrets after changing `agenix-rules.nix`:
+
+```bash
+cd secrets
+agenix -r
 ```
 
 ## NixOS Anywhere
@@ -31,8 +42,8 @@ before reinstalling, or generate new ones using:
 ssh-keygen -t ed25519 -f ./tmp/etc/ssh/ssh_host_ed25519_key
 ```
 
-When creating new SSH host keys, update `secrets.nix` in the secrets folder and
-rekey all relevant secrets.
+When creating new SSH host keys, update `agenix-rules.nix` in the secrets folder
+and rekey all relevant secrets.
 
 ```bash
 nix run github:nix-community/nixos-anywhere -- --flake .#HOSTNAME\
