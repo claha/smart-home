@@ -15,6 +15,18 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    users.groups.media = { };
+
+    systemd.tmpfiles.rules = [
+      "d /media/movies 2775 root media - -"
+      "d /media/shows 2775 root media - -"
+      "d /media/anime 2775 root media - -"
+      "d /media/youtube 2775 root media - -"
+    ];
+
+    users.users.manager.extraGroups = [ "media" ];
+    users.users.jellyfin.extraGroups = [ "media" ];
+
     services.jellyfin = {
       enable = true;
       package = pkgs.unstable.jellyfin;
