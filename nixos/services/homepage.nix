@@ -22,6 +22,7 @@ in
 
       settings = {
         language = "en";
+        theme = "dark";
       };
 
       widgets = [
@@ -83,7 +84,7 @@ in
             {
               "Music-Assistant" = {
                 href = "https://musicassistant.${domain}";
-                icon = "music-assistant";
+                icon = "music-assistant-light";
               };
             }
             {
@@ -133,13 +134,13 @@ in
             {
               "Open-WebUI" = {
                 href = "https://open-webui.${domain}";
-                icon = "open-webui";
+                icon = "open-webui-light";
               };
             }
             {
               It-Tools = {
                 href = "https://ittools.${domain}";
-                icon = "it-tools";
+                icon = "it-tools-light";
               };
             }
           ];
@@ -155,7 +156,7 @@ in
             {
               "Beszel" = {
                 href = "https://beszel.${domain}";
-                icon = "beszel";
+                icon = "beszel-light";
               };
             }
           ];
@@ -165,7 +166,7 @@ in
             {
               "Pocket ID" = {
                 href = "https://id.${domain}";
-                icon = "pocket-id";
+                icon = "pocket-id-light";
               };
             }
             {
@@ -177,19 +178,19 @@ in
             {
               "OpenCode (Luffy)" = {
                 href = "https://opencode-luffy.${domain}";
-                icon = "opencode";
+                icon = "opencode-dark";
               };
             }
             {
               "OpenCode (Eren)" = {
                 href = "https://opencode-eren.${domain}";
-                icon = "opencode";
+                icon = "opencode-dark";
               };
             }
             {
               "OpenCode (Naruto)" = {
                 href = "https://opencode-naruto.${domain}";
-                icon = "opencode";
+                icon = "opencode-dark";
               };
             }
           ];
@@ -203,7 +204,7 @@ in
               "GitHub" = [
                 {
                   href = "https://github.com/claha";
-                  icon = "github";
+                  icon = "github-light";
                 }
               ];
             }
