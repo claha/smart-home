@@ -16,6 +16,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Silence mdadm warning: mdmon needs MAILADDR or PROGRAM set
+  boot.swraid.mdadmConf = ''
+    MAILADDR root
+  '';
+
   # Networking
   networking = {
     interfaces = {
