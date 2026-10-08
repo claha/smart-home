@@ -24,6 +24,7 @@
     ./open-webui.nix
     ./pinchflat.nix
     ./pocket-id.nix
+    ./restic-secrets.nix
     ./rustfs.nix
     ./ssh.nix
     ./traefik.nix
