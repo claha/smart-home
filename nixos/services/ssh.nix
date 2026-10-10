@@ -16,6 +16,7 @@
       AllowUsers = [
         "claes"
         "manager"
+        "forgejo"
       ];
     };
   };

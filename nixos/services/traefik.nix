@@ -40,6 +40,7 @@ let
     musicassistant = "http://${luffy}:8095";
     pinchflat = "http://${luffy}:8945";
 
+    forgejo = "http://${eren}:8020";
     immich = "http://${eren}:2283";
     memos = "http://${eren}:5230";
     open-webui = "http://${eren}:8080";

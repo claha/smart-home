@@ -7,6 +7,7 @@
     ./beszel-hub.nix
     ./blocky.nix
     ./docker.nix
+    ./forgejo.nix
     ./gatus.nix
     ./home-assistant.nix
     ./homepage.nix

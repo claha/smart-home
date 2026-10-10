@@ -65,6 +65,7 @@
     immich.enable = true;
     minetest-server.enable = true;
     rustfs.enable = true;
+    forgejo.enable = true;
     opencode.enable = true;
   };
 

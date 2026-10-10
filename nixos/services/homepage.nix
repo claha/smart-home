@@ -164,6 +164,12 @@ in
         {
           Tools = [
             {
+              Forgejo = {
+                href = "https://forgejo.${domain}";
+                icon = "forgejo";
+              };
+            }
+            {
               "Pocket ID" = {
                 href = "https://id.${domain}";
                 icon = "pocket-id-light";
