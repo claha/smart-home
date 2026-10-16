@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  llmAgents,
   ...
 }:
 
@@ -29,4 +30,12 @@ let
 in
 {
   home.file = builtins.listToAttrs entries;
+
+  home.packages = [
+    llmAgents.opencode2
+    llmAgents.crush
+    llmAgents.pi
+    llmAgents.herdr
+    llmAgents.rtk
+  ];
 }

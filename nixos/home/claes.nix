@@ -23,5 +23,7 @@
   home.username = "claes";
   home.homeDirectory = "/home/claes";
   home.stateVersion = "26.05";
-  home.packages = [ pkgs.mcp-nixos ];
+  home.packages = [
+    pkgs.mcp-nixos
+  ];
 }

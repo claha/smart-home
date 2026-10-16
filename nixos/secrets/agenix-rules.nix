@@ -26,6 +26,7 @@ in
   "rustfs-secret-key.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "restic-s3.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "restic-password.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
+  "opencode-web-password.age".publicKeys = claes ++ naruto ++ luffy ++ eren;
   "duckdns-token.age".publicKeys = claes ++ luffy;
   "user-claes-password.age".publicKeys = claes;
   "user-manager-password.age".publicKeys = claes ++ naruto ++ luffy ++ eren;

@@ -18,6 +18,9 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+    };
     rustfs = {
       url = "github:rustfs/rustfs-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +37,7 @@
       home-manager-unstable,
       agenix,
       rustfs,
+      llm-agents,
       ...
     }:
     let
@@ -60,6 +64,9 @@
       homeManagerConfig = user: {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          llmAgents = llm-agents.packages.${system};
+        };
         home-manager.users.${user} = import ./home/${user}.nix;
         home-manager.sharedModules = [
           agenix.homeManagerModules.default

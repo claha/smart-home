@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  llmAgents,
   domain,
   ...
 }:
@@ -13,11 +14,12 @@ in
   age.secrets = {
     openrouter-api-key.file = ../../secrets/openrouter-api-key.age;
     hyper-api-key.file = ../../secrets/hyper-api-key.age;
+    opencode-web-password.file = ../../secrets/opencode-web-password.age;
   };
 
   programs.opencode = {
     enable = true;
-    package = pkgs.unstable.opencode;
+    package = llmAgents.opencode2;
     web = {
       enable = true;
       extraArgs = [
@@ -40,6 +42,7 @@ in
     Service.EnvironmentFile = [
       "%t/agenix/openrouter-api-key"
       "%t/agenix/hyper-api-key"
+      "%t/agenix/opencode-web-password"
     ];
   };
 }
