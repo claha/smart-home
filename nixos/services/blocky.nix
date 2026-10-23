@@ -10,6 +10,7 @@ let
   cfg = config.homelab.blocky;
   domain = config.homelab.domain;
   luffy = hostConfig.hosts.luffy;
+  eren = hostConfig.hosts.eren;
 in
 {
   options.homelab.blocky = {
@@ -45,6 +46,9 @@ in
         customDNS = {
           mapping = {
             "${domain}" = "${luffy.ip.tailscale},${luffy.ip.lan}";
+            # Forgejo's SSH server lives on eren; more specific entries win in
+            # blocky, so this name bypasses the catch-all above.
+            "git.${domain}" = "${eren.ip.lan},${eren.ip.tailscale}";
           };
         };
 

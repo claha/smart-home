@@ -36,7 +36,22 @@ in
           DOMAIN = "forgejo.${domain}";
           ROOT_URL = "https://forgejo.${domain}";
           DISABLE_SSH = false;
-          SSH_PORT = 22;
+          # Run Forgejo's built-in SSH server instead of relying on the system
+          # sshd. Without this Forgejo never opens SSH_LISTEN_PORT.
+          START_SSH_SERVER = true;
+          # Separate name for SSH so LAN clients (blocky rewrites *.${domain} to
+          # luffy) reach eren directly on 2222. Public DNS wildcards this name
+          # to the WAN IP, where the router forwards 2222 to eren.
+          SSH_DOMAIN = "git.${domain}";
+          # The built-in SSH server only accepts this username (it defaults to
+          # RUN_USER, i.e. "forgejo") and it is also the user shown in clone
+          # URLs. Set it to "git" so URLs/clients use git@... while the system
+          # user stays "forgejo" (which owns /data/forgejo).
+          BUILTIN_SSH_SERVER_USER = "git";
+          # Forgejo's built-in SSH server binds 2222 because the system sshd
+          # already owns port 22 on the host.
+          SSH_LISTEN_PORT = 2222;
+          SSH_PORT = 2222;
         };
         service = {
           DISABLE_REGISTRATION = false;
@@ -62,6 +77,9 @@ in
       };
     };
 
-    networking.firewall.allowedTCPPorts = [ port ];
+    networking.firewall.allowedTCPPorts = [
+      port
+      2222
+    ];
   };
 }
