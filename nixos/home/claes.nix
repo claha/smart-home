@@ -15,6 +15,7 @@
     ./hyprland
     ./neovim
     ./qutebrowser
+    ./terminal-apps
     ./voxtype
     ./wezterm
     ./web-apps
