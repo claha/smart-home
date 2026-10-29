@@ -122,12 +122,20 @@
             system = sys;
             config.allowUnfree = true;
           };
+          unstablePkgs = import nixpkgs-unstable {
+            system = sys;
+            config.allowUnfree = true;
+          };
         in
         {
           default = pkgs.mkShell {
             packages = [
               pkgs.nixd
               pkgs.nixfmt-tree
+              unstablePkgs.prek
+              pkgs.nodejs
+              pkgs.python3
+              pkgs.uv
             ];
           };
         }
