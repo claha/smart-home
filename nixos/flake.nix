@@ -25,6 +25,9 @@
       url = "github:rustfs/rustfs-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hex = {
+      url = "github:anomalyco/hex";
+    };
   };
 
   outputs =
@@ -38,6 +41,7 @@
       agenix,
       rustfs,
       llm-agents,
+      hex,
       ...
     }:
     let
@@ -66,11 +70,12 @@
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           llmAgents = llm-agents.packages.${system};
+          hexPackage = hex.packages.${system}.hex;
         };
         home-manager.users.${user} = import ./home/${user}.nix;
         home-manager.sharedModules = [
           agenix.homeManagerModules.default
-          "${home-manager-unstable}/modules/services/voxtype.nix"
+          hex.homeManagerModules.hex
         ];
       };
 

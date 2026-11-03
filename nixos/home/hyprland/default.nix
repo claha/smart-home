@@ -6,6 +6,7 @@
 }:
 let
   wallpaper = "${config.home.homeDirectory}/.local/share/brac.jpg";
+  dictationChord = "SUPER + R";
   powerMenuScript = pkgs.writeShellScript "hypr-power-menu" ''
     printf 'Lock\nLogout\nReboot\nShutdown' | ${pkgs.fuzzel}/bin/fuzzel --dmenu --width 50 --minimal-lines | while read -r choice; do
       case "$choice" in
@@ -417,17 +418,17 @@ in
           ];
         }
 
-        # Push-to-talk dictation
+        # Dictation
         {
           _args = [
-            "SUPER + R"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"voxtype record start\")")
+            dictationChord
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"hex dictation start\")")
           ];
         }
         {
           _args = [
-            "SUPER + R"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"voxtype record stop\")")
+            dictationChord
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"hex dictation stop\")")
             { release = true; }
           ];
         }

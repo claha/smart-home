@@ -13,10 +13,10 @@
     ./emacs
     ./git
     ./hyprland
+    ./hex
     ./neovim
     ./qutebrowser
     ./terminal-apps
-    ./voxtype
     ./wezterm
     ./web-apps
   ];
