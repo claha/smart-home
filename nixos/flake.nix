@@ -50,6 +50,9 @@
         unstable = import nixpkgs-unstable {
           system = prev.stdenv.hostPlatform.system;
           config.allowUnfree = true;
+          config.permittedInsecurePackages = [
+            "pinchflat-2025.9.26"
+          ];
         };
       };
 
