@@ -60,7 +60,7 @@
   homelab = {
     memos.enable = true;
     ollama.enable = true;
-    open-webui.enable = true;
+    open-webui.enable = false;
     wyoming.enable = true;
     immich.enable = true;
     minetest-server.enable = true;
