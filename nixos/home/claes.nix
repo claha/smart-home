@@ -15,7 +15,6 @@
     ./hyprland
     ./hex
     ./neovim
-    ./qutebrowser
     ./terminal-apps
     ./wezterm
     ./web-apps
