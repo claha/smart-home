@@ -36,6 +36,7 @@ in
     llmAgents.crush
     llmAgents.pi
     llmAgents.herdr
+    llmAgents.herdr-app
     llmAgents.rtk
   ];
 }

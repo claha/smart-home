@@ -15,7 +15,6 @@
     ./hyprland
     ./hex
     ./neovim
-    ./terminal-apps
     ./wezterm
     ./web-apps
   ];
