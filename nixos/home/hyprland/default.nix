@@ -196,6 +196,12 @@ in
         }
         {
           _args = [
+            "SUPER + SHIFT + Return"
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"herdr-app\")")
+          ];
+        }
+        {
+          _args = [
             "SUPER + SHIFT + Q"
             (lib.generators.mkLuaInline "hl.dsp.window.close()")
           ];
