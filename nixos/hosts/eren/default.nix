@@ -67,6 +67,7 @@
     rustfs.enable = true;
     forgejo.enable = true;
     opencode.enable = true;
+    bambuddy.enable = true;
   };
 
   # Did you read the comment?

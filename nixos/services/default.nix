@@ -3,6 +3,7 @@
 {
   imports = [
     ./audiobookshelf.nix
+    ./bambuddy.nix
     ./beszel-agent.nix
     ./beszel-hub.nix
     ./blocky.nix

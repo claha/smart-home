@@ -112,6 +112,16 @@ in
           ];
         }
         {
+          "Bambuddy" = [
+            {
+              BamBuddy = {
+                href = "https://bambuddy.${domain}";
+                icon = "sh-bambuddy";
+              };
+            }
+          ];
+        }
+        {
           Productivity = [
             {
               Vikunja = {
