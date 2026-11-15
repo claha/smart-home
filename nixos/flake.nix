@@ -28,6 +28,9 @@
     hex = {
       url = "github:anomalyco/hex";
     };
+    hokum = {
+      url = "github:anomalyco/hokum";
+    };
   };
 
   outputs =
@@ -42,6 +45,7 @@
       rustfs,
       llm-agents,
       hex,
+      hokum,
       ...
     }:
     let
@@ -74,6 +78,7 @@
         home-manager.extraSpecialArgs = {
           llmAgents = llm-agents.packages.${system};
           hexPackage = hex.packages.${system}.hex;
+          hokumPackage = hokum.packages.${system}.default;
         };
         home-manager.users.${user} = import ./home/${user}.nix;
         home-manager.sharedModules = [

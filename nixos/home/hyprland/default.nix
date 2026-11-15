@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  hokumPackage,
   ...
 }:
 let
@@ -23,18 +24,6 @@ in
     ../waybar
     ../fuzzel
   ];
-
-  services.mako = {
-    enable = true;
-    settings = {
-      background-color = "#00000080";
-      border-color = "#e66100ff";
-      border-radius = 4;
-      border-size = 2;
-      default-timeout = 5000;
-      font = "JetBrains Mono 12";
-    };
-  };
 
   home = {
     packages = with pkgs; [
@@ -538,7 +527,7 @@ in
         hl.exec_cmd("${pkgs.waybar}/bin/waybar &")
         hl.exec_cmd("${pkgs.hyprpaper}/bin/hyprpaper &")
         hl.exec_cmd("${pkgs.hypridle}/bin/hypridle &")
-        hl.exec_cmd("${pkgs.mako}/bin/mako &")
+        hl.exec_cmd("${hokumPackage}/bin/hokum service &")
         hl.exec_cmd("${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store &")
         hl.exec_cmd("${pkgs.hyprlock}/bin/hyprlock &")
       end)

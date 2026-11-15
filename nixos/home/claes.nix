@@ -14,6 +14,7 @@
     ./git
     ./hyprland
     ./hex
+    ./hokum
     ./neovim
     ./wezterm
     ./web-apps

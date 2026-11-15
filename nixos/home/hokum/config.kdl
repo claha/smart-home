@@ -1,0 +1,26 @@
+theme "capsule"
+
+behaviour {
+    position "top-right"
+    stay 5
+    show-at-most 5
+    pause-on-hover #true
+    do-not-disturb #false
+    appearance "system"
+    sound #false
+}
+
+tokens {
+    radius 4
+    border 2
+    fill "#00000080"
+    border "#e66100ff"
+}
+
+modules {
+    sound #false
+    bluetooth #false
+    osd #false
+    brightness #false
+    bluetooth-notifications #false
+}

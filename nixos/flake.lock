@@ -114,6 +114,24 @@
         "type": "github"
       }
     },
+    "hokum": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1794283352,
+        "narHash": "sha256-sEyAtBmHE2OkkRP0qU/eg2QwTCiuyEWasGQQVP6Pn6A=",
+        "owner": "anomalyco",
+        "repo": "hokum",
+        "rev": "e2e31b146792da21b9c6c691703433a6d2d72bbe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anomalyco",
+        "repo": "hokum",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -180,7 +198,7 @@
       "inputs": {
         "bun2nix": "bun2nix",
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
       },
@@ -232,6 +250,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1793110635,
+        "narHash": "sha256-dhoW6VgFWlaodSY5jrBn+CF2FLmaUvDVgM7+C7T2+NM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "31ecbaca1bdefa45dffc409f0250bd8039ea0010",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1793977579,
         "narHash": "sha256-WrSODdZFVIs/Hh2NzC0bY+ROByi0bATg8WfePX8dPj8=",
         "owner": "NixOS",
@@ -246,7 +280,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1794165970,
         "narHash": "sha256-XuAV2cUwaod3Bt4XFVqiXz3v1w2ex16W6Sv4S7EWres=",
@@ -267,10 +301,11 @@
         "agenix": "agenix",
         "disko": "disko",
         "hex": "hex",
+        "hokum": "hokum",
         "home-manager": "home-manager_2",
         "home-manager-unstable": "home-manager-unstable",
         "llm-agents": "llm-agents",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "rustfs": "rustfs"
       }
