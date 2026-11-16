@@ -10,5 +10,8 @@ update:
     nix flake update
 
 gc:
-    nix-collect-garbage -d
+    sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +2
+    sudo nix-collect-garbage --delete-older-than 7d
+    nix-collect-garbage --delete-older-than 7d
+    sudo /run/current-system/bin/switch-to-configuration boot
     nix-store --optimise
