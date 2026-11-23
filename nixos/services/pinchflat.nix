@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     services.pinchflat = {
       enable = true;
-      package = pkgs.unstable.pinchflat;
+      package = pkgs.unstable.pinchflat-ngx;
       openFirewall = true;
       mediaDir = "/media/youtube";
       selfhosted = true;
