@@ -37,6 +37,17 @@
         source ${config.age.secrets.hyper-api-key.path}
       fi
       set +a
+
+      # home-manager only exports session variables (FZF_DEFAULT_OPTS, ...) from
+      # ~/.profile, i.e. in login shells. A plain ssh login gets them, but any
+      # non-login shell (ssh command, editor/opencode terminal, panes spawned by
+      # a service, mosh) silently loses them and fzf falls back to its default
+      # bottom-up layout. Source them for every shell; the file guards itself.
+      hm_session_vars="${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"
+      if [ -f "$hm_session_vars" ]; then
+        . "$hm_session_vars"
+      fi
+      unset hm_session_vars
     '';
     historyControl = [ "ignoredups" ];
     shellAliases = {
