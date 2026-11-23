@@ -8,6 +8,7 @@ behaviour {
     do-not-disturb #false
     appearance "system"
     sound #false
+    check-for-updates #false
 }
 
 tokens {
