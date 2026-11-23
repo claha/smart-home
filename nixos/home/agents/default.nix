@@ -37,6 +37,7 @@ in
     llmAgents.pi
     llmAgents.herdr
     llmAgents.herdr-app
+    llmAgents.herdr-core
     llmAgents.rtk
   ];
 }
