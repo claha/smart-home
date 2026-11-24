@@ -30,6 +30,7 @@
         puu = "push --set-upstream origin HEAD";
         sm = "submodule";
         st = "status";
+        wt = "worktree";
       };
       signing.key = "957A412F3C40DFCA";
       github = {
